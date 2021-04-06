@@ -134,7 +134,8 @@ tt {
 
 pre, tt {
 	font-size: 90%;
-	font-family: monaco, monospace;
+	/*font-family: monaco, monospace;*/
+	font-family: 'Work Sans';
 }
 
 a, a > tt {
