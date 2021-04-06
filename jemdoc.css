@@ -32,7 +32,7 @@ body {
 #	background: white;
 	/*background:#dddddd;*/
 	background-image: url('image/Background.png');
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-family: 'Work Sans', Helvetica, Arial, sans-serif;
 	font-size:14pt;
 	font-weight: 400;
 	padding-bottom: 0px;
@@ -99,8 +99,8 @@ body {
   -webkit-animation:fly-in-from-left .3s 0.05s ease both;
   transform-origin:top left;
   -webkit-transform-origin:top left;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  
+  font-family: 'Work Sans', Helvetica, Arial, sans-serif;/*Open Sans*/
+
 }
 
 div.codeblock, div.infoblock {
@@ -135,7 +135,7 @@ tt {
 
 pre, tt {
 	font-size: 90%;
-	font-family: monaco, monospace;
+	font-family: monaco, monospace;/*Work Sans*/
 }
 
 a, a > tt {
