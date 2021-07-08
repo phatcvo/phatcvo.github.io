@@ -24,15 +24,16 @@ table#tlayout {
     border: none;
     border-collapse: separate;
     /*background: white;*/
-#    background:#F1F1F1;
+    background:#F1F1F1;
    border-spacing:2px 0px;	
 }
 
 body {
-#	background: white;
+	background: white;
 	/*background:#dddddd;*/
 	background-image: url('image/Background.png');
-	font-family: 'Work Sans', Helvetica, Arial, sans-serif;
+	/*font-family: 'Work Sans', Helvetica, Arial, sans-serif;*/
+	font-family: Poppins, sans-serif;
 	font-size:14pt;
 	font-weight: 400;
 	padding-bottom: 0px;
@@ -70,8 +71,8 @@ body {
 	padding-left: 1.0em;
 	padding-right: 1.0em;
 	border: none;
-#	background: white;
-#	background: transparent;
+	background: white;
+	background: transparent;
 	text-align: left;
 	vertical-align: top;
 	min-width:570px;
@@ -99,7 +100,8 @@ body {
   -webkit-animation:fly-in-from-left .3s 0.05s ease both;
   transform-origin:top left;
   -webkit-transform-origin:top left;
-  font-family: 'Work Sans', Helvetica, Arial, sans-serif;/*Open Sans*/
+  /*font-family: 'Work Sans', Helvetica, Arial, sans-serif;*/
+  font-family: Lora, sans-serif;/*Open Sans*/
 
 }
 
