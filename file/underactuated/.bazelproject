@@ -1,0 +1,14 @@
+# -*- mode: yaml -*-
+# vi: set ft=yaml :
+
+directories:
+  .
+  -.binder
+  -.github
+
+derive_targets_from_directories: true
+
+import_run_configurations:
+  tools/intellij/bazel_test_______all.xml
+
+workspace_type: python

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Underactuated Robotics: Linear Quadratic Regulators</title>
+    <meta name="Underactuated Robotics: Linear Quadratic Regulators" content="text/html; charset=utf-8;" />
+    <link rel="canonical" href="http://underactuated.mit.edu/lqr.html" />
+
+    <script src="https://hypothes.is/embed.js" async></script>
+    <script type="text/javascript" src="htmlbook/book.js"></script>
+
+    <script src="htmlbook/mathjax-config.js" defer></script>
+    <script type="text/javascript" id="MathJax-script" defer
+      src="htmlbook/MathJax/es5/tex-chtml.js">
+    </script>
+    <script>window.MathJax || document.write('<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer><\/script>')</script>
+
+    <link rel="stylesheet" href="htmlbook/highlight/styles/default.css">
+    <script src="htmlbook/highlight/highlight.pack.js"></script> <!-- http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases -->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" type="text/css" href="htmlbook/book.css" />
+  </head>
+
+<body onload="loadChapter('underactuated');">
+
+<div data-type="titlepage">
+  <header>
+    <h1><a href="index.html" style="text-decoration:none;">Underactuated Robotics</a></h1>
+    <p data-type="subtitle">Algorithms for Walking, Running, Swimming, Flying, and Manipulation</p>
+    <p style="font-size: 18px;"><a href="http://people.csail.mit.edu/russt/">Russ Tedrake</a></p>
+    <p style="font-size: 14px; text-align: right;">
+      &copy; Russ Tedrake, 2021<br/>
+      Last modified <span id="last_modified"></span>.</br>
+      <script>
+      var d = new Date(document.lastModified);
+      document.getElementById("last_modified").innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();</script>
+      <a href="misc.html">How to cite these notes, use annotations, and give feedback.</a><br/>
+    </p>
+  </header>
+</div>
+
+<p><b>Note:</b> These are working notes used for <a
+href="http://underactuated.csail.mit.edu/Spring2021/">a course being taught
+at MIT</a>. They will be updated throughout the Spring 2021 semester.  <a
+href="https://www.youtube.com/channel/UChfUOAhz7ynELF-s_1LPpWg">Lecture videos are available on YouTube</a>.</p>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=dp.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=lyapunov.html>Next Chapter</a></td>
+</tr></table>
+
+
+<!-- EVERYTHING ABOVE THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+<chapter style="counter-reset: chapter 7"><h1>Linear Quadratic Regulators</h1>
+  <a style="float:right; margin-top:-80px;" target="lqr" href="https://colab.research.google.com/github/RussTedrake/underactuated/blob/master/lqr.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open Corresponding Notebook In Colab"/></a>
+  <div style="clear:right;"></div>
+  
+  <p>While solving the dynamic programming problem for continuous systems is
+  very hard in general, there are a few very important special cases where the
+  solutions are very accessible. Most of these involve variants on the case of
+  linear dynamics and quadratic cost.  The simplest case, called the linear
+  quadratic regulator (LQR), is formulated as stabilizing a time-invariant
+  linear system to the origin.</p>
+
+  <p>The linear quadratic regulator is likely the most important and influential
+  result in optimal control theory to date.  In this chapter we will derive the
+  basic algorithm and a variety of useful extensions.</p>
+
+  <section><h1>Basic Derivation</h1>
+
+    <p>Consider a linear time-invariant system in state-space form, $$\dot{\bx}
+    = {\bf A}\bx + \bB\bu,$$ with the infinite-horizon cost function given by
+    $$J = \int_0^\infty \left[ \bx^T {\bf Q} \bx + \bu^T {\bf R} \bu \right] dt,
+    \quad {\bf Q} = {\bf Q}^T \succeq {\bf 0}, {\bf R} = {\bf R}^T \succ 0.$$
+    Our goal is to find the optimal cost-to-go function $J^*(\bx)$ which
+    satisfies the HJB: $$\forall \bx, \quad 0 = \min_\bu \left[ \bx^T {\bf Q}
+    \bx + \bu^T {\bf R} \bu + \pd{J^*}{\bx} \left( {\bf A}\bx + \bB\bu \right)
+    \right].$$</p>
+
+    <p> There is one important step here -- it is well known that for this
+    problem the optimal cost-to-go function is quadratic.  This is easy to
+    verify. Let us choose the form: $$J^*(\bx) = \bx^T {\bf S} \bx, \quad {\bf
+    S} = {\bf S}^T \succeq 0.$$ The gradient of this function is $$\pd{J^*}{\bx}
+      = 2 \bx^T {\bf S}.$$  </p>
+
+    <p> Since we have guaranteed, by construction, that the terms inside the
+    $\min$ are quadratic and convex (because ${\bf R} \succ 0$), we can take the
+    minimum explicitly by finding the solution where the gradient of those terms
+    vanishes: $$\pd{}{\bu} = 2\bu^T {\bf R} + 2 \bx^T {\bf S} \bB = 0.$$ This
+    yields the optimal policy $$\bu^* = \pi^*(\bx) = - {\bf R}^{-1} \bB^T {\bf
+    S} \bx = - \bK \bx.$$</p>
+
+    <p>Inserting this back into the HJB and simplifying yields $$0 = \bx^T
+    \left[ {\bf Q} - {\bf S B R}^{-1}\bB^T{\bf S} + 2{\bf SA} \right]\bx.$$ All
+    of the terms here are symmetric except for the $2{\bf SA}$, but since
+    $\bx^T{\bf SA}\bx = \bx^T{\bf A}^T{\bf S}\bx$, we can write $$0 = \bx^T
+    \left[ {\bf Q} - {\bf S B R}^{-1}\bB^T{\bf S} + {\bf SA} + {\bf A}^T{\bf S}
+    \right]\bx.$$ and since this condition must hold for all $\bx$, it is
+    sufficient to consider the matrix equation $$0 = {\bf S} {\bf A} + {\bf A}^T
+    {\bf S} - {\bf S} \bB {\bf R}^{-1} \bB^T {\bf S} + {\bf Q}.$$ This extremely
+    important equation is a version of the <em>algebraic Riccati equation</em>.
+    Note that it is quadratic in ${\bf S}$, making its solution non-trivial, but
+    it is well known that the equation has a single positive-definite solution
+    if and only if the system is controllable and there are good numerical
+    methods for finding that solution, even in high-dimensional problems.  Both
+    the optimal policy and optimal cost-to-go function are available from
+    <drake></drake> by calling <code> (K,S) =
+    LinearQuadraticRegulator(A,B,Q,R)</code>.</p>
+
+    <p>If the appearance of the quadratic form of the cost-to-go seemed
+    mysterious, consider that the solution to the linear system $\dot\bx = (\bA
+    - \bB\bK)\bx$ takes the form $\bx(t) = e^{(\bA-\bB\bK)t}\bx(0)$, and try
+    inserting this back into the integral cost function.  You'll see that the
+    cost takes the form $J=\bx^T(0) {\bf S} \bx(0)$.</p>
+
+    <p>It is worth examining the form of the optimal policy more closely. Since
+    the value function represents cost-to-go, it would be sensible to move down
+    this landscape as quickly as possible.  Indeed, $-{\bf S}\bx$ is in the
+    direction of steepest descent of the value function. However, not all
+    directions are possible to achieve in state-space. $-\bB^T {\bf S} \bx$
+    represents precisely the projection of the steepest descent onto the control
+    space, and is the steepest descent achievable with the control inputs $\bu$.
+    Finally, the pre-scaling by the matrix ${\bf R}^{-1}$ biases the direction
+    of descent to account for relative weightings that we have placed on the
+    different control inputs.  Note that although this interpretation is
+    straight-forward, the slope that we are descending (in the value function,
+    ${\bf S}$) is a complicated function of the dynamics and cost.</p>
+
+    <example><h1>LQR for the Double Integrator</h1>
+
+      <p>Now can use LQR to reproduce our <a
+      href="dp.html#hjb_double_integrator">HJB example</a> from the previous
+      chapter:</p>
+
+      <pysrcinclude>examples/double_integrator/lqr.py</pysrcinclude>
+
+      <p>As in the hand-derived example, our numerical solution returns $${\bf
+      K} = [ 1, \sqrt{3} ], \qquad{\bf S} = \begin{bmatrix} \sqrt{3} & 1 \\ 1 &
+      \sqrt{3} \end{bmatrix}.$$</p>
+    </example>
+
+    <subsection><h1>Local stabilization of nonlinear systems</h1>
+
+      <p>LQR is extremely relevant to us even though our primary interest is in
+      nonlinear dynamics, because it can provide a local approximation of the
+      optimal control solution for the nonlinear system.  Given the nonlinear
+      system $\dot{\bx} = f(\bx,\bu)$, and a stabilizable operating point,
+      $(\bx_0,\bu_0)$, with $f(\bx_0,\bu_0) = 0.$  We can define a relative
+      coordinate system $$\bar\bx = \bx - \bx_0, \quad \bar\bu = \bu - \bu_0,$$
+      and observe that $$\dot{\bar\bx} = \dot{\bx} = f(\bx,\bu),$$ which we can
+      approximate with a first-order Taylor expansion to $$\dot{\bar\bx} \approx
+      f(\bx_0,\bu_0) + \pd{f(\bx_0,\bu_0)}{\bx} (\bx - \bx_0) +
+      \pd{f(\bx_0,\bu_0)}{\bu} (\bu - \bu_0) = {\bf A}\bar{\bx} +
+      \bB\bar\bu.$$</p>
+
+      <p>Similarly, we can define a quadratic cost function in the error
+      coordinates, or take a (positive-definite) second-order approximation of a
+      nonlinear cost function about the operating point (linear and constant
+      terms in the cost function can be easily incorporated into the derivation
+      by parameterizing a full quadratic form for $J^*$, as seen in the Linear
+      Quadratic Tracking derivation below).</p>
+
+      <p>The resulting controller takes the form $\bar\bu^* = -{\bf K}\bar\bx$
+      or $$\bu^* = \bu_0 - {\bf K} (\bx - \bx_0).$$  For convenience,
+      <drake></drake> allows you to call <code>controller =
+      LinearQuadraticRegulator(system, context, Q, R)</code> on most dynamical
+      systems (including block diagrams built up of many subsystems); it will
+      perform the linearization for you.</p>
+
+      <example><h1>LQR for Acrobots, Cart-Poles,
+      and Quadrotors</h1>
+
+        <p>LQR provides a very satisfying solution to the canonical "balancing"
+        problem that we've <a href="acrobot.html">already
+        described for a number of model systems</a>.  Here is the notebook with those examples, again:</p>
+      
+        <p><a target="acrobot"
+          href="https://colab.research.google.com/github/RussTedrake/underactuated/blob/master/acrobot.ipynb"><img
+          src="https://colab.research.google.com/assets/colab-badge.svg"
+          alt="Open In Colab"/></a>
+            </p>
+  
+        <p>I find it very compelling that the same derivation (and effectively
+        identical code) can stabilize such a diversity of systems!</p>
+      </example>
+
+    </subsection>
+
+  </section> <!-- end basic derivation -->
+
+  <section id="finite_horizon"><h1>Finite-horizon formulations</h1>
+
+    <p>Recall that the cost-to-go for finite-horizon problems is time-dependent,
+    and therefore the HJB sufficiency condition requires an additional term for
+    $\pd{J^*}{t}$. $$ \forall \bx, \forall t\in[t_0,t_f],\quad 0 = \min_\bu
+    \left[ \ell(\bx,\bu) + \pd{J^*}{\bx}f(\bx,\bu) + \pd{J^*}{t} \right]. $$</p>
+
+    <subsection><h1>Finite-horizon LQR</h1>
+
+      <p> Consider systems governed by an LTI state-space equation of the form
+      $$\dot{\bx} = {\bf A}\bx + \bB\bu,$$ and a finite-horizon cost function, $J = h(\bx(t_f)) + \int_0^{t_f} \ell(\bx(t), \bu(t)) dt,$
+      with
+      \begin{gather*} h(\bx) = \bx^T {\bf Q}_f \bx,\quad {\bf Q}_f = {\bf Q}_f^T
+      \succeq {\bf 0} \\ \ell(\bx,\bu) = \bx^T {\bf Q} \bx + \bu^T {\bf R}
+      \bu, \quad {\bf Q} = {\bf Q}^T \succeq 0, {\bf R}={\bf R}^T \succ 0
+      \end{gather*}
+
+      Writing the HJB, we have $$ 0 = \min_\bu \left[\bx^T {\bf Q} \bx + \bu^T
+      {\bf R}\bu + \pd{J^*}{\bx} \left({\bf A} \bx + \bB \bu \right) +
+      \pd{J^*}{t} \right]. $$  Due to the positive definite quadratic form on
+      $\bu$, we can find the minimum by setting the gradient to zero:
+
+      \begin{gather*}
+      \pd{}{\bu} = 2 \bu^T {\bf R} + \pd{J^*}{\bx} \bB  = 0 \\
+      \bu^* = \pi^*(\bx,t) = - \frac{1}{2}{\bf R}^{-1} \bB^T \pd{J^*}{\bx}^T
+      \end{gather*}
+
+      In order to proceed, we need to investigate a particular form for the
+      cost-to-go function, $J^*(\bx,t)$.  Let's try a solution of the form:
+      $$J^*(\bx,t) = \bx^T {\bf S}(t) \bx, \quad {\bf S}(t) = {\bf S}^T(t)\succ
+      {\bf 0}.$$ In this case we have $$\pd{J^*}{\bx} = 2 \bx^T {\bf S}(t),
+      \quad \pd{J*}{t} = \bx^T \dot{\bf S}(t) \bx,$$ and therefore
+
+      \begin{gather*} \bu^* = \pi^*(\bx,t) = - {\bf R}^{-1} \bB^T {\bf S}(t) \bx
+      \\ 0 = \bx^T \left[ {\bf Q} - {\bf S}(t) \bB {\bf R}^{-1} \bB^T {\bf S}(t)
+      + {\bf S}(t) {\bf A} + {\bf A}^T {\bf S}(t) + \dot{\bf S}(t) \right]
+      \bx.\end{gather*}
+
+      Therefore, ${\bf S}(t)$ must satisfy the condition (known as the
+      continuous-time <em>differential Riccati equation</em>): $$-\dot{\bf S}(t)
+      = {\bf S}(t) {\bf A} + {\bf A}^T {\bf S}(t) - {\bf S}(t) \bB {\bf R}^{-1}
+      \bB^T {\bf S}(t) + {\bf Q},$$ and the terminal condition $${\bf S}(t_f) =
+      {\bf Q}_f.$$ Since we were able to satisfy the HJB with the minimizing
+      policy, we have met the sufficiency condition, and have found the optimal
+      policy and optimal cost-to-go function.</p>
+
+      <p>Note that the infinite-horizon LQR solution described in the prequel is
+      exactly the steady-state solution of this equation, defined by $\dot{\bf
+      S}(t) = 0$. Indeed, for controllable systems this equation is stable
+      (backwards in time), and as expected the finite-horizon solution converges
+      on the infinite-horizon solution as the horizon time limits to infinity.
+      </p>
+
+      <todo>Example to show how the tvlqr solution converges to the tilqr
+      solution for the double integrator example, and make the connection back
+      to the value iteration visualizations that we did in the previous
+      chapter.</todo>
+
+    </subsection>
+
+    <subsection><h1>Time-varying LQR</h1>
+
+      <p>The derivation above holds even if the dynamics are given by
+      $$\dot{\bx} = {\bf A}(t)\bx + {\bf B(t)}\bu.$$  Similarly, the cost
+      functions ${\bf Q}$ and ${\bf R}$ can also be time-varying.  This is
+      quite surprising, as the class of time-varying linear systems is a quite
+      general class of systems. It requires essentially no assumptions on how
+      the time-dependence enters, except perhaps that if ${\bf A}$ or $\bB$ is
+      discontinuous in time then one would have to use the proper techniques to
+      accurately integrate the differential equation.</p>
+
+    </subsection>
+
+    <subsection id=finite_horizon_nonlinear><h1>Local trajectory stabilization for nonlinear systems</h1>
+
+      <p> One of the most powerful applications of time-varying LQR involves
+      linearizing around a nominal trajectory of a nonlinear system and using
+      LQR to provide a trajectory controller.  This will tie in very nicely
+      with the algorithms we develop in the <a href="trajopt.html">chapter on
+      trajectory optimization</a>.</p>
+        
+      <p>Let us assume that we have a nominal trajectory, $\bx_0(t), \bu_0(t)$
+      defined for $t \in [t_1, t_2]$.  Similar to the time-invariant analysis,
+      we begin by defining a local coordinate system relative to the
+      trajectory: $$\bar\bx(t) = \bx(t) - \bx_0(t), \quad \bar\bu(t) = \bu(t) -
+      \bu_0(t).$$  Now we have $$\dot{\bar\bx} = \dot{\bx} - \dot{\bx}_0 =
+      f(\bx,\bu) - f(\bx_0, \bu_0),$$ which we can again approximate with a
+      first-order Taylor expansion to $$\dot{\bar\bx} \approx f(\bx_0,\bu_0) +
+      \pd{f(\bx_0,\bu_0)}{\bx} (\bx - \bx_0) + \pd{f(\bx_0,\bu_0)}{\bu} (\bu -
+      \bu_0) - f(\bx_0,\bu_0) = {\bf A}(t)\bar{\bx} + \bB(t)\bar\bu.$$  This
+      very similar to using LQR to stablize a fixed-point, but with some
+      important differences.  First, the linearization is time-varying.
+      Second, our linearization is valid for any state along a feasible
+      trajectory (not just fixed-points), because the coordinate system is
+      moving along with the trajectory.</p>
+
+      <p>Similarly, we can define a quadratic cost function in the error
+      coordinates, or take a (positive-definite) second-order approximation of a
+      nonlinear cost function along the trajectory (linear and constant
+      terms in the cost function can be easily incorporated into the derivation
+      by parameterizing a full quadratic form for $J^*$, as seen in the Linear
+      Quadratic Tracking derivation below).</p>
+
+      <p>The resulting controller takes the form $\bar\bu^* = -{\bf
+      K}(t)\bar\bx$ or $$\bu^* = \bu_0(t) - {\bf K}(t) (\bx - \bx_0(t)).$$
+      <drake></drake> provides a <a
+      href="https://drake.mit.edu/doxygen_cxx/group__control.html#ga58307d2135757a498c434e96d7b99853"><code>
+        FiniteHorizonLinearQuadraticRegulator</code></a>
+      method; if you pass it a nonlinear systems it will perform the
+      linearization in the proper coordinates for you using automatic
+      differentiation.</p>
+
+      <p>Remember that stability is a statement about what happens as time goes
+      to infinity.  In order to talk about stabilizing a trajectory, the
+      trajectory must be defined for all $t \in [t_1, \infty)$.  This can be
+      accomplished by considering a finite-time trajectory which terminates at
+      a stabilizable fixed-point at a time $t_2 \ge t_1$, and remains at the
+      fixed point for $t \ge t_2$.  In this case, the finite-horizon Riccati
+      equation is initialized with the infinite-horizon LQR solution: $S(t_2) =
+      S_\infty$, and solved backwards in time from $t_2$ to $t_1$ for the
+      remainder of the trajectory.  And <i>now</i> we can say that we have
+      <i>stabilized</i> the trajectory!</p>
+
+    </subsection>    
+
+    <subsection><h1>Linear Quadratic Optimal Tracking</h1>
+
+      <p>For completeness, we consider a slightly more general form of the
+      linear quadratic regulator.  The standard LQR derivation attempts to drive
+      the system to zero.  Consider now the problem:
+
+      \begin{gather*} \dot{\bx} = {\bf A}\bx + \bB\bu \\ h(\bx) = (\bx -
+      \bx_d(t_f))^T {\bf Q}_f (\bx - \bx_d(t_f)), \quad {\bf Q}_f = {\bf Q}_f^T
+      \succeq 0 \\ \ell(\bx,\bu,t) = (\bx - \bx_d(t))^T {\bf Q} (\bx - \bx_d(t))
+      + (\bu - \bu_d(t))^T {\bf R} (\bu - \bu_d(t)),\\ {\bf Q} = {\bf Q}^T
+      \succeq 0, {\bf R}={\bf R}^T \succ 0 \end{gather*}
+
+      Now, guess a solution
+
+      \begin{gather*} J^*(\bx,t) = \bx^T {\bf S}_{xx}(t) \bx + 2\bx^T {\bf
+      s}_x(t) + s_0(t), \quad {\bf S}_{xx}(t) = {\bf S}_{xx}^T(t)\succ {\bf 0}.
+      \end{gather*}
+
+      In this case, we have $$\pd{J^*}{\bx} = 2 \bx^T {\bf S}_{xx}(t) + 2{\bf
+      s}_{x}^T(t),\quad \pd{J^*}{t} = \bx^T \dot{\bf S}_{xx}(t) \bx + 2\bx^T
+      \dot{\bf s}_x(t) + \dot{s}_0(t).$$ Using the HJB, $$ 0 = \min_\bu
+      \left[(\bx - \bx_d(t))^T {\bf Q} (\bx - \bx_d(t)) + (\bu - \bu_d(t))^T
+      {\bf R} (\bu - \bu_d(t)) + \pd{J^*}{\bx} \left({\bf A} \bx + \bB \bu
+      \right) + \pd{J^*}{t} \right], $$ we have
+
+      \begin{gather*} \pd{}{\bu} = 2 (\bu - \bu_d(t))^T{\bf R} + (2\bx^T{\bf
+      S}_{xx}(t) + 2{\bf s}_x^T(t))\bB = 0,\\ \bu^*(t) =  \bu_d(t) - {\bf
+      R}^{-1} \bB^T\left[{\bf S}_{xx}(t)\bx + {\bf s}_x(t)\right]
+      \end{gather*}
+
+      The HJB can be satisfied by integrating backwards
+
+      \begin{align*}
+      -\dot{\bf S}_{xx}(t) =& {\bf Q} - {\bf S}_{xx}(t) \bB {\bf R}^{-1} {\bf
+      B}^T {\bf S}_{xx}(t) + {\bf S}_{xx}(t) {\bf A} + {\bf A}^T {\bf S}_{xx}(t)\\
+      -\dot{\bf s}_x(t) =& - {\bf Q} \bx_d(t) + \left[{\bf A}^T - {\bf S}_{xx}
+        \bB {\bf R}^{-1} \bB^T \right]{\bf s}_x(t) + {\bf
+        S}_{xx}(t) \bB \bu_d(t)\\
+      -\dot{s}_0(t) =&  \bx_d(t)^T {\bf Q} \bx_d(t) - {\bf
+        s}_x^T(t) \bB {\bf R}^{-1} \bB^T {\bf s}_x(t) + 2{\bf
+        s}_x(t)^T \bB \bu_d(t),
+      \end{align*}
+
+      from the final conditions
+
+      \begin{align*}
+      {\bf S}_{xx}(t_f) =& {\bf Q}_f\\
+      {\bf s}_{x}(t_f) =& -{\bf Q}_f \bx_d(t_f) \\
+      s_0(t_f) =& \bx_d^T(t_f) {\bf Q}_f \bx_d(t_f).
+      \end{align*}
+
+      Notice that the solution for ${\bf S}_{xx}$ is the same as the simpler LQR
+      derivation, and is symmetric (as we assumed).  Note also that $s_0(t)$ has
+      no effect on control (even indirectly), and so can often be ignored.</p>
+
+      <p>A quick observation about the quadratic form, which might be helpful in
+      debugging.  We know that $J(\bx,t)$ must be uniformly positive.  This is
+      true iff ${\bf S}_{xx}\succ 0$ and $s_0 > {\bf s}_x^T {\bf S}_{xx}^{-1}
+      {\bf s}_x$, which comes from evaluating the function at $\bx_{min}(t)$ defined
+      by $\left[ \pd{J^*(\bx,t)}{\bx} \right]_{\bx=\bx_{min}(t)} = 0$.</p>
+
+      <todo>test this on an example, get my notation consistent (s(t)^T vs
+      s^T(t), etc.</todo>
+    </subsection>
+
+    <subsection><h1>Linear Final Boundary Value Problems</h1>
+
+      <p> The finite-horizon LQR formulation can be used to impose a strict
+      final boundary value condition by setting an infinite ${\bf Q}_f$.
+      However, integrating the Riccati equation backwards from an infinite
+      initial condition isn't very practical.  To get around this, let us
+      consider solving for ${\bf P}(t) = {\bf S}(t)^{-1}$.  Using the matrix
+      relation $\frac{d {\bf S}^{-1}}{dt} = - {\bf S}^{-1} \frac{d {\bf S}}{dt}
+      {\bf S}^{-1}$, we have: $$-\dot{\bf P}(t) = - {\bf P}(t){\bf Q P}(t) +
+      {\bf B R}^{-1} \bB - {\bf A P}(t) - {\bf P}(t){\bf A}^T,$$ with the final
+      conditions $${\bf P}(t_f) = 0.$$ This Riccati equation can be integrated
+      backwards in time for a solution.</p>
+
+      <p> It is very interesting, and powerful, to note that, if one chooses
+      ${\bf Q} = 0$, therefore imposing no position cost on the trajectory
+      before time $T$, then this inverse Riccati equation becomes a linear ODE
+      which can be solved explicitly. <todo>% add explicit solution here</todo>
+      These relationships are used in the derivation of the controllability
+      Grammian, but here we use them to design a feedback controller.</p>
+
+    </subsection>
+
+  </section> <!-- end finite horizon -->
+
+  <section><h1>Variations and extensions</h1>
+
+    <!--
+    <subsection><h1>Minimum-time LQR</h1>
+
+      \begin{gather*}
+      \dot{\bx} = {\bf A}\bx + \bB\bu \\
+      h(\bx) = \bx^T {\bf Q}_f \bx,
+      \quad {\bf Q}_f = {\bf Q}_f^T \succeq 0 \\
+      \ell(\bx,\bu,t) = 1 + \bx^T {\bf Q} \bx + \bu {\bf R} \bu,\\
+      {\bf Q} = {\bf
+      Q}^T \succeq 0, {\bf R}={\bf R}^T  \succ 0
+      \end{gather*}
+
+    </subsection>
+    -->
+
+    <subsection id="dt_riccati"><h1>Discrete-time Riccati Equations</h1>
+
+      <p>Essentially all of the results above have a natural correlate for
+      discrete-time systems. What's more, the discrete time versions tend to be
+      simpler to think about in the model-predictive control (MPC) setting that
+      we'll be discussing below and in the next chapters.</p>
+
+      <p>Consider the discrete time dynamics: $$\bx[n+1] = {\bf A}\bx[n] + {\bf
+      B}\bu[n],$$ and we wish to minimize $$\min \sum_{n=0}^{N-1} \bx^T[n] {\bf
+      Q} \bx[n] + \bu^T[n] {\bf R} \bu[n], \qquad {\bf Q} = {\bf Q}^T \succeq 0,
+      {\bf R} = {\bf R}^T \succ 0.$$  The cost-to-go is given by $$J(\bx,n-1) =
+      \min_\bu \bx^T {\bf Q} \bx + \bu^T {\bf R} \bu + J({\bf A}\bx + {\bf
+      B}\bu, n).$$ If we once again take $$J(\bx,n) = \bx^T {\bf S[n]} \bx,
+      \quad {\bf S}[n] = {\bf S}^T[n] \succ 0,$$ then we have $$\bu^*[n] = -{\bf
+      K[n]}\bx[n] = -({\bf R} + {\bf B}^T {\bf S}[n] {\bf B})^{-1} {\bf B}^T
+      {\bf S}[n] {\bf A} \bx[n],$$ yielding $${\bf S}[n-1] = {\bf Q} + {\bf
+      A}^T{\bf S}[n]{\bf A} - ({\bf A}^T{\bf S}[n]{\bf B})({\bf R} + {\bf B}^T
+      {\bf S}[n] {\bf B})^{-1} ({\bf B}^T {\bf S}[n]{\bf A}), \quad {\bf S}[N]
+      = 0,$$ which is the famous <i>Riccati difference equation</i>. The
+      infinite-horizon LQR solution is given by the (positive-definite)
+      fixed-point of this equation: $${\bf S} = {\bf Q} + {\bf A}^T{\bf S}{\bf
+      A} - ({\bf A}^T{\bf S}{\bf B})({\bf R} + {\bf B}^T {\bf S} {\bf B})^{-1}
+      ({\bf B}^T {\bf S}{\bf A}).$$  Like in the continuous time case, this
+      equation is so important that we have special numerical recipes for
+      solving this discrete-time algebraic Riccati equation (DARE).  <drake>
+      </drake> delegates to these numerical methods automatically when you
+      evaluate the <code>LinearQuadraticRegulator</code> method on a system that
+      has only discrete state and a single periodic timestep.</p> 
+
+      <example><h1>Discrete-time vs Continuous-time LQR</h1>
+
+        <p>You can explore the relationship between the discrete-time and continuous-time formulations in this notebook:</p>
+  
+        <p><a target="lqr"
+          href="https://colab.research.google.com/github/RussTedrake/underactuated/blob/master/lqr.ipynb#scrollTo=N28UdR08ADaK"><img
+          src="https://colab.research.google.com/assets/colab-badge.svg"
+          alt="Open In Colab"/></a>
+            </p>
+  
+      </example>
+    </subsection>
+
+    <subsection><h1>LQR with input and state constraints</h1>
+      <p>A natural extension for linear optimal control is the consideration of
+      strict constraints on the inputs or state trajectory.  Most common are
+      linear inequality constraints, such as $\forall n, |\bu[n]| \le 1$ or
+      $\forall n, \bx[n] \ge -2$ (any linear constraints of the form ${\bf Cx} +
+      {\bf Du} \le {\bf e}$ can be solved with the same tools).  Much is known
+      about the solution to this problem in the discrete-time case, but it's
+      computation is signficantly harder than the unconstrained case.  Almost
+      always, we give up on solving for the best control policy in closed form,
+      and instead solve for the optimal control trajectory $\bu[\cdot]$ from a
+      particular initial condition $\bx[0]$ over some finite horizon.
+      Fortunately, this problem is a convex optimization and we can often solve
+      it quickly and reliably enough to solve it at every timestep, effectively
+      turning a motion planning algorithm into a feedback controller; this idea
+      is famously known as model-predictive control (MPC).  We will provide the
+      details in the <a href="trajopt.html">trajectory
+      optimization chapter</a>.</p>
+        
+      <p>We do actually understand what the optimal policy of the
+      inequality-constrained LQR problem looks like, thanks to work on "explicit
+      MPC" <elib>Alessio09</elib> -- the optimal policy is now piecewise-linear
+      (though still continuous), with each piece describe by a polytope, and the
+      optimal cost-to-go is piecewise-quadratic on the same polytopes.
+      Unfortunately, the number of pieces grows exponentially with the number of
+      constraints and the horizon of the problem, making it impractical to
+      compute for all but very small problems.  There are, howeer, a number of
+      promising approaches to approximate explicit MPC (c.f.
+      <elib>Marcucci17</elib>).</p>
+
+      <p>One important case that does have closed-form solutions is LQR with
+      linear <i>equality</i> constraints (c.f. <elib>Posa15</elib>, section
+      IIIb).  This is particularly relevant in the case of stabilizing robots
+      with kinematic constraints such as a closed kinematic chain, which appears
+      in four-bar linkages or even for the linearization of a biped robot with
+      two feet on the ground.</p>
+
+      <todo>Add the equality-constrained LQR derivation here.</todo>
+
+    </subsection>
+
+    <subsection id="lmi"><h1>LQR as a convex optimization</h1>
+
+      <p>One can also design the LQR gains using linear matrix inequalities
+      (LMIs). I will defer the derivation til we cover the policy gradient view
+      of LQR, because the LMI formulation is based on a change of variables
+      from the basic policy evaluation criterion.  If you want to look ahead,
+      you can find that formulation <a
+      href="policy_search.html#lqr_lmi">here</a>.</p>
+
+      <p>Solving the algebraic Riccati equation is still the preferred way of
+      computing the LQR solution.  But it is helpful to know that one could
+      also compute it with convex optimization.  In addition to deepening our
+      understanding, this can be useful for generalizing the basic LQR solution
+      (e.g. for <a href="lyapunov.html#common-lyapunov-linear">robust
+      stabilization</a>) or to solve for the LQR gains jointly as part of a
+      bigger optimization.</p>
+
+    </subsection>
+
+    <subsection id="sls"><h1>Finite-horizon LQR via least
+    squares</h1>
+  
+      <p>We can also obtain the solution to the discrete-time finite-horizon
+      (including the time-varying or tracking variants) LQR problem using
+      optimization -- in this case it actually reduces to a simple
+      least-squares problem.  The presentation in this section can be viewed as
+      a simple implementation of the <a
+      href="https://en.wikipedia.org/wiki/Youla%E2%80%93Kucera_parametrization">Youla
+      parameterization</a> (sometimes called "Q-parameterization") from
+      controls.  Small variations on the formulation here play an important
+      role in the minimax variants of LQR (which optimize a worst-case
+      performance), which we will discuss in the robust control chapter (e.g.
+      <elib>Lofberg03+Sadraddini20</elib>).</p>
+
+      <p>First, let us appreciate that the default parameterization is not
+      convex.  Given \begin{gather*} \min \sum_{n=0}^{N-1} \bx^T[n] {\bf Q}
+      \bx[n] + \bu^T[n] {\bf R} \bu[n], \qquad {\bf Q} = {\bf Q}^T \succeq 0,
+      {\bf R} = {\bf R}^T \succ 0 \\ \subjto \quad \bx[n+1] = {\bf A} \bx[n] +
+      {\bf B}\bu[n], \\ \bx[0] = \bx_0 \end{gather*} if we wish to search over
+      controllers of the form $$\bu[n] = {\bf K}_n \bx[n],$$ then we have
+      \begin{align*}\bx[1] &= {\bf A}\bx_0 + {\bf B}{\bf K}_0\bx_0, \\ \bx[2] &=
+      {\bf A}({\bf A} + {\bf BK}_0)\bx_0 + {\bf BK}_1({\bf A} + {\bf BK}_0)\bx_0
+      \\ \bx[n] &= \left( \prod_{i=0}^{n-1} ({\bf A} + {\bf BK}_i) \right) \bx_0
+      \end{align*} As you can see, the $\bx[n]$ terms in the cost function
+      include our decision variables multiplied together -- resulting in a
+      non-convex objective.  The trick is to re-parameterize the decision
+      variables, and write the feedback in the form: $$\bu[n] = \tilde{\bf K}_n
+      \bx_0,$$ leading to \begin{align*}\bx[1] &= {\bf A}\bx_0 + {\bf
+      B}\tilde{\bf K}_0\bx_0, \\ \bx[2] &= {\bf A}({\bf A} + {\bf B}\tilde{\bf
+      K}_0)\bx_0 + {\bf B}\tilde{\bf K}_1 \bx_0 \\ \bx[n] &= \left( {\bf A}^n +
+      \sum_{i=0}^{n-1}{\bf A}^{n-i-1}{\bf B}\tilde{\bf K}_{i} \right) \bx_0
+      \end{align*}  Now all of the decision variables, $\tilde{\bf K}_i$, appear
+      linearly in the solution to $\bx[n]$ and therefore (convex) quadratically
+      in the objective.</p>  
+      
+      <p>We still have an objective function that depends on $\bx_0$, but we
+      would like to find the optimal $\tilde{\bf K}_i$ <i>for all</i>
+      $\bx_0$. To achieve this let us evaluate the optimality conditions of this
+      least squares problem, starting by taking the gradient of the objective
+      with respect to $\tilde{\bf K}_i$, which is: $$\bx_0 \bx_0^T \left(
+      \tilde{\bf K}_i^T \left({\bf R} + \sum_{m=i+1}^{N-1} {\bf B}^T ({\bf
+      A}^{m-i-1})^T {\bf Q A}^{m-i-1} {\bf B}\right) + \sum_{m=i+1}^{N-1} ({\bf
+      A}^m)^T {\bf Q A}^{m-i-1} {\bf B}\right).$$  We can satisfy this
+      optimality condition for all $\bx_0$ by solving the <i>linear</i> matrix
+      equation: $$\tilde{\bf K}_i^T \left({\bf R} + \sum_{m=i+1}^{N-1} {\bf B}^T
+      ({\bf A}^{m-i-1})^T {\bf Q A}^{m-i-1} {\bf B}\right) + \sum_{m=i+1}^{N-1}
+      ({\bf A}^m)^T {\bf Q A}^{m-i-1} {\bf B} = 0.$$  We can always solve for
+      $\tilde{\bf K}_i$ since it's multiplied by a (symmetric) positive definite
+      matrix (it is the sum of a positive definite matrix and many positive
+      semi-definite matrices), which is always invertible.</p>
+
+      <p>If you need to recover the original ${\bf K}_i$ parameters, you can
+      extract them recursively with \begin{align*} \tilde{\bf K}_0 &= {\bf K}_0,
+      \\ \tilde{\bf K}_n &= {\bf K}_n \prod_{i=0}^{n-1} ({\bf A} + {\bf BK}_i),
+      \qquad 0 < n \le N-1. \end{align*}  But often this is not actually
+      necessary.  In some applications it's enough to know the performance cost
+      under LQR control, or to handle the response to disturbances explicitly
+      with the disturbance-based feedback (which I've already promised for the
+      robust control chapter).  Afterall, the problem formulation that we've
+      written here, which makes no mention of disturbances, assumes the model is
+      perfect and the controls $\tilde{\bf K}_n \bx_0$ are just as suitable for
+      deployment as ${\bf K}_n\bx[n]$.</p>
+
+      <p>"System-Level Synthesis" (SLS) is the name for an important and
+      slightly different approach, where one optimizes the <i>closed-loop
+      response</i> directly<elib>Anderson19</elib>. Although SLS is a very
+      general tool, for the particular formulation we are considering here it
+      reduces to creating additional decision variables ${\bf \Phi}_i$, such at
+      that $$\bx[n] = {\bf \Phi}_n \bx[0],$$  and writing the optimization above
+      as \begin{gather*} \min_{\tilde{\bf K}_*, {\bf \Phi}_*} \sum_{n=0}^{N-1}
+      \bx^T[0] \left( {\bf \Phi}_n^T {\bf Q \Phi}_n + \tilde{\bf K}_n^T{\bf R}
+      \tilde{\bf K}_n \right) \bx[0], \\ \subjto \qquad \forall n, \quad {\bf
+      \Phi}_{n+1} = {\bf A \Phi}_n + {\bf B}\tilde{\bf K}_n. \end{gather*} </p>
+      
+      <p>Once again, the algorithms presented here are not as efficient as
+      solving the Riccati equation if we only want the solution to the simple
+      case, but they become very powerful if we want to combine the LQR
+      synthesis with other objectives/constraints.  For instance, if we want to
+      add some sparsity constraints (e.g. enforcing that some elements of
+      $\tilde{\bf K}_i$ are zero), then we could solve the quadratic
+      optimization subject to linear equality constraints
+      <elib>Wang14</elib>.</p>
+  
+    </subsection>
+    
+    <todo>
+      Minimum-time LQR
+    </todo>
+    
+  </section>
+
+  <section><h1>Exercises</h1>
+  
+  </section>
+
+  <section><h1>Notes</h1>
+  
+    <subsection id="finite_horizon_derivation"><h1>Finite-horizon LQR derivation (general form)</h1>
+
+      <p>For completeness, I've included here the derivation for continuous-time finite-horizon LQR with all of the bells and whistles.</p>
+
+      <p>Consider an time-varying affine (approximation of a) continuous-time
+      dynamical system in state-space form: $$\dot{\bx} = {\bf A}(t)\bx + {\bf
+      B}(t)\bu + {\bf c}(t),$$ and a running cost function in the general
+      quadratic form: \begin{gather*} \ell(t, \bx,\bu) = \begin{bmatrix} \bx \\
+      1 \end{bmatrix}^T {\bf Q}(t) \begin{bmatrix} \bx \\ 1 \end{bmatrix} +
+      \begin{bmatrix} \bu \\ 1 \end{bmatrix}^T {\bf R}(t) \begin{bmatrix} \bu \\
+      1 \end{bmatrix} + 2\bx^T{\bf N}(t)\bu, \\ \forall t\in[t_0, t_f], \quad
+      \bQ(t) = \begin{bmatrix} \bQ_{xx}(t) & \bq_x(t) \\ \bq_x^T(t) & q_0(t)
+      \end{bmatrix}, \bQ_{xx}(t) \succeq 0, \quad \bR(t) = \begin{bmatrix}
+      \bR_{uu}(t) & {\bf r}_u(t) \\ {\bf r}_u^T(t) & r_0(t) \end{bmatrix},
+      \bR_{uu}(t) \succ 0.\end{gather*}  Observe that our LQR "optimal tracking"
+      derivation fits in this form, as we can always write $$(\bx - \bx_d(t))^T
+      \bQ_t (\bx - \bx_d(t)) + (\bu - \bu_d(t))^T \bR_t (\bu - \bu_d(t)) + 2
+      (\bx - \bx_d(t))^T {\bf N}_t (\bu - \bu_d(t)),$$ by taking \begin{gather*}
+      \bQ_{xx} = \bQ_t,\quad \bq_x = -\bQ_t \bx_d - {\bf N}_t\bu_d, \quad q_0 =
+      \bx_d^T \bQ_t \bx_d + 2 \bx_d^T {\bf N}_t \bu_d, \\ \bR_{uu} = \bR_t,
+      \quad {\bf r}_u = -\bR_t \bu_d - {\bf N}_t^T \bx_d, \quad r_0 = \bu_d^T
+      \bR_t \bu_d, \quad {\bf N} = {\bf N}_t.\end{gather*} Of course, we can
+      also add a quadratic final cost with $\bQ_f$. Let's search for a positive
+      quadratic, time-varying cost-to-go function of the form: \begin{gather*}
+      J(t, \bx)=\begin{bmatrix} \bx \\ 1 \end{bmatrix}^T {\bf S}(t)
+      \begin{bmatrix} \bx \\ 1 \end{bmatrix}, \quad {\bf S}(t) = \begin{bmatrix}
+      {\bf S}_{xx}(t) & {\bf s}_x(t) \\ {\bf s}_x^T(t) & s_0(t) \end{bmatrix},
+      {\bf S}_{xx}(t) \succ 0, \\ \frac{\partial J}{\partial \bx} = 2\bx^T{\bf
+      S}_{xx} + 2{\bf s}_x^T, \quad \frac{\partial J}{\partial t} =
+      \begin{bmatrix} \bx \\ 1 \end{bmatrix}^T\dot{\bf S} \begin{bmatrix} \bx \\
+      1 \end{bmatrix}. \end{gather*} Writing out the HJB: \begin{gather*}
+      \min_\bu \left[\ell(\bx,\bu) + \frac{\partial J}{\partial \bx} \left[{\bf
+      A}(t)\bx + {\bf B}(t)\bu + {\bf c}(t) \right] + \frac{\partial J}{\partial
+      t} \right] = 0, \end{gather*} we can find the minimizing $\bu$ with
+      \begin{gather*} \frac{\partial}{\partial \bu} = 2\bu^T{\bf R}_{uu} + 2{\bf
+      r}_u^T + 2\bx^T{\bf N} + (2\bx^T{\bf S}_{xx} + 2{\bf s}_x^T){\bf B} = 0 \\
+      \bu^* = -{\bf R}_{uu}^{-1} \begin{bmatrix} {\bf N} + {\bf S}_{xx} \bB \\
+      {\bf r}^T_{u} + {\bf s}^T_{x}\bB \end{bmatrix}^T \begin{bmatrix} \bx \\ 1
+      \end{bmatrix} = -{\bf K}(t) \begin{bmatrix} \bx \\ 1 \end{bmatrix} = -{\bf
+      K}_x(t) \bx - {\bf k}_0(t). \end{gather*} Inserting this back into the HJB gives
+      us the updated Riccati differential equation. Since this must hold for all
+      $\bx$, we can collect the quadratic, linear, and offset terms and set them
+      each individually equal to zero, yielding: \begin{align*} -\dot{\bf
+      S}_{xx} =& \bQ_{xx} - ({\bf N} + {\bf S}_{xx} \bB){\bf R}_{uu}^{-1}({\bf
+      N} + {\bf S}_{xx} \bB)^T + {\bf S}_{xx}{\bf A} + {\bf A}^T{\bf S}_{xx}, \\
+      -\dot{\bf s}_x =& \bq_x - ({\bf N} + {\bf S}_{xx} \bB){\bf R}_{uu}^{-1}
+      ({\bf r}_u + \bB^T {\bf s}_x ) + {\bf A}^T{\bf s}_x + {\bf S}_{xx}{\bf c},
+      \\ -\dot{s}_0 =& q_0 + r_0 - ({\bf r}_u + \bB^T {\bf s}_x)^T{\bf
+      R}_{uu}^{-1} ({\bf r}_u + \bB^T {\bf s}_x) + 2{\bf s}_x^T {\bf c},
+      \end{align*} with the final conditions ${\bf S}(t_f) = {\bf Q}_f.$
+      </p>
+
+      <todo>Provide the sqrt formulation of the S1 equation here</todo>
+
+      <p>In the discrete-time version, we have... </p>
+
+      <p>Phew!  Numerical solutions to these equations can be obtained by
+      calling the <a
+      href="https://drake.mit.edu/doxygen_cxx/group__control.html#ga58307d2135757a498c434e96d7b99853"><code>FiniteHorizonLinearQuadraticRegulator</code></a>
+      methods in <drake></drake>.  May you never have to type them in and unit
+      test them yourself.</p>
+
+    </subsection>
+
+  </section>
+
+</chapter>
+<!-- EVERYTHING BELOW THIS LINE IS OVERWRITTEN BY THE INSTALL SCRIPT -->
+
+<div id="references"><section><h1>References</h1>
+<ol>
+
+<li id=Alessio09>
+<span class="author">A. Alessio and A. Bemporad</span>,
+<span class="title">"A survey on explicit model predictive control"</span>,
+<span class="publisher">Int. Workshop on Assessment and Future Directions of Nonlinear Model Predictive Control</span>, <span class="year">2009</span>.
+
+</li><br>
+<li id=Marcucci17>
+<span class="author">Tobia Marcucci and Robin Deits and Marco Gabiccini and Antonio Bicchi and Russ Tedrake</span>,
+<span class="title">"Approximate Hybrid Model Predictive Control for Multi-Contact Push Recovery in Complex Environments"</span>,
+<span class="publisher">Humanoid Robots (Humanoids), 2017 IEEE-RAS 17th International Conference on</span>, <span class="year">2017</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Marcucci17.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Posa15>
+<span class="author">Michael Posa and Scott Kuindersma and Russ Tedrake</span>,
+<span class="title">"Optimization and stabilization of trajectories for constrained dynamical systems"</span>,
+<span class="publisher">Proceedings of the International Conference on Robotics and Automation (ICRA)</span>, pp. 1366-1373, May, <span class="year">2016</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Posa15.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Lofberg03>
+<span class="author">J. Lofberg</span>,
+<span class="title">"Approximations of closed-loop minimax {MPC}"</span>,
+<span class="publisher">42nd {IEEE} {International} {Conference} on {Decision} and {Control} ({IEEE} {Cat}. {No}.03CH37475)</span>, vol. 2, pp. 1438--1442 Vol.2, Dec, <span class="year">2003</span>.
+
+</li><br>
+<li id=Sadraddini20>
+<span class="author">Sadra Sadraddini and Russ Tedrake</span>,
+<span class="title">"Robust Output Feedback Control with Guaranteed Constraint Satisfaction"</span>,
+<span class="publisher">In the Proceedings of 23rd ACM International Conference on Hybrid Systems: Computation and Control</span>, pp. 12, April, <span class="year">2020</span>.
+[&nbsp;<a href="http://groups.csail.mit.edu/robotics-center/public_papers/Sadraddini20.pdf">link</a>&nbsp;]
+
+</li><br>
+<li id=Anderson19>
+<span class="author">James Anderson and John C. Doyle and Steven Low and Nikolai Matni</span>,
+<span class="title">"System {Level} {Synthesis}"</span>,
+<span class="publisher">arXiv:1904.01634 [cs, math]</span>, apr, <span class="year">2019</span>.
+
+</li><br>
+<li id=Wang14>
+<span class="author">Yuh-Shyang Wang and Nikolai Matni and John C. Doyle</span>,
+<span class="title">"Localized {LQR} {Optimal} {Control}"</span>,
+<span class="publisher">arXiv:1409.6404 [cs, math]</span>, September, <span class="year">2014</span>.
+
+</li><br>
+</ol>
+</section><p/>
+</div>
+
+<table style="width:100%;"><tr style="width:100%">
+  <td style="width:33%;text-align:left;"><a class="previous_chapter" href=dp.html>Previous Chapter</a></td>
+  <td style="width:33%;text-align:center;"><a href=index.html>Table of contents</a></td>
+  <td style="width:33%;text-align:right;"><a class="next_chapter" href=lyapunov.html>Next Chapter</a></td>
+</tr></table>
+
+<div id="footer">
+  <hr>
+  <table style="width:100%;">
+    <tr><td><a href="https://accessibility.mit.edu/">Accessibility</a></td><td style="text-align:right">&copy; Russ
+      Tedrake, 2021</td></tr>
+  </table>
+</div>
+
+
+</body>
+</html>
