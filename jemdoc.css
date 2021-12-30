@@ -24,7 +24,7 @@ table#tlayout {
     border: none;
     border-collapse: separate;
     /*background: white;*/
-    background:#F1F1F1;
+    background: none;/*#F1F1F1;*/
    border-spacing:2px 0px;	
 }
 
