@@ -1,4 +1,4 @@
-baseURL = "https://phatcvo.github.io/"
+baseURL = "https://phatcv.vercel.app/"
 languageCode = "en-us"
 theme = "aafu"
 
@@ -9,11 +9,11 @@ theme = "aafu"
     title = "Personal site"
     author = "Phat C. Vo"
     description = "Website title"
-    copyright = "&copy; 2023 &middot phatcv"
+    copyright = "&copy; 2023 &middot; phatcv"
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
-        mainTheme = "dark"
+        mainTheme = "light"
         showAttribute = false
         singlePage = false
 
