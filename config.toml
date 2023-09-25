@@ -6,15 +6,14 @@ theme = "aafu"
   writeStats = true
 
 [params]
-    title = "Aafu theme"
-    author = "Darshan Baral"
+    title = "Personal site"
+    author = "Phat C. Vo"
     description = "Website title"
-    copyright = "short copyright message"
+    #copyright = "short copyright message"
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
-        mainTheme = "ocean"
-        # setting false below will hide 'aafu by darshan' displayed under the profile pic
+        mainTheme = "dark"
         showAttribute = true
         singlePage = false
 
@@ -31,9 +30,9 @@ theme = "aafu"
 
     # Profile section
     [params.profile]
-        name = "First Last, Abbr."
-        tagline = "Title"
-        location = "City Name, ST"
+        name = "Phat C. Vo"
+        tagline = "Researcher"
+        location = "Ulsan, KR"
         photo = "profile.jpg"
 
     # Section for links to social websites
@@ -42,19 +41,19 @@ theme = "aafu"
 
         [[params.social.list]]
             icon = "fab fa-linkedin-in"
-            url = "#"
+            url = "https://www.linkedin.com/in/phatcvo/"
             title = "LinkedIn"		
-        [[params.social.list]]
-            icon = "fab fa-stack-overflow"
-            url = "#"
-            title = "StackOverflow"
+        #[[params.social.list]]
+        #    icon = "fab fa-stack-overflow"
+        #    url = "#"
+        #    title = "StackOverflow"
         [[params.social.list]]
             icon = "fab fa-github"
-            url = "#"
+            url = "https://github.com/phatcvo"
             title = "GitHub"
         [[params.social.list]]
             icon = "fab fa-twitter"
-            url = "#"
+            url = "https://orcid.org/0000-0001-6703-5759"
             title = "Twitter"
         [[params.social.list]]
             icon = "fab fa-orcid"
@@ -62,11 +61,11 @@ theme = "aafu"
             title = "Orcid"
         [[params.social.list]]
             icon = "ai ai-google-scholar"
-            url = "#"
+            url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
             title = "Google Scholar"
         [[params.social.list]]
             icon = "fab fa-researchgate"
-            url = "#"
+            url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
             title = "ResearchGate"
 
     #Specify what is showin in the Accordion
@@ -81,15 +80,15 @@ theme = "aafu"
         item = "publication"
     [[params.showInAccordion]]
         item = "project"
-    [[params.showInAccordion]]
-        item = "skill"
+    #[[params.showInAccordion]]
+    #    item = "skill"
     [[params.showInAccordion]]
         item = "hobby"
 
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "This is a demo of the `aafu` theme. It has `light`, `dark`, `ocean`, and `pinkish` themes."
+        description = "Postdoc., Department of Electrical Engineering, Ulsan National Institute of Science & Technology (UNIST)"
 
     # Experience section
     [params.experience]
