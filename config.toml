@@ -9,7 +9,7 @@ theme = "aafu"
     title = "Personal site"
     author = "Phat C. Vo"
     description = "Website title"
-    copyright = "short copyright message"
+    copyright = "This is demo, update Sept. 2023"
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
@@ -21,8 +21,8 @@ theme = "aafu"
         use = true
         metas = '''
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="icon" type="image" sizes="32x32" href="favicon.ico">
+        <link rel="icon" type="image" sizes="16x16" href="favicon.ico">
         <link rel="manifest" href="site.webmanifest">
         <link rel="mask-icon" href="safari-pinned-tab.svg" color="#252627">
         <link rel="shortcut icon" href="favicon.ico">
@@ -80,8 +80,8 @@ theme = "aafu"
         item = "publication"
     [[params.showInAccordion]]
         item = "project"
-    #[[params.showInAccordion]]
-    #    item = "skill"
+    [[params.showInAccordion]]
+        item = "skill"
     [[params.showInAccordion]]
         item = "hobby"
 
