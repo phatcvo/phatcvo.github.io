@@ -383,21 +383,14 @@ theme = "aafu"
         icon = "fas fa-project-diagram"
 
         [[params.project.list]]
-            title = "Project 1"
+            title = "ERP42"
             url = "#"
-            description = "Description of the project"
+            description = "Educational Robot Platform (ERP) developed by the WeGo Robotics company and build in MORAI for autonomous driving."
         [[params.project.list]]
-            title = "Project 2"
+            title = "OTW"
             url = "#"
-            description = "Description of the project"
-        [[params.project.list]]
-            title = "Project 3"
-            url = "#"
-            description = "Description of the project"
-        [[params.project.list]]
-            title = "Project 4"
-            url = "#"
-            description = "Description of the project"
+            description = "On The Way (OTW) environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms"
+
 
     # Skill section
     [params.skill]
@@ -406,24 +399,15 @@ theme = "aafu"
         icon = "fas fa-cogs"
 
         [[params.skill.list]]
-            skill = "Programming Language"
-            description = "Python, C/C++, MATLAB, Simulink, etc"
-        #    skillrating = 90
+            skill = "Programming Language: Python, C/C++, MATLAB, Simulink, etc"
+            skillrating = 90
         [[params.skill.list]]
-            skill = "Skill 3"
-        #    skillrating = 80
+            skill = "Frameworks/Libraries: Gym, Pygame, CVXOPT, Ipopt, etc"
+            skillrating = 70
         [[params.skill.list]]
-            skill = "Skill 4"
-        #    skillrating = 50
-        [[params.project.list]]
-            title = "Programming Language"
-            description = "Python, C/C++, MATLAB, Simulink, etc"
-        [[params.project.list]]
-            title = "Frameworks/Libraries"
-            description = "Gym, Pygame, CVXOPT, Ipopt, etc"
-        [[params.project.list]]
-            title = "Simulators/DevTools"
-            description = "MORAI, Carla, Gazebo, ROS, VS Code, Pycharm, Git, Github, etc"
+            skill = "Simulators/DevTools: MORAI, Carla, Gazebo, ROS, VS Code, Pycharm, Git, Github, etc"
+            skillrating = 80
+       
         
 
     # Hobby section
