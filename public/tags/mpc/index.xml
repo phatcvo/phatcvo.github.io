@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MPC on </title>
+    <link>https://phatcv.vercel.app/tags/mpc/</link>
+    <description>Recent content in MPC on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcv.vercel.app/tags/mpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Model-Predictive Control</title>
+      <link>https://phatcv.vercel.app/blog/post_1/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://phatcv.vercel.app/blog/post_1/</guid>
+      <description>This code uses CVXPY as an optimization modeling tool
+Vehicle model linearization Vehicle model is
+$ \dot{x} = vcos(\phi)$
+$$ \dot{y} = vsin((\phi)$$
+$$ \dot{v} = a$$
+$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
+State and Input vector:
+$$ z = [x, y, v,\phi] $$
+$$u = [a, \delta]$$
+x: x-position; y:y-position; v:velocity; φ: yaw angle; a: accellation; δ: steering angle
+ODE is
+$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
+    </item>
+    
+  </channel>
+</rss>

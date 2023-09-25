@@ -5,15 +5,13 @@ tags: ["Control", "notes", "MPC"]
 categories: ["MPC", "Control"]
 description: "The MPC controller controls vehicle speed and steering based on linearized model."
 draft: false
+math: true
 ---
-
-
-This code uses [CVXPY](http://www.cvxpy.org/) as an optimization modeling tool 
 
 ## Vehicle model linearization
 Vehicle model is 
 
-$ \dot{x} = vcos(\phi)$
+$$ \dot{x} = vcos(\phi)$$
 
 $$ \dot{y} = vsin((\phi)$$
 
@@ -165,5 +163,6 @@ subject to:
 
  ## Reference
 
+- This code uses [CVXPY](http://www.cvxpy.org/) as an optimization modeling tool 
 - [Vehicle Dynamics and Control \| Rajesh Rajamani \| Springer](http://www.springer.com/us/book/9781461414322)
 

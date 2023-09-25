@@ -26,7 +26,7 @@
       "ul"
     ],
     "classes": [
-      "50%",
+      "70%",
       "80%",
       "90%",
       "accordion",
@@ -171,7 +171,7 @@
     ],
     "ids": [
       "donec-lacinia-eleifend-sem-a",
-      "eu-velit-magna-aliqua-hendrerit",
+      "mpc-approach",
       "non-tempor-mauris-elementum-semper",
       "panel-item-0",
       "panel-item-1",
@@ -180,8 +180,10 @@
       "panel-item-4",
       "panel-item-5",
       "panel-item-6",
+      "reference",
       "skill-panel",
-      "skill-percent"
+      "skill-percent",
+      "vehicle-model-linearization"
     ]
   }
 }

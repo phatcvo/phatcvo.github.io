@@ -113,15 +113,133 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">vestibulum vitae dictum aliqua phasellus magnis at</h1>
-  <p class="mb-1">May 23, 2018</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Model-Predictive Control</h1>
+  <p class="mb-1">September 23, 2022</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <h1 id="eu-velit-magna-aliqua-hendrerit">eu velit magna aliqua hendrerit</h1>
-<p>Cursus non odio nam suspendisse mollis tempus tincidunt, cursus praesent facilisi elementum etiam rhoncus tempor. At penatibus ultrices nulla phasellus mi quis luctus felis ultricies. Urna tempus ac consequat sem sed curabitur justo, quam suspendisse cursus aenean integer tellus consectetur. Sed bibendum hendrerit volutpat fames libero nisl dui, nunc vivamus augue posuere luctus scelerisque ultrices. Do pretium consectetur vestibulum lacinia eget do semper, varius viverra scelerisque madssa semper venenatis cras. Ac pharetra interdum rhoncus eleifend libero bolestie ligula justo.</p>
-<p>Malesuada vel arcu odio scelerisque tellus adipiscing congue vitae erat leo commodo. Rhoncus amet cras curabitur non augue aenean eu nibh nisl orci lorem. Augue rhoncus euismod leo nam netus viverra interdum lectus do quam. Consequat dolor metus urna ultricies mi aliquet dolore dictum. Facilisi facilisis et eiusmod mus orci consectetur dolore ultricies placerat porttitor sed. Est labore hendrerit id malesuada interdum quisque mollis mattis ut.</p>
-<p>Aliqua congue egestas bibendum pretium semper id vulputate eleifend lorem vestibulum auctor. Euismod eleifend eiusmod at vel suspendisse donec commodo sit volutpat do. Iaculis accimsan ipsum suscipit labore mattis sollicitudin sit eiusmod turpis. Nisi pulvinar vulputate scelerisque feugiat posuere a dui faucibus. Nam ultrices magnis netus sed faucibus aliqua interdum laoreet consectetur eleifend. Malesuada elit enim ullamcorper commodo eget pretium penatibus vitae vestibulum iaculis.</p>
+  <p>This code uses <a href="http://www.cvxpy.org/">CVXPY</a> as an optimization modeling tool</p>
+<h2 id="vehicle-model-linearization">Vehicle model linearization</h2>
+<p>Vehicle model is</p>
+<p>$ \dot{x} = vcos(\phi)$</p>
+<p>$$ \dot{y} = vsin((\phi)$$</p>
+<p>$$ \dot{v} = a$$</p>
+<p>$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$</p>
+<p>State and Input vector:</p>
+<p>$$ z = [x, y, v,\phi] $$</p>
+<p>$$u = [a, \delta]$$</p>
+<p>x: x-position; y:y-position; v:velocity; φ: yaw angle; a: accellation; δ: steering angle</p>
+<p>ODE is</p>
+<p>$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
+<p>where</p>
+<p>$$ A&rsquo; =
+\begin{bmatrix}
+\frac{\partial }{\partial x}vcos(\phi) &amp;
+\frac{\partial }{\partial y}vcos(\phi) &amp;
+\frac{\partial }{\partial v}vcos(\phi) &amp;
+\frac{\partial }{\partial \phi}vcos(\phi)\
+\frac{\partial }{\partial x}vsin(\phi) &amp;
+\frac{\partial }{\partial y}vsin(\phi) &amp;
+\frac{\partial }{\partial v}vsin(\phi) &amp;
+\frac{\partial }{\partial \phi}vsin(\phi)\
+\frac{\partial }{\partial x}a&amp;
+\frac{\partial }{\partial y}a&amp;
+\frac{\partial }{\partial v}a&amp;
+\frac{\partial }{\partial \phi}a\
+\frac{\partial }{\partial x}\frac{vtan(\delta)}{L}&amp;
+\frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;
+\frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;
+\frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L}
+\end{bmatrix}
+　=
+\begin{bmatrix}
+0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi})\
+0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \
+0 &amp; 0 &amp; 0 &amp; 0 \
+0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \
+\end{bmatrix}
+$$</p>
+<p>$$
+B&rsquo; =
+\begin{bmatrix}
+\frac{\partial }{\partial a}vcos(\phi) &amp;
+\frac{\partial }{\partial \delta}vcos(\phi)\
+\frac{\partial }{\partial a}vsin(\phi) &amp;
+\frac{\partial }{\partial \delta}vsin(\phi)\
+\frac{\partial }{\partial a}a &amp;
+\frac{\partial }{\partial \delta}a\
+\frac{\partial }{\partial a}\frac{vtan(\delta)}{L} &amp;
+\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L}\
+\end{bmatrix}
+　=
+\begin{bmatrix}
+0 &amp; 0 \
+0 &amp; 0 \
+1 &amp; 0 \
+0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})} \
+\end{bmatrix}
+$$</p>
+<p>You can get a discrete-time mode with Forward Euler Discretization with sampling time dt.</p>
+<p>$$z_{k+1} = z_k+f(z_k,u_k)dt$$</p>
+<p>Using first degree Tayer expantion around zbar and ubar
+$$z_{k+1} = z_k+(f(\bar{z},\bar{u})+A&rsquo;z_k+B&rsquo;u_k-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
+<p>$$z_{k+1} = (I + dtA&rsquo;)z_k+(dtB&rsquo;)u_k + (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
+<p>So,</p>
+<p>$$z_{k+1} = Az_k+Bu_k +C$$</p>
+<p>where</p>
+<p>$$A = (I + dt A&rsquo;) =
+\begin{bmatrix}
+1 &amp; 0 &amp; cos(\bar{\phi})dt &amp; -\bar{v}sin(\bar{\phi})dt\
+0 &amp; 1 &amp; sin(\bar{\phi})dt &amp; \bar{v}cos(\bar{\phi})dt \
+0 &amp; 0 &amp; 1 &amp; 0 \
+0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L}dt &amp; 1 \
+\end{bmatrix}$$</p>
+<p>$$B = dt B&rsquo; =
+\begin{bmatrix}
+0 &amp; 0 \
+0 &amp; 0 \
+dt &amp; 0 \
+0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \
+\end{bmatrix}$$</p>
+<p>$$ C = (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt\
+B&rsquo;\bar{u})dt\
+= dt(\begin{bmatrix}
+\bar{v}cos(\bar{\phi})\
+\bar{v}sin(\bar{\phi}) \
+\bar{a}\
+\frac{\bar{v}tan(\bar{\delta})}{L}\
+\end{bmatrix} -
+\begin{bmatrix}
+\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\
+\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi}\
+0\
+\frac{\bar{v}tan(\bar{\delta})}{L}\
+\end{bmatrix} -
+\begin{bmatrix} 0\ 0\ \bar{a}\
+\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\
+\end{bmatrix}) =
+\begin{bmatrix}
+\bar{v}sin(\bar{\phi})\bar{\phi}dt\
+-\bar{v}cos(\bar{\phi})\bar{\phi}dt\
+0\
+-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\
+\end{bmatrix}
+$$</p>
+<h2 id="mpc-approach">MPC approach:</h2>
+<p>The cost function:</p>
+<p>$$J = min\ Q_f(z_{T,ref}-z_{T})^2+Q\Sigma({z_{t,ref}-z_{t}})^2+R\Sigma{u_t}^2+R_d\Sigma({u_{t+1}-u_{t}})^2$$</p>
+<p>z_ref come from target path and speed.
+subject to:</p>
+<p>$$z_{t+1}=Az_t+Bu+C$$</p>
+<p>$$z_0 = z_{0,ob}$$</p>
+<p>$$v_{min} &lt; v_t &lt; v_{max}$$</p>
+<p>$$u_{min} &lt; u_t &lt; u_{max}$$</p>
+<p>$$|u_{t+1}-u_{t}| &lt; du_{max}$$</p>
+<p>$$|u_{t}| &lt; u_{max}$$</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="http://www.springer.com/us/book/9781461414322">Vehicle Dynamics and Control | Rajesh Rajamani | Springer</a></li>
+</ul>
 
 </div>
 </div>
