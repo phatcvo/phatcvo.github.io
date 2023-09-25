@@ -14,7 +14,7 @@ theme = "aafu"
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
         mainTheme = "dark"
-        showAttribute = true
+        showAttribute = false
         singlePage = false
 
     [params.favicons]
