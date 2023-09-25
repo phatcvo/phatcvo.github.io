@@ -1046,38 +1046,6 @@ blockquote {
   --tw-bg-opacity: 1;
   background-color: rgb(68 64 60 / var(--tw-bg-opacity));
 }
-.tags,
-  .categories {
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 0.25rem;
-  padding: 0.25rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-.tags:hover,
-  .categories:hover {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.tags {
-  border-width: 1px !important;
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(75 85 99 / var(--tw-border-opacity)) !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
-}
-.tags:hover {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity)) !important;
-}
-:is(.dark .tags) {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(243 244 246 / var(--tw-border-opacity)) !important;
-}
 .page-item.active > .page-link {
   pointer-events: none;
   --tw-bg-opacity: 1;
@@ -1085,14 +1053,8 @@ blockquote {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
-.static {
-  position: static !important;
-}
 .relative {
   position: relative !important;
-}
-.bottom-0 {
-  bottom: 0px !important;
 }
 .col-span-2 {
   grid-column: span 2 / span 2 !important;
@@ -1166,9 +1128,6 @@ blockquote {
 .grid {
   display: grid !important;
 }
-.contents {
-  display: contents !important;
-}
 .h-full {
   height: 100% !important;
 }
@@ -1184,14 +1143,8 @@ blockquote {
 .max-w-none {
   max-width: none !important;
 }
-.flex-none {
-  flex: none !important;
-}
 .grow {
   flex-grow: 1 !important;
-}
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 }
 .cursor-pointer {
   cursor: pointer !important;
@@ -1252,10 +1205,6 @@ blockquote {
   --tw-border-opacity: 1 !important;
   border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
 }
-.bg-black {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
-}
 .bg-blue-500 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity)) !important;
@@ -1267,13 +1216,6 @@ blockquote {
 .bg-gray-300 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity)) !important;
-}
-.bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-.bg-top {
-  background-position: top !important;
 }
 .p-2 {
   padding: 0.5rem !important;
