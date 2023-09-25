@@ -88,7 +88,7 @@ theme = "aafu"
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "Postdoc., Department of Electrical Engineering, Ulsan National Institute of Science & Technology (UNIST)"
+        description = "After years of research in mechatronics systems, my ultimate aspiration is to enhance the safety and efficiency of daily life through technological innovation. My focus revolves around leveraging advancements in control theory and motion planning, particularly in the domains of robotics and mobility systems, including autonomous vehicles."
 
     # Experience section
     [params.experience]
@@ -96,15 +96,30 @@ theme = "aafu"
         icon = "fas fa-briefcase"
 
         [[params.experience.list]]
-            position = "Job Title"
-            dates = "2019 - *Present*"
-            company = "Company Name"
-            details = "Printed from desktop. Sent [emails](#). Called people using telephone. Drank water from office cooler. Ate donuts on people's birthdays."
+            position = "Postdoctoral Researcher"
+            dates = "Agu. 2021 - *Present*"
+            company = "Ulsan National Institute of Science and Technology (UNIST)"
+            details = "Research in Motion Planning for Autonomous systems under Uncertain Environments by Predictive and Optimal control via Reinforcement Learning carrying out maximized safety and efficiency for motion planning by time-varying environments.Implements and compares existing planning algorithms on a variety of problems. Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods."
         [[params.experience.list]]
-            position = "Job Title"
-            dates = "2018 - 2019"
+            position = "Graduate Researcher"
+            dates = "Sept. 2017 – Jul. 2021"
             url = "#"
-            company = "Company Name"
+            company = "University of Ulsan (UOU)"
+        [[params.experience.list]]
+            position = "Lecturer"
+            dates = "Sept. 2015 – Jul. 2017"
+            url = "#"
+            company = "Thu Duc College of Technology (TDC)"
+        [[params.experience.list]]
+            position = "Graduate Researcher and Teaching Assistant"
+            dates = "Sept. 2014 – Jul. 2016"
+            url = "#"
+            company = "Ho Chi Minh City University of Technology and Education (UTE)"
+        [[params.experience.list]]
+            position = "Technical Engineer"
+            dates = "Sept. 2012 – Agu. 2015"
+            url = "#"
+            company = "Daewoo Royal System Vietnam Co., Ltd."
 
     # Education section
     [params.education]
@@ -126,8 +141,8 @@ theme = "aafu"
         [[params.education.list]]
             degree = "B.S. in Electrical and Electronic Engineering Technology"
             college = "Ho Chi Minh City University of Technology and Education"
-            dates = "2009 - 20013"
-            thesis_title = "2D Lidar-Based SLAM Algorithm for Reception Robot."
+            dates = "2009 - 2013"
+            thesis_title = "Research of a Network System using XBEE communication and its applications."
             thesis_url = "https://docs.google.com/presentation/d/1I8YbRjhpZmD74Za1VniCQu2MkVlxSDewq7OfwQ2ha94/edit?usp=sharing"
 
     # Publication section
@@ -137,18 +152,18 @@ theme = "aafu"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
-        types = ["Journal Articles", "Proceedings"]
+        types = ["Journal Articles", "Conferences", "Patents", "Ongoing"]
 
         [[params.publication.list]]
-            title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            authors = "F Last, F Second, P secondary"
+            title = "Robust-Adaptive Control Algorithm for Safe Autonomous Driving via Beyond Linear Quadratic Costs."
+            authors = "Vo CP, Jeon Jh"
             date = "2018"
             journal = "Journal of Field 52 (16), 9033-9044"
             url = "#"
             type = "Journal Articles"
 
         [[params.publication.list]]
-            title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            title = "Deep Reinforcement Learning-based Ride-sharing Autonomous Mobility-on-Demand Systems."
             authors = "F Last, F Second, P secondary"
             date = "2018"
             journal = "Journal of Field 52 (16), 9033-9044"
