@@ -152,7 +152,7 @@ theme = "aafu"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
-        types = ["Journal Articles", "Conferences", "Patents", "Ongoing"]
+        types = ["Journal Articles (selected Control field)", "Conferences", "Patents", "Ongoing"]
 
         [[params.publication.list]]
             title = "An Integrated Motion Planning Scheme for Safe Autonomous Vehicles in Highly Dynamic Environments"
@@ -160,7 +160,7 @@ theme = "aafu"
             date = "2023"
             journal = "Electronics (12.7)"
             url = "https://www.mdpi.com/2079-9292/12/7/1566"
-            type = "Journal Articles"
+            type = "Journal Articles (selected Control field)"
 
         [[params.publication.list]]
             title = "Robust Adaptive Path Tracking Control Scheme for Safe Autonomous Driving via Predicted Interval Algorithm"
@@ -168,7 +168,7 @@ theme = "aafu"
             date = "2022"
             journal = "IEEE Access (10), 124333–124344"
             url = "10.1109/ACCESS.2022.3224722"
-            type = "Journal Articles"
+            type = "Journal Articles (selected Control field)"
 
         [[params.publication.list]]
             title = "An Adaptive Finite-Time Force-Sensorless Tracking Control Scheme for Pneumatic Muscle Actuators by an Optimal Force Estimation"
@@ -176,7 +176,7 @@ theme = "aafu"
             date = "2021"
             journal = "IEEE Robotics and Automation Letters (7), 1542-1549"
             url = "https://ieeexplore.ieee.org/document/9655509"
-            type = "Journal Articles"
+            type = "Journal Articles (selected Control field)"
 
         [[params.publication.list]]
             title = "Active control strategies for system enhancement and load mitigation of floating offshore wind turbines: A Review"
@@ -224,7 +224,7 @@ theme = "aafu"
             date = "2021"
             journal = "IEEE Access"
             url = "#"
-            type = "Journal Articles"
+            type = "Journal Articles (selected Control field)"
 
         [[params.publication.list]]
             title = "Robust fault-tolerant control of an electro-hydraulic actuator with a novel nonlinear unknown input observer"
@@ -232,7 +232,7 @@ theme = "aafu"
             date = "2021"
             journal = "IEEE Access"
             url = "#"
-            type = "Journal Articles"
+            type = "Journal Articles (selected Control field)"
 
         [[params.publication.list]]
             title = "Enhancing the Output Performance of Fluid based Triboelectric Nanogenerator by Using PVDF-HFP/Ionic Liquid Nanoporous Membrane"
@@ -268,7 +268,7 @@ theme = "aafu"
             title = "A Novel Force Sensorless Reflecting Control for Bilateral Haptic Teleoperation System"
             authors = "C. P. Vo, X. D. To, and K. K. Ahn"
             date = "2020"
-            journal = "IEEE Access"
+            journal = "IEEE Access (selected Control field)"
             url = "#"
             type = "Journal Articles"
         [[params.publication.list]]
@@ -277,7 +277,7 @@ theme = "aafu"
             date = "2019"
             journal = "IEEE Access"
             url = "#"
-            type = "Journal Articles"
+            type = "Journal Articles (selected Control field)"
         [[params.publication.list]]
             title = "Self-powered Flexible PDMS Channel Assisted Discrete Liquid Column Motion Based Triboelectric Nanogenerator (DLC-TENG) as Mechanical Transducer"
             authors = "M. Shahriar, C. P. Vo, and K. K. Ahn"
