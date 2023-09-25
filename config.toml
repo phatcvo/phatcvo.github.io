@@ -9,7 +9,7 @@ theme = "aafu"
     title = "Personal site"
     author = "Phat C. Vo"
     description = "Website title"
-    #copyright = "short copyright message"
+    copyright = "short copyright message"
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
@@ -20,11 +20,11 @@ theme = "aafu"
     [params.favicons]
         use = true
         metas = '''
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#252627">
+        #<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        #<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        #<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        #<link rel="manifest" href="site.webmanifest">
+        #<link rel="mask-icon" href="safari-pinned-tab.svg" color="#252627">
         <link rel="shortcut icon" href="favicon.ico">
         '''
 
@@ -112,21 +112,23 @@ theme = "aafu"
         icon = "fas fa-graduation-cap"
 
         [[params.education.list]]
-            degree = "Ph.D. in Subject"
-            college = "University of State-City"
-            dates = "2013 - 2018"
-            thesis_title = "Effect of humans on other humans: a study of human behavior."
-            thesis_url = "#"
+            degree = "Ph.D. in Mechanical and Automotive Engineering"
+            college = "University of Ulsan"
+            dates = "2017 - 2021"
+            thesis_title = "A Sensorless Reflecting Control for Bilateral Haptic Teleoperation System based on Pneumatic Artificial Muscle Actuators."
+            thesis_url = "https://docs.google.com/presentation/d/1nLnLlhYPKVGLjesrk4KOT9ENs8s9XkEa3xl5JVZ8FuU/edit?usp=sharing"
         [[params.education.list]]
-            degree = "M.S. in Subject"
-            college = "University of State-City"
-            dates = "2013 - 2018"
-            thesis_title = "Effect of humans on other humans: a study of human behavior."
-            thesis_url = "#"
+            degree = "M.S. in Mechatronics Engineering"
+            college = "Ho Chi Minh City University of Technology and Education"
+            dates = "2014 - 2016"
+            thesis_title = "2D Lidar-Based SLAM Algorithm for Reception Robot."
+            thesis_url = "https://docs.google.com/presentation/d/1wyqDIYaALouqbnQDtUPNyZ__W0eyas9pKhxigUzK4HY/edit?usp=sharing"
         [[params.education.list]]
-            degree = "B.S. in Subject"
-            college = "University of State-City"
-            dates = "2004 - 2009"
+            degree = "B.S. in Electrical and Electronic Engineering Technology"
+            college = "Ho Chi Minh City University of Technology and Education"
+            dates = "2009 - 20013"
+            thesis_title = "2D Lidar-Based SLAM Algorithm for Reception Robot."
+            thesis_url = "https://docs.google.com/presentation/d/1I8YbRjhpZmD74Za1VniCQu2MkVlxSDewq7OfwQ2ha94/edit?usp=sharing"
 
     # Publication section
     [params.publication]
