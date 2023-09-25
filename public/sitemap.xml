@@ -2,10 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://phatcvo.github.io/</loc>
+    <loc>https://phatcv.vercel.app/blog/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/categories/</loc>
+    <loc>https://phatcv.vercel.app/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/tags/</loc>
+    <loc>https://phatcv.vercel.app/categories/aliquam-auctor/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/aliquam-incididunt/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/categories/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/categories/do/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/notes/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/velit/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/blog/post_1/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/blog/post_2/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/eu-fames/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/categories/facilisi-odio/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/categories/id/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/pharetra/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/categories/diam-aliqua/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/categories/fringilla/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/laoreet/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/blog/post_3/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcv.vercel.app/tags/mollis-urna/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
   </url>
 </urlset>
