@@ -33,7 +33,7 @@ theme = "aafu"
         name = "Phat C. Vo"
         tagline = "Researcher"
         location = "Ulsan, KR"
-        photo = "profile.jpg"
+        photo = "profile1.jpg"
 
     # Section for links to social websites
     [params.social]
