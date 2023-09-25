@@ -53,11 +53,11 @@ theme = "aafu"
             title = "GitHub"
         [[params.social.list]]
             icon = "fab fa-twitter"
-            url = "https://orcid.org/0000-0001-6703-5759"
+            url = "https://twitter.com/vophat0607"
             title = "Twitter"
         [[params.social.list]]
             icon = "fab fa-orcid"
-            url = "#"
+            url = "https://orcid.org/0000-0001-6703-5759"
             title = "Orcid"
         [[params.social.list]]
             icon = "ai ai-google-scholar"
@@ -103,22 +103,22 @@ theme = "aafu"
         [[params.experience.list]]
             position = "Graduate Researcher"
             dates = "Sept. 2017 – Jul. 2021"
-            url = "#"
+            details = "Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems. Enhanced the precision of control trajectory and force tracking in robotics by introducing a novel time‑varying adaptive optimal estimator. Furthermore, I prioritized transparency in human‑robot interaction for safe collaborative tasks during teleoperation, employing optimal control strategies to ensure seamless coordination. Discovered an efficient policy generation approach for human‑robot collaboration tasks using Improved Reinforcement Learning. Additionally, developed renewable and sustainable energy system control projects (Fluid‑based Triboelectric Nanogenerator; Floating Offshore Wind Turbines) to optimize as well as maximize power captured."
             company = "University of Ulsan (UOU)"
         [[params.experience.list]]
             position = "Lecturer"
             dates = "Sept. 2015 – Jul. 2017"
-            url = "#"
+            details = "Lecture courses: Microprocessor Programming, Basic C/C++ Programming, Circuit Design, Power Electronics, Advanced control theory"
             company = "Thu Duc College of Technology (TDC)"
         [[params.experience.list]]
             position = "Graduate Researcher and Teaching Assistant"
             dates = "Sept. 2014 – Jul. 2016"
-            url = "#"
+            details = "Designed and developed: Tracking and SLAM Algorithm of Reception Robot"
             company = "Ho Chi Minh City University of Technology and Education (UTE)"
         [[params.experience.list]]
             position = "Technical Engineer"
-            dates = "Sept. 2012 – Agu. 2015"
-            url = "#"
+            dates = "Sept. 2012 – Agu. 2014"
+            details = "Took primary responsibility for the electrical tasks of the projects (built up control box and main control program), deployed all over Vietnam, such as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd."
             company = "Daewoo Royal System Vietnam Co., Ltd."
 
     # Education section
@@ -129,19 +129,19 @@ theme = "aafu"
         [[params.education.list]]
             degree = "Ph.D. in Mechanical and Automotive Engineering"
             college = "University of Ulsan"
-            dates = "2017 - 2021"
+            dates = "Sept. 2017 - Feb. 2021"
             thesis_title = "A Sensorless Reflecting Control for Bilateral Haptic Teleoperation System based on Pneumatic Artificial Muscle Actuators."
             thesis_url = "https://docs.google.com/presentation/d/1nLnLlhYPKVGLjesrk4KOT9ENs8s9XkEa3xl5JVZ8FuU/edit?usp=sharing"
         [[params.education.list]]
             degree = "M.S. in Mechatronics Engineering"
             college = "Ho Chi Minh City University of Technology and Education"
-            dates = "2014 - 2016"
+            dates = "Sept. 2014 - Jun. 2016"
             thesis_title = "2D Lidar-Based SLAM Algorithm for Reception Robot."
             thesis_url = "https://docs.google.com/presentation/d/1wyqDIYaALouqbnQDtUPNyZ__W0eyas9pKhxigUzK4HY/edit?usp=sharing"
         [[params.education.list]]
             degree = "B.S. in Electrical and Electronic Engineering Technology"
             college = "Ho Chi Minh City University of Technology and Education"
-            dates = "2009 - 2013"
+            dates = "Sept. 2009 - Jul. 2013"
             thesis_title = "Research of a Network System using XBEE communication and its applications."
             thesis_url = "https://docs.google.com/presentation/d/1I8YbRjhpZmD74Za1VniCQu2MkVlxSDewq7OfwQ2ha94/edit?usp=sharing"
 
@@ -155,28 +155,227 @@ theme = "aafu"
         types = ["Journal Articles", "Conferences", "Patents", "Ongoing"]
 
         [[params.publication.list]]
-            title = "Robust-Adaptive Control Algorithm for Safe Autonomous Driving via Beyond Linear Quadratic Costs."
-            authors = "Vo CP, Jeon Jh"
-            date = "2018"
-            journal = "Journal of Field 52 (16), 9033-9044"
+            title = "An Integrated Motion Planning Scheme for Safe Autonomous Vehicles in Highly Dynamic Environments"
+            authors = "C. P. Vo and J. H. Jeon"
+            date = "2023"
+            journal = "Electronics (12.7)"
+            url = "https://www.mdpi.com/2079-9292/12/7/1566"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "Robust Adaptive Path Tracking Control Scheme for Safe Autonomous Driving via Predicted Interval Algorithm"
+            authors = "C. P. Vo, J. Lee and J. H. Jeon"
+            date = "2022"
+            journal = "IEEE Access (10), 124333–124344"
+            url = "10.1109/ACCESS.2022.3224722"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "An Adaptive Finite-Time Force-Sensorless Tracking Control Scheme for Pneumatic Muscle Actuators by an Optimal Force Estimation"
+            authors = "Vo CP, Ahn KK"
+            date = "2021"
+            journal = "IEEE Robotics and Automation Letters (7), 1542-1549"
+            url = "https://ieeexplore.ieee.org/document/9655509"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "Active control strategies for system enhancement and load mitigation of floating offshore wind turbines: A Review"
+            authors = "H. V. A. Truong, T. D. Dang, C. P. Vo and K. K. Ahn"
+            date = "2022"
+            journal = "Renewable and Sustainable Energy Reviews (170), 112958"
+            url = "https://doi.org/10.1016/j.rser.2022.112958"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "A rotational switched-mode water-based triboelectric nanogenerator for mechanical energy harvesting and vehicle monitoring"
+            authors = "C. D. Le, T. H. Nguyen, D. L. Vu, C. P. Vo and K. K. Ahn"
+            date = "2022"
+            journal = "Materials Today Sustainability"
             url = "#"
             type = "Journal Articles"
 
         [[params.publication.list]]
-            title = "Deep Reinforcement Learning-based Ride-sharing Autonomous Mobility-on-Demand Systems."
-            authors = "F Last, F Second, P secondary"
-            date = "2018"
-            journal = "Journal of Field 52 (16), 9033-9044"
+            title = "Direct-current fluid-based triboelectric nanogenerator for harvesting hydrokinetic energy from water flowing through pipes"
+            authors = "Q. T. Nguyen, C. P. Vo and K. K. Ahn"
+            date = "2022"
+            journal = "Applied Sciences"
+            url = "#"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "Water Electrification based Triboelectric Nanogenerator integrated Harmonic Oscillator for Waste Mechanical Energy Harvesting"
+            authors = "C. D. Le*, C. P. Vo*, D. L. Vu and K. K. Ahn"
+            date = "2021"
+            journal = "Energy Conversion and Management"
+            url = "#"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "Surface polarity tuning through epitaxial growth on polyvinylidene fluoride membranes for enhanced performance of liquid-solid triboelectric nanogenerator"
+            authors = "D. L. Vu, C. D. Le, C. P. Vo and K. K. Ahn"
+            date = "2021"
+            journal = "Composites Part B: Engineering"
+            url = "#"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "Actuator Fault-Tolerant Control for an Electro-Hydraulic Actuator Using Time Delay Estimation and Feedback Linearization"
+            authors = "V. D. Phan, C. P. Vo, H. V. Dao and K. K. Ahn"
+            date = "2021"
+            journal = "IEEE Access"
+            url = "#"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "Robust fault-tolerant control of an electro-hydraulic actuator with a novel nonlinear unknown input observer"
+            authors = "V. D. Phan, C. P. Vo, H. V. Dao and K. K. Ahn"
+            date = "2021"
+            journal = "IEEE Access"
+            url = "#"
+            type = "Journal Articles"
+
+        [[params.publication.list]]
+            title = "Enhancing the Output Performance of Fluid based Triboelectric Nanogenerator by Using PVDF-HFP/Ionic Liquid Nanoporous Membrane"
+            authors = "D. L. Vu, C. P. Vo, C. D. Le and K. K. Ahn"
+            date = "2021"
+            journal = "International Journal of Energy Research"
+            url = "#"
+            type = "Journal Articles"
+        [[params.publication.list]]
+            title = "A Compact Adjustable Stiffness Rotary Actuator based on Linear Springs: Working Principle, Design, and Experimental Verification"
+            authors = "C. P. Vo, V. D. Phan, T. H. Nguyen and K. K. Ahn"
+            date = "2020"
+            journal = "Actuators"
+            url = "#"
+            type = "Journal Articles"
+        [[params.publication.list]]
+            title = "Liquid-Solid Contact Electrification Based on Discontinuous-Conduction Triboelectric Nanogenerator Induced by Radially Symmetrical Structure"
+            authors = "C. D. Le*, C. P. Vo*, and K. K. Ahn"
+            date = "2020"
+            journal = "Nano Energy"
+            url = "#"
+            type = "Journal Articles"
+        
+        [[params.publication.list]]
+            title = "A New Pathway for Liquid‐Solid Triboelectric Nanogenerator Using Streaming Flow by a Novel Direct Charge Transfer"
+            authors = "G. H. Nam, J. H. Ahn, G. H. Lee, C. P. Vo and K. K. Ahn"
+            date = "2020"
+            journal = "Advanced Energy and Sustainability Research"
+            url = "#"
+            type = "Journal Articles"
+        
+        [[params.publication.list]]
+            title = "A Novel Force Sensorless Reflecting Control for Bilateral Haptic Teleoperation System"
+            authors = "C. P. Vo, X. D. To, and K. K. Ahn"
+            date = "2020"
+            journal = "IEEE Access"
+            url = "#"
+            type = "Journal Articles"
+        [[params.publication.list]]
+            title = "A Novel Adaptive Gain Integral Terminal Sliding Mode Control scheme of a Pneumatic Artificial Muscle system with Time-delay Estimation"
+            authors = "C. P. Vo, X. D. To, and K. K. Ahn"
+            date = "2019"
+            journal = "IEEE Access"
+            url = "#"
+            type = "Journal Articles"
+        [[params.publication.list]]
+            title = "Self-powered Flexible PDMS Channel Assisted Discrete Liquid Column Motion Based Triboelectric Nanogenerator (DLC-TENG) as Mechanical Transducer"
+            authors = "M. Shahriar, C. P. Vo, and K. K. Ahn"
+            date = "2019"
+            journal = "International Journal of Precision Engineering and Manufacturing-Green Technology"
+            url = "#"
+            type = "Journal Articles"
+        [[params.publication.list]]
+            title = "Mechanically Active Transducing Element Based on Solid–Liquid Triboelectric Nanogenerator for Self-Powered Sensing"
+            authors = "C. P. Vo, M. Shahriar, C. D. Le, and K. K. Ahn"
+            date = "2019"
+            journal = "International Journal of Precision Engineering and Manufacturing-Green Technology"
             url = "#"
             type = "Journal Articles"
 		
         [[params.publication.list]]
-            title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            authors = "F Last, F Second, P secondary"
-            date = "2018"
-            journal = "Journal of Field 52 (16), 9033-9044"
+            title = "Robust-Adaptive Control Algorithm for Safe Autonomous Driving via beyond LQ"
+            authors = "C. P. Vo and J. H. Jeon"
+            date = "2023"
+            journal = ""
             url = "#"
-            type = "Proceedings"
+            type = "Ongoing"
+        [[params.publication.list]]
+            title = "Finite-Time Robust Trajectory Tracking Control of Perturbed AGVs Using a Novel Self-Turning Nonsingular Fast Terminal Sliding Manifold"
+            authors = "C. P. Vo, Q. H. Hoang and J. H. Jeon"
+            date = "2023"
+            journal = ""
+            url = "#"
+            type = "Ongoing"
+        [[params.publication.list]]
+            title = "Deep Reinforcement Learning-based Ride-sharing Autonomous Mobility-on-Demand Systems"
+            authors = "J. Lee, S. Kim, C. P. Vo and J. H. Jeon"
+            date = "2023"
+            journal = ""
+            url = "#"
+            type = "Ongoing"
+        [[params.publication.list]]
+            title = "Adaptive neural tracking control for flexible joint robot including actuator dynamics with disturbance observer"
+            authors = "V. D. Phan, C. P. Vo and K. K. Ahn"
+            date = "2023"
+            journal = ""
+            url = "#"
+            type = "Ongoing"
+
+        [[params.publication.list]]
+            title = "Variable Impedance Control for a Robotic Leg with External Uncertainties"
+            authors = "C. P. Vo, X. D. To, and K. K. Ahn"
+            date = "2019"
+            journal = "International Conference on Mechatronics Technology (ICMT), SALERNO, Italy"
+            url = "#"
+            type = "Conferences"
+
+        [[params.publication.list]]
+            title = "The Predictive Control for Networked Control System with Random Delays and Packet Dropouts"
+            authors = "C. P. Vo, D. T. Tran and K. K. Ahn"
+            date = "2018"
+            journal = "International Conference on Mechatronics Technology (ICMT), Jeju, South Korea"
+            url = "#"
+            type = "Conferences"
+        
+        [[params.publication.list]]
+            title = "Robust network predictive control of DC motor with delay and drop out"
+            authors = "C. P. Vo and K. K. Ahn"
+            date = "2018"
+            journal = "International Conference on Mechatronics Technology (ICMT), Jeju, South Korea"
+            url = "#"
+            type = "Conferences"
+
+        [[params.publication.list]]
+            title = "High-precision Position Control of Soft Actuator Systems"
+            authors = "C. P. Vo and K. K. Ahn"
+            date = "2018"
+            journal = "International Workshop on Active Materials and Soft Mechatronics (AMSM2018), KAIST, Daejeon, South Korea"
+            url = "#"
+            type = "Conferences"
+
+        [[params.publication.list]]
+            title = "Robot Leg"
+            authors = "K.R. Patent No. 10-2020-0182335"
+            date = "2022"
+            journal = "Korean Intellectual Property Office"
+            url = "#"
+            type = "Patents"
+        [[params.publication.list]]
+            title = "Human-robot cooperative control apparatus and method for pneumatic artificial muscle module based on reinforcement learning"
+            authors = "K.R. Patent No. 10-2020-0182336"
+            date = "2022"
+            journal = "Korean Intellectual Property Office"
+            url = "#"
+            type = "Patents"
+        [[params.publication.list]]
+            title = "Adjustable Stiffness Actuator"
+            authors = "K.R. Patent No. 10-2197484"
+            date = "2020"
+            journal = "Korean Intellectual Property Office"
+            url = "#"
+            type = "Patents"
+
 
     # Project section
     [params.project]
@@ -202,19 +401,29 @@ theme = "aafu"
 
     # Skill section
     [params.skill]
-        title = "Skills"
+        title = "Technical Skills"
         panelId = "skill-panel"
         icon = "fas fa-cogs"
 
-        [[params.skill.list]]
-            skill = "Skill 1, Skill 2"
-            skillrating = 90
-        [[params.skill.list]]
-            skill = "Skill 3"
-            skillrating = 80
-        [[params.skill.list]]
-            skill = "Skill 4"
-            skillrating = 50
+        #[[params.skill.list]]
+        #    skill = "Skill 1, Skill 2"
+        #    skillrating = 90
+        #[[params.skill.list]]
+        #    skill = "Skill 3"
+        #    skillrating = 80
+        #[[params.skill.list]]
+        #    skill = "Skill 4"
+        #    skillrating = 50
+        [[params.project.list]]
+            title = "Programming Language"
+            description = "Python, C/C++, MATLAB, Simulink, etc"
+        [[params.project.list]]
+            title = "Frameworks/Libraries"
+            description = "Gym, Pygame, CVXOPT, Ipopt, etc"
+        [[params.project.list]]
+            title = "Simulators/DevTools"
+            description = "MORAI, Carla, Gazebo, ROS, VS Code, Pycharm, Git, Github, etc"
+        
 
     # Hobby section
     [params.hobby]
@@ -222,8 +431,10 @@ theme = "aafu"
         icon = "fas fa-gamepad"
 
         [[params.hobby.list]]
-            hobby = "Cooking"
+            hobby = "Video Making"
         [[params.hobby.list]]
-            hobby = "Hiking"
+            hobby = "Sport"
         [[params.hobby.list]]
-            hobby = "Baking"
+            hobby = "Technical toys"
+        [[params.hobby.list]]
+            hobby = "Traveling"
