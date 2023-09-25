@@ -9,7 +9,7 @@ theme = "aafu"
     title = "Personal site"
     author = "Phat C. Vo"
     description = "Website title"
-    copyright = "This is demo, update Sept. 2023"
+    copyright = "&copy; 2023 &middot phatcv"
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
