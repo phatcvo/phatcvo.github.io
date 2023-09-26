@@ -157,7 +157,7 @@ theme = "aafu"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
-        types = ["Journal Articles (selected Control field)", "Conferences", "Patents"]
+        types = ["Journal Articles (selected Control field)", "Conferences"]
 
         [[params.publication.list]]
             title = "Robust-Adaptive Motion Planning Algorithm for Safe Autonomous Driving via Tree-based planning"
@@ -352,7 +352,7 @@ theme = "aafu"
             date = "2018"
             journal = "International Conference on Mechatronics Technology (ICMT), Jeju, South Korea"
             url = "#"
-            type = "Conferences"
+            type = "Conferences1"
 
         [[params.publication.list]]
             title = "High-precision Position Control of Soft Actuator Systems"
@@ -360,7 +360,7 @@ theme = "aafu"
             date = "2018"
             journal = "International Workshop on Active Materials and Soft Mechatronics (AMSM2018), KAIST, Daejeon, South Korea"
             url = "#"
-            type = "Conferences"
+            type = "Conferences1"
 
         [[params.publication.list]]
             title = "Robot Leg"
