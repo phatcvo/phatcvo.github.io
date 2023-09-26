@@ -28,14 +28,5 @@ where
 $$ A&amp;rsquo; = \begin{bmatrix} \frac{\partial }{\partial x}vcos(\phi) &amp;amp; \frac{\partial }{\partial y}vcos(\phi) &amp;amp; \frac{\partial }{\partial v}vcos(\phi) &amp;amp; \frac{\partial }{\partial \phi}vcos(\phi)\ \frac{\partial }{\partial x}vsin(\phi) &amp;amp; \frac{\partial }{\partial y}vsin(\phi) &amp;amp; \frac{\partial }{\partial v}vsin(\phi) &amp;amp; \frac{\partial }{\partial \phi}vsin(\phi)\ \frac{\partial }{\partial x}a&amp;amp; \frac{\partial }{\partial y}a&amp;amp; \frac{\partial }{\partial v}a&amp;amp; \frac{\partial }{\partial \phi}a\ \frac{\partial }{\partial x}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L} \end{bmatrix} = \begin{bmatrix} 0 &amp;amp; 0 &amp;amp; cos(\bar{\phi}) &amp;amp; -\bar{v}sin(\bar{\phi})\ 0 &amp;amp; 0 &amp;amp; sin(\bar{\phi}) &amp;amp; \bar{v}cos(\bar{\phi}) \ 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \ 0 &amp;amp; 0 &amp;amp;\frac{tan(\bar{\delta})}{L} &amp;amp; 0 \ \end{bmatrix} $$</description>
     </item>
     
-    <item>
-      <title>luctus enim ultricies auctor pulvinar nam etiam</title>
-      <link>https://phatcv.vercel.app/blog/post_3/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://phatcv.vercel.app/blog/post_3/</guid>
-      <description>donec lacinia eleifend sem a Pulvinar tempor ultrices amet praesent aliquet non magnis euismod elit venenatis. Aliqua consequat tristique erat nulla sit risus aliqua posuere. Potenti natoque augue proin accimsan risus scelerisque id integer curabitur mattis amet quisque. Aliquet porta sit sapien natoque sed fringilla, madssa suspendisse vivamus placerat sociis condimentum ridiculus. Natoque egestas non lectus pellentesque nunc mattis eu ridiculus pretium maecenas ligula. Gravida facilisis sem mollis sagittis aliquet ornare bibendum, leo nec morbi tortor diam maecenas tempor.</description>
-    </item>
-    
   </channel>
 </rss>
