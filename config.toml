@@ -334,8 +334,8 @@ theme = "aafu"
             title = "Variable Impedance Control for a Robotic Leg with External Uncertainties"
             authors = "C. P. Vo, X. D. To, and K. K. Ahn"
             date = "2019"
-            journal = "International Conference on Mechatronics Technology (ICMT), SALERNO, Italy"
-            url = "#"
+            journal = "23rd International Conference on Mechatronics Technology (ICMT), Salerno, Italy"
+            url = "https://ieeexplore.ieee.org/abstract/document/8932102"
             type = "Conferences"
 
         [[params.publication.list]]
@@ -391,7 +391,7 @@ theme = "aafu"
         icon = "fas fa-project-diagram"
 
         [[params.project.list]]
-            title = "ERP42"
+            title = "ERP"
             url = "#"
             description = "Educational Robot Platform (ERP) developed by the WeGo Robotics company and build in MORAI for autonomous driving."
         [[params.project.list]]
@@ -424,10 +424,10 @@ theme = "aafu"
         icon = "fas fa-gamepad"
 
         [[params.hobby.list]]
-            hobby = "Video Making"
+            hobby = "Sport: Since I was very young, I have been playing soccer. It feels very exciting to score a goal."
         [[params.hobby.list]]
-            hobby = "Sport"
+            hobby = "Video Making: I love making‑video and always try to capture everything that happens around me."
         [[params.hobby.list]]
-            hobby = "Technical toys"
+            hobby = "Technical toys: Creating controllable things is fascinating."
         [[params.hobby.list]]
-            hobby = "Traveling"
+            hobby = "Traveling: I like traveling. I explore beautiful places and experience new things."

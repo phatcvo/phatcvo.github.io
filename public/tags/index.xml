@@ -8,15 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcv.vercel.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Control</title>
-      <link>https://phatcv.vercel.app/tags/control/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://phatcv.vercel.app/tags/control/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>MPC</title>
       <link>https://phatcv.vercel.app/tags/mpc/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
@@ -35,20 +26,29 @@
     </item>
     
     <item>
-      <title>eu fames</title>
-      <link>https://phatcv.vercel.app/tags/eu-fames/</link>
-      <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
+      <title>Optimal</title>
+      <link>https://phatcv.vercel.app/tags/optimal/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcv.vercel.app/tags/eu-fames/</guid>
+      <guid>https://phatcv.vercel.app/tags/optimal/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>pharetra</title>
-      <link>https://phatcv.vercel.app/tags/pharetra/</link>
-      <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
+      <title>RL</title>
+      <link>https://phatcv.vercel.app/tags/rl/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcv.vercel.app/tags/pharetra/</guid>
+      <guid>https://phatcv.vercel.app/tags/rl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Safe</title>
+      <link>https://phatcv.vercel.app/tags/safe/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://phatcv.vercel.app/tags/safe/</guid>
       <description></description>
     </item>
     

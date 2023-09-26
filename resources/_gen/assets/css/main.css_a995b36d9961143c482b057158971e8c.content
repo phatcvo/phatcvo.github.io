@@ -1177,6 +1177,9 @@ blockquote {
 .grid {
   display: grid !important;
 }
+.contents {
+  display: contents !important;
+}
 .h-full {
   height: 100% !important;
 }

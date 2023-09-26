@@ -1,8 +1,8 @@
 ---
 title: "Model-Predictive Control"
 date: 2022-09-23
-tags: ["Control", "notes", "MPC"]
-categories: ["MPC", "Control"]
+tags: ["notes", "MPC"]
+categories: ["Control theory"]
 description: "The MPC controller controls vehicle speed and steering based on linearized model."
 draft: false
 math: true

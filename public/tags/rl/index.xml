@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RL on </title>
+    <link>https://phatcv.vercel.app/tags/rl/</link>
+    <description>Recent content in RL on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcv.vercel.app/tags/rl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Safe-Optimal Control for Motional Planning based on Reinforcement Learning: Survey</title>
+      <link>https://phatcv.vercel.app/blog/post_2/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://phatcv.vercel.app/blog/post_2/</guid>
+      <description>Table of contents Optimal Control Dynamic Programming Linear Programming Tree-Based Planning Control Theory Model Predictive Control Safe Control Robust Control Risk-Averse Control Value-Constrained Control State-Constrained Control and Stability Uncertain Dynamical Systems Game Theory Sequential Learning Multi-Armed Bandit Best Arm Identification Black-box Optimization Reinforcement Learning Theory Value-based Policy-based Policy Gradient Actor-critic Derivative-free Model-based Exploration Hierarchy and Temporal Abstraction Partial Observability Transfer Multi-agent Representation Learning Offline Learning from Demonstrations Imitation Learning Applications to Autonomous Driving Inverse Reinforcement Learning Applications to Autonomous Driving Motion Planning Search Sampling Optimization Reactive Architecture and applications Optimal Control: Dynamic Programming (book) Dynamic Programming, Bellman R.</description>
+    </item>
+    
+  </channel>
+</rss>
