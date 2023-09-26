@@ -53,7 +53,7 @@ draft: false
   * [Reactive](#reactive)
   * [Architecture and applications](#architecture-and-applications)
 
-![RL Diagram](https://raw.githubusercontent.com/phatcvo/phatcv/master/content/blog/RL.svg)
+![RL Diagram](https://raw.githubusercontent.com/phatcvo/phatcv/master/content/blog/post_2/RL.svg)
 
 # Optimal Control:
 
