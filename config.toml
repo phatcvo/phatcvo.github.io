@@ -99,25 +99,30 @@ theme = "aafu"
             position = "Postdoctoral Researcher"
             dates = "Agu. 2021 - *Present*"
             company = "Ulsan National Institute of Science and Technology (UNIST)"
-            details = "Research in Motion Planning for Autonomous systems under Uncertain Environments by Predictive and Optimal control via Reinforcement Learning carrying out maximized safety and efficiency for motion planning by time-varying environments.Implements and compares existing planning algorithms on a variety of problems. Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods."
+            url = "#"
+            details = "Research in Motion Planning for Autonomous systems by Predictive Optimal control, Robust-Adaptive MPC and Reinforcement Learning carrying out maximized safety and efficiency under uncertain and time-varying environments. Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods."
         [[params.experience.list]]
             position = "Graduate Researcher"
             dates = "Sept. 2017 – Jul. 2021"
-            details = "Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems. Enhanced the precision of control trajectory and force tracking in robotics by introducing a novel time‑varying adaptive optimal estimator. Furthermore, I prioritized transparency in human‑robot interaction for safe collaborative tasks during teleoperation, employing optimal control strategies to ensure seamless coordination. Discovered an efficient policy generation approach for human‑robot collaboration tasks using Improved Reinforcement Learning. Additionally, developed renewable and sustainable energy system control projects (Fluid‑based Triboelectric Nanogenerator; Floating Offshore Wind Turbines) to optimize as well as maximize power captured."
+            url = "#"
+            details = "Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems. Enhanced the precision of control trajectory and force tracking in robotics by introducing a novel time‑varying adaptive optimal estimator. Furthermore, I prioritized transparency in human‑robot interaction for safe collaborative tasks during teleoperation based on optimal control strategies and Improved Reinforcement Learning. Additionally, developed renewable and sustainable energy system control projects (Fluid‑based Triboelectric Nanogenerator; Floating Offshore Wind Turbines) to optimize as well as maximize power captured."
             company = "University of Ulsan (UOU)"
         [[params.experience.list]]
             position = "Lecturer"
             dates = "Sept. 2015 – Jul. 2017"
+            url = "#"
             details = "Lecture courses: Microprocessor Programming, Basic C/C++ Programming, Circuit Design, Power Electronics, Advanced control theory"
             company = "Thu Duc College of Technology (TDC)"
         [[params.experience.list]]
             position = "Graduate Researcher and Teaching Assistant"
             dates = "Sept. 2014 – Jul. 2016"
-            details = "Designed and developed: Tracking and SLAM Algorithm of Reception Robot"
+            url = "#"
+            details = "Designed and developed: Path-Tracking Control and SLAM Algorithm of Reception Robot"
             company = "Ho Chi Minh City University of Technology and Education (UTE)"
         [[params.experience.list]]
             position = "Technical Engineer"
             dates = "Sept. 2012 – Agu. 2014"
+            url = "#"
             details = "Took primary responsibility for the electrical tasks of the projects (built up control box and main control program), deployed all over Vietnam, such as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd."
             company = "Daewoo Royal System Vietnam Co., Ltd."
 
@@ -152,7 +157,36 @@ theme = "aafu"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
-        types = ["Journal Articles (selected Control field)", "Conferences", "Ongoing"]
+        types = ["Journal Articles (selected Control field)", Conferences, "Patents"]
+
+        [[params.publication.list]]
+            title = "Robust-Adaptive Motion Planning Algorithm for Safe Autonomous Driving via Tree-based planning"
+            authors = "C. P. Vo and J. H. Jeon"
+            date = "2023"
+            journal = "IEEE Transactions on Intelligent Vehicles (Ongoing)"
+            url = "#"
+            type = "Journal Articles (selected Control field)"
+        [[params.publication.list]]
+            title = "Finite-Time Robust Trajectory Tracking Control of Perturbed AGVs Using a Novel Self-Turning Nonsingular Fast Terminal Sliding Manifold"
+            authors = "C. P. Vo, Q. H. Hoang and J. H. Jeon"
+            date = "2023"
+            journal = "IEEE Robotics and Automation Letters (Under review)"
+            url = "#"
+            type = "Journal Articles (selected Control field)"
+        [[params.publication.list]]
+            title = "Deep Reinforcement Learning-based Ride-sharing Autonomous Mobility-on-Demand Systems"
+            authors = "J. Lee, S. Kim, C. P. Vo and J. H. Jeon"
+            date = "2023"
+            journal = ""
+            url = "#"
+            type = "Journal Articles (selected Control field)"
+        [[params.publication.list]]
+            title = "Adaptive neural tracking control for flexible joint robot including actuator dynamics with disturbance observer"
+            authors = "V. D. Phan, C. P. Vo and K. K. Ahn"
+            date = "2023"
+            journal = ""
+            url = "#"
+            type = "Journal Articles"
 
         [[params.publication.list]]
             title = "An Integrated Motion Planning Scheme for Safe Autonomous Vehicles in Highly Dynamic Environments"
@@ -269,15 +303,15 @@ theme = "aafu"
             title = "A Novel Force Sensorless Reflecting Control for Bilateral Haptic Teleoperation System"
             authors = "C. P. Vo, X. D. To, and K. K. Ahn"
             date = "2020"
-            journal = "IEEE Access (selected Control field)"
-            url = "#"
+            journal = "IEEE Access (8),  96515 - 96527"
+            url = "https://ieeexplore.ieee.org/abstract/document/9104907"
             type = "Journal Articles (selected Control field)"
         [[params.publication.list]]
             title = "A Novel Adaptive Gain Integral Terminal Sliding Mode Control scheme of a Pneumatic Artificial Muscle system with Time-delay Estimation"
             authors = "C. P. Vo, X. D. To, and K. K. Ahn"
             date = "2019"
-            journal = "IEEE Access"
-            url = "#"
+            journal = "IEEE Access (7), 141133 - 141143"
+            url = "https://ieeexplore.ieee.org/abstract/document/8851132"
             type = "Journal Articles (selected Control field)"
         [[params.publication.list]]
             title = "Self-powered Flexible PDMS Channel Assisted Discrete Liquid Column Motion Based Triboelectric Nanogenerator (DLC-TENG) as Mechanical Transducer"
@@ -294,34 +328,7 @@ theme = "aafu"
             url = "#"
             type = "Journal Articles"
 		
-        [[params.publication.list]]
-            title = "Robust-Adaptive Control Algorithm for Safe Autonomous Driving via beyond LQ"
-            authors = "C. P. Vo and J. H. Jeon"
-            date = "2023"
-            journal = ""
-            url = "#"
-            type = "Ongoing"
-        [[params.publication.list]]
-            title = "Finite-Time Robust Trajectory Tracking Control of Perturbed AGVs Using a Novel Self-Turning Nonsingular Fast Terminal Sliding Manifold"
-            authors = "C. P. Vo, Q. H. Hoang and J. H. Jeon"
-            date = "2023"
-            journal = ""
-            url = "#"
-            type = "Ongoing"
-        [[params.publication.list]]
-            title = "Deep Reinforcement Learning-based Ride-sharing Autonomous Mobility-on-Demand Systems"
-            authors = "J. Lee, S. Kim, C. P. Vo and J. H. Jeon"
-            date = "2023"
-            journal = ""
-            url = "#"
-            type = "Ongoing"
-        [[params.publication.list]]
-            title = "Adaptive neural tracking control for flexible joint robot including actuator dynamics with disturbance observer"
-            authors = "V. D. Phan, C. P. Vo and K. K. Ahn"
-            date = "2023"
-            journal = ""
-            url = "#"
-            type = "Ongoing"
+        
 
         [[params.publication.list]]
             title = "Variable Impedance Control for a Robotic Leg with External Uncertainties"
