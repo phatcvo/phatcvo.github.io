@@ -25,11 +25,23 @@
     href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
   />
   <link rel="stylesheet" href="/css/aafu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+
   
   
       <link rel="stylesheet" href="/css/aafu_compiled.css" />
   
   
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+            ],
+        });
+    });
+  </script>
 
   <script>
     let html = document.querySelector("html");
@@ -71,6 +83,11 @@
       }
     };
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
 </head>
 <body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
     <header
@@ -132,7 +149,7 @@
 <p>$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
 <p>where</p>
 <p>$$ A&rsquo; =
-\begin{bmatrix}
+\begin{pmatrix}
 \frac{\partial }{\partial x}vcos(\phi) &amp;
 \frac{\partial }{\partial y}vcos(\phi) &amp;
 \frac{\partial }{\partial v}vcos(\phi) &amp;
@@ -149,14 +166,14 @@
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L}
-\end{bmatrix}
+\end{pmatrix}
 　=
-\begin{bmatrix}
+\begin{pmatrix}
 0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi})\
 0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \
 0 &amp; 0 &amp; 0 &amp; 0 \
 0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \
-\end{bmatrix}
+\end{pmatrix}
 $$</p>
 <p>$$
 B&rsquo; =
@@ -261,6 +278,30 @@ subject to:</p>
   </h3>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
 
     </main>
     

@@ -34,7 +34,7 @@ $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A'z+B'u$$
 where
 
 $$ A' =
-\begin{bmatrix}
+\begin{pmatrix}
 \frac{\partial }{\partial x}vcos(\phi) & 
 \frac{\partial }{\partial y}vcos(\phi) & 
 \frac{\partial }{\partial v}vcos(\phi) &
@@ -51,14 +51,14 @@ $$ A' =
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}& 
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&
 \frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L}
-\end{bmatrix}
+\end{pmatrix}
 　=
-\begin{bmatrix}
+\begin{pmatrix}
 0 & 0 & cos(\bar{\phi}) & -\bar{v}sin(\bar{\phi})\\
 0 & 0 & sin(\bar{\phi}) & \bar{v}cos(\bar{\phi}) \\
 0 & 0 & 0 & 0 \\
 0 & 0 &\frac{tan(\bar{\delta})}{L} & 0 \\
-\end{bmatrix}
+\end{pmatrix}
 $$
 
 $$

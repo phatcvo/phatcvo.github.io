@@ -25,11 +25,23 @@
     href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
   />
   <link rel="stylesheet" href="/css/aafu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+
   
   
       <link rel="stylesheet" href="/css/aafu_compiled.css" />
   
   
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+            ],
+        });
+    });
+  </script>
 
   <script>
     let html = document.querySelector("html");
@@ -71,6 +83,11 @@
       }
     };
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
 </head>
 <body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
     <header
@@ -702,6 +719,30 @@
   </h3>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
 
     </main>
     
