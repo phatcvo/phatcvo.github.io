@@ -141,11 +141,12 @@ B'\bar{u})dt\\\\
 \begin{bmatrix} 0\\\\ 0\\\\ \bar{a}\\\\
 \frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\\\
 \end{bmatrix}) =
+
 \begin{bmatrix} 
-\bar{v}sin(\bar{\phi})\bar{\phi}dt\\\\
--\bar{v}cos(\bar{\phi})\bar{\phi}dt\\\\
-0\\\\
--\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\\\
+\bar{v}sin(\bar{\phi})\bar{\phi}dt \\\\
+-\bar{v}cos(\bar{\phi})\bar{\phi}dt \\\\
+0 \\\\
+-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt \\\\
 \end{bmatrix}
 $$
 
@@ -165,9 +166,6 @@ $$u_{min} < u_t < u_{max}$$
 $$|u_{t+1}-u_{t}| < du_{max}$$
 $$|u_{t}| < u_{max}$$
 
-$$ \begin{bmatrix} 0\\\\ 0\\\\ \bar{a}\\\\
-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\\\
-\end{bmatrix}) $$
 ## Reference
 
 - This code uses [CVXPY](http://www.cvxpy.org/) as an optimization modeling tool 
