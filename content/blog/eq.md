@@ -19,4 +19,9 @@ math: true
     });
 </script>
 
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a} - \begin{bmatrix} 
+\bar{v}sin(\bar{\phi})\bar{\phi}dt\\\\
+-\bar{v}cos(\bar{\phi})\bar{\phi}dt\\\\
+0\\\\
+-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\\\
+\end{bmatrix}$$
