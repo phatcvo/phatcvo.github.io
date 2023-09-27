@@ -138,16 +138,16 @@
 <div class="content">
   <h2 id="vehicle-model-linearization">Vehicle model linearization</h2>
 <p>Vehicle model is</p>
-<p>$$ \dot{x} = vcos(\phi)$$</p>
-<p>$$ \dot{y} = vsin((\phi)$$</p>
-<p>$$ \dot{v} = a$$</p>
-<p>$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$</p>
-<p>State and Input vector:</p>
-<p>$$ z = [x, y, v,\phi] $$</p>
-<p>$$u = [a, \delta]$$</p>
+<p>$$ \dot{x} = vcos(\phi)$$
+$$ \dot{y} = vsin((\phi)$$
+$$ \dot{v} = a$$
+$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$</p>
+<p>State and Input vector:
+$$ z = [x, y, v,\phi] $$
+$$u = [a, \delta]$$</p>
 <p>x: x-position; y:y-position; v:velocity; φ: yaw angle; a: accellation; δ: steering angle</p>
-<p>ODE is</p>
-<p>$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
+<p>ODE is
+$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
 <p>where
 $$ A&rsquo; =
 \begin{bmatrix}
@@ -247,12 +247,12 @@ $$</p>
 <p>$$J = min\ Q_f(z_{T,ref}-z_{T})^2+Q\Sigma({z_{t,ref}-z_{t}})^2+R\Sigma{u_t}^2+R_d\Sigma({u_{t+1}-u_{t}})^2$$</p>
 <p>z_ref come from target path and speed.
 subject to:</p>
-<p>$$z_{t+1}=Az_t+Bu+C$$</p>
-<p>$$z_0 = z_{0,ob}$$</p>
-<p>$$v_{min} &lt; v_t &lt; v_{max}$$</p>
-<p>$$u_{min} &lt; u_t &lt; u_{max}$$</p>
-<p>$$|u_{t+1}-u_{t}| &lt; du_{max}$$</p>
-<p>$$|u_{t}| &lt; u_{max}$$</p>
+<p>$$z_{t+1}=Az_t+Bu+C$$
+$$z_0 = z_{0,ob}$$
+$$v_{min} &lt; v_t &lt; v_{max}$$
+$$u_{min} &lt; u_t &lt; u_{max}$$
+$$|u_{t+1}-u_{t}| &lt; du_{max}$$
+$$|u_{t}| &lt; u_{max}$$</p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li>This code uses <a href="http://www.cvxpy.org/">CVXPY</a> as an optimization modeling tool</li>
