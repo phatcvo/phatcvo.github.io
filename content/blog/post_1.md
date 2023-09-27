@@ -124,28 +124,28 @@ dt & 0 \\
 \end{bmatrix}$$
 
 
-$$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt\\
-B'\bar{u})dt\\
+$$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt\\\\
+B'\bar{u})dt\\\\
 = dt(\begin{bmatrix} 
-\bar{v}cos(\bar{\phi})\\
-\bar{v}sin(\bar{\phi}) \\
-\bar{a}\\
-\frac{\bar{v}tan(\bar{\delta})}{L}\\
+\bar{v}cos(\bar{\phi})\\\\
+\bar{v}sin(\bar{\phi}) \\\\
+\bar{a}\\\\
+\frac{\bar{v}tan(\bar{\delta})}{L}\\\\
 \end{bmatrix} - 
 \begin{bmatrix} 
-\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\\
-\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi}\\
+\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\\\\
+\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi}\\\\
 0\\
-\frac{\bar{v}tan(\bar{\delta})}{L}\\
+\frac{\bar{v}tan(\bar{\delta})}{L}\\\\
 \end{bmatrix} -
-\begin{bmatrix} 0\\\\ 0\\\\ \bar{a}\\
-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\
+\begin{bmatrix} 0\\\\ 0\\\\ \bar{a}\\\\
+\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\\\
 \end{bmatrix}) =
 \begin{bmatrix} 
-\bar{v}sin(\bar{\phi})\bar{\phi}dt\\
--\bar{v}cos(\bar{\phi})\bar{\phi}dt\\
-0\\
--\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\
+\bar{v}sin(\bar{\phi})\bar{\phi}dt\\\\
+-\bar{v}cos(\bar{\phi})\bar{\phi}dt\\\\
+0\\\\
+-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\\\
 \end{bmatrix}
 $$
 
