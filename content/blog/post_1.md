@@ -34,9 +34,9 @@ $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A'z+B'u$$
 where
 $$
 \begin{matrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9 \\
+1 & 2 & 3 \\\\
+4 & 5 & 6 \\\\
+7 & 8 & 9 \\\\
 \end{matrix}
 $$
 
@@ -45,15 +45,15 @@ $$ A' =
 \frac{\partial }{\partial x}vcos(\phi) & 
 \frac{\partial }{\partial y}vcos(\phi) & 
 \frac{\partial }{\partial v}vcos(\phi) &
-\frac{\partial }{\partial \phi}vcos(\phi)\\
+\frac{\partial }{\partial \phi}vcos(\phi)\\\\
 \frac{\partial }{\partial x}vsin(\phi) & 
 \frac{\partial }{\partial y}vsin(\phi) & 
 \frac{\partial }{\partial v}vsin(\phi) &
-\frac{\partial }{\partial \phi}vsin(\phi)\\
+\frac{\partial }{\partial \phi}vsin(\phi)\\\\
 \frac{\partial }{\partial x}a& 
 \frac{\partial }{\partial y}a& 
 \frac{\partial }{\partial v}a&
-\frac{\partial }{\partial \phi}a\\
+\frac{\partial }{\partial \phi}a\\\\
 \frac{\partial }{\partial x}\frac{vtan(\delta)}{L}& 
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}& 
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&
@@ -61,10 +61,10 @@ $$ A' =
 \end{bmatrix}
 　=
 \begin{bmatrix}
-0 & 0 & cos(\bar{\phi}) & -\bar{v}sin(\bar{\phi})\\
-0 & 0 & sin(\bar{\phi}) & \bar{v}cos(\bar{\phi}) \\
-0 & 0 & 0 & 0 \\
-0 & 0 &\frac{tan(\bar{\delta})}{L} & 0 \\
+0 & 0 & cos(\bar{\phi}) & -\bar{v}sin(\bar{\phi})\\\\
+0 & 0 & sin(\bar{\phi}) & \bar{v}cos(\bar{\phi}) \\\\
+0 & 0 & 0 & 0 \\\\
+0 & 0 &\frac{tan(\bar{\delta})}{L} & 0 \\\\
 \end{bmatrix}
 $$
 
@@ -72,20 +72,20 @@ $$
 B' =
 \begin{bmatrix}
 \frac{\partial }{\partial a}vcos(\phi) &
-\frac{\partial }{\partial \delta}vcos(\phi)\\
+\frac{\partial }{\partial \delta}vcos(\phi)\\\\
 \frac{\partial }{\partial a}vsin(\phi) &
-\frac{\partial }{\partial \delta}vsin(\phi)\\
+\frac{\partial }{\partial \delta}vsin(\phi)\\\\
 \frac{\partial }{\partial a}a &
-\frac{\partial }{\partial \delta}a\\
+\frac{\partial }{\partial \delta}a\\\\
 \frac{\partial }{\partial a}\frac{vtan(\delta)}{L} &
-\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L}\\
+\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L}\\\\
 \end{bmatrix}
 　=
 \begin{bmatrix}
-0 & 0 \\
-0 & 0 \\
-1 & 0 \\
-0 & \frac{\bar{v}}{Lcos^2(\bar{\delta})} \\
+0 & 0 \\\\
+0 & 0 \\\\
+1 & 0 \\\\
+0 & \frac{\bar{v}}{Lcos^2(\bar{\delta})} \\\\
 \end{bmatrix}
 $$
 
@@ -106,43 +106,43 @@ where
 
 $$A = (I + dt A') =
 \begin{bmatrix} 
-1 & 0 & cos(\bar{\phi})dt & -\bar{v}sin(\bar{\phi})dt\\
-0 & 1 & sin(\bar{\phi})dt & \bar{v}cos(\bar{\phi})dt \\
-0 & 0 & 1 & 0 \\
-0 & 0 &\frac{tan(\bar{\delta})}{L}dt & 1 \\
+1 & 0 & cos(\bar{\phi})dt & -\bar{v}sin(\bar{\phi})dt\\\\
+0 & 1 & sin(\bar{\phi})dt & \bar{v}cos(\bar{\phi})dt \\\\
+0 & 0 & 1 & 0 \\\\
+0 & 0 &\frac{tan(\bar{\delta})}{L}dt & 1 \\\\
 \end{bmatrix}$$
 
 $$B = dt B' =
 \begin{bmatrix} 
-0 & 0 \
-0 & 0 \\
-dt & 0 \\
-0 & \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \\
+0 & 0 \\\\
+0 & 0 \\\\
+dt & 0 \\\\
+0 & \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \\\\
 \end{bmatrix}$$
 
 
-$$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt\\
-B'\bar{u})dt\\
+$$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt\\\\
+B'\bar{u})dt\\\\
 = dt(\begin{bmatrix} 
-\bar{v}cos(\bar{\phi})\\
-\bar{v}sin(\bar{\phi}) \\
-\bar{a}\\
-\frac{\bar{v}tan(\bar{\delta})}{L}\\
+\bar{v}cos(\bar{\phi})\\\\
+\bar{v}sin(\bar{\phi}) \\\\
+\bar{a}\\\\
+\frac{\bar{v}tan(\bar{\delta})}{L}\\\\
 \end{bmatrix} - 
 \begin{bmatrix} 
-\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\\
-\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi}\\
-0\\
-\frac{\bar{v}tan(\bar{\delta})}{L}\\
+\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\\\\
+\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi}\\\\
+0\\\\
+\frac{\bar{v}tan(\bar{\delta})}{L}\\\\
 \end{bmatrix} -
-\begin{bmatrix} 0\\ 0\\ \bar{a}\\
-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\
+\begin{bmatrix} 0\\\\ 0\\\\ \bar{a}\\\\
+\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\\\
 \end{bmatrix}) =
 \begin{bmatrix} 
-\bar{v}sin(\bar{\phi})\bar{\phi}dt\\
--\bar{v}cos(\bar{\phi})\bar{\phi}dt\\
-0\\
--\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\
+\bar{v}sin(\bar{\phi})\bar{\phi}dt\\\\
+-\bar{v}cos(\bar{\phi})\bar{\phi}dt\\\\
+0\\\\
+-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\\\
 \end{bmatrix}
 $$
 

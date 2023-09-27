@@ -24,7 +24,7 @@ $$u = [a, \delta]$$
 x: x-position; y:y-position; v:velocity; φ: yaw angle; a: accellation; δ: steering angle
 ODE is
 $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$
-where $$ \begin{matrix} 1 &amp;amp; 2 &amp;amp; 3 \ 4 &amp;amp; 5 &amp;amp; 6 \ 7 &amp;amp; 8 &amp;amp; 9 \ \end{matrix} $$</description>
+where $$ \begin{matrix} 1 &amp;amp; 2 &amp;amp; 3 \\ 4 &amp;amp; 5 &amp;amp; 6 \\ 7 &amp;amp; 8 &amp;amp; 9 \\ \end{matrix} $$</description>
     </item>
     
   </channel>
