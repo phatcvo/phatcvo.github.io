@@ -6,21 +6,7 @@
     <description>Recent content in My Blog on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcv.vercel.app/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Matrix Equation Blog Post</title>
-      <link>https://phatcv.vercel.app/blog/post_4/</link>
-      <pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://phatcv.vercel.app/blog/post_4/</guid>
-      <description>In this blog post, we&amp;rsquo;ll discuss a matrix equation. Consider the following matrix equation:
-\mathbf{A} \mathbf{X} = \mathbf{B}
-Where:
-\mathbf{A} = \begin{bmatrix} 2 &amp;amp; 3 \\ 1 &amp;amp; 4 \\ \end{bmatrix}
-\mathbf{X} = \begin{bmatrix} x \\ y \\ \end{bmatrix}
-This equation represents a linear system of equations involving matrices.</description>
-    </item>
-    
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcv.vercel.app/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Model-Predictive Control</title>
       <link>https://phatcv.vercel.app/blog/post_1/</link>
