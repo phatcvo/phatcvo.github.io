@@ -1,5 +1,5 @@
 ---
-title: "Safe-Optimal Control for Motional Planning based on Reinforcement Learning: Survey"
+title: "Safe-Optimal Control for Motional Planning based on RL"
 date: 2022-05-18
 tags: ["Safe", "RL", "Optimal"]
 categories: ["Control theory"]
