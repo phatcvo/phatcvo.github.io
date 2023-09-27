@@ -13,12 +13,18 @@
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://phatcv.vercel.app/blog/post_1/</guid>
-      <description>Vehicle model linearization Vehicle model is
-$$ \dot{x} = vcos(\phi)$$ $$ \dot{y} = vsin((\phi)$$ $$ \dot{v} = a$$ $$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
-State and Input vector: $$ z = [x, y, v,\phi] $$ $$u = [a, \delta]$$
-x: x-position; y:y-position; v:velocity; φ: yaw angle; a: accellation; δ: steering angle
-ODE is $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$
-where $$ A&amp;rsquo; = \begin{bmatrix} \frac{\partial }{\partial x}vcos(\phi) &amp;amp; \frac{\partial }{\partial y}vcos(\phi) &amp;amp; \frac{\partial }{\partial v}vcos(\phi) &amp;amp; \frac{\partial }{\partial \phi}vcos(\phi)\\ \frac{\partial }{\partial x}vsin(\phi) &amp;amp; \frac{\partial }{\partial y}vsin(\phi) &amp;amp; \frac{\partial }{\partial v}vsin(\phi) &amp;amp; \frac{\partial }{\partial \phi}vsin(\phi)\\ \frac{\partial }{\partial x}a&amp;amp; \frac{\partial }{\partial y}a&amp;amp; \frac{\partial }{\partial v}a&amp;amp; \frac{\partial }{\partial \phi}a\\ \frac{\partial }{\partial x}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L} \end{bmatrix} = \begin{bmatrix} 0 &amp;amp; 0 &amp;amp; cos(\bar{\phi}) &amp;amp; -\bar{v}sin(\bar{\phi})\\ 0 &amp;amp; 0 &amp;amp; sin(\bar{\phi}) &amp;amp; \bar{v}cos(\bar{\phi}) \\ 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp;\frac{tan(\bar{\delta})}{L} &amp;amp; 0 \\ \end{bmatrix} $$</description>
+      <description>Vehicle model linearization Vehicle model is $$ \dot{x} = vcos(\phi)$$
+$$ \dot{y} = vsin((\phi)$$
+$$ \dot{v} = a$$
+$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
+State and Input vector:
+$$ z = [x, y, v,\phi] $$
+$$u = [a, \delta]$$
+x: x-position; y:y-position; v:velocity; φ: yaw angle; a: acceleration; δ: steering angle
+ODE is
+$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$
+where
+$$ A&amp;rsquo; = \begin{bmatrix} \frac{\partial }{\partial x}vcos(\phi) &amp;amp; \frac{\partial }{\partial y}vcos(\phi) &amp;amp; \frac{\partial }{\partial v}vcos(\phi) &amp;amp; \frac{\partial }{\partial \phi}vcos(\phi)\\ \frac{\partial }{\partial x}vsin(\phi) &amp;amp; \frac{\partial }{\partial y}vsin(\phi) &amp;amp; \frac{\partial }{\partial v}vsin(\phi) &amp;amp; \frac{\partial }{\partial \phi}vsin(\phi)\\ \frac{\partial }{\partial x}a&amp;amp; \frac{\partial }{\partial y}a&amp;amp; \frac{\partial }{\partial v}a&amp;amp; \frac{\partial }{\partial \phi}a\\ \frac{\partial }{\partial x}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;amp; \frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L} \end{bmatrix} = \begin{bmatrix} 0 &amp;amp; 0 &amp;amp; cos(\bar{\phi}) &amp;amp; -\bar{v}sin(\bar{\phi})\\ 0 &amp;amp; 0 &amp;amp; sin(\bar{\phi}) &amp;amp; \bar{v}cos(\bar{\phi}) \\ 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp;\frac{tan(\bar{\delta})}{L} &amp;amp; 0 \\ \end{bmatrix} $$</description>
     </item>
     
   </channel>

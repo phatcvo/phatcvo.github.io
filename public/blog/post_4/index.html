@@ -131,133 +131,25 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Model-Predictive Control</h1>
-  <p class="mb-1">September 23, 2022</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Matrix Equation Blog Post</h1>
+  <p class="mb-1">September 27, 2023</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <h2 id="vehicle-model-linearization">Vehicle model linearization</h2>
-<p>Vehicle model is
-$$ \dot{x} = vcos(\phi)$$</p>
-<p>$$ \dot{y} = vsin((\phi)$$</p>
-<p>$$ \dot{v} = a$$</p>
-<p>$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$</p>
-<p>State and Input vector:</p>
-<p>$$ z = [x, y, v,\phi] $$</p>
-<p>$$u = [a, \delta]$$</p>
-<p>x: x-position; y:y-position; v:velocity; φ: yaw angle; a: acceleration; δ: steering angle</p>
-<p>ODE is</p>
-<p>$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
-<p>where</p>
-<p>$$ A&rsquo; =
+  <p>In this blog post, we&rsquo;ll discuss a matrix equation. Consider the following matrix equation:</p>
+<p>\mathbf{A} \mathbf{X} = \mathbf{B}</p>
+<p>Where:</p>
+<p>\mathbf{A} =
 \begin{bmatrix}
-\frac{\partial }{\partial x}vcos(\phi) &amp;
-\frac{\partial }{\partial y}vcos(\phi) &amp;
-\frac{\partial }{\partial v}vcos(\phi) &amp;
-\frac{\partial }{\partial \phi}vcos(\phi)\\
-\frac{\partial }{\partial x}vsin(\phi) &amp;
-\frac{\partial }{\partial y}vsin(\phi) &amp;
-\frac{\partial }{\partial v}vsin(\phi) &amp;
-\frac{\partial }{\partial \phi}vsin(\phi)\\
-\frac{\partial }{\partial x}a&amp;
-\frac{\partial }{\partial y}a&amp;
-\frac{\partial }{\partial v}a&amp;
-\frac{\partial }{\partial \phi}a\\
-\frac{\partial }{\partial x}\frac{vtan(\delta)}{L}&amp;
-\frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;
-\frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;
-\frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L}
-\end{bmatrix}
-　=
+2 &amp; 3 \\
+1 &amp; 4 \\
+\end{bmatrix}</p>
+<p>\mathbf{X} =
 \begin{bmatrix}
-0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi})\\
-0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \\
-0 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \\
-\end{bmatrix}
-$$</p>
-<p>$$
-B&rsquo; =
-\begin{bmatrix}
-\frac{\partial }{\partial a}vcos(\phi) &amp;
-\frac{\partial }{\partial \delta}vcos(\phi)\\
-\frac{\partial }{\partial a}vsin(\phi) &amp;
-\frac{\partial }{\partial \delta}vsin(\phi)\\
-\frac{\partial }{\partial a}a &amp;
-\frac{\partial }{\partial \delta}a\\
-\frac{\partial }{\partial a}\frac{vtan(\delta)}{L} &amp;
-\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L}\\
-\end{bmatrix}
-　=
-\begin{bmatrix}
-0 &amp; 0 \\
-0 &amp; 0 \\
-1 &amp; 0 \\
-0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})} \\
-\end{bmatrix}
-$$</p>
-<p>You can get a discrete-time mode with Forward Euler Discretization with sampling time dt.</p>
-<p>$$z_{k+1} = z_k+f(z_k,u_k)dt$$</p>
-<p>Using first degree Tayer expantion around zbar and ubar
-$$z_{k+1} = z_k+(f(\bar{z},\bar{u})+A&rsquo;z_k+B&rsquo;u_k-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
-<p>$$z_{k+1} = (I + dtA&rsquo;)z_k+(dtB&rsquo;)u_k + (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
-<p>So,</p>
-<p>$$z_{k+1} = Az_k+Bu_k +C$$</p>
-<p>where</p>
-<p>$$A = (I + dt A&rsquo;) =
-\begin{bmatrix}
-1 &amp; 0 &amp; cos(\bar{\phi})dt &amp; -\bar{v}sin(\bar{\phi})dt\\
-0 &amp; 1 &amp; sin(\bar{\phi})dt &amp; \bar{v}cos(\bar{\phi})dt \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L}dt &amp; 1 \\
-\end{bmatrix}$$</p>
-<p>$$B = dt B&rsquo; =
-\begin{bmatrix}
-0 &amp; 0 \\
-0 &amp; 0 \\
-dt &amp; 0 \\
-0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \\
-\end{bmatrix}$$</p>
-<p>$$ C = (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt\\
-B&rsquo;\bar{u})dt\\
-= dt(\begin{bmatrix}
-\bar{v}cos(\bar{\phi})\\
-\bar{v}sin(\bar{\phi}) \\
-\bar{a}\\
-\frac{\bar{v}tan(\bar{\delta})}{L}\\
-\end{bmatrix} -
-\begin{bmatrix}
-\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\\
-\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi}\\
-0\\
-\frac{\bar{v}tan(\bar{\delta})}{L}\\
-\end{bmatrix} -
-\begin{bmatrix} 0\\ 0\\ \bar{a}\\
-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\
-\end{bmatrix}) =
-\begin{bmatrix}
-\bar{v}sin(\bar{\phi})\bar{\phi}dt\\
--\bar{v}cos(\bar{\phi})\bar{\phi}dt\\
-0\\
--\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\
-\end{bmatrix}
-$$</p>
-<h2 id="mpc-approach">MPC approach:</h2>
-<p>The cost function:</p>
-<p>$$J = min\ Q_f(z_{T,ref}-z_{T})^2+Q\Sigma({z_{t,ref}-z_{t}})^2+R\Sigma{u_t}^2+R_d\Sigma({u_{t+1}-u_{t}})^2$$</p>
-<p>z_ref come from target path and speed.
-subject to:</p>
-<p>$$z_{t+1}=Az_t+Bu+C$$
-$$z_0 = z_{0,ob}$$
-$$v_{min} &lt; v_t &lt; v_{max}$$
-$$u_{min} &lt; u_t &lt; u_{max}$$
-$$|u_{t+1}-u_{t}| &lt; du_{max}$$
-$$|u_{t}| &lt; u_{max}$$</p>
-<h2 id="reference">Reference</h2>
-<ul>
-<li>This code uses <a href="http://www.cvxpy.org/">CVXPY</a> as an optimization modeling tool</li>
-<li><a href="http://www.springer.com/us/book/9781461414322">Vehicle Dynamics and Control | Rajesh Rajamani | Springer</a></li>
-</ul>
+x \\
+y \\
+\end{bmatrix}</p>
+<p>This equation represents a linear system of equations involving matrices.</p>
 
 </div>
 </div>
@@ -265,8 +157,8 @@ $$|u_{t}| &lt; u_{max}$$</p>
   <h3 class="mb-1 mt-1 text-left mr-4">
     
     <a
-      href="/blog/post_3/"
-      title="ROS Motion Planning"
+      href="/blog/post_1/"
+      title="Model-Predictive Control"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -274,12 +166,7 @@ $$|u_{t}| &lt; u_{max}$$</p>
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <a
-      href="/blog/post_4/"
-      title="Matrix Equation Blog Post"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
     
   </h3>
 </div>
