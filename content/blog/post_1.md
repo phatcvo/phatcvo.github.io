@@ -12,23 +12,17 @@ math: true
 Vehicle model is 
 
 $$ \dot{x} = vcos(\phi)$$
-
 $$ \dot{y} = vsin((\phi)$$
-
 $$ \dot{v} = a$$
-
 $$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
 
 State and Input vector:
-
 $$ z = [x, y, v,\phi] $$
-
 $$u = [a, \delta]$$
 
 x: x-position; y:y-position; v:velocity; φ: yaw angle; a: accellation; δ: steering angle
 
 ODE is 
-
 $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A'z+B'u$$
 
 where
@@ -147,20 +141,14 @@ $$J = min\ Q_f(z_{T,ref}-z_{T})^2+Q\Sigma({z_{t,ref}-z_{t}})^2+R\Sigma{u_t}^2+R_
 z_ref come from target path and speed.
 subject to:
 
- $$z_{t+1}=Az_t+Bu+C$$
-  
- $$z_0 = z_{0,ob}$$
-  
- $$v_{min} < v_t < v_{max}$$
+$$z_{t+1}=Az_t+Bu+C$$
+$$z_0 = z_{0,ob}$$
+$$v_{min} < v_t < v_{max}$$
+$$u_{min} < u_t < u_{max}$$
+$$|u_{t+1}-u_{t}| < du_{max}$$
+$$|u_{t}| < u_{max}$$
 
- $$u_{min} < u_t < u_{max}$$
-
-
- $$|u_{t+1}-u_{t}| < du_{max}$$
- 
- $$|u_{t}| < u_{max}$$
-
- ## Reference
+## Reference
 
 - This code uses [CVXPY](http://www.cvxpy.org/) as an optimization modeling tool 
 - [Vehicle Dynamics and Control \| Rajesh Rajamani \| Springer](http://www.springer.com/us/book/9781461414322)
