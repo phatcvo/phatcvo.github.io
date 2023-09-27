@@ -328,6 +328,3 @@ aws-robomaker-small-warehouse-world](https://github.com/aws-robotics/aws-robomak
 
 The source code is released under [GPLv3](https://www.gnu.org/licenses/) license.
 
-## <span id="9">09. Maintenance
-
-Feel free to contact us if you have any question.
