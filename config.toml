@@ -424,10 +424,10 @@ theme = "aafu"
         icon = "fas fa-gamepad"
 
         [[params.hobby.list]]
-            hobby = "Sport: Since I was very young, I have been playing soccer. It feels very exciting to score a goal."
+            hobby = "- Sport: Since I was very young, I have been playing soccer. It feels very exciting to score a goal."
         [[params.hobby.list]]
-            hobby = "Video Making: I love making‑video and always try to capture everything that happens around me."
+            hobby = "- Video Making: I love making‑video and always try to capture everything that happens around me."
         [[params.hobby.list]]
-            hobby = "Technical toys: Creating controllable things is fascinating."
+            hobby = "- Technical toys: Creating controllable things is fascinating."
         [[params.hobby.list]]
-            hobby = "Traveling: I like traveling. I explore beautiful places and experience new things."
+            hobby = "- Traveling: I like traveling. I explore beautiful places and experience new things."
