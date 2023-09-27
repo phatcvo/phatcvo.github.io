@@ -127,10 +127,10 @@ dt & 0 \\\\
 $$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt\\\\
 B'\bar{u})dt\\\\
 = dt(\begin{bmatrix} 
-\bar{v}cos(\bar{\phi})\\\\
-\bar{v}sin(\bar{\phi}) \\\\
+\bar{v}cos(\bar{\phi})\\
+\bar{v}sin(\bar{\phi}) \\
 \bar{a}\\\\
-\frac{\bar{v}tan(\bar{\delta})}{L}\\\\
+\frac{\bar{v}tan(\bar{\delta})}{L}\\
 \end{bmatrix} - 
 \begin{bmatrix} 
 \bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\\\\
