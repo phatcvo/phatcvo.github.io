@@ -10,6 +10,9 @@
 <meta name="generator" content="aafu theme by Darshan in Hugo 0.119.0" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+
   <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -25,8 +28,6 @@
     href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
   />
   <link rel="stylesheet" href="/css/aafu.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
-
   
   
       <link rel="stylesheet" href="/css/aafu_compiled.css" />
@@ -147,9 +148,16 @@
 <p>x: x-position; y:y-position; v:velocity; φ: yaw angle; a: accellation; δ: steering angle</p>
 <p>ODE is</p>
 <p>$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
-<p>where</p>
+<p>where
+$$
+\begin{matrix}
+1 &amp; 2 &amp; 3 \
+4 &amp; 5 &amp; 6 \
+7 &amp; 8 &amp; 9 \
+\end{matrix}
+$$</p>
 <p>$$ A&rsquo; =
-\begin{pmatrix}
+\begin{bmatrix}
 \frac{\partial }{\partial x}vcos(\phi) &amp;
 \frac{\partial }{\partial y}vcos(\phi) &amp;
 \frac{\partial }{\partial v}vcos(\phi) &amp;
@@ -166,14 +174,14 @@
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L}
-\end{pmatrix}
+\end{bmatrix}
 　=
-\begin{pmatrix}
+\begin{bmatrix}
 0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi})\
 0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \
 0 &amp; 0 &amp; 0 &amp; 0 \
 0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \
-\end{pmatrix}
+\end{bmatrix}
 $$</p>
 <p>$$
 B&rsquo; =
@@ -212,7 +220,7 @@ $$z_{k+1} = z_k+(f(\bar{z},\bar{u})+A&rsquo;z_k+B&rsquo;u_k-A&rsquo;\bar{z}-B&rs
 \end{bmatrix}$$</p>
 <p>$$B = dt B&rsquo; =
 \begin{bmatrix}
-0 &amp; 0 \
+0 &amp; 0 <br>
 0 &amp; 0 \
 dt &amp; 0 \
 0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \
@@ -291,6 +299,7 @@ subject to:</p>
         renderMathInElement(document.body, {
             delimiters: [
                 { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
             ],
         });
     });

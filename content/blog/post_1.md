@@ -32,9 +32,16 @@ ODE is
 $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A'z+B'u$$
 
 where
+$$
+\begin{matrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9 \\
+\end{matrix}
+$$
 
 $$ A' =
-\begin{pmatrix}
+\begin{bmatrix}
 \frac{\partial }{\partial x}vcos(\phi) & 
 \frac{\partial }{\partial y}vcos(\phi) & 
 \frac{\partial }{\partial v}vcos(\phi) &
@@ -51,14 +58,14 @@ $$ A' =
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}& 
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&
 \frac{\partial }{\partial \phi}\frac{vtan(\delta)}{L}
-\end{pmatrix}
+\end{bmatrix}
 　=
-\begin{pmatrix}
+\begin{bmatrix}
 0 & 0 & cos(\bar{\phi}) & -\bar{v}sin(\bar{\phi})\\
 0 & 0 & sin(\bar{\phi}) & \bar{v}cos(\bar{\phi}) \\
 0 & 0 & 0 & 0 \\
 0 & 0 &\frac{tan(\bar{\delta})}{L} & 0 \\
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 $$
@@ -107,7 +114,7 @@ $$A = (I + dt A') =
 
 $$B = dt B' =
 \begin{bmatrix} 
-0 & 0 \\
+0 & 0 \
 0 & 0 \\
 dt & 0 \\
 0 & \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \\
@@ -165,4 +172,3 @@ subject to:
 
 - This code uses [CVXPY](http://www.cvxpy.org/) as an optimization modeling tool 
 - [Vehicle Dynamics and Control \| Rajesh Rajamani \| Springer](http://www.springer.com/us/book/9781461414322)
-

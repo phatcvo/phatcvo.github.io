@@ -21,4 +21,5 @@ const expandAccordion = (elem) => {
     }
     activePanel.style.maxHeight = activePanel.scrollHeight + "px";
   }
+  <script src="/js/custom.js"></script>
 };
