@@ -6,7 +6,7 @@ theme = "aafu"
   writeStats = true
 
 [params]
-    title = "Personal site"
+    title = "Phat C. Vo"
     author = "Phat C. Vo"
     description = "Website title"
     copyright = "&copy; 2023 &middot; phatcvo"
@@ -31,8 +31,8 @@ theme = "aafu"
     # Profile section
     [params.profile]
         name = "Phat C. Vo"
-        tagline = "Researcher"
-        location = "Ulsan, KR"
+        tagline = "Researcher @UNIST"
+        location = "Ulsan, South Korea"
         photo = "profile1.jpg"
 
     # Section for links to social websites
