@@ -165,7 +165,7 @@ $$ z(0)=z(0, ob) $$
 
 $$vmin < v(t) < vmax $$
 
-$$u(min < u_t < u(max) $$
+$$u(min) < u_t < u(max) $$
 
 $$|u_{t+1}-u_{t}| < \Delta u_{max} $$
 
