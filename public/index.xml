@@ -19,8 +19,8 @@ $$ \dot{y} = vsin((\phi)$$
 $$ \dot{v} = a$$
 $$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
 State and Input vector:
-$$ z = \begin{bmatrix} x-\position \\\ y-\position \\\ \velocity \\\ \yaw-\angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$
-$$u = \begin{bmatrix} \acceleration \\ \steering-\angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$
+$$ z = \begin{bmatrix} x-position \\\ y-position \\\ velocity \\\ yaw-angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$
+$$u = \begin{bmatrix} acceleration \\ steering-angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$
 ODE is
 $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
     </item>

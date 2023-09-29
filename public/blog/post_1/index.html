@@ -174,17 +174,17 @@
 <p>$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$</p>
 <p>State and Input vector:</p>
 <p>$$ z = \begin{bmatrix}
-x-\position \\\
-y-\position \\\
-\velocity \\\
-\yaw-\angle\end{bmatrix} = \begin{bmatrix}
+x-position \\\
+y-position \\\
+velocity \\\
+yaw-angle\end{bmatrix} = \begin{bmatrix}
 x \\\
 y \\\
 v \\\
 \phi\end{bmatrix} $$</p>
 <p>$$u = \begin{bmatrix}
-\acceleration \\
-\steering-\angle
+acceleration \\
+steering-angle
 \end{bmatrix}
 = \begin{bmatrix}
 a \\
@@ -250,10 +250,10 @@ $$z(k+1) = z(k)+(f(\bar{z},\bar{u})+A&rsquo;z(k)+B&rsquo;u(k)-A&rsquo;\bar{z}-B&
 <p>where</p>
 <p>$$A = (I + dt A&rsquo;) =
 \begin{bmatrix}
-1 &amp; 0 &amp; cos(\bar{\phi})dt &amp; -\bar{v}sin(\bar{\phi})dt \\\
-0 &amp; 1 &amp; sin(\bar{\phi})dt &amp; \bar{v}cos(\bar{\phi})dt \\\
+1 &amp; 0 &amp; \cos(\bar{\phi})dt &amp; -\bar{v}\sin(\bar{\phi})dt \\\
+0 &amp; 1 &amp; \sin(\bar{\phi})dt &amp; \bar{v}\cos(\bar{\phi})dt \\\
 0 &amp; 0 &amp; 1 &amp; 0 \\\
-0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L}dt &amp; 1 \\\
+0 &amp; 0 &amp;\frac{\tan(\bar{\delta})}{L}dt &amp; 1 \\\
 \end{bmatrix}$$</p>
 <p>$$B = dt B&rsquo; =
 \begin{bmatrix}
@@ -273,7 +273,7 @@ dt &amp; 0 \\\
 \bar{v}\cos(\bar{\phi})-\bar{v}\sin(\bar{\phi})\bar{\phi} \\\
 \bar{v}\sin(\bar{\phi})+\bar{v}\cos(\bar{\phi})\bar{\phi} \\\
 0 \\\
-\frac{\bar{v}tan(\bar{\delta})}{L} \\\
+\frac{\bar{v}\tan(\bar{\delta})}{L} \\\
 \end{bmatrix} -
 \begin{bmatrix} 0 \\\ 0\\\ \bar{a}\\\
 \frac{\bar{v}\bar{\delta}}{L\cos^2(\bar{\delta})}\\\

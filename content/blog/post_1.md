@@ -22,18 +22,18 @@ $$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
 State and Input vector:
 
 $$ z = \begin{bmatrix}
-x-\position \\\\\\
-y-\position \\\\\\
-\velocity \\\\\\
-\yaw-\angle\end{bmatrix} = \begin{bmatrix}
+x-position \\\\\\
+y-position \\\\\\
+velocity \\\\\\
+yaw-angle\end{bmatrix} = \begin{bmatrix}
 x \\\\\\
 y \\\\\\
 v \\\\\\
 \phi\end{bmatrix} $$
 
 $$u = \begin{bmatrix}
-\acceleration \\\\ 
-\steering-\angle
+acceleration \\\\ 
+steering-angle
 \end{bmatrix} 
 = \begin{bmatrix}
 a \\\\ 
@@ -112,10 +112,10 @@ where
 
 $$A = (I + dt A') =
 \begin{bmatrix} 
-1 & 0 & cos(\bar{\phi})dt & -\bar{v}sin(\bar{\phi})dt \\\\\\
-0 & 1 & sin(\bar{\phi})dt & \bar{v}cos(\bar{\phi})dt \\\\\\
+1 & 0 & \cos(\bar{\phi})dt & -\bar{v}\sin(\bar{\phi})dt \\\\\\
+0 & 1 & \sin(\bar{\phi})dt & \bar{v}\cos(\bar{\phi})dt \\\\\\
 0 & 0 & 1 & 0 \\\\\\
-0 & 0 &\frac{tan(\bar{\delta})}{L}dt & 1 \\\\\\
+0 & 0 &\frac{\tan(\bar{\delta})}{L}dt & 1 \\\\\\
 \end{bmatrix}$$
 
 $$B = dt B' =
@@ -138,7 +138,7 @@ $$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt \\\\\\
 \bar{v}\cos(\bar{\phi})-\bar{v}\sin(\bar{\phi})\bar{\phi} \\\\\\
 \bar{v}\sin(\bar{\phi})+\bar{v}\cos(\bar{\phi})\bar{\phi} \\\\\\
 0 \\\\\\
-\frac{\bar{v}tan(\bar{\delta})}{L} \\\\\\
+\frac{\bar{v}\tan(\bar{\delta})}{L} \\\\\\
 \end{bmatrix} -
 \begin{bmatrix} 0 \\\\\\ 0\\\\\\ \bar{a}\\\\\\
 \frac{\bar{v}\bar{\delta}}{L\cos^2(\bar{\delta})}\\\\\\
