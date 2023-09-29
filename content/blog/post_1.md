@@ -151,30 +151,25 @@ $$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt \\\\\\
 \end{bmatrix}
 $$
 
-{{% katex %}}
-$$ E=mc^2 $$
-$$ z_0=z_{0, ob} $$
-{{% /katex %}}
-
 ## MPC approach:
 
 The cost function:
 
-$$ J = \min Q_f(z_{T,ref}-z_{T})^2 + Q \Sigma ({z_{t, ref} - z_{t}})^2 + R \Sigma {u_t}^2+ R_d \Sigma({u_{t+1}-u_{t}})^2 $$
+$$ J = min Q_f(z_{T,ref}-z_{T})^2 + Q \Sigma ({z_{t, ref} - z_{t}})^2 + R \Sigma {u_t}^2+ R_d \Sigma({u_{t+1}-u_{t}})^2 $$
 
 subject to:
 
-$$ z_{t+1}=Az_t+Bu+C \\\\ z_0=z_{0, ob}$$
+$$ z(t+1)=Az_t+Bu+C $$
 
-$$ z_0=z_{0, ob} $$
+$$ z(0)=z(0, ob) $$
 
-$$v_{\min} < v_t < v_{\max} $$
+$$vmin < v(t) < vmax $$
 
-$$u_{\min} < u_t < u_{\max} $$
+$$u(min < u_t < u(max) $$
 
-$$|u_{t+1}-u_{t}| < \Delta u_{\max} $$
+$$|u_{t+1}-u_{t}| < \Delta u_{max} $$
 
-$$|u_{t}| < u_{\max}$$
+$$|u_{t}| < u_{max}$$
 
 z_ref comes from the target path and speed.
 ## Reference
