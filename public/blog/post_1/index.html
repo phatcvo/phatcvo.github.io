@@ -173,7 +173,7 @@
 <p>State and Input vector:</p>
 <p>$$ z = \begin{bmatrix}
 x \\
-y \\\
+y \\
 v \\
 \phi\end{bmatrix} $$</p>
 <p>$$u = \begin{bmatrix}
@@ -189,15 +189,15 @@ a \\
 \frac{\partial }{\partial x}vcos(\phi) &amp;
 \frac{\partial }{\partial y}vcos(\phi) &amp;
 \frac{\partial }{\partial v}vcos(\phi) &amp;
-\frac{\partial }{\partial \phi}vcos(\phi)\
+\frac{\partial }{\partial \phi}vcos(\phi) \\
 \frac{\partial }{\partial x}vsin(\phi) &amp;
 \frac{\partial }{\partial y}vsin(\phi) &amp;
 \frac{\partial }{\partial v}vsin(\phi) &amp;
-\frac{\partial }{\partial \phi}vsin(\phi)\
+\frac{\partial }{\partial \phi}vsin(\phi) \\
 \frac{\partial }{\partial x}a&amp;
 \frac{\partial }{\partial y}a&amp;
 \frac{\partial }{\partial v}a&amp;
-\frac{\partial }{\partial \phi}a\
+\frac{\partial }{\partial \phi}a \\
 \frac{\partial }{\partial x}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;
@@ -205,23 +205,23 @@ a \\
 \end{bmatrix}
 　=
 \begin{bmatrix}
-0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi})\
-0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \
-0 &amp; 0 &amp; 0 &amp; 0 \
-0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \
+0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi}) \\
+0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \\
 \end{bmatrix}
 $$</p>
 <p>$$
 B&rsquo; =
 \begin{bmatrix}
 \frac{\partial }{\partial a}vcos(\phi) &amp;
-\frac{\partial }{\partial \delta}vcos(\phi)\
+\frac{\partial }{\partial \delta}vcos(\phi) \\
 \frac{\partial }{\partial a}vsin(\phi) &amp;
-\frac{\partial }{\partial \delta}vsin(\phi)\
+\frac{\partial }{\partial \delta}vsin(\phi) \\
 \frac{\partial }{\partial a}a &amp;
-\frac{\partial }{\partial \delta}a\
+\frac{\partial }{\partial \delta}a \\
 \frac{\partial }{\partial a}\frac{vtan(\delta)}{L} &amp;
-\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L}\
+\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L} \\
 \end{bmatrix}
 　=
 \begin{bmatrix}

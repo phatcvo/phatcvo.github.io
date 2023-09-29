@@ -36,7 +36,7 @@ State and Input vector:
 
 $$ z = \begin{bmatrix}
 x \\\\
-y \\\\\
+y \\\\
 v \\\\
 \phi\end{bmatrix} $$
 
@@ -58,15 +58,15 @@ $$ A' =
 \frac{\partial }{\partial x}vcos(\phi) & 
 \frac{\partial }{\partial y}vcos(\phi) & 
 \frac{\partial }{\partial v}vcos(\phi) &
-\frac{\partial }{\partial \phi}vcos(\phi)\\
+\frac{\partial }{\partial \phi}vcos(\phi) \\\\
 \frac{\partial }{\partial x}vsin(\phi) & 
 \frac{\partial }{\partial y}vsin(\phi) & 
 \frac{\partial }{\partial v}vsin(\phi) &
-\frac{\partial }{\partial \phi}vsin(\phi)\\
+\frac{\partial }{\partial \phi}vsin(\phi) \\\\
 \frac{\partial }{\partial x}a& 
 \frac{\partial }{\partial y}a& 
 \frac{\partial }{\partial v}a&
-\frac{\partial }{\partial \phi}a\\
+\frac{\partial }{\partial \phi}a \\\\
 \frac{\partial }{\partial x}\frac{vtan(\delta)}{L}& 
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}& 
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&
@@ -74,10 +74,10 @@ $$ A' =
 \end{bmatrix}
 　=
 \begin{bmatrix}
-0 & 0 & cos(\bar{\phi}) & -\bar{v}sin(\bar{\phi})\\
-0 & 0 & sin(\bar{\phi}) & \bar{v}cos(\bar{\phi}) \\
-0 & 0 & 0 & 0 \\
-0 & 0 &\frac{tan(\bar{\delta})}{L} & 0 \\
+0 & 0 & cos(\bar{\phi}) & -\bar{v}sin(\bar{\phi}) \\\\
+0 & 0 & sin(\bar{\phi}) & \bar{v}cos(\bar{\phi}) \\\\
+0 & 0 & 0 & 0 \\\\
+0 & 0 &\frac{tan(\bar{\delta})}{L} & 0 \\\\
 \end{bmatrix}
 $$
 
@@ -85,13 +85,13 @@ $$
 B' =
 \begin{bmatrix}
 \frac{\partial }{\partial a}vcos(\phi) &
-\frac{\partial }{\partial \delta}vcos(\phi)\\
+\frac{\partial }{\partial \delta}vcos(\phi) \\\\
 \frac{\partial }{\partial a}vsin(\phi) &
-\frac{\partial }{\partial \delta}vsin(\phi)\\
+\frac{\partial }{\partial \delta}vsin(\phi) \\\\
 \frac{\partial }{\partial a}a &
-\frac{\partial }{\partial \delta}a\\
+\frac{\partial }{\partial \delta}a \\\\
 \frac{\partial }{\partial a}\frac{vtan(\delta)}{L} &
-\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L}\\
+\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L} \\\\
 \end{bmatrix}
 　=
 \begin{bmatrix}
