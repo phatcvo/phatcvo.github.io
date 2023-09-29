@@ -174,15 +174,22 @@
 <p>$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$</p>
 <p>State and Input vector:</p>
 <p>$$ z = \begin{bmatrix}
+x_position \\\
+y_position \\\
+velocity \\\
+yaw_angle\end{bmatrix} = \begin{bmatrix}
 x \\\
 y \\\
 v \\\
 \phi\end{bmatrix} $$</p>
 <p>$$u = \begin{bmatrix}
+acceleration \\
+steering_angle
+\end{bmatrix}
+= \begin{bmatrix}
 a \\
 \delta
 \end{bmatrix} $$</p>
-<p>$$x: x-position; y:y-position; v:velocity; \phi: yaw angle; a: acceleration; \delta: steering angle $$</p>
 <p>ODE is</p>
 <p>$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
 <p>where</p>
