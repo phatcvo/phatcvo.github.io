@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MPC on </title>
-    <link>https://phatcv.vercel.app/tags/mpc/</link>
+    <link>https://phatcvo.vercel.app/tags/mpc/</link>
     <description>Recent content in MPC on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcv.vercel.app/tags/mpc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.vercel.app/tags/mpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Model-Predictive Control</title>
-      <link>https://phatcv.vercel.app/blog/eq/</link>
+      <link>https://phatcvo.vercel.app/blog/eq/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcv.vercel.app/blog/eq/</guid>
+      <guid>https://phatcvo.vercel.app/blog/eq/</guid>
       <description>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a} - \begin{bmatrix} \bar{v}sin(\bar{\phi})\bar{\phi}dt\\ -\bar{v}cos(\bar{\phi})\bar{\phi}dt\\ 0\\ -\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\ \end{bmatrix}$$</description>
     </item>
     
     <item>
       <title>Model-Predictive Control</title>
-      <link>https://phatcv.vercel.app/blog/post_1/</link>
+      <link>https://phatcvo.vercel.app/blog/post_1/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcv.vercel.app/blog/post_1/</guid>
+      <guid>https://phatcvo.vercel.app/blog/post_1/</guid>
       <description>Vehicle model linearization Vehicle model is
 $$ \dot{x} = vcos(\phi)$$
 $$ \dot{y} = vsin((\phi)$$
