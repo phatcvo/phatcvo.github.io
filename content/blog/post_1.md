@@ -160,7 +160,7 @@ $$ J = \min Q_f(z_{T,ref}-z_{T})^2 + Q \Sigma ({z_{t, ref} - z_{t}})^2 + R \Sigm
 
 subject to:
 
-$$ z_{t+1}=Az_t+Bu+C z=z$$
+$$ z_{t+1}=Az_t+Bu+C z_0=z$$
 
 $$ z_0=z_{0, ob} $$
 
