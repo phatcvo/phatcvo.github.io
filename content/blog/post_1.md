@@ -91,22 +91,22 @@ B' =
 0 & 0 \\\\\\
 0 & 0 \\\\\\
 1 & 0 \\\\\\
-0 & \frac{\bar{v}}{Lcos^2(\bar{\delta})} \\\\\\
+0 & \frac{\bar{v}}{L\cos^2(\bar{\delta})} \\\\\\
 \end{bmatrix}
 $$
 
 You can get a discrete-time mode with Forward Euler Discretization with sampling time dt.
 
-$$z_{k+1} = z_k+f(z_k,u_k)dt$$
+$$z(k+1) = z(k)+f(z(k),u(k))dt$$
 
 Using first-degree Tayer expansion around zbar and ubar
-$$z_{k+1} = z_k+(f(\bar{z},\bar{u})+A'z_k+B'u_k-A'\bar{z}-B'\bar{u})dt$$
+$$z(k+1) = z(k)+(f(\bar{z},\bar{u})+A'z(k)+B'u(k)-A'\bar{z}-B'\bar{u})dt$$
 
-$$z_{k+1} = (I + dtA')z_k+(dtB')u_k + (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt$$
+$$z(k+1) = (I + dtA')z(k)+(dtB')u(k) + (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt$$
 
 So, 
 
-$$z_{k+1} = Az_k+Bu_k +C$$
+$$z(k+1) = Az(k)+Bu(k) +C$$
 
 where
 
@@ -155,7 +155,7 @@ $$
 
 The cost function:
 
-$$ J = \min Qf(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ Rd \Sigma({u(t+1)-u(t)})^2 $$
+$$ J = \min Q'(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ R' \Sigma({u(t+1)-u(t)})^2 $$
 
 subject to:
 
@@ -163,13 +163,13 @@ $$ z(t+1)=Az_t+Bu+C $$
 
 $$ z(0)=z(0, ob) $$
 
-$$vmin < v(t) < vmax $$
+$$\underline{v} < v(t) < \overline{v} $$
 
-$$\underline{u} < u_t < \overline{u} $$
+$$\underline{u} < u(t) < \overline{u} $$
 
-$$|u(t+1)-u(t)| < \Delta u $$
+$$|u(t+1)-u(t)| < \Delta \overline{u} $$
 
-$$|u(t)| < umax$$
+$$|u(t)| < \overline{u}$$
 
 z_ref comes from the target path and speed.
 ## Reference

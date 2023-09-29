@@ -237,16 +237,16 @@ B&rsquo; =
 0 &amp; 0 \\\
 0 &amp; 0 \\\
 1 &amp; 0 \\\
-0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})} \\\
+0 &amp; \frac{\bar{v}}{L\cos^2(\bar{\delta})} \\\
 \end{bmatrix}
 $$</p>
 <p>You can get a discrete-time mode with Forward Euler Discretization with sampling time dt.</p>
-<p>$$z_{k+1} = z_k+f(z_k,u_k)dt$$</p>
+<p>$$z(k+1) = z(k)+f(z(k),u(k))dt$$</p>
 <p>Using first-degree Tayer expansion around zbar and ubar
-$$z_{k+1} = z_k+(f(\bar{z},\bar{u})+A&rsquo;z_k+B&rsquo;u_k-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
-<p>$$z_{k+1} = (I + dtA&rsquo;)z_k+(dtB&rsquo;)u_k + (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
+$$z(k+1) = z(k)+(f(\bar{z},\bar{u})+A&rsquo;z(k)+B&rsquo;u(k)-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
+<p>$$z(k+1) = (I + dtA&rsquo;)z(k)+(dtB&rsquo;)u(k) + (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
 <p>So,</p>
-<p>$$z_{k+1} = Az_k+Bu_k +C$$</p>
+<p>$$z(k+1) = Az(k)+Bu(k) +C$$</p>
 <p>where</p>
 <p>$$A = (I + dt A&rsquo;) =
 \begin{bmatrix}
@@ -287,14 +287,14 @@ dt &amp; 0 \\\
 $$</p>
 <h2 id="mpc-approach">MPC approach:</h2>
 <p>The cost function:</p>
-<p>$$ J = \min Qf(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ Rd \Sigma({u(t+1)-u(t)})^2 $$</p>
+<p>$$ J = \min Q&rsquo;(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ R&rsquo; \Sigma({u(t+1)-u(t)})^2 $$</p>
 <p>subject to:</p>
 <p>$$ z(t+1)=Az_t+Bu+C $$</p>
 <p>$$ z(0)=z(0, ob) $$</p>
-<p>$$vmin &lt; v(t) &lt; vmax $$</p>
-<p>$$\underline{u} &lt; u_t &lt; \overline{u} $$</p>
-<p>$$|u(t+1)-u(t)| &lt; \Delta u $$</p>
-<p>$$|u(t)| &lt; umax$$</p>
+<p>$$\underline{v} &lt; v(t) &lt; \overline{v} $$</p>
+<p>$$\underline{u} &lt; u(t) &lt; \overline{u} $$</p>
+<p>$$|u(t+1)-u(t)| &lt; \Delta \overline{u} $$</p>
+<p>$$|u(t)| &lt; \overline{u}$$</p>
 <p>z_ref comes from the target path and speed.</p>
 <h2 id="reference">Reference</h2>
 <ul>
