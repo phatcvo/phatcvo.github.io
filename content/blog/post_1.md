@@ -22,10 +22,10 @@ $$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
 State and Input vector:
 
 $$ z = \begin{bmatrix}
-x_position \\\\\\
-y_position \\\\\\
+x-position \\\\\\
+y-position \\\\\\
 velocity \\\\\\
-yaw_angle\end{bmatrix} = \begin{bmatrix}
+yaw-angle\end{bmatrix} = \begin{bmatrix}
 x \\\\\\
 y \\\\\\
 v \\\\\\
@@ -33,7 +33,7 @@ v \\\\\\
 
 $$u = \begin{bmatrix}
 acceleration \\\\ 
-steering_angle
+steering-angle
 \end{bmatrix} 
 = \begin{bmatrix}
 a \\\\ 
