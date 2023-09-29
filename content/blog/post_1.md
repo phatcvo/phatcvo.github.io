@@ -162,7 +162,7 @@ subject to:
 
 $$ z_{t+1}=Az_t+Bu+C $$
 
-$$z_0 = z_{0,ob} $$
+$$z_{0} = z_{0,ob} $$
 
 $$v_{\min} < v_t < v_{\max} $$
 
