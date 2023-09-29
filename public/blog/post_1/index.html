@@ -289,12 +289,12 @@ $$</p>
 <p>The cost function:</p>
 <p>$$ J = \min Q_f(z_{T,ref}-z_{T})^2 + Q \Sigma ({z_{t, ref} - z_{t}})^2 + R \Sigma {u_t}^2+ R_d \Sigma({u_{t+1}-u_{t}})^2 $$</p>
 <p>subject to:</p>
-<p>$$ z_{t+1}=Az_t+Bu+C \\\
-z_0 = z_{0,ob} \\\
-v_{\min} &lt; v_t &lt; v_{\max} \\\
-u_{\min} &lt; u_t &lt; u_{\max} \\\
-|u_{t+1}-u_{t}| &lt; \Delta u_{\max} \\\
-|u_{t}| &lt; u_{\max}$$</p>
+<p>$$ z_{t+1}=Az_t+Bu+C $$</p>
+<p>$$z_0 = z_{0,ob} $$</p>
+<p>$$v_{\min} &lt; v_t &lt; v_{\max} $$</p>
+<p>$$u_{\min} &lt; u_t &lt; u_{\max} $$</p>
+<p>$$|u_{t+1}-u_{t}| &lt; \Delta u_{\max} $$</p>
+<p>$$|u_{t}| &lt; u_{\max}$$</p>
 <p>z_ref comes from the target path and speed.</p>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -317,12 +317,7 @@ u_{\min} &lt; u_t &lt; u_{\max} \\\
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <a
-      href="/blog/eq/"
-      title="Model-Predictive Control"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
     
   </h3>
 </div>

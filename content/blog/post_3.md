@@ -324,7 +324,5 @@ Dataset-of-Gazebo-Worlds-Models-and-Maps](https://github.com/mlherd/Dataset-of-G
 aws-robomaker-small-warehouse-world](https://github.com/aws-robotics/aws-robomaker-small-warehouse-world). Thanks for these open source models sincerely.
 * Pedestrians in this environment are using social force model(sfm), which comes from [https://github.com/robotics-upo/lightsfm](https://github.com/robotics-upo/lightsfm).
 
-## <span id="8">08. License
 
-The source code is released under [GPLv3](https://www.gnu.org/licenses/) license.
 
