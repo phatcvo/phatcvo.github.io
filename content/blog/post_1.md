@@ -151,6 +151,10 @@ $$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt \\\\\\
 \end{bmatrix}
 $$
 
+{{% katex %}}
+$$ E=mc^2 $$
+$$ z_0=z_{0, ob} $$
+{{% /katex %}}
 
 ## MPC approach:
 

@@ -1,0 +1,5 @@
+<!-- layouts/shortcodes/katex.html -->
+{{ $equation := .Inner }}
+<span class="katex">
+    {{ $equation | safeHTML }}
+</span>
