@@ -22,9 +22,9 @@ $$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
 State and Input vector:
 
 $$ z = \begin{bmatrix}
-x \\\\
-y \\\\
-v \\\\
+x \\\\\\
+y \\\\\\
+v \\\\\\
 \phi\end{bmatrix} $$
 
 $$u = \begin{bmatrix}
