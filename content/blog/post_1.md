@@ -144,19 +144,28 @@ $$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt \\\\\\
 -\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\\\\\
 \end{bmatrix}
 $$
+
+$$J = \min Q_f(z_{T,ref}-z_{T})^2 + Q \Sigma({z_{t, ref} - z_{t}})^2+R \Sigma{u_t}^2+ R_d \Sigma({u_{t+1}-u_{t}})^2$$
+
 ## MPC approach:
 
 The cost function:
+
 $$J = \min Q_f(z_{T,ref}-z_{T})^2 + Q \Sigma({z_{t, ref} - z_{t}})^2+R \Sigma{u_t}^2+ R_d \Sigma({u_{t+1}-u_{t}})^2$$
 
 z_ref comes from the target path and speed.
 subject to:
 
 $$z_{t+1}=Az_t+Bu+C$$
+
 $$z_0 = z_{0,ob}$$
+
 $$v_{min} < v_t < v_{max}$$
+
 $$u_{min} < u_t < u_{max}$$
+
 $$|u_{t+1}-u_{t}| < du_{max}$$
+
 $$|u_{t}| < u_{max}$$
 
 ## Reference
