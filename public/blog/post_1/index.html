@@ -191,15 +191,15 @@ a \\
 \frac{\partial }{\partial x}vcos(\phi) &amp;
 \frac{\partial }{\partial y}vcos(\phi) &amp;
 \frac{\partial }{\partial v}vcos(\phi) &amp;
-\frac{\partial }{\partial \phi}vcos(\phi) \\
+\frac{\partial }{\partial \phi}vcos(\phi) \\\
 \frac{\partial }{\partial x}vsin(\phi) &amp;
 \frac{\partial }{\partial y}vsin(\phi) &amp;
 \frac{\partial }{\partial v}vsin(\phi) &amp;
-\frac{\partial }{\partial \phi}vsin(\phi) \\
+\frac{\partial }{\partial \phi}vsin(\phi) \\\
 \frac{\partial }{\partial x}a&amp;
 \frac{\partial }{\partial y}a&amp;
 \frac{\partial }{\partial v}a&amp;
-\frac{\partial }{\partial \phi}a \\
+\frac{\partial }{\partial \phi}a \\\
 \frac{\partial }{\partial x}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial y}\frac{vtan(\delta)}{L}&amp;
 \frac{\partial }{\partial v}\frac{vtan(\delta)}{L}&amp;
@@ -207,30 +207,30 @@ a \\
 \end{bmatrix}
 　=
 \begin{bmatrix}
-0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi}) \\
-0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \\
-0 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \\
+0 &amp; 0 &amp; cos(\bar{\phi}) &amp; -\bar{v}sin(\bar{\phi}) \\\
+0 &amp; 0 &amp; sin(\bar{\phi}) &amp; \bar{v}cos(\bar{\phi}) \\\
+0 &amp; 0 &amp; 0 &amp; 0 \\\
+0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L} &amp; 0 \\\
 \end{bmatrix}
 $$</p>
 <p>$$
 B&rsquo; =
 \begin{bmatrix}
 \frac{\partial }{\partial a}vcos(\phi) &amp;
-\frac{\partial }{\partial \delta}vcos(\phi) \\
+\frac{\partial }{\partial \delta}vcos(\phi) \\\
 \frac{\partial }{\partial a}vsin(\phi) &amp;
-\frac{\partial }{\partial \delta}vsin(\phi) \\
+\frac{\partial }{\partial \delta}vsin(\phi) \\\
 \frac{\partial }{\partial a}a &amp;
-\frac{\partial }{\partial \delta}a \\
+\frac{\partial }{\partial \delta}a \\\
 \frac{\partial }{\partial a}\frac{vtan(\delta)}{L} &amp;
-\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L} \\
+\frac{\partial }{\partial \delta}\frac{vtan(\delta)}{L} \\\
 \end{bmatrix}
 　=
 \begin{bmatrix}
-0 &amp; 0 \
-0 &amp; 0 \
-1 &amp; 0 \
-0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})} \
+0 &amp; 0 \\\
+0 &amp; 0 \\\
+1 &amp; 0 \\\
+0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})} \\\
 \end{bmatrix}
 $$</p>
 <p>You can get a discrete-time mode with Forward Euler Discretization with sampling time dt.</p>
@@ -243,39 +243,39 @@ $$z_{k+1} = z_k+(f(\bar{z},\bar{u})+A&rsquo;z_k+B&rsquo;u_k-A&rsquo;\bar{z}-B&rs
 <p>where</p>
 <p>$$A = (I + dt A&rsquo;) =
 \begin{bmatrix}
-1 &amp; 0 &amp; cos(\bar{\phi})dt &amp; -\bar{v}sin(\bar{\phi})dt\
-0 &amp; 1 &amp; sin(\bar{\phi})dt &amp; \bar{v}cos(\bar{\phi})dt \
-0 &amp; 0 &amp; 1 &amp; 0 \
-0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L}dt &amp; 1 \
+1 &amp; 0 &amp; cos(\bar{\phi})dt &amp; -\bar{v}sin(\bar{\phi})dt \\\
+0 &amp; 1 &amp; sin(\bar{\phi})dt &amp; \bar{v}cos(\bar{\phi})dt \\\
+0 &amp; 0 &amp; 1 &amp; 0 \\\
+0 &amp; 0 &amp;\frac{tan(\bar{\delta})}{L}dt &amp; 1 \\\
 \end{bmatrix}$$</p>
 <p>$$B = dt B&rsquo; =
 \begin{bmatrix}
-0 &amp; 0 \
-0 &amp; 0 \
-dt &amp; 0 \
-0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \
+0 &amp; 0 \\\
+0 &amp; 0 \\\
+dt &amp; 0 \\\
+0 &amp; \frac{\bar{v}}{Lcos^2(\bar{\delta})}dt \\\
 \end{bmatrix}$$</p>
-<p>$$ C = (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt\
+<p>$$ C = (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt \\\
 = dt(\begin{bmatrix}
-\bar{v}cos(\bar{\phi})\
-\bar{v}sin(\bar{\phi}) \
-\bar{a}\
-\frac{\bar{v}tan(\bar{\delta})}{L}\
+\bar{v}cos(\bar{\phi}) \\\
+\bar{v}sin(\bar{\phi}) \\\
+\bar{a} \\\
+\frac{\bar{v}tan(\bar{\delta})}{L} \\\
 \end{bmatrix} -
 \begin{bmatrix}
-\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi}\
-\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi}\
-0\
-\frac{\bar{v}tan(\bar{\delta})}{L}\
+\bar{v}cos(\bar{\phi})-\bar{v}sin(\bar{\phi})\bar{\phi} \\\
+\bar{v}sin(\bar{\phi})+\bar{v}cos(\bar{\phi})\bar{\phi} \\\
+0 \\\
+\frac{\bar{v}tan(\bar{\delta})}{L} \\\
 \end{bmatrix} -
-\begin{bmatrix} 0\ 0\ \bar{a}\
-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\
+\begin{bmatrix} 0 \\\ 0\\\ \bar{a}\\\
+\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}\\\
 \end{bmatrix}) =
 \begin{bmatrix}
-\bar{v}sin(\bar{\phi})\bar{\phi}dt\
--\bar{v}cos(\bar{\phi})\bar{\phi}dt\
-0\
--\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\
+\bar{v}sin(\bar{\phi})\bar{\phi}dt\\\
+-\bar{v}cos(\bar{\phi})\bar{\phi}dt\\\
+0\\\
+-\frac{\bar{v}\bar{\delta}}{Lcos^2(\bar{\delta})}dt\\\
 \end{bmatrix}
 $$</p>
 <h2 id="mpc-approach">MPC approach:</h2>
