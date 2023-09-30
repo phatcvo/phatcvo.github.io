@@ -1340,6 +1340,9 @@ blockquote {
 .underline {
   text-decoration-line: underline !important;
 }
+.overline {
+  text-decoration-line: overline !important;
+}
 .no-underline {
   text-decoration-line: none !important;
 }
