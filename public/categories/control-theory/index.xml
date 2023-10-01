@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Control theory on </title>
-    <link>https://phatcv.vercel.app/categories/control-theory/</link>
+    <link>https://phatcvo.vercel.app/categories/control-theory/</link>
     <description>Recent content in Control theory on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcv.vercel.app/categories/control-theory/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.vercel.app/categories/control-theory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Model-Predictive Control</title>
-      <link>https://phatcv.vercel.app/blog/post_1/</link>
+      <link>https://phatcvo.vercel.app/blog/post_1/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcv.vercel.app/blog/post_1/</guid>
+      <guid>https://phatcvo.vercel.app/blog/post_1/</guid>
       <description>Vehicle model linearization Vehicle model is
 $$ \dot{x} = vcos(\phi)$$
 $$ \dot{y} = vsin((\phi)$$
@@ -27,10 +27,10 @@ $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo
     
     <item>
       <title>Safe-Optimal Control for Motional Planning based on RL</title>
-      <link>https://phatcv.vercel.app/blog/post_2/</link>
+      <link>https://phatcvo.vercel.app/blog/post_2/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcv.vercel.app/blog/post_2/</guid>
+      <guid>https://phatcvo.vercel.app/blog/post_2/</guid>
       <description>Table of contents Optimal Control Dynamic Programming Linear Programming Tree-Based Planning Control Theory Model Predictive Control Safe Control Robust Control Risk-Averse Control Value-Constrained Control State-Constrained Control and Stability Uncertain Dynamical Systems Game Theory Sequential Learning Multi-Armed Bandit Best Arm Identification Black-box Optimization Reinforcement Learning Theory Value-based Policy-based Policy Gradient Actor-critic Derivative-free Model-based Exploration Hierarchy and Temporal Abstraction Partial Observability Transfer Multi-agent Representation Learning Offline Learning from Demonstrations Imitation Learning Applications to Autonomous Driving Inverse Reinforcement Learning Applications to Autonomous Driving Motion Planning Search Sampling Optimization Reactive Architecture and applications Optimal Control: Dynamic Programming (book) Dynamic Programming, Bellman R.</description>
     </item>
     
