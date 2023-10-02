@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/blog/</loc>
+    <loc>https://phatcvo.github.io/blog/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://phatcvo.github.io/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://phatcvo.github.io/categories/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/control-theory/</loc>
+    <loc>https://phatcvo.github.io/categories/control-theory/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/post_1/</loc>
+    <loc>https://phatcvo.github.io/blog/post_1/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/mpc/</loc>
+    <loc>https://phatcvo.github.io/tags/mpc/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/notes/</loc>
+    <loc>https://phatcvo.github.io/tags/notes/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://phatcvo.github.io/tags/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/motion-planning/</loc>
+    <loc>https://phatcvo.github.io/categories/motion-planning/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/optimal/</loc>
+    <loc>https://phatcvo.github.io/tags/optimal/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/rl/</loc>
+    <loc>https://phatcvo.github.io/tags/rl/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/ros/</loc>
+    <loc>https://phatcvo.github.io/tags/ros/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/post_3/</loc>
+    <loc>https://phatcvo.github.io/blog/post_3/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/safe/</loc>
+    <loc>https://phatcvo.github.io/tags/safe/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/post_2/</loc>
+    <loc>https://phatcvo.github.io/blog/post_2/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url>
 </urlset>

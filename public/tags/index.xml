@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>/tags/</link>
+    <link>https://phatcvo.github.io/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MPC</title>
-      <link>/tags/mpc/</link>
+      <link>https://phatcvo.github.io/tags/mpc/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/mpc/</guid>
+      <guid>https://phatcvo.github.io/tags/mpc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>notes</title>
-      <link>/tags/notes/</link>
+      <link>https://phatcvo.github.io/tags/notes/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/notes/</guid>
+      <guid>https://phatcvo.github.io/tags/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Optimal</title>
-      <link>/tags/optimal/</link>
+      <link>https://phatcvo.github.io/tags/optimal/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/optimal/</guid>
+      <guid>https://phatcvo.github.io/tags/optimal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RL</title>
-      <link>/tags/rl/</link>
+      <link>https://phatcvo.github.io/tags/rl/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/rl/</guid>
+      <guid>https://phatcvo.github.io/tags/rl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ROS</title>
-      <link>/tags/ros/</link>
+      <link>https://phatcvo.github.io/tags/ros/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/ros/</guid>
+      <guid>https://phatcvo.github.io/tags/ros/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Safe</title>
-      <link>/tags/safe/</link>
+      <link>https://phatcvo.github.io/tags/safe/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/safe/</guid>
+      <guid>https://phatcvo.github.io/tags/safe/</guid>
       <description></description>
     </item>
     
