@@ -421,8 +421,6 @@ publishDir = "public"
         [[params.skill.list]]
             skill = "Simulators/DevTools: MORAI, Carla, Gazebo, ROS, VS Code, Pycharm, Git, Github, etc"
             skillrating = 80
-       
-        
 
     # Hobby section
     [params.hobby]
