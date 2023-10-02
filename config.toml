@@ -15,7 +15,7 @@ theme = "aafu"
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
         mainTheme = "light"
         showAttribute = false
-        singlePage = true
+        singlePage = false
 
     [params.favicons]
         use = true
@@ -48,9 +48,9 @@ theme = "aafu"
         #    url = "#"
         #    title = "StackOverflow"
         [[params.social.list]]
-            icon = "fab fa-github"
-            url = "https://github.com/phatcvo"
-            title = "GitHub"
+            icon = "fab fa-researchgate"
+            url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
+            title = "ResearchGate"
         [[params.social.list]]
             icon = "fab fa-twitter"
             url = "https://twitter.com/vophat0607"
@@ -64,9 +64,10 @@ theme = "aafu"
             url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
             title = "Google Scholar"
         [[params.social.list]]
-            icon = "fab fa-researchgate"
-            url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
-            title = "ResearchGate"
+            icon = "fab fa-github"
+            url = "https://github.com/phatcvo"
+            title = "GitHub"
+        
 
     #Specify what is showin in the Accordion
     [[params.showInAccordion]]
@@ -398,6 +399,10 @@ theme = "aafu"
             title = "OTW"
             url = "#"
             description = "On The Way (OTW) environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms"
+        [[params.project.list]]
+            title = "ASM"
+            url = "#"
+            description = "ROS Navigation Stack with AgileX Scout-Mini (ASM) in Gazebo Simulator"
 
 
     # Skill section
