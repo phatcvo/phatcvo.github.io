@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.vercel.app/tags/ros/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>MPC-based tracking control for quadrotor</title>
+      <link>https://phatcvo.vercel.app/blog/post_4/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://phatcvo.vercel.app/blog/post_4/</guid>
+      <description>The MPC tracking for quadrotor The controller for quadrotor tracking are include 3 subcontrollers. They are Altititude controller , Position controller and Attitude controller. The detail of them are shown in the Figure below.
+The MPC solver is using CasADi.
+The tracking of each controller Implement 3 MPC controller without relation
+The altitude tracking The position tracking The attitude tracking The quadrotor tracking Todo Implement LNMPC controller for stable behavior </description>
+    </item>
+    
+    <item>
       <title>ROS Motion Planning</title>
       <link>https://phatcvo.vercel.app/blog/post_3/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>

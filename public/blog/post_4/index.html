@@ -132,26 +132,26 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em"></h1>
-  <p class="mb-1">January 1, 0001</p>
+  <h1 class="top-h1" style="font-size: 2.75em">MPC-based tracking control for quadrotor</h1>
+  <p class="mb-1">May 18, 2022</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
   <h1 id="the-mpc-tracking-for-quadrotor">The MPC tracking for quadrotor</h1>
 <p>The controller for quadrotor tracking are include 3 subcontrollers. They are Altititude controller , Position controller and Attitude controller. The detail of them are shown in the Figure below.</p>
-<p><img src="images/quad_controller.png" alt="MPC quad"></p>
+<p><img src="./post_4/images/quad_controller.png" alt="MPC quad"></p>
 <p>The MPC solver is using <a href="https://web.casadi.org/">CasADi</a>.</p>
 <h2 id="the-tracking-of-each-controller">The tracking of each controller</h2>
 <p>Implement 3 MPC controller without relation</p>
 <h3 id="the-altitude-tracking">The altitude tracking</h3>
-<p><img src="images/altitude_tracking.png" alt="altitude"></p>
+<p><img src="./post_4/images/altitude_tracking.png" alt="altitude"></p>
 <h3 id="the-position-tracking">The position tracking</h3>
-<p><img src="images/position_tracking.png" alt="position"></p>
+<p><img src="./post_4/images/position_tracking.png" alt="position"></p>
 <h3 id="the-attitude-tracking">The attitude tracking</h3>
-<p><img src="images/attitude_tracking.png" alt="attitude"></p>
+<p><img src="./post_4/images/attitude_tracking.png" alt="attitude"></p>
 <h2 id="the-quadrotor-tracking">The quadrotor tracking</h2>
-<p><img src="images/quad_mpc_tracking.png" alt="tracking">
-<img src="images/quad_mpc_control.png" alt="control"></p>
+<p><img src="./post_4/images/quad_mpc_tracking.png" alt="tracking">
+<img src="./post_4/images/quad_mpc_control.png" alt="control"></p>
 <h2 id="todo">Todo</h2>
 <ul>
 <li>Implement LNMPC controller for stable behavior</li>
@@ -162,14 +162,19 @@
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
-    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    <a
+      href="/blog/post_3/"
+      title="ROS Motion Planning"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
     
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
     <a
-      href="/blog/post_2/"
-      title="Safe-Optimal Control for Motional Planning based on RL"
+      href="/blog/post_1/"
+      title="Model-Predictive Control"
     >
       <i class="nav-menu fas fa-chevron-circle-right"></i>
     </a>
