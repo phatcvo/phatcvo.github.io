@@ -436,3 +436,6 @@ theme = "aafu"
             hobby = "- Technical toys: Creating controllable things is fascinating."
         [[params.hobby.list]]
             hobby = "- Traveling: I like traveling. I explore beautiful places and experience new things."
+
+[outputs]
+  home = [ "HTML", "RSS" ]
