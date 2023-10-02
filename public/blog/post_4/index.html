@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" class="m-auto light"><head>
-  <title>Personal site</title>
+  <title>Phat C. Vo</title>
 
 <meta name="theme-color" content="" />
 <meta charset="utf-8" />
@@ -12,7 +12,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
-
+  
   <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -86,7 +86,6 @@
       }
     };
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
   <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
@@ -97,7 +96,7 @@
   class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
 >
   <div>
-    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcv.vercel.app/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.vercel.app/">Home</a>    
     <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
   </div>
   
@@ -133,42 +132,47 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Matrix Equation Blog Post</h1>
-  <p class="mb-1">September 27, 2023</p>
+  <h1 class="top-h1" style="font-size: 2.75em"></h1>
+  <p class="mb-1">January 1, 0001</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <p>In this blog post, we&rsquo;ll discuss a matrix equation. Consider the following matrix equation:</p>
-<p>\mathbf{A} \mathbf{X} = \mathbf{B}</p>
-<p>Where:</p>
-<p>\mathbf{A} =
-\begin{bmatrix}
-2 &amp; 3 \\
-1 &amp; 4 \\
-\end{bmatrix}</p>
-<p>\mathbf{X} =
-\begin{bmatrix}
-x \\
-y \\
-\end{bmatrix}</p>
-<p>This equation represents a linear system of equations involving matrices.</p>
+  <h1 id="the-mpc-tracking-for-quadrotor">The MPC tracking for quadrotor</h1>
+<p>The controller for quadrotor tracking are include 3 subcontrollers. They are Altititude controller , Position controller and Attitude controller. The detail of them are shown in the Figure below.</p>
+<p><img src="images/quad_controller.png" alt="MPC quad"></p>
+<p>The MPC solver is using <a href="https://web.casadi.org/">CasADi</a>.</p>
+<h2 id="the-tracking-of-each-controller">The tracking of each controller</h2>
+<p>Implement 3 MPC controller without relation</p>
+<h3 id="the-altitude-tracking">The altitude tracking</h3>
+<p><img src="images/altitude_tracking.png" alt="altitude"></p>
+<h3 id="the-position-tracking">The position tracking</h3>
+<p><img src="images/position_tracking.png" alt="position"></p>
+<h3 id="the-attitude-tracking">The attitude tracking</h3>
+<p><img src="images/attitude_tracking.png" alt="attitude"></p>
+<h2 id="the-quadrotor-tracking">The quadrotor tracking</h2>
+<p><img src="images/quad_mpc_tracking.png" alt="tracking">
+<img src="images/quad_mpc_control.png" alt="control"></p>
+<h2 id="todo">Todo</h2>
+<ul>
+<li>Implement LNMPC controller for stable behavior</li>
+</ul>
 
 </div>
 </div>
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
-    <a
-      href="/blog/post_1/"
-      title="Model-Predictive Control"
-    >
-      <i class="nav-menu fas fa-chevron-circle-left"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
     
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    <a
+      href="/blog/post_2/"
+      title="Safe-Optimal Control for Motional Planning based on RL"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
     
   </h3>
 </div>
@@ -177,8 +181,10 @@ y \\
 <html lang="en">
 <head>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 
     
     <script>
@@ -187,8 +193,8 @@ y \\
             delimiters: [
                 { left: "$$", right: "$$", display: true },
                 { left: "\\[", right: "\\]", display: true },
-                { left: "\begin{bmatrix}", right: "\end{bmatrix}", display: true },
-                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
             ],
         });
     });
@@ -204,7 +210,7 @@ y \\
     </main>
     
     <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
-  <p class="markdownify">© 2023 · phatcv</p>
+  <p class="markdownify">© 2023 · phatcvo</p>
   <p style="font-size:0px;">
     <i>
       <a href="https://github.com/darshanbaral/aafu">
