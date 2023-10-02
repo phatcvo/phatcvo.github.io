@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Optimal on </title>
-    <link>https://phatcvo.vercel.app/tags/optimal/</link>
+    <link>https://phatcvo.github.io/tags/optimal/</link>
     <description>Recent content in Optimal on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.vercel.app/tags/optimal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.github.io/tags/optimal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MPC-based tracking control for quadrotor</title>
-      <link>https://phatcvo.vercel.app/blog/post_4/</link>
+      <link>https://phatcvo.github.io/blog/post_4/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcvo.vercel.app/blog/post_4/</guid>
+      <guid>https://phatcvo.github.io/blog/post_4/</guid>
       <description>The MPC tracking for quadrotor The controller for quadrotor tracking are include 3 subcontrollers. They are Altititude controller , Position controller and Attitude controller. The detail of them are shown in the Figure below.
 The MPC solver is using CasADi.
 The tracking of each controller Implement 3 MPC controller without relation
@@ -21,10 +21,10 @@ The altitude tracking The position tracking The attitude tracking The quadrotor 
     
     <item>
       <title>ROS Motion Planning</title>
-      <link>https://phatcvo.vercel.app/blog/post_3/</link>
+      <link>https://phatcvo.github.io/blog/post_3/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcvo.vercel.app/blog/post_3/</guid>
+      <guid>https://phatcvo.github.io/blog/post_3/</guid>
       <description>ROS Motion Planning Motion planning is a computational problem to find a sequence of valid configurations that moves the object from the source to destination. Generally, it includes Path Searching and Trajectory Optimization.
 Path Searching: Based on path constraints, e.g. obstacles, it searches an optimal path sequence for the robot to travel without conflicts between source and destination.
 Trajectory Planning: Based on the kinematics, dynamics and obstacles, it optimizes a motion state trajectory from the source to destination according to the path sequence.</description>
@@ -32,10 +32,10 @@ Trajectory Planning: Based on the kinematics, dynamics and obstacles, it optimiz
     
     <item>
       <title>Safe-Optimal Control for Motional Planning based on RL</title>
-      <link>https://phatcvo.vercel.app/blog/post_2/</link>
+      <link>https://phatcvo.github.io/blog/post_2/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcvo.vercel.app/blog/post_2/</guid>
+      <guid>https://phatcvo.github.io/blog/post_2/</guid>
       <description>Table of contents Optimal Control Dynamic Programming Linear Programming Tree-Based Planning Control Theory Model Predictive Control Safe Control Robust Control Risk-Averse Control Value-Constrained Control State-Constrained Control and Stability Uncertain Dynamical Systems Game Theory Sequential Learning Multi-Armed Bandit Best Arm Identification Black-box Optimization Reinforcement Learning Theory Value-based Policy-based Policy Gradient Actor-critic Derivative-free Model-based Exploration Hierarchy and Temporal Abstraction Partial Observability Transfer Multi-agent Representation Learning Offline Learning from Demonstrations Imitation Learning Applications to Autonomous Driving Inverse Reinforcement Learning Applications to Autonomous Driving Motion Planning Search Sampling Optimization Reactive Architecture and applications Optimal Control: Dynamic Programming (book) Dynamic Programming, Bellman R.</description>
     </item>
     

@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on </title>
-    <link>https://phatcvo.vercel.app/categories/</link>
+    <link>https://phatcvo.github.io/categories/</link>
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.vercel.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Control theory</title>
-      <link>https://phatcvo.vercel.app/categories/control-theory/</link>
+      <link>https://phatcvo.github.io/categories/control-theory/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcvo.vercel.app/categories/control-theory/</guid>
+      <guid>https://phatcvo.github.io/categories/control-theory/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Motion Planning</title>
-      <link>https://phatcvo.vercel.app/categories/motion-planning/</link>
+      <link>https://phatcvo.github.io/categories/motion-planning/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcvo.vercel.app/categories/motion-planning/</guid>
+      <guid>https://phatcvo.github.io/categories/motion-planning/</guid>
       <description></description>
     </item>
     

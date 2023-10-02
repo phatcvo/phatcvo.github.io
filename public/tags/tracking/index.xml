@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tracking on </title>
-    <link>https://phatcvo.vercel.app/tags/tracking/</link>
+    <link>https://phatcvo.github.io/tags/tracking/</link>
     <description>Recent content in tracking on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.vercel.app/tags/tracking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://phatcvo.github.io/tags/tracking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MPC-based tracking control for quadrotor</title>
-      <link>https://phatcvo.vercel.app/blog/post_4/</link>
+      <link>https://phatcvo.github.io/blog/post_4/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://phatcvo.vercel.app/blog/post_4/</guid>
+      <guid>https://phatcvo.github.io/blog/post_4/</guid>
       <description>The MPC tracking for quadrotor The controller for quadrotor tracking are include 3 subcontrollers. They are Altititude controller , Position controller and Attitude controller. The detail of them are shown in the Figure below.
 The MPC solver is using CasADi.
 The tracking of each controller Implement 3 MPC controller without relation
