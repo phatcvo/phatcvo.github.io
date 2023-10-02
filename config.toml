@@ -1,6 +1,7 @@
 baseURL = "https://phatcvo.github.io"
 languageCode = "en-us"
 theme = "aafu"
+publishDir = "public"
 
 [build]
   writeStats = true
