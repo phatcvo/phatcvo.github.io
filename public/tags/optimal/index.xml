@@ -27,5 +27,15 @@ Trajectory Planning: Based on the kinematics, dynamics and obstacles, it optimiz
       <description>Table of contents Optimal Control Dynamic Programming Linear Programming Tree-Based Planning Control Theory Model Predictive Control Safe Control Robust Control Risk-Averse Control Value-Constrained Control State-Constrained Control and Stability Uncertain Dynamical Systems Game Theory Sequential Learning Multi-Armed Bandit Best Arm Identification Black-box Optimization Reinforcement Learning Theory Value-based Policy-based Policy Gradient Actor-critic Derivative-free Model-based Exploration Hierarchy and Temporal Abstraction Partial Observability Transfer Multi-agent Representation Learning Offline Learning from Demonstrations Imitation Learning Applications to Autonomous Driving Inverse Reinforcement Learning Applications to Autonomous Driving Motion Planning Search Sampling Optimization Reactive Architecture and applications Optimal Control: Dynamic Programming (book) Dynamic Programming, Bellman R.</description>
     </item>
     
+    <item>
+      <title>Theory of Motion Planning</title>
+      <link>https://phatcvo.github.io/blog/trajectories/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://phatcvo.github.io/blog/trajectories/</guid>
+      <description>Motion Planning There are a few more essential skills that we need in our toolbox. In this chapter, we will explore some of the powerful methods of kinematic trajectory motion planning.
+I&amp;rsquo;m actually almost proud of making it this far into the notes without covering this topic yet. Writing a relatively simple script for the pose of the gripper, like we did in the bin picking chapter, really can solve a lot of interesting problems.</description>
+    </item>
+    
   </channel>
 </rss>

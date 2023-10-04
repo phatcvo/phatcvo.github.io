@@ -1,3 +1,11 @@
+---
+title: "Theory of Motion Planning"
+date: 2022-05-18
+tags: ["Optimal"]
+categories: ["Motion Planning"]
+description: "Motion Planning"
+draft: false
+---
 Motion Planning
 ===============
 
@@ -22,7 +30,7 @@ Inverse Kinematics
 
 The goal of this chapter is to solve for motion trajectories. But I would argue that if you really understand how to solve inverse kinematics, then you've got most of what you need to plan trajectories.
 
-We know that that the [forward kinematics](pick.html#kinematics) give us a (nonlinear) mapping from joint angles to e.g. the pose of the gripper: $X^G = f\_{kin}(q)$. So, naturally, the problem of inverse kinematics (IK) is about solving for the inverse map, $q = f^{-1}\_{kin}(X^G).$ Indeed, that is perhaps the most common and classical question studied in inverse kinematics. But I want you to think of inverse kinematics as a much richer topic than that.
+We know that that the [forward kinematics](pick.html#kinematics) give us a (nonlinear) mapping from joint angles to e.g. the pose of the gripper: $$X^G = f\_{kin}(q)$$. So, naturally, the problem of inverse kinematics (IK) is about solving for the inverse map, $$q = f^{-1}\_{kin}(X^G).$$ Indeed, that is perhaps the most common and classical question studied in inverse kinematics. But I want you to think of inverse kinematics as a much richer topic than that.
 
 For example, when we were [evaluating grasp candidates for bin picking](clutter.html#grasp_candidates), we had only a soft preference on the orientation of the hand relative to some antipodal grasp. In that case, a full 6 DOF pose would have been an overly constrained specification. And often we have many constraints on the kinematics: some in joint space (like joint limits) and others in Cartesian space (like non-penetration constraints). So really, inverse kinematics is about solving for joint angles in a very rich landscape of objectives and constraints.
 

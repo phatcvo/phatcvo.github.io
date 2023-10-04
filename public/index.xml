@@ -46,9 +46,9 @@ Trajectory Planning: Based on the kinematics, dynamics and obstacles, it optimiz
     </item>
     
     <item>
-      <title></title>
+      <title>Theory of Motion Planning</title>
       <link>https://phatcvo.github.io/blog/trajectories/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://phatcvo.github.io/blog/trajectories/</guid>
       <description>Motion Planning There are a few more essential skills that we need in our toolbox. In this chapter, we will explore some of the powerful methods of kinematic trajectory motion planning.

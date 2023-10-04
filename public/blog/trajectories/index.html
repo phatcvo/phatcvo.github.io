@@ -132,8 +132,8 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em"></h1>
-  <p class="mb-1">January 1, 0001</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Theory of Motion Planning</h1>
+  <p class="mb-1">May 18, 2022</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
@@ -151,7 +151,7 @@
 <p>I do need to make one important caveat. Despite having done some work in this field myself, I actually really dislike the problem formulation of collision-free motion planning. I think that on the whole, robots are too afraid of bumping into the world (because things still go wrong when they do). I don&rsquo;t think humans are solving these complex geometric problems every time we reach&hellip; even when we are reaching in dense clutter (I actually suspect that we are very bad at it). I would much rather see robots that perform well even with very coarse / approximate plans for moving through a cluttered environment, that are not afraid to make incidental contacts, and that can still accomplish the task when they do!</p>
 <h1 id="inverse-kinematics">Inverse Kinematics</h1>
 <p>The goal of this chapter is to solve for motion trajectories. But I would argue that if you really understand how to solve inverse kinematics, then you&rsquo;ve got most of what you need to plan trajectories.</p>
-<p>We know that that the <a href="pick.html#kinematics">forward kinematics</a> give us a (nonlinear) mapping from joint angles to e.g. the pose of the gripper: $X^G = f_{kin}(q)$. So, naturally, the problem of inverse kinematics (IK) is about solving for the inverse map, $q = f^{-1}_{kin}(X^G).$ Indeed, that is perhaps the most common and classical question studied in inverse kinematics. But I want you to think of inverse kinematics as a much richer topic than that.</p>
+<p>We know that that the <a href="pick.html#kinematics">forward kinematics</a> give us a (nonlinear) mapping from joint angles to e.g. the pose of the gripper: $$X^G = f_{kin}(q)$$. So, naturally, the problem of inverse kinematics (IK) is about solving for the inverse map, $$q = f^{-1}_{kin}(X^G).$$ Indeed, that is perhaps the most common and classical question studied in inverse kinematics. But I want you to think of inverse kinematics as a much richer topic than that.</p>
 <p>For example, when we were <a href="clutter.html#grasp_candidates">evaluating grasp candidates for bin picking</a>, we had only a soft preference on the orientation of the hand relative to some antipodal grasp. In that case, a full 6 DOF pose would have been an overly constrained specification. And often we have many constraints on the kinematics: some in joint space (like joint limits) and others in Cartesian space (like non-penetration constraints). So really, inverse kinematics is about solving for joint angles in a very rich landscape of objectives and constraints.</p>
 <p><a href="https://www.youtube.com/embed/m1rv4d_zUCY">Click here to watch the video.</a></p>
 <p>We made extensive use of rich inverse kinematics specifications in our work on humanoid robots. The video above is an example of the interactive inverse kinematics interface (here to help us figure out how to fit the our big humanoid robot into the little Polaris). <a href="https://www.youtube.com/watch?v=E_CVq0lWfSc">Here is another video</a> of the same tool being used for the Valkyrie humanoid, where we do specify and end-effector pose, but we also add a joint-centering objective and static stability constraints Fallon14+Marion16.</p>
