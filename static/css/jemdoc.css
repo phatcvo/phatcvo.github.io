@@ -1,0 +1,435 @@
+/* Default css file for jemdoc. */
+
+/*html { 
+#  background: url(image/bg.jpg) no-repeat center center fixed; 
+background: url(image/bg.jpg); 
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}*/
+
+div.abstractcontent {
+    display:none;
+    border: 1px solid silver;
+    padding: 0.3em 0.4em;
+    background: #ebecff;
+    margin-left: 0em;
+    margin-top: -0.7em;
+    text-align: justify;
+}
+
+
+table#tlayout {
+    border: none;
+    border-collapse: separate;
+    /*background: white;*/
+    background: none;/*#F1F1F1;*/
+    border-spacing:2px 0px;
+	
+	padding-top: 0.0em;
+	padding-left: 1.0em;
+	padding-right: 1.0em;
+	margin: auto;
+}
+
+body {
+	background: white;
+	/*background:#dddddd;*/
+	background-image: url('https://phatcvo.github.io/image/Background.png');
+	/*font-family: 'Work Sans', Helvetica, Arial, sans-serif;*/
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size:14pt;
+	font-weight: 400;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	/*margin: 0;*/
+}
+
+#layout-menu {
+	/*background: #f6f6f6;*/
+	/*background: #dddddd;*/
+	/*background: #2F4F4F;*/
+	background-image: url('https://phatcvo.github.io/image/body.png');
+	border: 1px solid #dddddd;
+	/*border: 0px ;*/
+	border-radius: 10px;
+	padding-top: 0.5em;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 1.0em;
+	width: auto;
+	white-space: nowrap;
+	text-align: left;
+	vertical-align: top;
+	margin-top:-5px;
+	box-shadow:1px 0px 2px #aaa;
+}
+
+#layout-menu td {
+	background: #ffffff;/*#f6f6f6*/
+    	vertical-align: top;
+}
+
+#layout-content {
+	padding-top: 0.0em;
+	padding-left: 1.0em;
+	padding-right: 1.0em;
+	margin: auto;
+	border: none;
+	background: white;
+	background: transparent;
+	text-align: Justify;
+	vertical-align: top;
+	min-width:570px;
+	max-width:850px;
+	display:block;
+	position:relative;
+/* 	position: absolute; */
+	outline
+	border-radius:.25rem;
+	overflow:hidden;
+	}
+
+.card {
+  padding-left:1.0rem;
+  padding-right:1.0rem;
+  padding-bottom:0.3rem;
+  padding-top: 0.3rem;
+  box-shadow: 3px 3px 8px #6f759e;
+  border-radius: 10px;
+  background-color:white;
+  /*background-position: right bottom; *//*Positioning*/
+  /*background-repeat: no-repeat; *//*Prevent showing multiple background images*/
+  /*background-size: 130px 80px;*/
+  /*user-select:none;*/
+  animation:fly-in-from-left .3s 0.05s ease both;
+  -webkit-animation:fly-in-from-left .3s 0.05s ease both;
+  transform-origin:center;
+  -webkit-transform-origin:center;
+  /*font-family: 'Work Sans', Helvetica, Arial, sans-serif;*/
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+}
+
+div.codeblock, div.infoblock {
+  padding-top:1rem;
+  background:white;
+  margin:0 0.0rem 1rem;
+  text-align: left;
+}
+
+@keyframes fly-in-from-left {
+  from {
+    transform:translateX(15rem) skew(20deg, 4deg);
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fly-in-from-left {
+  from {
+    -webkit-transform:translateX(15rem) skew(20deg, 4deg);
+    opacity:0;
+  }
+}
+
+#layout-menu a {
+	line-height: 1.8em;
+	margin-left: 0.5em;
+}
+
+tt {
+    background: #ffffdd;
+}
+
+pre, tt {
+	font-size: 90%;
+	font-family: monaco, monospace;/*Work Sans*/
+}
+
+a, a > tt {
+	color: #224b8d;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom: 1px gray dotted;
+}
+
+#layout-menu a:hover {
+	border-bottom: 2px #001a1a solid;
+}
+
+#layout-menu a.current:link, #layout-menu a.current:visited {
+	/*color: #323f5c;*/
+	color: #001a1a;
+	border-bottom: 2px #001a1a solid;
+}
+#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
+	/*color: gray;*/
+	color: #006666;
+	text-decoration: none;
+}
+#layout-menu a:hover {
+	text-decoration: none;
+}
+
+div.menu-category {
+	border-bottom: 1px solid #001a1a;
+	margin-top: 0.8em;
+	padding-top: 0.2em;
+	padding-bottom: 0.1em;
+	font-weight: bold;
+	margin-bottom:5px;
+}
+
+div.menu-item {
+	padding-left: 16px;
+	text-indent: -16px;
+	margin-bottom:7px;
+}
+
+div#toptitle {
+	padding-bottom: 0.2em;
+	margin-bottom: 1.0em;
+	border-bottom: 3px double gray;
+}
+
+/* Reduce space if we begin the page with a title. */
+div#toptitle + h2, div#toptitle + h3 {
+	margin-top: -0.7em;
+}
+
+div#subtitle {
+	margin-top: 0.0em;
+	margin-bottom: 0.0em;
+	padding-top: 0em;
+	padding-bottom: 0.1em;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+
+h1 {
+  /*font-size:2rem;*/
+  font-size: 150%;
+  font-weight:400;
+  line-height:2;
+  border-top: 1px solid #6f7070;
+}
+
+h2 {
+  /*font-size:1.2rem;*/
+  font-size: 130%;
+  line-height:1.2;
+  color:gray;
+  font-weight:400;
+  border-bottom: 1px solid #6f7070;
+  margin-top:-0.2em;
+}
+
+
+
+/*h3 {
+	font-size: 110%;
+	border-bottom: none;
+}*/
+
+h3 {
+  /*font-size:.9rem;*/
+  font-size: 110%;
+  /*line-height:1.5;*/
+  border-bottom: 1px solid #6f7070;;
+  color:gray;
+  font-weight:400;
+  margin-bottom:-0.2em;
+}
+
+p {
+	margin-top: 0.0em;
+	margin-bottom: 0.8em;
+	padding: 0;
+	line-height: 1.3;
+}
+
+pre {
+	padding: 0;
+	margin: 0;
+}
+
+div#footer {
+	font-size: small;
+	border-top: 1px solid #c0c0c0;
+	padding-top: 0.1em;
+	margin-top: 4.0em;
+	color: #c0c0c0;
+}
+
+div#footer a {
+	color: #80a0b0;
+}
+
+div#footer-text {
+	float: left;
+	padding-bottom: 8px;
+}
+
+ul, ol, dl {
+	margin-top: 0.2em;
+	padding-top: 0;
+	margin-bottom: 0.8em;
+}
+
+dt {
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+
+dl {
+	margin-left: 20px;
+}
+
+dd {
+	color: #222222;
+}
+
+dd > *:first-child {
+	margin-top: 0;
+}
+
+ul {
+	list-style-position: outside;
+	list-style-type: square;
+}
+
+p + ul, p + ol {
+	margin-top: -0.5em;
+}
+
+li ul, li ol {
+	margin-top: -0.3em;
+}
+
+ol {
+	list-style-position: outside;
+	list-style-type: decimal;
+}
+
+li p, dd p {
+	margin-bottom: 0.3em;
+}
+
+
+ol ol {
+	list-style-type: lower-alpha;
+}
+
+ol ol ol {
+	list-style-type: lower-roman;
+}
+
+p + div.codeblock {
+	margin-top: -0.6em;
+}
+
+span.pycommand {
+	color: #000070;
+}
+
+span.statement {
+	color: #008800;
+}
+span.builtin {
+	color: #000088;
+}
+span.special {
+	color: #990000;
+}
+span.operator {
+	color: #880000;
+}
+span.error {
+	color: #aa0000;
+}
+span.comment, span.comment > *, span.string, span.string > * {
+	color: #606060;
+}
+
+@media print {
+	#layout-menu { display: none; }
+}
+
+#fwtitle {
+	margin: 2px;
+}
+
+#fwtitle #toptitle {
+	padding-left: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+#layout-content h1:first-child, #layout-content h2:first-child, #layout-content h3:first-child {
+	margin-top: -0.7em;
+}
+
+div#toptitle h1, #layout-content div#toptitle h1 {
+	margin-bottom: 0.0em;
+	padding-bottom: 0.1em;
+	padding-top: 0;
+	margin-top: 0.5em;
+	border-bottom: none;
+}
+
+img.eq {
+	border: none;
+	padding: 0;
+	padding-left: 0.1em;
+	padding-right: 0.1em;
+	margin: 0;
+}
+
+img.eqwl {
+	padding-left: 2em;
+	padding-top: 0.6em;
+	padding-bottom: 0.2em;
+	margin: 0;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 2px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+table + table {
+    margin-top: 1em;
+}
+
+tr.heading {
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+img {
+     border: none;
+     /*border-radius: 100%;*/
+}
+
+table.imgtable, table.imgtable td {
+    border: none;
+    /*border-radius: 150px;*/
+    text-align: left;
+}
