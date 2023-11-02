@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto light"><head>
+  <title>Phat C. Vo</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Phat C. Vo" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.3" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\begin{bmatrix}", right: "\end{bmatrix}", display: true },
+            ],
+        });
+    });
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.github.io">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("bi-moon-fill");
+      el.classList.remove("bi-brightness-high");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("bi-brightness-high");
+      el.classList.remove("bi-moon-fill");
+      window.localStorage.setItem("theme", "dark");
+    }
+  }; 
+
+
+
+</script>
+
+
+
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Linear Model Predictive Control</h1>
+  <p class="mb-1">September 23, 2022</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h2 id="vehicle-model-linearization">Vehicle model linearization</h2>
+<p>Vehicle model is</p>
+<p>$$ \dot{x} = vcos(\phi)$$</p>
+<p>$$ \dot{y} = vsin((\phi)$$</p>
+<p>$$ \dot{v} = a$$</p>
+<p>$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$</p>
+<p>State and Input vector:</p>
+<p>$$ z = \begin{bmatrix}
+x-position \\\
+y-position \\\
+velocity \\\
+yaw-angle\end{bmatrix} = \begin{bmatrix}
+x \\\
+y \\\
+v \\\
+\phi\end{bmatrix} $$</p>
+<p>$$u = \begin{bmatrix}
+acceleration \\
+steering-angle
+\end{bmatrix}
+= \begin{bmatrix}
+a \\
+\delta
+\end{bmatrix} $$</p>
+<p>ODE is</p>
+<p>$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&rsquo;z+B&rsquo;u$$</p>
+<p>where</p>
+<p>$$ A&rsquo; =
+\begin{bmatrix}
+\frac{\partial }{\partial x}v\cos(\phi) &amp;
+\frac{\partial }{\partial y}v\cos(\phi) &amp;
+\frac{\partial }{\partial v}v\cos(\phi) &amp;
+\frac{\partial }{\partial \phi}v\cos(\phi) \\\
+\frac{\partial }{\partial x}v\sin(\phi) &amp;
+\frac{\partial }{\partial y}v\sin(\phi) &amp;
+\frac{\partial }{\partial v}v\sin(\phi) &amp;
+\frac{\partial }{\partial \phi}v\sin(\phi) \\\
+\frac{\partial }{\partial x}a&amp;
+\frac{\partial }{\partial y}a&amp;
+\frac{\partial }{\partial v}a&amp;
+\frac{\partial }{\partial \phi}a \\\
+\frac{\partial }{\partial x}\frac{v\tan(\delta)}{L}&amp;
+\frac{\partial }{\partial y}\frac{v\tan(\delta)}{L}&amp;
+\frac{\partial }{\partial v}\frac{v\tan(\delta)}{L}&amp;
+\frac{\partial }{\partial \phi}\frac{v\tan(\delta)}{L}
+\end{bmatrix}
+　=
+\begin{bmatrix}
+0 &amp; 0 &amp; \cos(\bar{\phi}) &amp; -\bar{v}\sin(\bar{\phi}) \\\
+0 &amp; 0 &amp; \sin(\bar{\phi}) &amp; \bar{v}\cos(\bar{\phi}) \\\
+0 &amp; 0 &amp; 0 &amp; 0 \\\
+0 &amp; 0 &amp;\frac{\tan(\bar{\delta})}{L} &amp; 0 \\\
+\end{bmatrix}
+$$</p>
+<p>$$
+B&rsquo; =
+\begin{bmatrix}
+\frac{\partial }{\partial a}v\cos(\phi) &amp;
+\frac{\partial }{\partial \delta}v\cos(\phi) \\\
+\frac{\partial }{\partial a}v\sin(\phi) &amp;
+\frac{\partial }{\partial \delta}v\sin(\phi) \\\
+\frac{\partial }{\partial a}a &amp;
+\frac{\partial }{\partial \delta}a \\\
+\frac{\partial }{\partial a}\frac{v\tan(\delta)}{L} &amp;
+\frac{\partial }{\partial \delta}\frac{v\tan(\delta)}{L} \\\
+\end{bmatrix}
+　=
+\begin{bmatrix}
+0 &amp; 0 \\\
+0 &amp; 0 \\\
+1 &amp; 0 \\\
+0 &amp; \frac{\bar{v}}{L\cos^2(\bar{\delta})} \\\
+\end{bmatrix}
+$$</p>
+<p>You can get a discrete-time mode with Forward Euler Discretization with sampling time dt.</p>
+<p>$$z(k+1) = z(k)+f(z(k),u(k))dt$$</p>
+<p>Using first-degree Tayer expansion around zbar and ubar
+$$z(k+1) = z(k)+(f(\bar{z},\bar{u})+A&rsquo;z(k)+B&rsquo;u(k)-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
+<p>$$z(k+1) = (I + dtA&rsquo;)z(k)+(dtB&rsquo;)u(k) + (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt$$</p>
+<p>So,</p>
+<p>$$z(k+1) = Az(k)+Bu(k) +C$$</p>
+<p>where</p>
+<p>$$A = (I + dt A&rsquo;) =
+\begin{bmatrix}
+1 &amp; 0 &amp; \cos(\bar{\phi})dt &amp; -\bar{v}\sin(\bar{\phi})dt \\\
+0 &amp; 1 &amp; \sin(\bar{\phi})dt &amp; \bar{v}\cos(\bar{\phi})dt \\\
+0 &amp; 0 &amp; 1 &amp; 0 \\\
+0 &amp; 0 &amp;\frac{\tan(\bar{\delta})}{L}dt &amp; 1 \\\
+\end{bmatrix}$$</p>
+<p>$$B = dt B&rsquo; =
+\begin{bmatrix}
+0 &amp; 0 \\\
+0 &amp; 0 \\\
+dt &amp; 0 \\\
+0 &amp; \frac{\bar{v}}{L\cos^2(\bar{\delta})}dt \\\
+\end{bmatrix}$$</p>
+<p>$$ C = (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt \\\
+= dt(\begin{bmatrix}
+\bar{v}\cos(\bar{\phi}) \\\
+\bar{v}\sin(\bar{\phi}) \\\
+\bar{a} \\\
+\frac{\bar{v}tan(\bar{\delta})}{L} \\\
+\end{bmatrix} -
+\begin{bmatrix}
+\bar{v}\cos(\bar{\phi})-\bar{v}\sin(\bar{\phi})\bar{\phi} \\\
+\bar{v}\sin(\bar{\phi})+\bar{v}\cos(\bar{\phi})\bar{\phi} \\\
+0 \\\
+\frac{\bar{v}\tan(\bar{\delta})}{L} \\\
+\end{bmatrix} -
+\begin{bmatrix} 0 \\\ 0\\\ \bar{a}\\\
+\frac{\bar{v}\bar{\delta}}{L\cos^2(\bar{\delta})}\\\
+\end{bmatrix}) =
+\begin{bmatrix}
+\bar{v}\sin(\bar{\phi})\bar{\phi}dt\\\
+-\bar{v}\cos(\bar{\phi})\bar{\phi}dt\\\
+0\\\
+-\frac{\bar{v}\bar{\delta}}{L\cos^2(\bar{\delta})}dt\\\
+\end{bmatrix}
+$$</p>
+<h2 id="mpc-approach">MPC approach:</h2>
+<p>The cost function:</p>
+<p>$$ J = \min Q&rsquo;(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ R&rsquo; \Sigma({u(t+1)-u(t)})^2 $$</p>
+<p>subject to:</p>
+<p>$$ z(t+1)=Az_t+Bu+C $$</p>
+<p>$$ z(0)=z(0, ob) $$</p>
+<p>$$\underline{v} &lt; v(t) &lt; \overline{v} $$</p>
+<p>$$\underline{u} &lt; u(t) &lt; \overline{u} $$</p>
+<p>$$|u(t+1)-u(t)| &lt; \Delta \overline{u} $$</p>
+<p>$$|u(t)| &lt; \overline{u}$$</p>
+<p>z_ref comes from the target path and speed.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>This code uses <a href="http://www.cvxpy.org/">CVXPY</a> as an optimization modeling tool</li>
+<li><a href="http://www.springer.com/us/book/9781461414322">Vehicle Dynamics and Control | Rajesh Rajamani | Springer</a></li>
+</ul>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/safe-optimal-control-for-motional-planning-based-on-rl/"
+      title="Safe-Optimal Control for Motional Planning based on RL"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/nominal-nonlinear-model-predictive-control/"
+      title="Nominal Nonlinear Model Predictive Control "
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">© 2023 · phatcvo</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

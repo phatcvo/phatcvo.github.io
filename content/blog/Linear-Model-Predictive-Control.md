@@ -1,5 +1,5 @@
 ---
-title: "Model-Predictive Control"
+title: "Linear Model Predictive Control"
 date: 2022-09-23
 tags: ["notes", "MPC"]
 categories: ["Control theory"]

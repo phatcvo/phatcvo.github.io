@@ -17,7 +17,7 @@
     <loc>https://phatcvo.github.io/tags/mpc/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/blog/post_4/</loc>
+    <loc>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/tags/notes/</loc>
@@ -26,7 +26,7 @@
     <loc>https://phatcvo.github.io/tags/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/blog/post_1/</loc>
+    <loc>https://phatcvo.github.io/blog/linear-model-predictive-control/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/categories/motion-planning/</loc>
@@ -38,16 +38,10 @@
     <loc>https://phatcvo.github.io/tags/rl/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/tags/ros/</loc>
-    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://phatcvo.github.io/blog/post_3/</loc>
-    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://phatcvo.github.io/tags/safe/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/blog/post_2/</loc>
+    <loc>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/blog/trajectories/</loc>
