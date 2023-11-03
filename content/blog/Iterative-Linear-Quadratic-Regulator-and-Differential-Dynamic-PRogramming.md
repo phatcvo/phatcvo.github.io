@@ -17,7 +17,6 @@ $$
 \end{aligned}
 $$
 
-
 <br>
 
  ### Cartpole
