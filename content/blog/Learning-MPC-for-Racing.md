@@ -12,9 +12,9 @@ math: true
 The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.
 
 
-[](https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop.gif)
-[](https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoopStates.gif)
-[](https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop_multiLap.gif)
+![](https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop.gif)
+![](https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoopStates.gif)
+![](https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop_multiLap.gif)
 
 In the above animation we see the vehicle's closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future. This trajectory is planned to minimize the lap time, but it is constrained to land into the safe set (in green). This safe set is the domain of the approximation to the value function and it is updated after each lap using historical data.
 
