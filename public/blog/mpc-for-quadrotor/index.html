@@ -160,66 +160,41 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Model Predictive Control with discrete-time Control Barrier Functions</h1>
-  <p class="mb-1">October 23, 2023</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Trajectory tracking with a quadrotor by LMPC</h1>
+  <p class="mb-1">November 1, 2023</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <p>The MPC-CBF optimization problem is given by:</p>
+  <p>The non-linear dynamics are linearized about a linearization trajectory $\bar{x}, \bar{u}$ while the quadrotor aims to track a different reference trajectory
+$x_{ref}, u_{ref}$.</p>
+<p><img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/drone_image.png" alt=""></p>
+<p>The MPC controller solves the following optimization problem :</p>
 <p>$$\begin{aligned}
-\min_{u_{t: t+N-1 \mid t}} \quad &amp; \frac{1}{2} \tilde{x}_N^T Q_x \tilde{x}_N+\sum_{k=0}^{N-1} \frac{1}{2} \tilde{x}_k^T Q_x \tilde{x}_k+\frac{1}{2} u_k^T Q_u u_k\\
+\min_{x_{1:N},u_{1:N-1}} \quad &amp; \sum_{i=1}^{N-1} \bigg[ (x_i - x_{i,ref})^TQ(x_i - x_{i,ref}) + (u_i - u_{i,ref})^TR(u_i - u_{i,ref}) \bigg] + \frac{1}{2} (x_N - x_{N,ref})^TQ_f(x_N - x_{N,ref}) \\
 \textrm{s.t.} \quad
-&amp; x_{t+k+1 \mid t}=x_{t+k \mid t}+f\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \cdot T_s, \quad k=0, . ., N-1,\\
-&amp; x_{\min } \leq x_{t+k \mid t} \leq x_{\max }, \quad k=0, \ldots, N-1,\\
-&amp; u_{\min } \leq u_{t+k \mid t} \leq u_{\max }, \quad k=0, \ldots, N-1,   \\
-&amp; x_{t \mid t}=x_t,   \\
-&amp; \Delta h\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \geq-\gamma h\left(x_{t+k \mid t}\right), \quad k=0, \ldots, N-1 \\
+&amp; x_1 = x_{\text{IC}} \\
+&amp; x_{k+1} = f(\bar{x}_k, \bar{u}_k) + \bigg[\frac{\partial f}{\partial x} \bigg|_{\bar{x}_k, \bar{u}_k}  \bigg](x_k - \bar{x}_k) + \bigg[\frac{\partial f}{\partial u} \bigg|_{\bar{x}_k, \bar{u}_k}  \bigg](u_k - \bar{u}_k)   \quad \text{for } i = 1,2,\ldots,N-1 \\
+&amp; u_{min} \leq u_i \leq u_{max} \quad ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{for } i = 1,2,\ldots,N-1 \\
 \end{aligned}$$</p>
-<p>where $$\tilde{x}_k=x_{des,k} - x_{k}$$</p>
-<h2 id="results">Results</h2>
-<h3 id="scenario-1">Scenario 1</h3>
-<p><img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/path_comparisons.png" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/Display/path_scenario1.png" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/trajectories_animation_scenario1.gif" alt=""></p>
-<h3 id="scenario-3">Scenario 3</h3>
-<p><img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/path_animation_scenario3.gif" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/cbf_scenario3.png" alt=""></p>
-<h3 id="scenario-4">Scenario 4</h3>
-<p><img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/path_animation_scenario4.gif" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/cbf_scenario4.png" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/trajectories_scenario4.png" alt=""></p>
-<h3 id="scenario-5">Scenario 5</h3>
-<p><img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/path_animation_scenario5.gif" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/MPC-CBF/scen5_N20_safd03_gamma02/trajectories_animation.gif" alt=""></p>
-<h3 id="scenario-6">Scenario 6</h3>
-<p><img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/path_animation_scenario6.gif" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/cbf_scenario6.png" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/MPC-CBF/scen6_N20_safed03_gamma06/trajectories_animation.gif" alt=""></p>
-<h3 id="gazebo-simulation-with-turtlebot3">Gazebo simulation with turtlebot3</h3>
-<p><img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/s1.gif" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/MPC-CBF/main/images/Display/s2.gif" alt=""></p>
-<h2 id="installation">Installation</h2>
+<h2 id="installation"><img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/drone.gif" alt="">
+<img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/state_trajectories_pos.png" alt="">
+<img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/state_trajectories_vel.png" alt="">
+Installation</h2>
 <p>To use this project, install it locally via:</p>
-<pre tabindex="0"><code>git clone https://github.com/phatcvo/MPC-CBF.git
+<pre tabindex="0"><code>git clone https://github.com/phatcvo/Quadrotor-MPC.git
 </code></pre><p>The dependencies can be installed by running:</p>
 <pre tabindex="0"><code>pip install -r requirements.txt
-</code></pre><p>The controller configuration can be changed through the <a href="https://github.com/phatcvo/MPC-CBF/blob/main/config.py">config.py</a>.</p>
-<p>To execute the code, run:</p>
+</code></pre><p>To execute the code, run:</p>
 <pre tabindex="0"><code>python3 main.py
-</code></pre><h2 id="references">References</h2>
-<ul>
-<li><a href="https://ieeexplore.ieee.org/document/9483029">[1] J. Zeng, B. Zhang, and K. Sreenath, “Safety-Critical Model Predictive Control with Discrete-Time Control
-Barrier Function,” in 2021 American Control Conference (ACC), May 2021, pp. 3882–3889.</a></li>
-</ul>
-
+</code></pre>
 </div>
 </div>
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
     <a
-      href="/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/"
-      title="Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm"
+      href="/blog/model-predictive-control-with-discrete-time-control-barrier-functions/"
+      title="Model Predictive Control with discrete-time Control Barrier Functions"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -227,12 +202,7 @@ Barrier Function,” in 2021 American Control Conference (ACC), May 2021, pp. 38
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <a
-      href="/blog/mpc-for-quadrotor/"
-      title="Trajectory tracking with a quadrotor by LMPC"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
     
   </h3>
 </div>
