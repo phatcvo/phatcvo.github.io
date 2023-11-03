@@ -17,6 +17,12 @@
     <loc>https://phatcvo.github.io/tags/lqr/</loc>
     <lastmod>2023-10-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</loc>
+    <lastmod>2023-10-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcvo.github.io/tags/mpc/</loc>
+    <lastmod>2023-10-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</loc>
     <lastmod>2023-10-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -26,17 +32,11 @@
     <loc>https://phatcvo.github.io/tags/</loc>
     <lastmod>2023-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/tags/mpc/</loc>
-    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/blog/linear-model-predictive-control/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://phatcvo.github.io/categories/motion-planning/</loc>
-    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/tags/optimal/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
@@ -48,9 +48,6 @@
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</loc>
-    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://phatcvo.github.io/blog/trajectories/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url>
 </urlset>

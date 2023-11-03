@@ -9,6 +9,14 @@
     <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Model Predictive Control with discrete-time Control Barrier Functions</title>
+      <link>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</guid>
+      <description>The MPC-CBF optimization problem is given by:
+$$\begin{aligned} \min_{u_{t: t+N-1 \mid t}} \quad &amp;amp; \frac{1}{2} \tilde{x}_N^T Q_x \tilde{x}_N+\sum_{k=0}^{N-1} \frac{1}{2} \tilde{x}_k^T Q_x \tilde{x}_k+\frac{1}{2} u_k^T Q_u u_k\\ \textrm{s.t.} \quad &amp;amp; x_{t+k+1 \mid t}=x_{t+k \mid t}+f\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \cdot T_s, \quad k=0, . ., N-1,\\ &amp;amp; x_{\min } \leq x_{t+k \mid t} \leq x_{\max }, \quad k=0, \ldots, N-1,\\ &amp;amp; u_{\min } \leq u_{t+k \mid t} \leq u_{\max }, \quad k=0, \ldots, N-1, \\ &amp;amp; x_{t \mid t}=x_t, \\ &amp;amp; \Delta h\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \geq-\gamma h\left(x_{t+k \mid t}\right), \quad k=0, \ldots, N-1 \\ \end{aligned}$$</description>
+    </item>
+    <item>
       <title>Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm</title>
       <link>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
@@ -46,14 +54,6 @@ $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</guid>
       <description>Table of contents Optimal Control Dynamic Programming Linear Programming Tree-Based Planning Control Theory Model Predictive Control Safe Control Robust Control Risk-Averse Control Value-Constrained Control State-Constrained Control and Stability Uncertain Dynamical Systems Game Theory Sequential Learning Multi-Armed Bandit Best Arm Identification Black-box Optimization Reinforcement Learning Theory Value-based Policy-based Policy Gradient Actor-critic Derivative-free Model-based Exploration Hierarchy and Temporal Abstraction Partial Observability Transfer Multi-agent Representation Learning Offline Learning from Demonstrations Imitation Learning Applications to Autonomous Driving Inverse Reinforcement Learning Applications to Autonomous Driving Motion Planning Search Sampling Optimization Reactive Architecture and applications Optimal Control: Dynamic Programming (book) Dynamic Programming, Bellman R.</description>
-    </item>
-    <item>
-      <title>Theory of Motion Planning</title>
-      <link>https://phatcvo.github.io/blog/trajectories/</link>
-      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://phatcvo.github.io/blog/trajectories/</guid>
-      <description>Motion Planning There are a few more essential skills that we need in our toolbox. In this chapter, we will explore some of the powerful methods of kinematic trajectory motion planning.
-I&amp;rsquo;m actually almost proud of making it this far into the notes without covering this topic yet. Writing a relatively simple script for the pose of the gripper, like we did in the bin picking chapter, really can solve a lot of interesting problems.</description>
     </item>
   </channel>
 </rss>

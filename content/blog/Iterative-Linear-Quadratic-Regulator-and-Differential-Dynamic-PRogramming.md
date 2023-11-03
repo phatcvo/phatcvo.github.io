@@ -25,21 +25,11 @@ $$
 \end{aligned}
 $$
 
-<br>
-
- ### Cartpole
 ![Cartpole](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/cartpole_animation.gif)
-
-### Acrobot
 ![Acrobot](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/acrobot_animation.gif)
-
- ### Control
 ![Control](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/control_trajectories.png)
-
-### State
 ![State](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/state_trajectories.png)
 
-<br>
 
 
 Installation
