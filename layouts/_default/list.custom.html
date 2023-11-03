@@ -20,6 +20,7 @@
   {{ template "_internal/pagination.html" . }}
 </div>
 {{ end }}
+
 {{ range .Paginator.Pages }}
   {{ .Render "summary" }}
 {{ end }}

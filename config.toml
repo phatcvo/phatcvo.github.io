@@ -5,13 +5,17 @@ publishDir = "public"
 
 [build]
   writeStats = true
-
+[permalinks]
+    post = "/:year/:month/:day/:title/"
+    
 [params]
     title = "Phat C. Vo"
     author = "Phat C. Vo"
     description = "Website title"
     copyright = "&copy; 2023 &middot; phatcvo"
     paginate = 10
+
+    num_posts = 10
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
