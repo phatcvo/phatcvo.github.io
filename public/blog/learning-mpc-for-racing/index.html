@@ -160,41 +160,47 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Trajectory tracking with a quadrotor by LMPC</h1>
-  <p class="mb-1">November 1, 2023</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Model Predictive Control for autonomous racing</h1>
+  <p class="mb-1">November 3, 2023</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <p>The non-linear dynamics are linearized about a linearization trajectory $\bar{x}, \bar{u}$ while the quadrotor aims to track a different reference trajectory
-$x_{ref}, u_{ref}$.</p>
-<p><img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/drone_image.png" alt=""></p>
-<p>The MPC controller solves the following optimization problem :</p>
-<p>$$\begin{aligned}
-\min_{x_{1:N},u_{1:N-1}} \quad &amp; \sum_{i=1}^{N-1} \bigg[ (x_i - x_{i,ref})^TQ(x_i - x_{i,ref}) + (u_i - u_{i,ref})^TR(u_i - u_{i,ref}) \bigg] + \frac{1}{2} (x_N - x_{N,ref})^TQ_f(x_N - x_{N,ref}) \\
-\textrm{s.t.} \quad
-&amp; x_1 = x_{\text{IC}} \\
-&amp; x_{k+1} = f(\bar{x}_k, \bar{u}_k) + \bigg[\frac{\partial f}{\partial x} \bigg|_{\bar{x}_k, \bar{u}_k}  \bigg](x_k - \bar{x}_k) + \bigg[\frac{\partial f}{\partial u} \bigg|_{\bar{x}_k, \bar{u}_k}  \bigg](u_k - \bar{u}_k)   \quad \text{for } i = 1,2,\ldots,N-1 \\
-&amp; u_{min} \leq u_i \leq u_{max} \quad ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{for } i = 1,2,\ldots,N-1 \\
-\end{aligned}$$</p>
-<h2 id="installation"><img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/drone.gif" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/state_trajectories_pos.png" alt="">
-<img src="https://raw.githubusercontent.com/phatcvo/Quadrotor-MPC/main/images/state_trajectories_vel.png" alt="">
-Installation</h2>
+  <p>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.</p>
+<p><a href="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop.gif"></a>
+<a href="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoopStates.gif"></a>
+<a href="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop_multiLap.gif"></a></p>
+<p>In the above animation we see the vehicle&rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future. This trajectory is planned to minimize the lap time, but it is constrained to land into the safe set (in green). This safe set is the domain of the approximation to the value function and it is updated after each lap using historical data.</p>
+<h2 id="description">Description</h2>
+<h3 id="the-plant">The Plant</h3>
+<p>The vehicle is modelled using the dynamics signle track bicycle model and the tire forces are modelled using the Pacejka formula.</p>
+<h3 id="the-path-following">The Path Following</h3>
+<ol>
+<li>Lap 1: a PID path following controller is used to drive the vehicle around the track.</li>
+<li>Lap 2: the data from lap 1 are used to estimate a LTI model used to design a MPC for path following</li>
+<li>Lap 3: the data from lap 1 are used to estimate a LTV model used to design a MPC for path following</li>
+</ol>
+<h2 id="installation">Installation</h2>
 <p>To use this project, install it locally via:</p>
-<pre tabindex="0"><code>git clone https://github.com/phatcvo/Quadrotor-MPC.git
+<pre tabindex="0"><code>git clone https://github.com/phatcvo/Learning-MPC-for-racing.git
 </code></pre><p>The dependencies can be installed by running:</p>
-<pre tabindex="0"><code>pip install -r requirements.txt
+<pre tabindex="0"><code>pip install cvxopt
+pip install osqp
+pip install pathos
 </code></pre><p>To execute the code, run:</p>
 <pre tabindex="0"><code>python3 main.py
-</code></pre>
+</code></pre><h2 id="references">References</h2>
+<p><a href="https://ieeexplore.ieee.org/document/8039204/">Learning Model Predictive Control for Iterative Tasks. A Data-Driven Control Framework</a>
+<a href="https://ieeexplore.ieee.org/abstract/document/8896988">Learning how to autonomously race a car: a predictive control approach</a>.
+<a href="https://arxiv.org/pdf/1702.07064.pdf">Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System</a></p>
+
 </div>
 </div>
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
     <a
-      href="/blog/model-predictive-control-with-discrete-time-control-barrier-functions/"
-      title="Model Predictive Control with discrete-time Control Barrier Functions"
+      href="/blog/mpc-for-quadrotor/"
+      title="Trajectory tracking with a quadrotor by LMPC"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -202,12 +208,7 @@ Installation</h2>
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <a
-      href="/blog/learning-mpc-for-racing/"
-      title="Learning Model Predictive Control for autonomous racing"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
     
   </h3>
 </div>

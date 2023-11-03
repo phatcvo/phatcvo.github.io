@@ -1,12 +1,11 @@
 ---
 title: "Learning Model Predictive Control for autonomous racing"
-date: 2023-11-09
+date: 2023-11-03
 tags: ["notes", "MPC"]
 categories: ["Control theory"]
 description: "Learning Model Predictive Control for autonomous racing."
 draft: false
 math: true
-layout: "list.custom"
 ---
 
 
