@@ -30,25 +30,25 @@ $$
  ### Cartpole
 
  <p align="center" width="100%">
-    <img src="https://github.com/phatcvo/iLQR-DDP/blob/main/images/cartpole_animation.gif" width="400">
+    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/blob/main/images/cartpole_animation.gif" width="400">
 </p>
 
 ### Acrobot
 
  <p align="center" width="100%">
-    <img src="https://github.com/phatcvo/iLQR-DDP/blob/main/images/acrobot_animation.gif" width="400">
+    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/blob/main/images/acrobot_animation.gif" width="400">
 </p>
 
  ### Control
 
  <p align="center" width="100%">
-    <img src="https://github.com/phatcvo/iLQR-DDP/blob/main/images/control_trajectories.png" width="400">
+    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/blob/main/images/control_trajectories.png" width="400">
 </p>
 
 ### State
 
  <p align="center" width="100%">
-    <img src="https://github.com/phatcvo/iLQR-DDP/blob/main/images/state_trajectories.png" width="400">
+    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/blob/main/images/state_trajectories.png" width="400">
 </p>
 
 <br>
