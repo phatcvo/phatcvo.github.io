@@ -6,20 +6,27 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MPC</title>
-      <link>https://phatcvo.github.io/tags/mpc/</link>
-      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://phatcvo.github.io/tags/mpc/</guid>
+      <title>LQR</title>
+      <link>https://phatcvo.github.io/tags/lqr/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/tags/lqr/</guid>
       <description></description>
     </item>
     <item>
       <title>notes</title>
       <link>https://phatcvo.github.io/tags/notes/</link>
-      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/tags/notes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MPC</title>
+      <link>https://phatcvo.github.io/tags/mpc/</link>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/tags/mpc/</guid>
       <description></description>
     </item>
     <item>

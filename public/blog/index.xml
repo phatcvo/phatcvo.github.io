@@ -6,8 +6,16 @@
     <description>Recent content in My Blog on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm</title>
+      <link>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</guid>
+      <description>Differential Dynamic Programming (DDP) is an indirect method which optimizes over the unconstrained control-space. It uses a 2nd-order Taylor series approximation of the cost-to-go in Dynamic Programming (DP) to compute Newton steps on the control trajectory.
+iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is similar to Riccati iterations, but accounts for the regularization and line-search required to handle the nonlinearity. DDP: Second-order terms included (Newton approximation). The iLQR/DDP controller solves the following finite-horizon optimization (Non-linear trajectory optimization) problem:</description>
+    </item>
     <item>
       <title>Nominal Nonlinear Model Predictive Control </title>
       <link>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</link>
@@ -46,14 +54,6 @@ $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo
       <guid>https://phatcvo.github.io/blog/trajectories/</guid>
       <description>Motion Planning There are a few more essential skills that we need in our toolbox. In this chapter, we will explore some of the powerful methods of kinematic trajectory motion planning.
 I&amp;rsquo;m actually almost proud of making it this far into the notes without covering this topic yet. Writing a relatively simple script for the pose of the gripper, like we did in the bin picking chapter, really can solve a lot of interesting problems.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</guid>
-      <description>Differential Dynamic Programming (DDP) is an indirect method which optimizes over the unconstrained control-space. It uses a 2nd-order Taylor series approximation of the cost-to-go in Dynamic Programming (DP) to compute Newton steps on the control trajectory.
-iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is similar to Riccati iterations, but accounts for the regularization and line-search required to handle the nonlinearity. DDP: Second-order terms included (Newton approximation). The iLQR/DDP controller solves the following finite-horizon optimization (Non-linear trajectory optimization) problem:</description>
     </item>
   </channel>
 </rss>
