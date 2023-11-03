@@ -1,6 +1,6 @@
 ---
 title: "Model Predictive Control with discrete-time Control Barrier Functions"
-date: 2023-10-23
+date: 2023-10-30
 tags: ["notes", "MPC"]
 categories: ["Control theory"]
 description: "Model Predictive Control with discrete-time Control Barrier Functions (MPC-CBF) for a wheeled mobile robot."

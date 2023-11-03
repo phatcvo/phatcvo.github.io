@@ -11,6 +11,7 @@ publishDir = "public"
     author = "Phat C. Vo"
     description = "Website title"
     copyright = "&copy; 2023 &middot; phatcvo"
+    paginate = 10
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
@@ -437,4 +438,4 @@ publishDir = "public"
             hobby = "- Traveling: I like traveling. I explore beautiful places and experience new things."
 
 [outputs]
-  home = [ "HTML", "RSS" ]
+  home = [ "HTML", "RSS","JSON"]

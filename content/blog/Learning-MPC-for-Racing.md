@@ -6,7 +6,9 @@ categories: ["Control theory"]
 description: "Learning Model Predictive Control for autonomous racing."
 draft: false
 math: true
+layout: "list.custom"
 ---
+
 
 The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.
 

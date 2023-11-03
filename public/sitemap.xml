@@ -26,10 +26,10 @@
     <loc>https://phatcvo.github.io/blog/mpc-for-quadrotor/</loc>
     <lastmod>2023-11-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/tags/lqr/</loc>
-    <lastmod>2023-10-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</loc>
+    <lastmod>2023-10-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcvo.github.io/tags/lqr/</loc>
     <lastmod>2023-10-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</loc>
