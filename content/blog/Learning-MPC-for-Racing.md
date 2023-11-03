@@ -49,6 +49,8 @@ python3 main.py
 ```
 
 ## References
-[Learning Model Predictive Control for Iterative Tasks. A Data-Driven Control Framework](https://ieeexplore.ieee.org/document/8039204/)
-[Learning how to autonomously race a car: a predictive control approach](https://ieeexplore.ieee.org/abstract/document/8896988).
-[Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System](https://arxiv.org/pdf/1702.07064.pdf)
+[1][Learning Model Predictive Control for Iterative Tasks. A Data-Driven Control Framework](https://ieeexplore.ieee.org/document/8039204/)
+
+[2][Learning how to autonomously race a car: a predictive control approach](https://ieeexplore.ieee.org/abstract/document/8896988)
+
+[3] [Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System](https://arxiv.org/pdf/1702.07064.pdf)
