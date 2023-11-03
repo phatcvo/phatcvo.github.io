@@ -7,4 +7,6 @@ git commit -m "add"
 git branch -M main
 git push -f origin main
 ```
+Pull to sync `git pull origin main`
+
 Note: githib/yourwebsite-repository -> `action` tab -> delete Hugo workflow -> `Settings` tab -> `Pages` tab - > Create Hugo workflow
