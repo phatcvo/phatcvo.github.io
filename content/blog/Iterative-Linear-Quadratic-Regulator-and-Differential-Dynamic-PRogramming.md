@@ -28,28 +28,16 @@ $$
 <br>
 
  ### Cartpole
-
- <p align="center" width="100%">
-    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/cartpole_animation.gif" width="400">
-</p>
+![Cartpole](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/cartpole_animation.gif)
 
 ### Acrobot
-
- <p align="center" width="100%">
-    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/acrobot_animation.gif" width="400">
-</p>
+![Acrobot](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/acrobot_animation.gif)
 
  ### Control
-
- <p align="center" width="100%">
-    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/control_trajectories.png" width="400">
-</p>
+![Control](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/control_trajectories.png)
 
 ### State
-
- <p align="center" width="100%">
-    <img src="https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/state_trajectories.png" width="400">
-</p>
+![State](https://raw.githubusercontent.com/phatcvo/iLQR-DDP/main/images/state_trajectories.png)
 
 <br>
 
