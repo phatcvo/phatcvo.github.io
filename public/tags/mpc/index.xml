@@ -6,8 +6,15 @@
     <description>Recent content in MPC on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/tags/mpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Parameter-Varying - Model Predictive Control for Racing</title>
+      <link>https://phatcvo.github.io/blog/lpv-mpp-mcp-for-racing/</link>
+      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/blog/lpv-mpp-mcp-for-racing/</guid>
+      <description>Planning and control for autonomous racing vehicles. This project allows you to solve the autonomous racing driving problem using advanced control theory. Particularly, here it is presented a collaborative work using optimal strategies. The Model Predictive Control (MPC) strategy is used online for computing the optimal trajectory maximizing vehicle velocity but also for computing the optimal control actions that make the vehicle to follow the computed references. All the algorithms are solved in real time employing the Operator Splitting Quadratic Program (OSQP) solver.</description>
+    </item>
     <item>
       <title>Learning Model Predictive Control for autonomous racing</title>
       <link>https://phatcvo.github.io/blog/learning-mpc-for-racing/</link>

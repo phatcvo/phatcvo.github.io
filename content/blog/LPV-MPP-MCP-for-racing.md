@@ -1,4 +1,13 @@
-# LPV-MPP-MPC
+---
+title: "Linear Parameter-Varying - Model Predictive Control for Racing"
+date: 2023-11-04
+tags: ["notes", "MPC", "LPV"]
+categories: ["Control theory"]
+description: "Linear Parameter-Varying - Model Predictive Control for Racing"
+draft: false
+math: true
+---
+
 Planning and control for autonomous racing vehicles. This project allows you to solve the autonomous racing driving problem using advanced control theory. 
 Particularly, here it is presented a collaborative work using optimal strategies. The Model Predictive Control (MPC) strategy is used online for computing the optimal trajectory maximizing vehicle velocity but also for computing the optimal control actions that make the vehicle to follow the computed references.
 All the algorithms are solved in real time employing the Operator Splitting Quadratic Program (OSQP) solver.

@@ -3,27 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://phatcvo.github.io/blog/</loc>
-    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/</loc>
-    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/categories/</loc>
-    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/categories/control-theory/</loc>
-    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://phatcvo.github.io/blog/learning-mpc-for-racing/</loc>
-    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <loc>https://phatcvo.github.io/blog/lpv-mpp-mcp-for-racing/</loc>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcvo.github.io/tags/lpv/</loc>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/tags/mpc/</loc>
-    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/tags/notes/</loc>
-    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/tags/</loc>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcvo.github.io/blog/learning-mpc-for-racing/</loc>
     <lastmod>2023-11-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/blog/mpc-for-quadrotor/</loc>
@@ -58,7 +64,5 @@
   </url><url>
     <loc>https://phatcvo.github.io/blog/survey-of-motion-planning-strategies/</loc>
     <lastmod>2022-03-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://phatcvo.github.io/blog/lpv-mpp-mcp-for-racing/</loc>
   </url>
 </urlset>

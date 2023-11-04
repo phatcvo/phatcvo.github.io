@@ -198,7 +198,6 @@
       "linear-programming",
       "linear-systems",
       "lpv-modeling",
-      "lpv-mpp-mpc",
       "model-based",
       "model-predictive-control",
       "motion-planning",

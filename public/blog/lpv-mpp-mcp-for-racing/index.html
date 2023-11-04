@@ -12,7 +12,35 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
-  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
   <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -132,13 +160,12 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em"></h1>
-  <p class="mb-1">January 1, 0001</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Linear Parameter-Varying - Model Predictive Control for Racing</h1>
+  <p class="mb-1">November 4, 2023</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <h1 id="lpv-mpp-mpc">LPV-MPP-MPC</h1>
-<p>Planning and control for autonomous racing vehicles. This project allows you to solve the autonomous racing driving problem using advanced control theory.
+  <p>Planning and control for autonomous racing vehicles. This project allows you to solve the autonomous racing driving problem using advanced control theory.
 Particularly, here it is presented a collaborative work using optimal strategies. The Model Predictive Control (MPC) strategy is used online for computing the optimal trajectory maximizing vehicle velocity but also for computing the optimal control actions that make the vehicle to follow the computed references.
 All the algorithms are solved in real time employing the Operator Splitting Quadratic Program (OSQP) solver.</p>
 <h3 id="the-vehicle-model">The vehicle model</h3>
@@ -181,17 +208,17 @@ This algorithm is launched every 33 ms.</p>
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
-    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    <a
+      href="/blog/learning-mpc-for-racing/"
+      title="Learning Model Predictive Control for autonomous racing"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
     
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <a
-      href="/blog/survey-of-motion-planning-strategies/"
-      title="Survey of Motion Planning strategies"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
     
   </h3>
 </div>
