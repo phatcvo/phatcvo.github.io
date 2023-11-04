@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto light"><head>
+  <title>Phat C. Vo</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Phat C. Vo" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.3" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\begin{bmatrix}", right: "\end{bmatrix}", display: true },
+            ],
+        });
+    });
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.github.io">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("bi-moon-fill");
+      el.classList.remove("bi-brightness-high");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("bi-brightness-high");
+      el.classList.remove("bi-moon-fill");
+      window.localStorage.setItem("theme", "dark");
+    }
+  }; 
+
+
+
+</script>
+
+
+
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em"></h1>
+  <p class="mb-1">January 1, 0001</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="lpv-mpp-mpc">LPV-MPP-MPC</h1>
+<p>Planning and control for autonomous racing vehicles. This project allows you to solve the autonomous racing driving problem using advanced control theory.
+Particularly, here it is presented a collaborative work using optimal strategies. The Model Predictive Control (MPC) strategy is used online for computing the optimal trajectory maximizing vehicle velocity but also for computing the optimal control actions that make the vehicle to follow the computed references.
+All the algorithms are solved in real time employing the Operator Splitting Quadratic Program (OSQP) solver.</p>
+<h3 id="the-vehicle-model">The vehicle model</h3>
+<p>The planning-control-estimation diagram is shown in the following figure</p>
+<p><img src="https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/rosgraph.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/Berkeley_control_planning_diagram.png" alt=""></p>
+<h3 id="lpv-modeling">LPV modeling</h3>
+<p>The LPV paradigm allows to represent a given non-linear representation into a pseudo-linear form as</p>
+<p><img src="https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/vehicle_modeling.png" alt=""></p>
+<h3 id="the-vehicle-model-1">The vehicle model</h3>
+<p>The model used in planning, control and estimation algorithms is the bicycle representation where the inputs are the front steering angle and the rear wheel linear acceleration</p>
+<p><img src="https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/variables_representation.png" alt=""></p>
+<h3 id="mpc-for-planning">MPC for planning</h3>
+<p>The trajectory planning for racing is solved using the MPC technique. The cost function adresses the lap time minimization as well as the smothness of the lateral motion by reducing as much as possible the understeer and oversteer behaviours.
+This algorithm is launched every 33 ms.</p>
+<h3 id="mpc-for-control">MPC for control</h3>
+<p>At this point an MPC is built and solved at every control iteration (33 ms) for figure out the optimal control actions (steering and rear wheel acceleration).</p>
+<h2 id="running-the-tests">Running the tests</h2>
+<p>The codes are in Python 2.7 and the structure is made in ROS. Hence, for running this project you have to do the following inside your workspace folder:</p>
+<pre tabindex="0"><code>  - catkin_make (to create build and devel folders)
+  - source devel/setup.bash
+  - roslaunch barc MAIN_LAUNCH.launch
+  
+</code></pre><p><img src="https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/Kazam_screenshot_00000.png" alt=""></p>
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p>Trajectory planner presented in:  Alcala, E., Puig, V. &amp; Quevedo, J. (2019). LPV-MP Planning for Autonomous Racing Vehicles considering Obstacles. Robotics and Autonomous Systems.</p>
+</li>
+<li>
+<p>Controller presented in: Alcala, E., Puig, V., Quevedo, J., &amp; Rosolia, U. (2019). Autonomous Racing using Linear Parameter Varying - Model Predictive Control (LPV-MPC). Control engineering practice.</p>
+</li>
+<li>
+<p>Estimator presented in: Alcala, E., Puig, V., Quevedo, J., &amp; Escobet, T. (2018). Gain-scheduling LPV control for autonomous vehicles including friction force estimation and compensation mechanism. IET Control Theory &amp; Applications, 12(12), 1683-1693. (<a href="https://digital-library.theiet.org/content/journals/10.1049/iet-cta.2017.1154)">https://digital-library.theiet.org/content/journals/10.1049/iet-cta.2017.1154)</a>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/survey-of-motion-planning-strategies/"
+      title="Survey of Motion Planning strategies"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">© 2023 · phatcvo</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>
