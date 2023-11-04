@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto light"><head>
+  <title>Phat C. Vo</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Phat C. Vo" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.3" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\begin{bmatrix}", right: "\end{bmatrix}", display: true },
+            ],
+        });
+    });
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.github.io">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("bi-moon-fill");
+      el.classList.remove("bi-brightness-high");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("bi-brightness-high");
+      el.classList.remove("bi-moon-fill");
+      window.localStorage.setItem("theme", "dark");
+    }
+  }; 
+
+
+
+</script>
+
+
+
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Survey of Motion Planning strategies</h1>
+  <p class="mb-1">March 18, 2022</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h3 id="search-and-heuristic">Search and Heuristic</h3>
+<ul>
+<li><a href="https://link.springer.com/content/pdf/10.1007/BF01386390.pdf">A Note on Two Problems in Connexion with Graphs</a> by Dijkstra</li>
+<li><a href="http://ai.stanford.edu/~nilsson/OnlinePubs-Nils/PublishedPapers/astar.pdf">A Formal Basis for the Heuristic Determination of Minimum Cost Paths</a> by Hart</li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/0004370277900029">On the complexity of admissible search algorithms</a> by Martelli</li>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.455.5084&amp;rep=rep1&amp;type=pdf">Heuristic Search Viewed as Path Finding in a Graph</a> by Pohl</li>
+<li><a href="https://repository.upenn.edu/cgi/viewcontent.cgi?article=1030&amp;context=grasp_papers">R* Search</a> by Likhachev abd Stentz</li>
+<li><a href="http://idm-lab.org/bib/abstracts/papers/nips2001.pdf">Incremental A*</a> by Koenig and Likhachev</li>
+<li><a href="https://ac.els-cdn.com/S000437020300225X/1-s2.0-S000437020300225X-main.pdf?_tid=a81278f0-4939-425a-81da-8c74ec4fae58&amp;acdnat=1547361093_aacbca6387e97c9fa7a55a71124d341d">Lifelong planning A*</a> by Koenig, Likhachev and Furcy</li>
+<li><a href="http://www.aaai.org/Papers/Workshops/2006/WS-06-11/WS06-11-010.pdf">Real-Time Adaptive A*</a> by Koenig and Likhachev</li>
+<li><a href="https://journals.sagepub.com/doi/pdf/10.1177/0278364915594029">Multiheuristic A*</a> by Aine, Swaminathan, Narayan, Hwang and Likhachev</li>
+<li>Linear Space Best-First Search</li>
+</ul>
+<h3 id="replanning">Replanning</h3>
+<ul>
+<li><a href="https://ieeexplore.ieee.org/document/351061">Optimal and efficient path planning for partially-known environments</a> by Stentz</li>
+<li><a href="https://www.ri.cmu.edu/pub_files/pub1/stentz_anthony__tony__1995_1/stentz_anthony__tony__1995_1.pdf">The Focussed D* Algorithm for Real-Time Replanning</a> by Stentz</li>
+<li><a href="https://www.cs.cmu.edu/~maxim/files/dlite_tro05.pdf">Fast Replanning for Navigation in Unknown Terrain</a> by Koenig and Likhachev</li>
+<li><a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/rob.20109">Using Interpolation to Improve Path Planning: The Field D* Algorithm</a> by Ferguson and Stentz</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1641879">Replanning with RRTs</a> by Ferguson, Kalra and Stentz</li>
+<li><a href="https://pdfs.semanticscholar.org/3d8e/67e4ec96397bdb1fd54d4b3b1e48b98ae771.pdf">RRTX: Real-Time Motion Planning/Replanning for Environments with Unpredictable Obstacles</a> by Otte and Frazzoli</li>
+</ul>
+<h3 id="real-time-planning">Real-time planning</h3>
+<ul>
+<li><a href="https://papers.nips.cc/paper/2382-ara-anytime-a-with-provable-bounds-on-sub-optimality.pdf">ARA*: Anytime A* with Provable Bounds on Sub-Optimality</a> by Likhachev, Gordon and Thrun</li>
+<li><a href="http://www.cs.cmu.edu/~ggordon/likhachev-etal.anytime-dstar.pdf">Anytime Dynamic A*: An Anytime, Replanning Algorithm</a> by Likhachev, Ferguson, Gordon, Stentz and Thrun</li>
+<li><a href="https://ac.els-cdn.com/S000437020800060X/1-s2.0-S000437020800060X-main.pdf?_tid=bfb5b8bb-81c1-4066-8a94-38f19cedcf98&amp;acdnat=1547359019_08f2d224e1e402dcd391e524bed6eb62">Anytime search in dynamic graphs</a> by Likhachev, Ferguson, Gordon, Stentz and Thrun</li>
+<li><a href="https://www.ri.cmu.edu/pub_files/pub4/ferguson_david_2006_4/ferguson_david_2006_4.pdf">Anytime RRTs</a> by Ferguson and Stentz</li>
+</ul>
+<h3 id="rrts">RRTs</h3>
+<ul>
+<li><a href="http://msl.cs.illinois.edu/~lavalle/papers/Lav98c.pdf">Rapidly Exploring Random Trees: A new tool for path planning</a> by Lavelle</li>
+<li><a href="https://ieeexplore.ieee.org/document/844730">RRT-connect: An efficient approach to single-query path planning</a> by Kuffner and Lavalle</li>
+<li><a href="https://arxiv.org/pdf/1105.1186.pdf">Sampling-based Algorithms for Optimal Motion Planning</a> by Karaman and Frazolli</li>
+<li><a href="https://arxiv.org/pdf/1404.2334.pdf">Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic</a> by Gammell, Srinivasa and Barfoot</li>
+<li><a href="https://arxiv.org/pdf/1405.5848.pdf">Batch Informed Trees (BIT*): Sampling-based Optimal Planning via the Heuristically Guided Search of Implicit Random Geometric Graphs</a> by Gammell, Srinivasa and Barfoot</li>
+<li><a href="https://ieeexplore.ieee.org/document/5477164">Sampling-Based Path Planning on Configuration-Space Costmaps</a> by Jaillet, Cortes and Simeon</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5979797">Addressing Cost-Space Chasms in Manipulation Planning</a> by Berenson, Simeon and Srinivasa</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5717430">Optimal Kinodynamic Motion Planning using Incremental Sampling-based Methods</a> by Karaman and Frazzoli</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6631297">Sampling-based Optimal Motion Planning for Non-holonomic Dynamical Systems</a> by Karaman and Frazzoli</li>
+</ul>
+<h3 id="state-lattice-based-planners">State lattice-based planners</h3>
+<ul>
+<li><a href="https://www.ri.cmu.edu/pub_files/2005/9/ISAIRAS05.pdf">Efficient constrained path planning via search in state lattices</a> by Pivtoraiko and Kelly</li>
+<li><a href="https://people.csail.mit.edu/rak/www/sites/default/files/pubs/PivKneKel09.pdf">Differentially Constrained Mobile Robot Motion Planning in State Lattices</a> by Pivtoraiko, Knepper and Kelly</li>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/6094900">Kinodynamic motion planning with state lattice motion primitives</a> by Pivtoraiko and Kelly</li>
+</ul>
+<h3 id="trajectory-optimization">Trajectory optimization</h3>
+<ul>
+<li><a href="https://ieeexplore.ieee.org/document/580977">The dynamic window approach to collision avoidance</a> by Fox, Burgard and Thrun</li>
+<li><a href="https://journals.sagepub.com/doi/pdf/10.1177/0278364913488805">CHOMP: Covariant Hamiltonian optimization for motion planning</a> by Zucker et al</li>
+<li><a href="https://ieeexplore.ieee.org/document/6309484">Timed elastic bands</a>, <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6698833">Optimizing TEBs using sparse model</a>, <a href="https://www.sciencedirect.com/science/article/pii/S0921889016300495">TEBs with distinctive topologies</a>, <a href="http://www.rst.e-technik.tu-dortmund.de/lehrstuhl/mitarbeiter/roesmann/2017_Roesmann_IROS.PDF">TEBs for car-like robots</a> by Rösmann, Hoffmann and Bertram</li>
+</ul>
+<h3 id="trajectory-generation-for-car-like-robots">Trajectory generation for car-like robots</h3>
+<ul>
+<li><a href="https://www.jstor.org/stable/2372560?origin=crossref&amp;seq=1#metadata_info_tab_contents">On curves of minimal length with a constraint on average curvature, and with prescribed initial and terminal positions and tangents</a> by Dubins</li>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.375.5860">Optimal paths for a car that goes both forwards and backwards</a> by Reeds and Shepp</li>
+<li><a href="https://homepages.laas.fr/jpl/promotion/chap3.pdf">Optimal Trajectories for Nonholonomic Mobile Robots</a> by Soueres and  Boissonnat</li>
+<li><a href="https://ieeexplore.ieee.org/document/489204">Shortest paths synthesis for a car-like robot</a> by Soueres and Laumond</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=100154">Smooth Local Path Planning for Autonomous Vehicles</a> by Kanayama and Hartman</li>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.637.356&amp;rep=rep1&amp;type=pdf">Trajectory Generation for Car-like robots using cubic curvature polynomials</a> by Nagy and Kelly</li>
+<li><a href="http://ri.cmu.edu/pub_files/pub4/howard_thomas_2007_1/howard_thomas_2007_1.pdf">Optimal Rough Terrain Trajectory Generation for Wheeled Mobile Robots</a> by Howard and Kelly</li>
+</ul>
+<h3 id="planning-for-mobile-robots">Planning for mobile robots</h3>
+<ul>
+<li><a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/maxim/files/hsplanguide_icaps05ws.pdf">A Guide to Heuristic-based Path Planning</a> by Ferguson, Likhachev and Stentz</li>
+<li><a href="https://ieeexplore.ieee.org/document/568985?arnumber=568985&amp;tag=1">Planning continuous-curvature paths for car-like robots</a> by Scheuer and Fraichard</li>
+<li><a href="https://cs.stanford.edu/people/davidknowles/knowles-surf06.pdf">Real Time Continuous Curvature Path Planner for an Autonomous Vehicle in an Urban Environment</a> by Knowles</li>
+<li><a href="https://journals.sagepub.com/doi/pdf/10.1177/0278364909340445">Planning Long Dynamically Feasible Maneuvers for Autonomous Vehicles</a> by Likhachev and Ferguson</li>
+<li><a href="https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154341/eth-8091-01.pdf?sequence=1">Autonomous Driving in Structured and Unstructured Environments</a> by Kolski, Ferguson, Bellino and Siegwart</li>
+<li><a href="https://journals.sagepub.com/doi/pdf/10.1177/0278364906065543">Toward Reliable Off Road Autonomous Vehicles Operating in Challenging Environments</a> by Kelly et al.</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4621214">Detection, Prediction, and Avoidance of Dynamic Obstacles in Urban
+Environments</a> by Ferguson, Darms, Urmson and Kolski</li>
+<li><a href="http://www.cs.cmu.edu/~maxim/files/motplaninurbanenv_part1_iros08.pdf">Motion Planning in Urban Environments Part-I</a> and <a href="https://www.cs.cmu.edu/~maxim/files/motplaninurbanenv_part2_iros08.pdf">Part II</a> by Ferguson, Howard and Likhachev</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5175292">Real-Time Motion Planning With Applications to Autonomous Urban Driving</a> by Kuwata, Teo, Fiore, Karaman, Frazzoli and How</li>
+<li><a href="https://www.cs.cmu.edu/~maxim/files/planwithhomotopyconstraints_aaai10.pdf">Search-Based Path Planning with Homotopy Class Constraints</a> by Bhattacharya, Kumar and Likhachev</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5152860">Time-bounded Lattice for Efficient Planning in Dynamic Environments</a> by Kushleyev and Likhachev</li>
+<li><a href="https://journals.sagepub.com/doi/pdf/10.1177/0278364909359210">Path Planning for Autonomous Vehicles in Unknown Semi-structured Environments</a> by Dolgov, Thrun, Montemerlo and Diebel</li>
+<li><a href="https://ri.cmu.edu/pub_files/2013/6/IV2013-Tianyu.pdf">Focused Trajectory Planning for Autonomous On-Road Driving</a> by Gu, Snider, Dolan and Lee</li>
+<li><a href="https://ieeexplore.ieee.org/document/5354448">Spatiotemporal state lattices for fast trajectory planning in dynamic on-road driving scenarios</a> by Ziegler and Stiller</li>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.225.4980&amp;rep=rep1&amp;type=pdf">Motion Planning for Autonomous Driving with a Conformal Spatiotemporal Lattice</a> by McNaughton, Urmson, Dolan and Lee</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6225063">A Real-Time Motion Planner with Trajectory Optimization for Autonomous Vehicles</a> by Xu, Wei, Dolan, Zhao and Zha</li>
+<li><a href="https://ri.cmu.edu/pub_files/2014/6/IV2014-Tianyu.pdf">Toward Human-like Motion Planning in Urban Environments</a> by Gu and Dolan</li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6907209">Motion Planning under Uncertainty for On-Road Autonomous Driving</a> by Xu, Pan, Wei and Dolan</li>
+<li><a href="http://ri.cmu.edu/pub_files/2015/9/20150301-IROS-Tianyu.pdf">Tunable and Stable Real-Time Trajectory Planning for Urban Autonomous Driving</a> by Gu, Atwood, Dong, Dolan and Lee</li>
+<li><a href="https://www.ri.cmu.edu/pub_files/2014/7/IAS-2014-Final.pdf">On-Road Trajectory Planning for General Autonomous Driving with Enhanced Tunability</a> by Gu, Dolan and Lee</li>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/7535558">Runtime-bounded tunable motion planning for autonomous driving</a> by Gu, Dolan and Lee</li>
+<li><a href="https://arxiv.org/pdf/1604.07446.pdf">A Survey of Motion Planning and Control Techniques for Self-driving Urban Vehicles</a> Paden, Cap, Yong, Yershov and Frazolli</li>
+<li><a href="https://arxiv.org/abs/1807.08048">Baidu Apollo EM Motion Planner</a> by Fan et al.</li>
+</ul>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/safe-optimal-control-for-motional-planning-based-on-rl/"
+      title="Safe-Optimal Control for Motional Planning based on RL"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">© 2023 · phatcvo</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

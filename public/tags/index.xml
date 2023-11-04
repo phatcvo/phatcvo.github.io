@@ -30,13 +30,6 @@
       <description></description>
     </item>
     <item>
-      <title>Optimal</title>
-      <link>https://phatcvo.github.io/tags/optimal/</link>
-      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://phatcvo.github.io/tags/optimal/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>RL</title>
       <link>https://phatcvo.github.io/tags/rl/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
@@ -48,6 +41,13 @@
       <link>https://phatcvo.github.io/tags/safe/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/tags/safe/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Motion Optimal</title>
+      <link>https://phatcvo.github.io/tags/motion-optimal/</link>
+      <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/tags/motion-optimal/</guid>
       <description></description>
     </item>
   </channel>
