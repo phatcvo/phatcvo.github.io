@@ -1,5 +1,5 @@
 ---
-title: "iLQR/DDP algorithm for Non-linear trajectory optimization"
+title: "[LQR] iLQR/DDP algorithm for Non-linear trajectory optimization"
 date: 2023-10-23
 tags: ["LQR"]
 categories: ["Motion Planning"]
