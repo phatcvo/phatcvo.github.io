@@ -74,6 +74,15 @@
     });
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
   <script>
     let html = document.querySelector("html");
     let theme = window.localStorage.getItem("theme");
@@ -160,7 +169,7 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm</h1>
+  <h1 class="top-h1" style="font-size: 2.75em">[LQR] iLQR/DDP algorithm for Non-linear trajectory optimization</h1>
   <p class="mb-1">October 23, 2023</p>
   <p>&mdash;</p>
 </div>
@@ -199,7 +208,7 @@ $$</p>
     
     <a
       href="/blog/nominal-nonlinear-model-predictive-control/"
-      title="Nominal Nonlinear Model Predictive Control "
+      title="[MPC] Nominal Nonlinear Model Predictive Control"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -209,7 +218,7 @@ $$</p>
     
     <a
       href="/blog/model-predictive-control-with-discrete-time-control-barrier-functions/"
-      title="Model Predictive Control with discrete-time Control Barrier Functions"
+      title="[MPC] Model Predictive Control with discrete-time Control Barrier Functions"
     >
       <i class="nav-menu fas fa-chevron-circle-right"></i>
     </a>

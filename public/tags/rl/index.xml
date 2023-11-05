@@ -6,10 +6,18 @@
     <description>Recent content in RL on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/tags/rl/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Safe-Optimal Control for Motional Planning based on RL</title>
+      <title>[RL] DRL-Basics Reinforcement Learning</title>
+      <link>https://phatcvo.github.io/blog/drl-basicsrl/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/blog/drl-basicsrl/</guid>
+      <description>Basics Deep reinforcement learning (DRL) is the integration of deep learning methods, classically used in supervised or unsupervised learning contexts, with reinforcement learning (RL), a well-studied adaptive control method used in problems with delayed and partial feedback [@Sutton1998]. This section starts with the basics of RL, mostly to set the notations, and provides a quick overview of deep neural networks.
+Table of contents Reinforcement learning and Markov Decision Process Policy and value functions Bellman equations Dynamic programming Monte-Carlo sampling Temporal Difference Eligibility traces Actor-critic architectures Function approximation Value-based function approximation Policy-based function approximation Reinforcement learning and Markov Decision Process RL methods apply to problems where an agent interacts with an environment in discrete time steps (@fig:agentenv).</description>
+    </item>
+    <item>
+      <title>[Survey] Safe-Optimal Control for Motional Planning based on RL</title>
       <link>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</guid>

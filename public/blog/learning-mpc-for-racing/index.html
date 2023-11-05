@@ -74,6 +74,15 @@
     });
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
   <script>
     let html = document.querySelector("html");
     let theme = window.localStorage.getItem("theme");
@@ -160,15 +169,15 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Learning Model Predictive Control for autonomous racing</h1>
+  <h1 class="top-h1" style="font-size: 2.75em">[MPC] Learning Model Predictive Control for autonomous racing</h1>
   <p class="mb-1">November 3, 2023</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
   <p>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.</p>
-<p><a href="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop.gif"></a>
-<a href="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoopStates.gif"></a>
-<a href="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop_multiLap.gif"></a></p>
+<p><img src="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop.gif" alt="">
+<img src="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoopStates.gif" alt="">
+<img src="https://raw.githubusercontent.com/phatcvo/Learning-MPC-for-racing/main/src/ClosedLoop_multiLap.gif" alt=""></p>
 <p>In the above animation we see the vehicle&rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future. This trajectory is planned to minimize the lap time, but it is constrained to land into the safe set (in green). This safe set is the domain of the approximation to the value function and it is updated after each lap using historical data.</p>
 <h2 id="description">Description</h2>
 <h3 id="the-plant">The Plant</h3>
@@ -189,9 +198,9 @@ pip install pathos
 </code></pre><p>To execute the code, run:</p>
 <pre tabindex="0"><code>python3 main.py
 </code></pre><h2 id="references">References</h2>
-<p><a href="https://ieeexplore.ieee.org/document/8039204/">Learning Model Predictive Control for Iterative Tasks. A Data-Driven Control Framework</a>
-<a href="https://ieeexplore.ieee.org/abstract/document/8896988">Learning how to autonomously race a car: a predictive control approach</a>.
-<a href="https://arxiv.org/pdf/1702.07064.pdf">Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System</a></p>
+<p>[1]<a href="https://ieeexplore.ieee.org/document/8039204/">Learning Model Predictive Control for Iterative Tasks. A Data-Driven Control Framework</a></p>
+<p>[2]<a href="https://ieeexplore.ieee.org/abstract/document/8896988">Learning how to autonomously race a car: a predictive control approach</a></p>
+<p>[3] <a href="https://arxiv.org/pdf/1702.07064.pdf">Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System</a></p>
 
 </div>
 </div>
@@ -200,7 +209,7 @@ pip install pathos
     
     <a
       href="/blog/mpc-for-quadrotor/"
-      title="Trajectory tracking with a quadrotor by LMPC"
+      title="[MPC] Trajectory tracking with a quadrotor by LMPC"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -208,7 +217,12 @@ pip install pathos
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    <a
+      href="/blog/lpv-mpp-mcp-for-racing/"
+      title="[MPC] Linear Parameter-Varying - Model Predictive Control for Racing"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
     
   </h3>
 </div>

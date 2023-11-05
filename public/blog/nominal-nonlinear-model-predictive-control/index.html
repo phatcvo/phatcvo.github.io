@@ -46,6 +46,15 @@
     });
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
   <script>
     let html = document.querySelector("html");
     let theme = window.localStorage.getItem("theme");
@@ -132,7 +141,7 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Nominal Nonlinear Model Predictive Control </h1>
+  <h1 class="top-h1" style="font-size: 2.75em">[MPC] Nominal Nonlinear Model Predictive Control</h1>
   <p class="mb-1">May 20, 2023</p>
   <p>&mdash;</p>
 </div>
@@ -163,7 +172,7 @@
     
     <a
       href="/blog/linear-model-predictive-control/"
-      title="Linear Model Predictive Control"
+      title="[MPC] Linear Model Predictive Control"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -173,7 +182,7 @@
     
     <a
       href="/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/"
-      title="Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm"
+      title="[LQR] iLQR/DDP algorithm for Non-linear trajectory optimization"
     >
       <i class="nav-menu fas fa-chevron-circle-right"></i>
     </a>

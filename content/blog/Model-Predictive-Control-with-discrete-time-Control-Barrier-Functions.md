@@ -1,8 +1,8 @@
 ---
-title: "Model Predictive Control with discrete-time Control Barrier Functions"
+title: "[MPC] Model Predictive Control with discrete-time Control Barrier Functions"
 date: 2023-10-30
-tags: ["notes", "MPC"]
-categories: ["Control theory"]
+tags: ["MPC", "CBF"]
+categories: ["Motion Planning"]
 description: "Model Predictive Control with discrete-time Control Barrier Functions (MPC-CBF) for a wheeled mobile robot."
 draft: false
 math: true
@@ -22,7 +22,7 @@ $$\\begin{aligned}
 \\end{aligned}$$
 
 
-where $$\\tilde{x}\_k=x\_{des,k} - x\_{k}$$
+where $\\tilde{x}\_k=x\_{des,k} - x\_{k}$
 
 
 Results

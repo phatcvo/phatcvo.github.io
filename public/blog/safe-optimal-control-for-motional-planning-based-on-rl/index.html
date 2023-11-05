@@ -46,6 +46,15 @@
     });
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
   <script>
     let html = document.querySelector("html");
     let theme = window.localStorage.getItem("theme");
@@ -132,7 +141,7 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Safe-Optimal Control for Motional Planning based on RL</h1>
+  <h1 class="top-h1" style="font-size: 2.75em">[Survey] Safe-Optimal Control for Motional Planning based on RL</h1>
   <p class="mb-1">May 18, 2022</p>
   <p>&mdash;</p>
 </div>
@@ -706,14 +715,19 @@
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
-    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    <a
+      href="/blog/survey-of-motion-planning-strategies/"
+      title="[Survey] Survey of Motion Planning strategies"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
     
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
     <a
-      href="/blog/linear-model-predictive-control/"
-      title="Linear Model Predictive Control"
+      href="/blog/drl-basicsrl/"
+      title="[RL] DRL-Basics Reinforcement Learning"
     >
       <i class="nav-menu fas fa-chevron-circle-right"></i>
     </a>

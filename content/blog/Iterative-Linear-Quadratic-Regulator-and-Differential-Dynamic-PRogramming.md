@@ -1,9 +1,9 @@
 ---
-title: "Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm"
+title: "[LQR] iLQR/DDP algorithm for Non-linear trajectory optimization"
 date: 2023-10-23
-tags: ["notes", "LQR"]
-categories: ["Control theory"]
-description: "Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm."
+tags: ["LQR"]
+categories: ["Motion Planning"]
+description: "iLQR/DDP algorithm for Non-linear trajectory optimization"
 draft: false
 math: true
 ---

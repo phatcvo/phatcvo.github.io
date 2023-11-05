@@ -46,6 +46,15 @@
     });
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
   <script>
     let html = document.querySelector("html");
     let theme = window.localStorage.getItem("theme");
@@ -136,7 +145,7 @@
 <div class="">
 <div class="hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 active">
   <i onclick="expandAccordion(this)" class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"></i>
-  <a href="/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/"><h2 class="accordion m-0">Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm</h2></a>
+  <a href="/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/"><h2 class="accordion m-0">[LQR] iLQR/DDP algorithm for Non-linear trajectory optimization</h2></a>
 </div>
 <div id="panel-item-0" class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark">
   <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">October 23, 2023</p>
@@ -147,10 +156,10 @@
   Categories: 
   <a
     class="metadata-tags hover:no-underline"
-    href="/categories/control-theory"
+    href="/categories/motion-planning"
     title="categories"
   >
-    #Control theory</a>
+    #Motion Planning</a>
   
 </p>
 
@@ -158,13 +167,6 @@
 
 <p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
   Tags: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/notes"
-    title="tags"
-  >
-    #notes</a>
-  
   <a
     class="metadata-tags hover:no-underline"
     href="/tags/lqr"
