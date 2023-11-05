@@ -1,5 +1,5 @@
 ---
-title: "[Motion planning] Survey of Motion Planning strategies"
+title: "[Survey] Survey of Motion Planning strategies"
 date: 2022-03-18
 tags: ["Motion planning", "Survey"]
 categories: ["Motion planning"]

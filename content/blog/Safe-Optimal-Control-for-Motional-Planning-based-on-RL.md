@@ -1,5 +1,5 @@
 ---
-title: "[RL] Safe-Optimal Control for Motional Planning based on RL"
+title: "[Survey] Safe-Optimal Control for Motional Planning based on RL"
 date: 2022-05-18
 tags: ["RL", "Survey"]
 categories: ["Motion Planning"]

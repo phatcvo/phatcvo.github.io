@@ -82,14 +82,14 @@ Different classes of deep RL methods can be identified. This document will focus
 Value-based algorithms (DQN&amp;hellip;) used mostly for discrete problems like video games.</description>
     </item>
     <item>
-      <title>[RL] Safe-Optimal Control for Motional Planning based on RL</title>
+      <title>[Survey] Safe-Optimal Control for Motional Planning based on RL</title>
       <link>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</guid>
       <description>Table of contents Optimal Control Dynamic Programming Linear Programming Tree-Based Planning Control Theory Model Predictive Control Safe Control Robust Control Risk-Averse Control Value-Constrained Control State-Constrained Control and Stability Uncertain Dynamical Systems Game Theory Sequential Learning Multi-Armed Bandit Best Arm Identification Black-box Optimization Reinforcement Learning Theory Value-based Policy-based Policy Gradient Actor-critic Derivative-free Model-based Exploration Hierarchy and Temporal Abstraction Partial Observability Transfer Multi-agent Representation Learning Offline Learning from Demonstrations Imitation Learning Applications to Autonomous Driving Inverse Reinforcement Learning Applications to Autonomous Driving Motion Planning Search Sampling Optimization Reactive Architecture and applications Optimal Control: Dynamic Programming (book) Dynamic Programming, Bellman R.</description>
     </item>
     <item>
-      <title>[Motion planning] Survey of Motion Planning strategies</title>
+      <title>[Survey] Survey of Motion Planning strategies</title>
       <link>https://phatcvo.github.io/blog/survey-of-motion-planning-strategies/</link>
       <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/survey-of-motion-planning-strategies/</guid>
