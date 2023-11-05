@@ -13,9 +13,8 @@
       <link>https://phatcvo.github.io/blog/drl-basicsrl/</link>
       <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/drl-basicsrl/</guid>
-      <description>Introduction The goal of this document is to keep track the state-of-the-art in deep reinforcement learning. It starts with basics in reinforcement learning and deep learning to introduce the notations and covers different classes of deep RL methods, value-based or policy-based, model-free or model-based, etc.
-Different classes of deep RL methods can be identified. This document will focus on the following ones:
-Value-based algorithms (DQN&amp;hellip;) used mostly for discrete problems like video games.</description>
+      <description>Basics Deep reinforcement learning (DRL) is the integration of deep learning methods, classically used in supervised or unsupervised learning contexts, with reinforcement learning (RL), a well-studied adaptive control method used in problems with delayed and partial feedback [@Sutton1998]. This section starts with the basics of RL, mostly to set the notations, and provides a quick overview of deep neural networks.
+Table of contents Reinforcement learning and Markov Decision Process Policy and value functions Bellman equations Dynamic programming Monte-Carlo sampling Temporal Difference Eligibility traces Actor-critic architectures Function approximation Value-based function approximation Policy-based function approximation Reinforcement learning and Markov Decision Process RL methods apply to problems where an agent interacts with an environment in discrete time steps (@fig:agentenv).</description>
     </item>
     <item>
       <title>[Survey] Safe-Optimal Control for Motional Planning based on RL</title>

@@ -174,19 +174,22 @@
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <h1 id="introduction">Introduction</h1>
-<p>The goal of this document is to keep track the state-of-the-art in deep reinforcement learning. It starts with basics in reinforcement learning and deep learning to introduce the notations and covers different classes of deep RL methods, value-based or policy-based, model-free or model-based, etc.</p>
-<p>Different classes of deep RL methods can be identified. This document will focus on the following ones:</p>
-<ol>
-<li>Value-based algorithms (DQN&hellip;) used mostly for discrete problems like video games.</li>
-<li>Policy-gradient algorithms (A3C, DDPG&hellip;) used for continuous control problems such as robotics.</li>
-<li>Recurrent attention models (RAM&hellip;) for partially observable problems.</li>
-<li>Model-based RL to reduce the sample complexity by incorporating a model of the environment.</li>
-<li>Application of deep RL to robotics</li>
-</ol>
-<p>One could extend the list and talk about hierarchical RL, inverse RL, imitation-based RL, etc&hellip;</p>
-<h1 id="basics-a-namebasicsa">Basics <!-- raw HTML omitted --><!-- raw HTML omitted --></h1>
+  <h1 id="basics">Basics</h1>
 <p>Deep reinforcement learning (DRL) is the integration of deep learning methods, classically used in supervised or unsupervised learning contexts, with reinforcement learning (RL), a well-studied adaptive control method used in problems with delayed and partial feedback [@Sutton1998]. This section starts with the basics of RL, mostly to set the notations, and provides a quick overview of deep neural networks.</p>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#reinforcement-learning-and-markov-decision-process">Reinforcement learning and Markov Decision Process</a></li>
+<li><a href="#policy-and-value-functions">Policy and value functions</a></li>
+<li><a href="#bellman-equations">Bellman equations</a></li>
+<li><a href="#dynamic-programming">Dynamic programming</a></li>
+<li><a href="#monte-carlo-sampling">Monte-Carlo sampling</a></li>
+<li><a href="#temporal-difference">Temporal Difference</a></li>
+<li><a href="#eligibility-traces">Eligibility traces</a></li>
+<li><a href="#actor-critic-architectures">Actor-critic architectures</a></li>
+<li><a href="#function-approximation">Function approximation</a></li>
+<li><a href="#value-based-function-approximation">Value-based function approximation</a></li>
+<li><a href="#policy-based-function-approximation">Policy-based function approximation</a></li>
+</ul>
 <h2 id="reinforcement-learning-and-markov-decision-process">Reinforcement learning and Markov Decision Process</h2>
 <p>RL methods apply to problems where an agent interacts with an environment in discrete time steps (@fig:agentenv). At time $t$, the agent is in state $s_t$ and decides to perform an action $a_t$. At the next time step, it arrives in the state $s_{t+1}$ and obtains the reward $r_{t+1}$. The goal of the agent is to maximize the reward obtained on the long term. The textbook by @Sutton1998 (updated in @Sutton2017) defines the field extensively.</p>
 <p><img src="https://raw.githubusercontent.com/phatcvo/Lec-DRL/gh-pages/img/rl-agent.jpg" alt="Interaction between an agent and its environment. Taken from @Sutton1998."></p>
@@ -420,7 +423,7 @@ $$</p>
 <p>All the methods presented before are <em>tabular methods</em>, as one needs to store one value per state-action pair: either the Q-value of the action or a preference for that action. In most useful applications, the number of values to store would quickly become prohibitive: when working on raw images, the number of possible states alone is untractable. Moreover, these algorithms require that each state-action pair is visited a sufficient number of times to converge towards the optimal policy: if a single state-action pair is never visited, there is no guarantee that the optimal policy will be found. The problem becomes even more obvious when considering <em>continuous</em> state or action spaces.</p>
 <p>However, in a lot of applications, the optimal action to perform in two very close states is likely to be the same: changing one pixel in a video game does not change which action should be applied. It would therefore be very useful to be able to <em>interpolate</em> Q-values between different states: only a subset of all state-action pairs has to explored; the others will be &ldquo;guessed&rdquo; depending on the proximity between the states and/or the actions. The problem is now <strong>generalization</strong>, i.e. transferring acquired knowledge to unseen but similar situations.</p>
 <p>This is where <strong>function approximation</strong> becomes useful: the Q-values or the policy are not stored in a table, but rather learned by a function approximator. The type of function approximator does not really matter here: in deep RL we are of course interested in deep neural networks (@sec:deep-learning), but any kind of regressor theoretically works (linear algorithms, radial-basis function network, SVR&hellip;).</p>
-<h4 id="value-based-function-approximation--">Value-based function approximation {-}</h4>
+<h4 id="value-based-function-approximation">Value-based function approximation</h4>
 <p>In <strong>value-based</strong> methods, we want to approximate the Q-values $Q^\pi(s,a)$ of all possible state-action pairs for a given policy. The function approximator depends on a set of parameters $\theta$. $\theta$ can for example represent all the weights and biases of a neural network. The approximated Q-value can now be noted $Q(s, a ;\theta)$ or $Q_\theta(s, a)$. As the parameters will change over time during learning, we can omit the time $t$ from the notation. Similarly, action selection is usually $\epsilon$-greedy or softmax, so the policy $\pi$ depends directly on the estimated Q-values and can therefore on the parameters: it is noted $\pi_\theta$.</p>
 <p><img src="https://raw.githubusercontent.com/phatcvo/Lec-DRL/gh-pages/img/functionapprox.png" alt="Function approximators can either take a state-action pair as input and output the Q-value, or simply take a state as input and output the Q-values of all possible actions."></p>
 <p>There are basically two options regarding the structure of the function approximator (@fig:functionapprox):</p>
@@ -458,7 +461,7 @@ $$</p>
 </li>
 </ul>
 <p>Any function approximator able to minimize these loss functions can be used.</p>
-<h4 id="policy-based-function-approximation--">Policy-based function approximation {-}</h4>
+<h4 id="policy-based-function-approximation">Policy-based function approximation</h4>
 <p>In policy-based function approximation, we want to directly learn a policy $\pi_\theta(s, a)$ that maximizes the expected return of each possible transition, i.e. the ones which are selected by the policy. The <strong>objective function</strong> to be maximized is defined over all trajectories $\tau = (s_0, a_0, s_1, a_1, \ldots, s_T, a_T)$ conditioned by the policy:</p>
 <p>$$
 J(\theta) = \mathbb{E}<em>{\tau \sim \rho</em>\theta} [R_t]

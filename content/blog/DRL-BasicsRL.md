@@ -7,22 +7,22 @@ description: "Deep Reinforcement Learning"
 draft: false
 math: true
 ---
-# Introduction
 
-The goal of this document is to keep track the state-of-the-art in deep reinforcement learning. It starts with basics in reinforcement learning and deep learning to introduce the notations and covers different classes of deep RL methods, value-based or policy-based, model-free or model-based, etc.
-
-Different classes of deep RL methods can be identified. This document will focus on the following ones:   
-
-1. Value-based algorithms (DQN...) used mostly for discrete problems like video games.
-2. Policy-gradient algorithms (A3C, DDPG...) used for continuous control problems such as robotics.
-3. Recurrent attention models (RAM...) for partially observable problems.
-4. Model-based RL to reduce the sample complexity by incorporating a model of the environment.
-5. Application of deep RL to robotics
-
-One could extend the list and talk about hierarchical RL, inverse RL, imitation-based RL, etc...
-
-# Basics <a name="Basics"></a>
+# Basics
 Deep reinforcement learning (DRL) is the integration of deep learning methods, classically used in supervised or unsupervised learning contexts, with reinforcement learning (RL), a well-studied adaptive control method used in problems with delayed and partial feedback [@Sutton1998]. This section starts with the basics of RL, mostly to set the notations, and provides a quick overview of deep neural networks.
+
+## Table of contents
+* [Reinforcement learning and Markov Decision Process](#reinforcement-learning-and-markov-decision-process)
+* [Policy and value functions](#policy-and-value-functions)
+* [Bellman equations](#bellman-equations)
+* [Dynamic programming](#dynamic-programming)
+* [Monte-Carlo sampling](#monte-carlo-sampling)
+* [Temporal Difference](#temporal-difference)
+* [Eligibility traces](#eligibility-traces)
+* [Actor-critic architectures](#actor-critic-architectures)
+* [Function approximation](#function-approximation)
+* [Value-based function approximation](#value-based-function-approximation)
+* [Policy-based function approximation](#policy-based-function-approximation)
 
 ## Reinforcement learning and Markov Decision Process
 
@@ -361,7 +361,7 @@ However, in a lot of applications, the optimal action to perform in two very clo
 
 This is where **function approximation** becomes useful: the Q-values or the policy are not stored in a table, but rather learned by a function approximator. The type of function approximator does not really matter here: in deep RL we are of course interested in deep neural networks (@sec:deep-learning), but any kind of regressor theoretically works (linear algorithms, radial-basis function network, SVR...).
 
-#### Value-based function approximation {-}
+#### Value-based function approximation
 
 In **value-based** methods, we want to approximate the Q-values $Q^\pi(s,a)$ of all possible state-action pairs for a given policy. The function approximator depends on a set of parameters $\theta$. $\theta$ can for example represent all the weights and biases of a neural network. The approximated Q-value can now be noted $Q(s, a ;\theta)$ or $Q_\theta(s, a)$. As the parameters will change over time during learning, we can omit the time $t$ from the notation. Similarly, action selection is usually $\epsilon$-greedy or softmax, so the policy $\pi$ depends directly on the estimated Q-values and can therefore on the parameters: it is noted $\pi_\theta$.
 
@@ -404,7 +404,7 @@ $$
 
 Any function approximator able to minimize these loss functions can be used.
 
-#### Policy-based function approximation {-}
+#### Policy-based function approximation
 
 In policy-based function approximation, we want to directly learn a policy $\pi_\theta(s, a)$ that maximizes the expected return of each possible transition, i.e. the ones which are selected by the policy. The **objective function** to be maximized is defined over all trajectories $\tau = (s_0, a_0, s_1, a_1, \ldots, s_T, a_T)$ conditioned by the policy:
 
