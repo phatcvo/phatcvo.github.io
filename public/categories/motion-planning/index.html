@@ -46,6 +46,15 @@
     });
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
   <script>
     let html = document.querySelector("html");
     let theme = window.localStorage.getItem("theme");
@@ -131,16 +140,16 @@
 
     <main class="grow">
 <div class="prose dark:prose-invert max-w-none">
-<h1 class="standard font-italic">#Motion Planning</h1>
+<h1 class="standard font-italic">#Motion planning</h1>
 
 <div class="">
 <div class="hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 active">
   <i onclick="expandAccordion(this)" class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"></i>
-  <a href="/blog/trajectories/"><h2 class="accordion m-0">Theory of Motion Planning</h2></a>
+  <a href="/blog/drl-basicsrl/"><h2 class="accordion m-0">[RL] DRL-Basics Reinforcement Learning</h2></a>
 </div>
 <div id="panel-item-0" class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark">
-  <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">May 18, 2022</p>
-<p class="mt-1 mb-0 text-sm">Reading Time: 8 minutes</p>
+  <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">August 18, 2022</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 24 minutes</p>
  
 
 <p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
@@ -150,7 +159,7 @@
     href="/categories/motion-planning"
     title="categories"
   >
-    #Motion Planning</a>
+    #Motion planning</a>
   
 </p>
 
@@ -160,10 +169,63 @@
   Tags: 
   <a
     class="metadata-tags hover:no-underline"
-    href="/tags/optimal"
+    href="/tags/notes"
     title="tags"
   >
-    #Optimal</a>
+    #notes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/survey"
+    title="tags"
+  >
+    #Survey</a>
+  
+</p>
+
+
+</div>
+</div>
+</div>
+
+<div class="">
+<div class="hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 ">
+  <i onclick="expandAccordion(this)" class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"></i>
+  <a href="/blog/survey-of-motion-planning-strategies/"><h2 class="accordion m-0">[Motion planning] Survey of Motion Planning strategies</h2></a>
+</div>
+<div id="panel-item-1" class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark">
+  <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">March 18, 2022</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 4 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/motion-planning"
+    title="categories"
+  >
+    #Motion planning</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/notes"
+    title="tags"
+  >
+    #notes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/survey"
+    title="tags"
+  >
+    #Survey</a>
   
 </p>
 

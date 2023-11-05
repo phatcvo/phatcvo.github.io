@@ -73,6 +73,15 @@ ODE is
 $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
     </item>
     <item>
+      <title>[RL] DRL-Basics Reinforcement Learning</title>
+      <link>https://phatcvo.github.io/blog/drl-basicsrl/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/blog/drl-basicsrl/</guid>
+      <description>Introduction The goal of this document is to keep track the state-of-the-art in deep reinforcement learning. It starts with basics in reinforcement learning and deep learning to introduce the notations and covers different classes of deep RL methods, value-based or policy-based, model-free or model-based, etc.
+Different classes of deep RL methods can be identified. This document will focus on the following ones:
+Value-based algorithms (DQN&amp;hellip;) used mostly for discrete problems like video games.</description>
+    </item>
+    <item>
       <title>Safe-Optimal Control for Motional Planning based on RL</title>
       <link>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
@@ -80,7 +89,7 @@ $$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo
       <description>Table of contents Optimal Control Dynamic Programming Linear Programming Tree-Based Planning Control Theory Model Predictive Control Safe Control Robust Control Risk-Averse Control Value-Constrained Control State-Constrained Control and Stability Uncertain Dynamical Systems Game Theory Sequential Learning Multi-Armed Bandit Best Arm Identification Black-box Optimization Reinforcement Learning Theory Value-based Policy-based Policy Gradient Actor-critic Derivative-free Model-based Exploration Hierarchy and Temporal Abstraction Partial Observability Transfer Multi-agent Representation Learning Offline Learning from Demonstrations Imitation Learning Applications to Autonomous Driving Inverse Reinforcement Learning Applications to Autonomous Driving Motion Planning Search Sampling Optimization Reactive Architecture and applications Optimal Control: Dynamic Programming (book) Dynamic Programming, Bellman R.</description>
     </item>
     <item>
-      <title>Survey of Motion Planning strategies</title>
+      <title>[Motion planning] Survey of Motion Planning strategies</title>
       <link>https://phatcvo.github.io/blog/survey-of-motion-planning-strategies/</link>
       <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/survey-of-motion-planning-strategies/</guid>

@@ -127,7 +127,7 @@ dt & 0 \\\\\\
 \end{bmatrix}$$
 
 
-$$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt \\\\\\
+$$ C = (f(\bar{z},\bar{u})-A'\bar{z}-B'\bar{u})dt \\\\
 = dt(\begin{bmatrix} 
 \bar{v}\cos(\bar{\phi}) \\\\\\
 \bar{v}\sin(\bar{\phi}) \\\\\\
@@ -154,24 +154,20 @@ $$
 ## MPC approach:
 
 The cost function:
+$$
+\begin{aligned} 
+\min\_{x_{1:N},u_{1:N-1}} \quad & \sum Q'(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ R' \Sigma({u(t+1)-u(t)})^2\\\\
+\text{st} \quad 
+& z(t+1)=Az_t+Bu+C \\\\
+& z(0)=z(0, ob) \\\\
+& \underline{v} < v(t) < \overline{v}\\\\
+& \underline{u} < u(t) < \overline{u} \\\\
+& |u(t+1)-u(t)| < \Delta \overline{u} \\\\
+& |u(t)| < \overline{u}
+\end{aligned}
+$$
 
-$$ J = \min Q'(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ R' \Sigma({u(t+1)-u(t)})^2 $$
-
-subject to:
-
-$$ z(t+1)=Az_t+Bu+C $$
-
-$$ z(0)=z(0, ob) $$
-
-$$\underline{v} < v(t) < \overline{v} $$
-
-$$\underline{u} < u(t) < \overline{u} $$
-
-$$|u(t+1)-u(t)| < \Delta \overline{u} $$
-
-$$|u(t)| < \overline{u}$$
-
-z_ref comes from the target path and speed.
+where $z_{ref}$ comes from the target path and speed.
 ## Reference
 
 - This code uses [CVXPY](http://www.cvxpy.org/) as an optimization modeling tool 

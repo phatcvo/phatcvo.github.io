@@ -74,6 +74,15 @@
     });
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
   <script>
     let html = document.querySelector("html");
     let theme = window.localStorage.getItem("theme");
@@ -261,7 +270,7 @@ $$z(k+1) = z(k)+(f(\bar{z},\bar{u})+A&rsquo;z(k)+B&rsquo;u(k)-A&rsquo;\bar{z}-B&
 dt &amp; 0 \\\
 0 &amp; \frac{\bar{v}}{L\cos^2(\bar{\delta})}dt \\\
 \end{bmatrix}$$</p>
-<p>$$ C = (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt \\\
+<p>$$ C = (f(\bar{z},\bar{u})-A&rsquo;\bar{z}-B&rsquo;\bar{u})dt \\
 = dt(\begin{bmatrix}
 \bar{v}\cos(\bar{\phi}) \\\
 \bar{v}\sin(\bar{\phi}) \\\
@@ -285,16 +294,20 @@ dt &amp; 0 \\\
 \end{bmatrix}
 $$</p>
 <h2 id="mpc-approach">MPC approach:</h2>
-<p>The cost function:</p>
-<p>$$ J = \min Q&rsquo;(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ R&rsquo; \Sigma({u(t+1)-u(t)})^2 $$</p>
-<p>subject to:</p>
-<p>$$ z(t+1)=Az_t+Bu+C $$</p>
-<p>$$ z(0)=z(0, ob) $$</p>
-<p>$$\underline{v} &lt; v(t) &lt; \overline{v} $$</p>
-<p>$$\underline{u} &lt; u(t) &lt; \overline{u} $$</p>
-<p>$$|u(t+1)-u(t)| &lt; \Delta \overline{u} $$</p>
-<p>$$|u(t)| &lt; \overline{u}$$</p>
-<p>z_ref comes from the target path and speed.</p>
+<p>The cost function:
+$$
+\begin{aligned}
+\min_{x_{1:N},u_{1:N-1}} \quad &amp; \sum Q&rsquo;(z(T,ref)-z(T))^2 + Q \Sigma ({z(t, ref) - z(t)})^2 + R \Sigma {u(t)}^2+ R&rsquo; \Sigma({u(t+1)-u(t)})^2\\
+\text{st} \quad
+&amp; z(t+1)=Az_t+Bu+C \\
+&amp; z(0)=z(0, ob) \\
+&amp; \underline{v} &lt; v(t) &lt; \overline{v}\\
+&amp; \underline{u} &lt; u(t) &lt; \overline{u} \\
+&amp; |u(t+1)-u(t)| &lt; \Delta \overline{u} \\
+&amp; |u(t)| &lt; \overline{u}
+\end{aligned}
+$$</p>
+<p>where $z_{ref}$ comes from the target path and speed.</p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li>This code uses <a href="http://www.cvxpy.org/">CVXPY</a> as an optimization modeling tool</li>
@@ -307,8 +320,8 @@ $$</p>
   <h3 class="mb-1 mt-1 text-left mr-4">
     
     <a
-      href="/blog/safe-optimal-control-for-motional-planning-based-on-rl/"
-      title="Safe-Optimal Control for Motional Planning based on RL"
+      href="/blog/drl-basicsrl/"
+      title="[RL] DRL-Basics Reinforcement Learning"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>

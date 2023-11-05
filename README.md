@@ -9,4 +9,4 @@ git push -f origin main
 ```
 Pull to sync `git pull origin main`
 
-Note: githib/yourwebsite-repository -> `action` tab -> delete Hugo workflow -> `Settings` tab -> `Pages` tab - > Create Hugo workflow
+Note: (debug) githib/yourwebsite-repository -> `action` tab -> delete Hugo workflow -> `Settings` tab -> `Pages` tab - > Create Hugo workflow

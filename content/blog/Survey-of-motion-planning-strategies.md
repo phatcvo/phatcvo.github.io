@@ -1,8 +1,8 @@
 ---
-title: "Survey of Motion Planning strategies"
+title: "[Motion planning] Survey of Motion Planning strategies"
 date: 2022-03-18
-tags: ["notes", "Motion Optimal"]
-categories: ["Control theory"]
+tags: ["notes", "Survey"]
+categories: ["Motion planning"]
 description: "Survey of Motion Planning strategies"
 draft: false
 math: true

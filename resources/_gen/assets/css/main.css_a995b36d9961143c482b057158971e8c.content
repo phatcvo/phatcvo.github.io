@@ -1174,11 +1174,17 @@ blockquote {
 .flex {
   display: flex !important;
 }
+.table {
+  display: table !important;
+}
 .grid {
   display: grid !important;
 }
 .contents {
   display: contents !important;
+}
+.hidden {
+  display: none !important;
 }
 .h-full {
   height: 100% !important;

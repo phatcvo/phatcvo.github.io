@@ -50,6 +50,15 @@
     <loc>https://phatcvo.github.io/blog/linear-model-predictive-control/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://phatcvo.github.io/blog/drl-basicsrl/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcvo.github.io/categories/motion-planning/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://phatcvo.github.io/tags/survey/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://phatcvo.github.io/tags/rl/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
   </url><url>
@@ -58,9 +67,6 @@
   </url><url>
     <loc>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://phatcvo.github.io/tags/motion-optimal/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://phatcvo.github.io/blog/survey-of-motion-planning-strategies/</loc>
     <lastmod>2022-03-18T00:00:00+00:00</lastmod>
