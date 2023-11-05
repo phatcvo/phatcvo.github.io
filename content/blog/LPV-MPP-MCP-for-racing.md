@@ -19,16 +19,16 @@ The planning-control-estimation diagram is shown in the following figure
 ![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/rosgraph.png
 )
 
-![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/Berkeley_control_planning_diagram.png)
+![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/diagram.png)
 ### LPV modeling
 The LPV paradigm allows to represent a given non-linear representation into a pseudo-linear form as
 
-![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/vehicle_modeling.png)
+![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/modeling.png)
 
 ### The vehicle model
 The model used in planning, control and estimation algorithms is the bicycle representation where the inputs are the front steering angle and the rear wheel linear acceleration
 
-![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/variables_representation.png)
+![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/variables_model.png)
 
 
 ### MPC for planning
