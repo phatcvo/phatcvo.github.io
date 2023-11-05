@@ -9,14 +9,14 @@
     <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linear Parameter-Varying - Model Predictive Control for Racing</title>
+      <title>[MPC] Linear Parameter-Varying - Model Predictive Control for Racing</title>
       <link>https://phatcvo.github.io/blog/lpv-mpp-mcp-for-racing/</link>
       <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/lpv-mpp-mcp-for-racing/</guid>
       <description>Planning and control for autonomous racing vehicles. This project allows you to solve the autonomous racing driving problem using advanced control theory. Particularly, here it is presented a collaborative work using optimal strategies. The Model Predictive Control (MPC) strategy is used online for computing the optimal trajectory maximizing vehicle velocity but also for computing the optimal control actions that make the vehicle to follow the computed references. All the algorithms are solved in real time employing the Operator Splitting Quadratic Program (OSQP) solver.</description>
     </item>
     <item>
-      <title>Learning Model Predictive Control for autonomous racing</title>
+      <title>[MPC] Learning Model Predictive Control for autonomous racing</title>
       <link>https://phatcvo.github.io/blog/learning-mpc-for-racing/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/learning-mpc-for-racing/</guid>
@@ -24,7 +24,7 @@
 In the above animation we see the vehicle&amp;rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future.</description>
     </item>
     <item>
-      <title>Trajectory tracking with a quadrotor by LMPC</title>
+      <title>[MPC] Trajectory tracking with a quadrotor by LMPC</title>
       <link>https://phatcvo.github.io/blog/mpc-for-quadrotor/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/mpc-for-quadrotor/</guid>
@@ -33,7 +33,7 @@ The MPC controller solves the following optimization problem :
 $$\begin{aligned} \min_{x_{1:N},u_{1:N-1}} \quad &amp;amp; \sum_{i=1}^{N-1} \bigg[ (x_i - x_{i,ref})^TQ(x_i - x_{i,ref}) + (u_i - u_{i,ref})^TR(u_i - u_{i,ref}) \bigg] + \frac{1}{2} (x_N - x_{N,ref})^TQ_f(x_N - x_{N,ref}) \\ \textrm{s.t.} \quad &amp;amp; x_1 = x_{\text{IC}} \\ &amp;amp; x_{k+1} = f(\bar{x}_k, \bar{u}_k) + \bigg[\frac{\partial f}{\partial x} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](x_k - \bar{x}_k) + \bigg[\frac{\partial f}{\partial u} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](u_k - \bar{u}_k) \quad \text{for } i = 1,2,\ldots,N-1 \\ &amp;amp; u_{min} \leq u_i \leq u_{max} \quad ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{for } i = 1,2,\ldots,N-1 \\ \end{aligned}$$</description>
     </item>
     <item>
-      <title>Model Predictive Control with discrete-time Control Barrier Functions</title>
+      <title>[MPC] Model Predictive Control with discrete-time Control Barrier Functions</title>
       <link>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</link>
       <pubDate>Mon, 30 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</guid>
@@ -41,7 +41,7 @@ $$\begin{aligned} \min_{x_{1:N},u_{1:N-1}} \quad &amp;amp; \sum_{i=1}^{N-1} \big
 $$\begin{aligned} \min_{u_{t: t+N-1 \mid t}} \quad &amp;amp; \frac{1}{2} \tilde{x}_N^T Q_x \tilde{x}_N+\sum_{k=0}^{N-1} \frac{1}{2} \tilde{x}_k^T Q_x \tilde{x}_k+\frac{1}{2} u_k^T Q_u u_k\\ \textrm{s.t.} \quad &amp;amp; x_{t+k+1 \mid t}=x_{t+k \mid t}+f\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \cdot T_s, \quad k=0, . ., N-1,\\ &amp;amp; x_{\min } \leq x_{t+k \mid t} \leq x_{\max }, \quad k=0, \ldots, N-1,\\ &amp;amp; u_{\min } \leq u_{t+k \mid t} \leq u_{\max }, \quad k=0, \ldots, N-1, \\ &amp;amp; x_{t \mid t}=x_t, \\ &amp;amp; \Delta h\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \geq-\gamma h\left(x_{t+k \mid t}\right), \quad k=0, \ldots, N-1 \\ \end{aligned}$$</description>
     </item>
     <item>
-      <title>Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm</title>
+      <title>iLQR/DDP algorithm for Non-linear trajectory optimization</title>
       <link>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</guid>
@@ -49,7 +49,7 @@ $$\begin{aligned} \min_{u_{t: t+N-1 \mid t}} \quad &amp;amp; \frac{1}{2} \tilde{
 iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is similar to Riccati iterations, but accounts for the regularization and line-search required to handle the nonlinearity. DDP: Second-order terms included (Newton approximation). The iLQR/DDP controller solves the following finite-horizon optimization (Non-linear trajectory optimization) problem:</description>
     </item>
     <item>
-      <title>Nominal Nonlinear Model Predictive Control </title>
+      <title>[MPC] Nominal Nonlinear Model Predictive Control</title>
       <link>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</link>
       <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</guid>
@@ -57,7 +57,7 @@ iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is si
 Cheap NMPC implementation for both receding and shrinking time horizons Parameter and state estimation using the UKF Efficient solution of nonlinear dynamic optimization formulation using automatic differentiation Always feasible due to soft-constraints Example This is a basic nonlinear model predictive control (NMPC) implementation in Python with soft constraints, which uses an Unscented Kalman filter for state estimation.</description>
     </item>
     <item>
-      <title>Linear Model Predictive Control</title>
+      <title>[MPC] Linear Model Predictive Control</title>
       <link>https://phatcvo.github.io/blog/linear-model-predictive-control/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/linear-model-predictive-control/</guid>
@@ -82,7 +82,7 @@ Different classes of deep RL methods can be identified. This document will focus
 Value-based algorithms (DQN&amp;hellip;) used mostly for discrete problems like video games.</description>
     </item>
     <item>
-      <title>Safe-Optimal Control for Motional Planning based on RL</title>
+      <title>[RL] Safe-Optimal Control for Motional Planning based on RL</title>
       <link>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</guid>

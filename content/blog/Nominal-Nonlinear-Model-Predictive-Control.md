@@ -1,9 +1,9 @@
 ---
-title: "Nominal Nonlinear Model Predictive Control "
+title: "[MPC] Nominal Nonlinear Model Predictive Control"
 date: 2023-05-20
-tags: ["notes", "MPC"]
-categories: ["Control theory"]
-description: "Motion Planning"
+tags: ["MPC"]
+categories: ["Motion Planning"]
+description: "Nominal Nonlinear Model Predictive Control"
 draft: false
 ---
 Nonlinear model predictive control (NMPC) is a popular control method for multivariable control problems with important process constraints. The dynamic equation system is assumed to be given by differential algebraic equations (DAE). The code is mostly meant to be used as a way to verify the performance of more novel algorithms against an implementation more likely to be found in industry. It has the following features: 

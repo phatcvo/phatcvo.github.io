@@ -6,10 +6,19 @@
     <description>Recent content in RL on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/tags/rl/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Safe-Optimal Control for Motional Planning based on RL</title>
+      <title>[RL] DRL-Basics Reinforcement Learning</title>
+      <link>https://phatcvo.github.io/blog/drl-basicsrl/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/blog/drl-basicsrl/</guid>
+      <description>Introduction The goal of this document is to keep track the state-of-the-art in deep reinforcement learning. It starts with basics in reinforcement learning and deep learning to introduce the notations and covers different classes of deep RL methods, value-based or policy-based, model-free or model-based, etc.
+Different classes of deep RL methods can be identified. This document will focus on the following ones:
+Value-based algorithms (DQN&amp;hellip;) used mostly for discrete problems like video games.</description>
+    </item>
+    <item>
+      <title>[RL] Safe-Optimal Control for Motional Planning based on RL</title>
       <link>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/safe-optimal-control-for-motional-planning-based-on-rl/</guid>

@@ -1,8 +1,8 @@
 ---
-title: "Trajectory tracking with a quadrotor by LMPC"
+title: "[MPC] Trajectory tracking with a quadrotor by LMPC"
 date: 2023-11-01
-tags: ["notes", "MPC"]
-categories: ["Control theory"]
+tags: ["MPC"]
+categories: ["Motion Tracking"]
 description: "Trajectory tracking with a quadrotor by LMPC."
 draft: false
 math: true

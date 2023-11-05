@@ -1,7 +1,7 @@
 ---
 title: "[RL] DRL-Basics Reinforcement Learning"
 date: 2022-08-18
-tags: ["notes", "Survey"]
+tags: ["RL", "Survey"]
 categories: ["Motion planning"]
 description: "Deep Reinforcement Learning"
 draft: false

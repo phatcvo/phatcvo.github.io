@@ -9,7 +9,7 @@
     <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://phatcvo.github.io/tags/lqr/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Non-linear trajectory optimization via Differential Dynamic Programming with the iLQR/DDP algorithm</title>
+      <title>iLQR/DDP algorithm for Non-linear trajectory optimization</title>
       <link>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</guid>

@@ -1,8 +1,8 @@
 ---
-title: "Linear Parameter-Varying - Model Predictive Control for Racing"
+title: "[MPC] Linear Parameter-Varying - Model Predictive Control for Racing"
 date: 2023-11-04
-tags: ["notes", "MPC", "LPV"]
-categories: ["Control theory"]
+tags: ["MPC", "racing"]
+categories: ["Motion Planning"]
 description: "Linear Parameter-Varying - Model Predictive Control for Racing"
 draft: false
 math: true
