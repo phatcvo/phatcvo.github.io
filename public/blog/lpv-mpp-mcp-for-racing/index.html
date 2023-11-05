@@ -183,12 +183,13 @@ All the algorithms are solved in real time employing the Operator Splitting Quad
 This algorithm is launched every 33 ms.</p>
 <h3 id="mpc-for-control">MPC for control</h3>
 <p>At this point an MPC is built and solved at every control iteration (33 ms) for figure out the optimal control actions (steering and rear wheel acceleration).</p>
-<h2 id="running-the-tests">Running the tests</h2>
-<p>The codes are in Python 2.7 and the structure is made in ROS. Hence, for running this project you have to do the following inside your workspace folder:</p>
-<pre tabindex="0"><code>  - catkin_make (to create build and devel folders)
-  - source devel/setup.bash
-  - roslaunch barc MAIN_LAUNCH.launch
-  
+<h3 id="test">Test</h3>
+<p>To use this project, install it locally via:</p>
+<pre tabindex="0"><code>git clone https://github.com/phatcvo/Quadrotor-MPC.git
+</code></pre><p>To execute the code, run:</p>
+<pre tabindex="0"><code>catkin_make (to create build and devel folders)
+source devel/setup.bash
+roslaunch barc MAIN_LAUNCH.launch
 </code></pre><p><img src="https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/Kazam_screenshot_00000.png" alt=""></p>
 <h2 id="references">References</h2>
 <ul>

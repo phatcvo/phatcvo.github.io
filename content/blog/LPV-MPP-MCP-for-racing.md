@@ -39,13 +39,16 @@ This algorithm is launched every 33 ms.
 At this point an MPC is built and solved at every control iteration (33 ms) for figure out the optimal control actions (steering and rear wheel acceleration).
 
 
-## Running the tests
-The codes are in Python 2.7 and the structure is made in ROS. Hence, for running this project you have to do the following inside your workspace folder:
+### Test
+To use this project, install it locally via:
 ```
-  - catkin_make (to create build and devel folders)
-  - source devel/setup.bash
-  - roslaunch barc MAIN_LAUNCH.launch
-  
+git clone https://github.com/phatcvo/Quadrotor-MPC.git
+```
+To execute the code, run:
+```
+catkin_make (to create build and devel folders)
+source devel/setup.bash
+roslaunch barc MAIN_LAUNCH.launch
 ```
 
 ![](https://raw.githubusercontent.com/phatcvo/LPV-MPP-MPC-for-racing/main/workspace/src/images/Kazam_screenshot_00000.png)
