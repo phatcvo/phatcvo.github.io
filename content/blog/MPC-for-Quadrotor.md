@@ -7,7 +7,6 @@ description: "Trajectory tracking with a quadrotor by LMPC."
 draft: false
 math: true
 ---
-This is inline math: \$E=mc^2\$
 
 The non-linear dynamics are linearized about a linearization trajectory $\bar{x}, \bar{u}$ while the quadrotor aims to track a different reference trajectory 
 $x_{ref}, u_{ref}$.
