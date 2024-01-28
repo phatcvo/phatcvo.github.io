@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto light"><head>
+  <title>Phat C. Vo</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Phat C. Vo" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.3" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\begin{bmatrix}", right: "\end{bmatrix}", display: true },
+            ],
+        });
+    });
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.github.io">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Tech-Blog(EN)</a>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.blogspot.com/">Tech-Blog(VN)</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("bi-moon-fill");
+      el.classList.remove("bi-brightness-high");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("bi-brightness-high");
+      el.classList.remove("bi-moon-fill");
+      window.localStorage.setItem("theme", "dark");
+    }
+  }; 
+
+
+
+</script>
+
+
+
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">[Book] Clean Code - Chapter 5</h1>
+  <p class="mb-1">January 1, 0001</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h2 id="chương-5-định-dạng-code">CHƯƠNG 5: ĐỊNH DẠNG CODE</h2>
+<p>Khi mọi người tiến hành bảo dưỡng dự án, chúng tôi muốn họ ấn tượng bởi sự gọn gàng, nhất quán, và chú ý đến từng chi tiết mà chúng tôi đã tạo ra. Chúng tôi muốn họ choáng ngợp bởi sự ngăn nắp. Chúng tôi muốn họ phải bất ngờ khi xem qua các module. Chúng tôi muốn họ nhận thức được rằng chúng tôi chuyên nghiệp, và đây là sản phẩm được tạo ra bởi chuyên gia. Nhưng nếu điều đó không xảy ra, nếu họ nhìn thấy &ldquo;một đống&rdquo; code tứ tung, cứ như thể đống code đó được tạo ra trong cơn phê sau khi lập trình viên hút cần, thì nhiều khả năng họ kết luận rằng những chi tiết cẩu thả tương tự sẽ xuất hiện đầy rẫy trong dự án.</p>
+<p>Bạn nên để tâm đến việc định dạng code của bạn. Bạn cũng nên chọn ra một tập hợp các quy tắc định dạng đơn giản để áp dụng cho toàn bộ code của mình. Nếu bạn đang làm việc trong một nhóm thì cả nhóm nên thống nhất một bộ quy tắc định dạng chung và tất cả thành viên nên tuân thủ nó.</p>
+<h2 id="mục-đích-của-việc-định-dạng">Mục đích của việc định dạng</h2>
+<p>Đầu tiên, nó giúp code của bạn trở nên rõ ràng. Định dạng code là một việc quan trọng. Nó quá quan trọng để có thể bỏ qua, nó nên được xem xét một cách nghiêm túc. Việc định dạng code là vấn đề về việc giao tiếp giữa các lập trình viên. Đối với lập trình viên, đây phải là vấn đề được ưu tiên giải quyết trước nhất.</p>
+<p>Nếu bạn cho rằng việc <em>làm cho sản phẩm hoạt động</em> nên được ưu tiên cao nhất thì cuốn sách này đã, đang và sẽ làm bạn thất vọng với suy nghĩ đó. Chức năng bạn viết hôm nay có khả năng <em>được</em> thay đổi vào ngày mai. Tôi dùng từ <em>được</em> vì đó là những thay đổi tốt, giúp nâng cao hiệu suất hệ thống, giảm thời gian xử lý,&hellip; Và độ dễ đọc của code có ảnh hưởng sâu sắc đến các thay đổi đó. Kiểu viết code của bạn sẽ đặt tiền lệ ảnh hưởng đến các lập trình viên sau này tiếp xúc với hệ thống, ảnh hưởng đến khả năng bảo trì và nâng cấp. Mức độ ảnh hưởng có thể là rất lâu. Phong cách và cách định dạng code của bạn vẫn còn sót lại trong hệ thống, dù cho code của bạn không còn.</p>
+<p>Vậy hãy xem chúng ta có những biện pháp nào cho vấn đề này.</p>
+<h2 id="định-dạng-theo-chiều-dọc">Định dạng theo chiều dọc</h2>
+<p>Bắt đầu với kích thước file. Một file nên có kích thước như thế nào? Trong Java, kích thước file gắn liền với kích thước của class. Chúng tôi sẽ nói về kích thước của class khi đề cập đến chúng. Hiện tại chỉ cần quan tâm đến kích thước file.</p>
+<p>Kích thước phổ biến của một file mã nguồn Java là bao nhiêu? Chúng tôi nhận thấy rằng có một loạt các kích cỡ và sự khác biệt đáng chú ý trong các hình thức khác nhau của Java. Hình 5.1 cho thấy một vài trong số đó.</p>
+<p>Có bảy dự án khác nhau được mô tả. Junit, FitNesse, testNG, Time and Money (tam), JDepend, Ant, và Tomcat. Đường kẻ đen xuyên qua hình chữ nhật biểu thị số dòng lớn nhất, nhỏ nhất trong mỗi file nguồn. Hình chữ nhật biểu thị cho khoảng 1/3 giá trị phổ biến nhất. Khoảng giữa hình chữ nhật là giá trị trung bình. Ví dụ với dự án FitNesse, kích thước tệp trung bình của loại dự án này là 65 dòng, đa số nằm trong khoảng 40 đến 100+ dòng. File lớn nhất trong dự án có kích thước khoảng 400 dòng, nhỏ nhất là 6 dòng. Xin lưu ý rằng đây là thang đo log, do đó, sự khác biệt nhỏ về chiều dọc cũng đủ để tạo ra thay đổi rất lớn về kích thước trong thực tế.</p>
+<p><img src="../image/chap05_img01.png" alt="Độ dài tệp trong một số dự án" title="Độ dài tệp trong một số dự án"></p>
+<p><em>Hình 5.1 Độ dài tệp trong một số dự án</em></p>
+<p>Junit, FitNesse, và Time and Money (tam) bao gồm các file tương đối nhỏ. Không có file nào vượt quá 500 dòng và đa số các file dưới 200 dòng. Mặt khác, Tomcat và Ant có các file dài vài nghìn dòng và gần một nửa các file dài hơn 200 dòng.</p>
+<p>Điều này có ý nghĩa gì? Các file lớn, thường dài 200-500 dòng chứng tỏ rằng chúng được xây dụng cho các hệ thống quan trọng. Mặc đù đây không phải là một quy tắc bất di bất dịch, nhưng nó nên được xem xét. Các file nhỏ luôn dễ hiểu hơn các file dài.</p>
+<h3 id="hành-code-như-nhà-báo-hành-văn">&ldquo;Hành code&rdquo; như nhà báo hành văn</h3>
+<p>Hãy nghĩ về các bài báo mà bạn vẫn đọc thường ngày. Bạn đọc nó từ trên xuống, theo chiều dọc. Ngay từ đầu, tiêu đề bài báo sẽ cho bạn biết câu chuyện nói về vấn đề gì và cho phép bạn quyết định có đọc tiếp hay không. Ngay dưới tiêu đề là một bản tóm lược nội dung vấn đề và cung cấp cho bạn các mô tả chung chung. Khi bạn đọc tiếp, các chi tiết sẽ dần lộ diện cho đến khi bạn có tất cả các thông tin bao gồm ngày, tên, trích dẫn, các vấn đề quan trọng hay các sự kiện bên lề khác.</p>
+<p>Chúng tôi muốn file mã nguồn được viết giống như một bài báo. Tên file nên đơn giản nhưng có khả năng giải thích. Bản thân tên file phải cho chúng tôi biết liệu chúng tôi có đang ở đúng vị trí cần xem xét hay không. Những dòng đầu tiên của file mã nguồn sẽ cung cấp các khái niệm và thuật toán. Mọi thứ sẽ dần sáng tỏ khi chúng tôi cuộn chuột xuống. Cuối cùng, chúng tôi muốn nhìn thấy các hàm với mức độ thấp nhất ở cuối file.</p>
+<p>Một tờ báo bao gồm nhiều bài báo; hầu hết là rất nhỏ. Một số thì lớn hơn một chút. Rất hiếm khi chứa nhiều chữ như một trang truyện dài. Điều này làm cho tờ báo hữu dụng. Nếu tờ báo chỉ là một tập hợp các câu chuyện dài và ngày tháng, được sắp xếp một cách vô tổ chức thì sẽ chẳng ai thèm đọc chúng.</p>
+<h3 id="khoảng-cách-giữa-các-định-nghĩa">Khoảng cách giữa các định nghĩa</h3>
+<p>Gần như tất cả code của bạn được đọc từ trái qua phải, từ trên xuống dưới. Mỗi dòng đại diện cho một biểu thức hoặc một mệnh đề, và mỗi nhóm dòng đại diện cho một mạch logic hoàn chỉnh. Những định nghĩa đó nên được tách biệt với nhau bằng những dòng trống.</p>
+<p>Hãy xem qua ví dụ trong Listing 5-1, có các dòng trống phân tách giữa khai báo package, lệnh import và các hàm. Quy tắc cực kỳ đơn giản này có ảnh hưởng rất lớn đến bố cục trực quan của code. Mỗi dòng trống là một dấu hiệu để người đọc xác định một khái niệm mới và riêng biệt. Khi bạn lướt qua Listing 5-1, mắt bạn bị hút vào dòng đầu tiên ngay sau dòng trống.</p>
+<table>
+<thead>
+<tr>
+<th>Listing 5-1 <strong>BoldWidget.java</strong></th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> fitnesse.wikitext.widgets;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BoldWidget</span> <span style="color:#66d9ef">extends</span> ParentWidget {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String REGEXP <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;&#39;&#39;.+?&#39;&#39;&#39;&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Pattern pattern <span style="color:#f92672">=</span> Pattern.<span style="color:#a6e22e">compile</span>(<span style="color:#e6db74">&#34;&#39;&#39;&#39;(.+?)&#39;&#39;&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>        Pattern.<span style="color:#a6e22e">MULTILINE</span> <span style="color:#f92672">+</span> Pattern.<span style="color:#a6e22e">DOTALL</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">BoldWidget</span>(ParentWidget parent, String text) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(parent);
+</span></span><span style="display:flex;"><span>        Matcher match <span style="color:#f92672">=</span> pattern.<span style="color:#a6e22e">matcher</span>(text);
+</span></span><span style="display:flex;"><span>        match.<span style="color:#a6e22e">find</span>();
+</span></span><span style="display:flex;"><span>        addChildWidgets(match.<span style="color:#a6e22e">group</span>(1));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">render</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        StringBuffer html <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer(<span style="color:#e6db74">&#34;&lt;b&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>        html.<span style="color:#a6e22e">append</span>(childHtml()).<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;&lt;/b&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> html.<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Lấy các dòng trống đó ra, code của bạn làm người đọc đau đầu và đau cả mắt như trong Listing 5-2 dưới đây:</p>
+<table>
+<thead>
+<tr>
+<th>Listing 5-2 <strong>BoldWidget.java</strong></th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> fitnesse.wikitext.widgets;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.*;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BoldWidget</span> <span style="color:#66d9ef">extends</span> ParentWidget {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String REGEXP <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;&#39;&#39;.+?&#39;&#39;&#39;&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Pattern pattern <span style="color:#f92672">=</span> Pattern.<span style="color:#a6e22e">compile</span>(<span style="color:#e6db74">&#34;&#39;&#39;&#39;(.+?)&#39;&#39;&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>        Pattern.<span style="color:#a6e22e">MULTILINE</span> <span style="color:#f92672">+</span> Pattern.<span style="color:#a6e22e">DOTALL</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">BoldWidget</span>(ParentWidget parent, String text) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(parent);
+</span></span><span style="display:flex;"><span>        Matcher match <span style="color:#f92672">=</span> pattern.<span style="color:#a6e22e">matcher</span>(text);
+</span></span><span style="display:flex;"><span>        match.<span style="color:#a6e22e">find</span>();
+</span></span><span style="display:flex;"><span>        addChildWidgets(match.<span style="color:#a6e22e">group</span>(1));}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">render</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        StringBuffer html <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer(<span style="color:#e6db74">&#34;&lt;b&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>        html.<span style="color:#a6e22e">append</span>(childHtml()).<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;&lt;/b&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> html.<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hiệu ứng này thậm chí còn rõ rệt hơn khi bạn mất tập trung. Ở ví dụ đầu tiên, các nhóm dòng khác nhau xuất hiện rõ ràng và bạn có thể nắm bắt nó, trong khi ví dụ thứ 2 trông như một vũng lầy. Sự khác biệt giữa 2 ví dụ này chỉ là một vài lần nhấn phím Enter.</p>
+<h3 id="mật-độ-theo-chiều-dọc">Mật độ theo chiều dọc</h3>
+<p>Nếu khoảng cách dọc dùng để tách biệt các định nghĩa, thì mật độ theo chiều dọc nghĩa là sự liên kết các dòng của khái niệm/định nghĩa đó. Các dòng có liên quan với nhau sẽ xuất hiện liền nhau theo chiều dọc. Hãy xem các comment vô dụng trong Listing 5-3 phá vỡ sự kết hợp chặt chẽ của 2 biến như thế nào.</p>
+<table>
+<thead>
+<tr>
+<th>Listing 5-3</th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReporterConfig</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * The class name of the reporter listener
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String m_className;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * The properties of the reporter listener
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Property<span style="color:#f92672">&gt;</span> m_properties <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Property<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addProperty</span>(Property property) {
+</span></span><span style="display:flex;"><span>        m_properties.<span style="color:#a6e22e">add</span>(property);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Listing 5-4 dễ đọc hơn nhiều. Trông nó rất &ldquo;đã mắt&rdquo;, ít nhất là đối với tôi. Tôi có thể nhìn vào nó và biết ngay rằng đây là một class có hai biến và một phương thức mà không phải tốn sức đảo đầu và mắt. Phiên bản trước đó buộc tôi phải sử dụng đầu và mắt nhiều hơn để có được điều đó.</p>
+<table>
+<thead>
+<tr>
+<th>Listing 5-4</th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReporterConfig</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String m_className;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Property<span style="color:#f92672">&gt;</span> m_properties <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Property<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addProperty</span>(Property property) {
+</span></span><span style="display:flex;"><span>        m_properties.<span style="color:#a6e22e">add</span>(property);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="khoảng-cách-theo-chiều-dọc">Khoảng cách theo chiều dọc</h3>
+<p>Đã bao giờ bạn thấy mình như <em>dã tràng xe cát biển Đông</em> chưa? Nhảy từ hàm này qua hàm khác, class này qua class khác, cuộn chuột lên xuống khắp các file mã nguồn, cố gắng phân loại các hàm và các biến, để rồi cuối cùng bị lạc trong mê lộ code. Bạn đã bao giờ mày mò ngược lên chuỗi kế thừa của class hiện tại chỉ để tìm hiểu định nghĩa của một hàm hay biến chưa? Điều này thật sự khó chịu vì bạn đang cố gắng hiểu hệ thống đang <em>làm gì</em>, nhưng lại mất thời gian để tìm xem các phần của hệ thống đang <em>ở đâu</em>.</p>
+<p>Các định nghĩa có liên quan với nhau nên được giữ gần nhau theo chiều dọc. Rõ ràng quy tắc này không hoạt động với các file riêng biệt. Nhưng bạn cũng không nên tách các định nghĩa có liên quan với nhau thành các file khác nhau, trừ khi bạn có lý do rất chính đáng để làm điều đó. Lời khuyên chân thành dành cho bạn đây: các biến có phạm vi <code>protected</code> nên tránh điều tôi vừa nêu trên.</p>
+<p>Đối với những định nghĩa có liên quan chặt chẽ trong cùng một file mã nguồn, khoảng cách giữa chúng nên trở thành thước đo quan trọng cho mức độ dễ hiểu của nhau. Chúng tôi không muốn các độc giả của chúng tôi phải đảo mắt hay cuộn chuột khắp file mã nguồn.</p>
+<p><strong>Khai báo biến.</strong> Các biến nên được khai báo càng gần với nơi sử dụng chúng càng tốt. Bởi vì hàm của chúng ta rất ngắn, nên các biến cục bộ phải được khai báo ở những dòng đầu tiên của mỗi hàm, như trong hàm dưới đây (hàm này hơi dài, tôi trích ra từ Junit 4.3.1).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readPreferences</span>(){
+</span></span><span style="display:flex;"><span>    InputStream is <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>{
+</span></span><span style="display:flex;"><span>        is <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream(getPreferencesFile());
+</span></span><span style="display:flex;"><span>        setPreferences(<span style="color:#66d9ef">new</span> Properties(getPreferences()));
+</span></span><span style="display:flex;"><span>        getPreferences().<span style="color:#a6e22e">load</span>(is);
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">catch</span> (IOException e){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (is <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>                is.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        }<span style="color:#66d9ef">catch</span> (IOException e1){
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Các biến điều khiển vòng lặp nên được khai báo trong vòng lặp, như ví dụ nhỏ xinh dưới đây (cũng trích từ Junit 4.3.1)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">countTestCases</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> count<span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (Test each : tests)
+</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">+=</span> each.<span style="color:#a6e22e">countTestCases</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> count;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Trong một vài trường hợp hiếm gặp, một biến có thể được khai báo ở đầu một khối lệnh hoặc ngay trước một vòng lặp trong một hàm-hơi-dài. Bạn có thể thấy một biến như vậy bên dưới, được trích từ một hàm-rất-dài trong TestNG.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (XmlTest test : m_suite.<span style="color:#a6e22e">getTests</span>()) {
+</span></span><span style="display:flex;"><span>    TestRunner tr <span style="color:#f92672">=</span> m_runnerFactory.<span style="color:#a6e22e">newTestRunner</span>(<span style="color:#66d9ef">this</span>, test);
+</span></span><span style="display:flex;"><span>    tr.<span style="color:#a6e22e">addListener</span>(m_textReporter);
+</span></span><span style="display:flex;"><span>    m_testRunners.<span style="color:#a6e22e">add</span>(tr);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    invoker <span style="color:#f92672">=</span> tr.<span style="color:#a6e22e">getInvoker</span>();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (ITestNGMethod m : tr.<span style="color:#a6e22e">getBeforeSuiteMethods</span>()) {
+</span></span><span style="display:flex;"><span>        beforeSuiteMethods.<span style="color:#a6e22e">put</span>(m.<span style="color:#a6e22e">getMethod</span>(), m);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (ITestNGMethod m : tr.<span style="color:#a6e22e">getAfterSuiteMethods</span>()) {
+</span></span><span style="display:flex;"><span>        afterSuiteMethods.<span style="color:#a6e22e">put</span>(m.<span style="color:#a6e22e">getMethod</span>(), m);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Các biến instance</strong>. Nên được khai báo ở đầu các class, và cũng không nên tạo khoảng cách giữa các biến này vì trong một class được thiết kế tốt, các biến instance được sử dụng bởi nhiều phương thức của class.</p>
+<p>Đã có nhiều cuộc tranh luận về việc nên đặt các biến instance ở đâu. Trong C++, chúng tôi thường sử dụng quy tắc được gọi là <em>nguyên tắc cái kéo</em>, với việc đặt tất cả các biến instance ở cuối class. Tuy nhiên, quy ước chung trong Java là đặt tất cả chúng ở đầu. Tôi không thấy có lý do nào để tuân theo một nguyên tắc khác. Điều quan trọng là các biến instance phải được khai báo ở một nơi đủ &ldquo;nổi tiếng&rdquo; để mọi người dễ dàng tìm ra chúng.</p>
+<p>Hãy xem xét một ví dụ lạ của class TestSuite trong JUnit 4.3.1. Tôi đã cố gắng rút gọn để bạn thấy được nó. Nếu bạn nhìn xuống khoảng giữa của class, bạn sẽ thấy hai biến instance được khai báo ở đó. Thật khó để đặt chúng ở một nơi tốt hơn. Khi ai đó đọc code họ sẽ phải thấy các khai báo này một cách tình cờ (như tôi đã từng làm).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestSuite</span> <span style="color:#66d9ef">implements</span> Test {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> Test <span style="color:#a6e22e">createTest</span>(Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> TestCase<span style="color:#f92672">&gt;</span> theClass,
+</span></span><span style="display:flex;"><span>                String name) {
+</span></span><span style="display:flex;"><span>        ... 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Constructor<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> TestCase<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">getTestConstructor</span>(Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> TestCase<span style="color:#f92672">&gt;</span> theClass)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throws</span> NoSuchMethodException { 
+</span></span><span style="display:flex;"><span>        ... 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Test <span style="color:#a6e22e">warning</span>(<span style="color:#66d9ef">final</span> String message) {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">exceptionToString</span>(Throwable t) {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String fName;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Vector<span style="color:#f92672">&lt;</span>Test<span style="color:#f92672">&gt;</span> fTests<span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Vector<span style="color:#f92672">&lt;</span>Test<span style="color:#f92672">&gt;</span>(10);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">TestSuite</span>() {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">TestSuite</span>(<span style="color:#66d9ef">final</span> Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> TestCase<span style="color:#f92672">&gt;</span> theClass) {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">TestSuite</span>(Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> TestCase<span style="color:#f92672">&gt;</span> theClass, String name) {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ... ... ... ... ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Các hàm phụ thuộc nhau</strong>. Nếu một hàm gọi một hàm khác, chúng nên được đặt gần nhau. Và nếu có thể, hàm gọi nên ở trên hàm được gọi. Điều này mang lại cho chương trình một luồng dữ liệu tự nhiên. Nếu nguyên tắc này được tuân theo, các độc giả sẽ tin rằng nội dung của những hàm được gọi sẽ xuất hiện ngay sau khi họ thấy lời gọi chúng. Hãy xem xét ví dụ được trích từ FitNesse trong Listing 5-5. Lưu ý cách các hàm trên cùng gọi các hàm bên dưới nó và cách chúng lần lượt gọi các hàm khác bên dưới chúng. Việc sắp xếp này giúp bạn dễ dàng tìm thấy các hàm được gọi và tăng đáng kể khả năng đọc cho toàn bộ module.</p>
+<table>
+<thead>
+<tr>
+<th>Listing 5-5 <strong>WikiPageResponder.java</strong></th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WikiPageResponder</span> <span style="color:#66d9ef">implements</span> SecureResponder {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> WikiPage page;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> PageData pageData;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> String pageTitle;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> Request request;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> PageCrawler crawler;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Response <span style="color:#a6e22e">makeResponse</span>(FitNesseContext context, Request request)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        String pageName <span style="color:#f92672">=</span> getPageNameOrDefault(request, <span style="color:#e6db74">&#34;FrontPage&#34;</span>);
+</span></span><span style="display:flex;"><span>        loadPage(pageName, context);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (page <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> notFoundResponse(context, request);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> makePageResponse(context);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">getPageNameOrDefault</span>(Request request, String defaultPageName)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        String pageName <span style="color:#f92672">=</span> request.<span style="color:#a6e22e">getResource</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (StringUtil.<span style="color:#a6e22e">isBlank</span>(pageName))
+</span></span><span style="display:flex;"><span>            pageName <span style="color:#f92672">=</span> defaultPageName;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> pageName;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">loadPage</span>(String resource, FitNesseContext context)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        WikiPagePath path <span style="color:#f92672">=</span> PathParser.<span style="color:#a6e22e">parse</span>(resource);
+</span></span><span style="display:flex;"><span>        crawler <span style="color:#f92672">=</span> context.<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">getPageCrawler</span>();
+</span></span><span style="display:flex;"><span>        crawler.<span style="color:#a6e22e">setDeadEndStrategy</span>(<span style="color:#66d9ef">new</span> VirtualEnabledPageCrawler());
+</span></span><span style="display:flex;"><span>        page <span style="color:#f92672">=</span> crawler.<span style="color:#a6e22e">getPage</span>(context.<span style="color:#a6e22e">root</span>, path);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (page <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>            pageData <span style="color:#f92672">=</span> page.<span style="color:#a6e22e">getData</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Response <span style="color:#a6e22e">notFoundResponse</span>(FitNesseContext context, Request request)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> NotFoundResponder().<span style="color:#a6e22e">makeResponse</span>(context, request);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> SimpleResponse <span style="color:#a6e22e">makePageResponse</span>(FitNesseContext context)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        pageTitle <span style="color:#f92672">=</span> PathParser.<span style="color:#a6e22e">render</span>(crawler.<span style="color:#a6e22e">getFullPath</span>(page));
+</span></span><span style="display:flex;"><span>        String html <span style="color:#f92672">=</span> makeHtml(context);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        SimpleResponse response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SimpleResponse();
+</span></span><span style="display:flex;"><span>        response.<span style="color:#a6e22e">setMaxAge</span>(0);
+</span></span><span style="display:flex;"><span>        response.<span style="color:#a6e22e">setContent</span>(html);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> response;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Bên cạnh đó, đoạn trích này cung cấp một ví dụ hay về việc giữ các hằng số ở mức thích hợp [G35]. Hằng số &ldquo;FrontPage&rdquo; có thể đã bị chôn vùi trong hàm getPageNameOrDefault, nhưng sẽ giúp ẩn đi một hằng số trong một hàm-cấp-thấp không phù hợp. Tốt hơn là nên đưa nó từ nơi mà nó có ý nghĩa đến nơi thật sự sử dụng nó.</p>
+<p><strong>Các định nghĩa có liên quan</strong>. Một vài phần của mã nguồn muốn ở gần các phần khác. Chúng có mối liên hệ nhất định. Mối quan hệ càng mạnh thì khoảng cách giữa chúng càng ít.</p>
+<p>Như chúng ta đã thấy, mối quan hệ này có thể dựa trên sự phụ thuộc trực tiếp, như một hàm gọi một hàm khác hoặc một hàm sử dụng một biến, hoặc những nguyên nhân khác. Mối liên hệ này cũng có thể được tạo ra bởi vì một nhóm hàm thực thi một hành động tương tự nhau. Hãy xem xét đoạn code sau từ Junit 4.3.1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Assert</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertTrue</span>(String message, <span style="color:#66d9ef">boolean</span> condition) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>condition)
+</span></span><span style="display:flex;"><span>            fail(message);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertTrue</span>(<span style="color:#66d9ef">boolean</span> condition) {
+</span></span><span style="display:flex;"><span>        assertTrue(<span style="color:#66d9ef">null</span>, condition);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertFalse</span>(String message, <span style="color:#66d9ef">boolean</span> condition) {
+</span></span><span style="display:flex;"><span>        assertTrue(message, <span style="color:#f92672">!</span>condition);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertFalse</span>(<span style="color:#66d9ef">boolean</span> condition) {
+</span></span><span style="display:flex;"><span>        assertFalse(<span style="color:#66d9ef">null</span>, condition);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ...
+</span></span></code></pre></div><p>Các hàm này có mối liên hệ mạnh vì chúng có cùng một định dạng tên và thực hiện các biến thể của cùng một tác vụ. Việc chúng gọi nhau là hiển nhiên, ngay cả khi không, chúng vẫn nên ở gần nhau.</p>
+<h3 id="trật-tự-theo-chiều-dọc">Trật tự theo chiều dọc</h3>
+<p>Nói chung, chúng tôi muốn các lời gọi hàm phụ thuộc nhau theo hướng đi xuống, nghĩa là lời gọi hàm nên gọi đến một hàm bên dưới (hàm thực hiện lời gọi hàm đó). Điều này giúp tạo ra một luồng dữ liệu trong module mã nguồn từ cấp cao đến cấp thấp.</p>
+<p>Như trong các bài báo, chúng tôi mong rằng các định nghĩa quan trọng nhất sẽ xuất hiện trước và chúng sẽ được miêu tả một cách súc tích, rõ ràng nhất. Chúng tôi cũng mong các chi tiết vụn vặt sẽ xuất hiện cuối cùng. Điều này cho phép chúng tôi đọc lướt qua các file mã nguồn, lấy ra một vài ý chính mà không cần phải lạc trôi vào các chi tiết. Listing 5-5 được tổ chức theo cách này, Listing 15-5 và Listing 3-7 cũng là các ví dụ tốt.</p>
+<h2 id="định-dạng-theo-chiều-ngang">Định dạng theo chiều ngang</h2>
+<p>Một dòng nên có độ rộng như thế nào? Để trả lời điều đó, chúng ta hãy cùng xem độ rộng các dòng trong các chương trình điển hình. Một lần nữa, chúng tôi xem xét bảy dự án khác nhau. Hình 5-2 cho thấy sự phân phối kích thước dòng của cả bảy dự án. Có một sự đều đặn ở đây, đặc biệt là xung quanh mức 45 ký tự. Thật vậy, có khoảng 1% số dòng có độ rộng từ 20-60 ký tự, chiếm 40% mã nguồn. Có khoảng 30% số dòng dưới 10 ký tự. Quá rõ ràng, các lập trình viên thích những dòng code ngắn!</p>
+<p>Điều này cho thấy chúng ta nên cố gắng giữ các dòng code của chúng ta ngắn. Giới hạn cũ của Hollerith là 80 ký tự, và tôi không có ý kiến gì khi các dòng có thể vượt quá 100 hay 120 ký tự ở thời điểm hiện tại. Nhưng nhiều hơn số đó thì không hay chút nào.</p>
+<p>Tôi đã từng tuân theo nguyên tắc rằng bạn sẽ không bao giờ phải cuộn chuột sang phải. Nhưng hiện nay màn hình đã rất rộng và các lập trình viên trẻ có thể thu nhỏ phông chữ đến mức họ có thể chứa 200 ký tự trên một dòng. Đừng làm thế. Cá nhân tôi đặt giới hạn của mình là 120.</p>
+<p><img src="RackMultipart20231120-1-afywy9_html_e1c49c078de7966.png" alt="">
+<img src="../image/chap05_img02.png" alt="Phân bố kích thước một dòng trong Java" title="Phân bố kích thước một dòng trong Java">
+<em>Hình 5.2 Phân bố kích thước một dòng trong Java</em></p>
+<h3 id="khoảng-cách-và-mật-độ">Khoảng cách và mật độ</h3>
+<p>Chúng tôi sử dụng khoảng trắng để tách biệt những thứ không liên quan lắm, điều đó cũng góp phần làm nổi bật những thứ có liên quan với nhau. Ví dụ như hàm dưới đây:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">measureLine</span>(String line) {
+</span></span><span style="display:flex;"><span>    lineCount<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> lineSize <span style="color:#f92672">=</span> line.<span style="color:#a6e22e">length</span>();
+</span></span><span style="display:flex;"><span>    totalChars <span style="color:#f92672">+=</span> lineSize;
+</span></span><span style="display:flex;"><span>    lineWidthHistogram.<span style="color:#a6e22e">addLine</span>(lineSize, lineCount);
+</span></span><span style="display:flex;"><span>    recordWidestLine(lineSize);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Chúng tôi bao quanh các toán tử gán bằng khoảng trắng để làm nổi bật chúng. Câu lệnh gán có hai yếu tố rõ ràng: vế trái và vế phải. Các khoảng trắng làm sự tách biệt này thêm rõ ràng.</p>
+<p>Mặt khác, tôi không đặt khoảng trắng giữa tên hàm và dấu ngoặc đơn mở. Điều này là do hàm và các đối số của nó có liên quan chặt chẽ với nhau. Tách chúng ra làm mối liên kết đó bị yếu đi. Tôi tách các đối số trong lời gọi hàm để làm nổi bật chúng, giúp độc giả dễ nhận ra các đối số này là riêng biệt.</p>
+<p>Một cách sử dùng khoảng trắng khác là làm nổi bật độ ưu tiên của các toán tử:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Quadratic</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">root1</span>(<span style="color:#66d9ef">double</span> a, <span style="color:#66d9ef">double</span> b, <span style="color:#66d9ef">double</span> c) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">double</span> determinant <span style="color:#f92672">=</span> determinant(a, b, c);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (<span style="color:#f92672">-</span>b <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">sqrt</span>(determinant)) <span style="color:#f92672">/</span> (2<span style="color:#f92672">*</span>a);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">root2</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> c) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">double</span> determinant <span style="color:#f92672">=</span> determinant(a, b, c);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (<span style="color:#f92672">-</span>b <span style="color:#f92672">-</span> Math.<span style="color:#a6e22e">sqrt</span>(determinant)) <span style="color:#f92672">/</span> (2<span style="color:#f92672">*</span>a);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">determinant</span>(<span style="color:#66d9ef">double</span> a, <span style="color:#66d9ef">double</span> b, <span style="color:#66d9ef">double</span> c) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> b<span style="color:#f92672">*</span>b <span style="color:#f92672">-</span> 4<span style="color:#f92672">*</span>a<span style="color:#f92672">*</span>c;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hãy chú ý vào các biểu thức. Các hệ số (của phép nhân) không chứa khoảng trắng vì chúng có độ ưu tiên cao. Các số hạng được phân tách bởi khoảng trắng bởi vì phép cộng và phép trừ có độ ưu tiên thấp hơn.</p>
+<p>Thật không may là, các công cụ tự động định dạng hiện tại đều không phân biệt được độ ưu tiên giữa các toán tử, và chúng áp cách khoảng trắng giống nhau cho các toán tử có độ ưu tiên khác nhau. Vì vậy, việc sử dụng khoảng trắng một cách tinh tế như ví dụ trên có xu hướng biến mất khi bạn dùng chức năng định dạng của IDE.</p>
+<h3 id="căn-chỉnh-theo-chiều-ngang">Căn chỉnh theo chiều ngang</h3>
+<p>Khi tôi còn là một lập trình viên Assembly, tôi đã sử dụng biện pháp căn chỉnh theo chiều ngang để làm nổi bật một số cấu trúc nhất định. Khi tôi bắt đầu code bằng C, C++ và cuối cùng là Java, tôi vẫn cố gắng sắp xếp tất cả các tên biến vào một tập hợp các khai báo, hoặc tất cả các rvalue vào một tập hợp các câu lệnh gán. Code của tôi có thể trông như thế này:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FitNesseExpediter</span> <span style="color:#66d9ef">implements</span> ResponseSender
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     Socket          socket;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     InputStream     input;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     OutputStream    output;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     Request         request;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     Response        response;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     FitNesseContext context;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span>   <span style="color:#66d9ef">long</span>            requestParsingTimeLimit;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     <span style="color:#66d9ef">long</span>            requestProgress;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     <span style="color:#66d9ef">long</span>            requestParsingDeadline;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span>     <span style="color:#66d9ef">boolean</span>         hasError;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">FitNesseExpediter</span>(Socket s,
+</span></span><span style="display:flex;"><span>                    FitNesseContext context) <span style="color:#66d9ef">throws</span> Exception
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">context</span> <span style="color:#f92672">=</span>              context;
+</span></span><span style="display:flex;"><span>        socket <span style="color:#f92672">=</span>                    s;
+</span></span><span style="display:flex;"><span>        input <span style="color:#f92672">=</span>                     s.<span style="color:#a6e22e">getInputStream</span>();
+</span></span><span style="display:flex;"><span>        output <span style="color:#f92672">=</span>                    s.<span style="color:#a6e22e">getOutputStream</span>();
+</span></span><span style="display:flex;"><span>        requestParsingTimeLimit <span style="color:#f92672">=</span>   10000;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Tôi đã từng làm vậy, tuy nhiên, loại căn chỉnh này không hữu ích. Cách căn chỉnh này khiến bạn bị hút vào một nửa sự thật và quên mất nửa còn lại. Trong ví dụ trên, bạn có thể bị hút mắt vào tên biến mà không quan tâm đến kiểu dữ liệu của nó. Tương tự cho các câu lệnh gán, bạn bị hấp dẫn bởi các rvalue mà không cần nhìn đến toán tử gán. Để làm mọi thứ trở nên tệ hơn (?!), các công cụ định dạng tự động thường loại bỏ cách căn chỉnh này.</p>
+<p>Vậy nên cuối cùng, tôi không dùng cách căn chỉnh này nữa. Ngày nay tôi thích các khai báo và lệnh gán không căn chỉnh ngang, như ví dụ dưới đây, vì chúng chỉ ra một vài khuyết điểm quan trọng. Nếu tôi có một danh sách dài các khai báo cần được căn chỉnh, vấn đề nằm ở <em>độ dài</em> của chúng. Độ dài của các khai báo trong class FitNesseExpediter bên dưới cho thấy rằng lớp này nên được tách ra.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FitNesseExpediter</span> <span style="color:#66d9ef">implements</span> ResponseSender
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Socket socket;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> InputStream input;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> OutputStream output;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Request request;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Response response;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> FitNesseContext context;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">long</span> requestParsingTimeLimit;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> requestProgress;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> requestParsingDeadline;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> hasError;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">FitNesseExpediter</span>(Socket s, FitNesseContext context) <span style="color:#66d9ef">throws</span> Exception
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">context</span> <span style="color:#f92672">=</span> context;
+</span></span><span style="display:flex;"><span>        socket <span style="color:#f92672">=</span> s;
+</span></span><span style="display:flex;"><span>        input <span style="color:#f92672">=</span> s.<span style="color:#a6e22e">getInputStream</span>();
+</span></span><span style="display:flex;"><span>        output <span style="color:#f92672">=</span> s.<span style="color:#a6e22e">getOutputStream</span>();
+</span></span><span style="display:flex;"><span>        requestParsingTimeLimit <span style="color:#f92672">=</span> 10000;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="việc-lùi-đầu-dòng">Việc lùi đầu dòng</h3>
+<p>Một file mã nguồn nên giống một hệ thống hoàn chỉnh hơn là một bản phác thảo sơ sài. Sẽ có thông tin về toàn bộ file, thông tin về các class riêng lẻ trong file, thông tin về các khối lệnh của hàm và các khối lệnh con trong hàm. Mỗi cấp độ của hệ thống này tạo ra một phạm vi mà ở đó bạn có thể khai báo các biến, trong đó các khai báo và câu lệnh được thể hiện một cách rõ ràng.</p>
+<p>Để làm cho hệ thống này trở nên rõ hơn với người đọc, chúng tôi lùi các dòng code tỉ lệ thuận với vị trí của chúng trong hệ thống phân cấp. Các câu lệnh ở cấp độ cao, ví dụ như khai báo class, hoàn toàn không lùi lề. Các phương thức trong một class được lùi vào một cấp. Các dòng lệnh thực hiện chức năng của phương thức được lùi vào một cấp so với dòng khai báo phương thức đó. Các khối lệnh cũng được lùi một cấp so với khối lệnh cha của chúng.</p>
+<p>Các lập trình viên phụ thuộc rất nhiều vào sơ đồ lùi dòng này. Họ nhìn vào đầu dòng để xác định cấp độ của các dòng code trong hệ thống. Điều này cho phép họ nhanh chóng nhảy qua các khối lệnh, chẳng hạn như các khối lệnh if hoặc while không liên quan đến tình huống hiện tại. Họ lướt mắt về phía bên trái màn hình để thấy các phương thức mới, biến mới hay thậm chí là class mới. Nếu không thực hiện việc lùi đầu dòng, code của bạn không dành cho con người đọc.</p>
+<p>Hãy xem hai đoạn code giống hệt nhau về mặt cú pháp và ngữ nghĩa dưới đây:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FitNesseServer</span> <span style="color:#66d9ef">implements</span> SocketServer { <span style="color:#66d9ef">private</span> FitNesseContext
+</span></span><span style="display:flex;"><span>context; <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">FitNesseServer</span>(FitNesseContext context) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">context</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>context; } <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">serve</span>(Socket s) { serve(s, 10000); } <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">serve</span>(Socket s, <span style="color:#66d9ef">long</span> requestTimeout) { <span style="color:#66d9ef">try</span> { FitNesseExpediter sender <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
+</span></span><span style="display:flex;"><span>FitNesseExpediter(s, context);
+</span></span><span style="display:flex;"><span>sender.<span style="color:#a6e22e">setRequestParsingTimeLimit</span>(requestTimeout); sender.<span style="color:#a6e22e">start</span>(); }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">catch</span>(Exception e) { e.<span style="color:#a6e22e">printStackTrace</span>(); } } }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-----</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FitNesseServer</span> <span style="color:#66d9ef">implements</span> SocketServer {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> FitNesseContext context;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">FitNesseServer</span>(FitNesseContext context) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">context</span> <span style="color:#f92672">=</span> context;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">serve</span>(Socket s) {
+</span></span><span style="display:flex;"><span>        serve(s, 10000);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">serve</span>(Socket s, <span style="color:#66d9ef">long</span> requestTimeout) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            FitNesseExpediter sender <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FitNesseExpediter(s, context);
+</span></span><span style="display:flex;"><span>            sender.<span style="color:#a6e22e">setRequestParsingTimeLimit</span>(requestTimeout);
+</span></span><span style="display:flex;"><span>            sender.<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Mắt của bạn có thể nhanh chóng phân biệt được các phần của một tập tin có cấu trúc lùi đầu dòng. Bạn gần như có thể ngay lập tức phát hiện ra các biến, constructor, và các phương thức [&hellip;]. Với phiên bản không căn chỉnh lùi dòng, bạn gần như không hiểu gì nếu không phải đổ mồ hôi sôi nước mắt tìm hiểu.</p>
+<p>Bỏ qua các đoạn lùi dòng. Thỉnh thoảng tôi bị dụ dỗ phá vỡ các quy tắc về việc lùi đầu dòng, như các câu lệnh if ngắn, vòng lặp while ngắn hay các hàm ngắn. Bất cứ khi nào việc đó xảy ra, tôi hầu như luôn quay lại và đặt vào đó một khoảng lùi dòng. Vì vậy tôi luôn tránh thu hẹp các khối lệnh xuống còn một dòng như thế này:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CommentWidget</span> <span style="color:#66d9ef">extends</span> TextWidget
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String REGEXP <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;^#[^\r\n]*(?:(?:\r\n)|\n|\r)?&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CommentWidget</span>(ParentWidget parent, String text){<span style="color:#66d9ef">super</span>(parent, text);}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">render</span>() <span style="color:#66d9ef">throws</span> Exception {<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Thay vào đó, tôi thích viết chúng lại theo cách này:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CommentWidget</span> <span style="color:#66d9ef">extends</span> TextWidget
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String REGEXP <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;^#[^\r\n]*(?:(?:\r\n)|\n|\r)?&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CommentWidget</span>(ParentWidget parent, String text){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(parent, text);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">render</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>; 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="những-khoảng-trống-giả">Những khoảng trống giả</h3>
+<p>Đôi khi phần thân của vòng lặp <code>while</code> hoặc vòng lặp <code>for</code> là một <em>thân giả</em>, như ví dụ dưới đây. Tôi không thích cấu trúc này và sẽ cố gắng tránh chúng. Nhưng khi tôi không thể tránh chúng, tôi phải chắc rằng phần thân giả của chúng được lùi vào đúng cách và được bao quanh bởi dấu ngoặc ôm. Tôi không thể nhớ nổi tôi đã bị lừa bao nhiêu lần bởi một dấu chấm phẩy lặng lẽ xuất hiện ở cuối vòng lặp, trên cùng một dòng. Trừ khi bạn làm cho dấu chấm phẩy đó <em>hiện hình</em> bằng cách lùi dòng trên dòng riêng của nó, nếu không thì quá khó để nhìn thấy nó.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (dis.<span style="color:#a6e22e">read</span>(buf, 0, readBufferSize) <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>1)
+</span></span><span style="display:flex;"><span>    ;
+</span></span></code></pre></div><h2 id="các-quy-tắc-trong-nhóm">Các quy tắc trong nhóm</h2>
+<p>Mỗi lập trình viên đều có bộ quy tắc định dạng yêu thích của riêng mình. Nhưng nếu anh ta làm việc trong một nhóm, thì nên tuân theo quy tắc nhóm.</p>
+<p>Một nhóm các nhà phát triển nên đồng ý với một kiểu định dạng duy nhất và sau đó các thành viên nên áp dụng kiểu định dạng đó. Chúng tôi muốn phần mềm có một phong cách code duy nhất, chúng tôi không muốn nó trông như được viết bởi nhiều nhóm với nhiều kiểu định dạng khác nhau.</p>
+<p>Khi tôi bắt đầu với một dự án FitNesse vào năm 2002, tôi đã ngồi lại với nhóm của mình để thống nhất phong cách code cho toàn dự án. Điều này mất khoảng 10 phút. Chúng tôi đã đưa ra quyết định về việc đặt các dấu ngoặc ôm ở đâu; tên class, tên biến và tên hàm sẽ được đặt như thế nào,&hellip; Sau đó chúng tôi gán các quy tắc đó vào bộ định dạng tùy chỉnh của IDE và gắn liền với chúng kể từ đó. Đây không phải là những quy tắc mà tôi thích, nhưng chúng đã được cả nhóm thống nhất với nhau. Là một thành viên của nhóm, tôi phải tuân thủ chúng khi tôi code trong dự án FitNesse.</p>
+<p>Hãy nhớ rằng, một phần mềm tốt bao gồm một bộ tài liệu được thiết kế tốt và dễ đọc. Chúng cần phải có phong cách nhất quán và trơn tru. Người đọc tin rằng các định dạng mà họ thấy trong file mã nguồn sẽ có ý nghĩa tương tự ở một nơi khác.[&hellip;]</p>
+<h2 id="các-quy-tắc-định-dạng-của-uncle-bob">Các quy tắc định dạng của Uncle Bob</h2>
+<p>Các quy tắc cá nhân tôi hay sử dụng rất đơn giản và được miêu tả bằng code trong Listing 5-6. Hãy xem như đây là ví dụ cho việc là thế nào để code nên những dòng code chuẩn.</p>
+<table>
+<thead>
+<tr>
+<th>Listing 5-6 <strong>CodeAnalyzer.java</strong></th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CodeAnalyzer</span> <span style="color:#66d9ef">implements</span> JavaFileAnalysis {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> lineCount;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> maxLineWidth;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> widestLineNumber;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LineWidthHistogram lineWidthHistogram;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> totalChars;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CodeAnalyzer</span>() {
+</span></span><span style="display:flex;"><span>        lineWidthHistogram <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LineWidthHistogram();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> List<span style="color:#f92672">&lt;</span>File<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findJavaFiles</span>(File parentDirectory) {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>File<span style="color:#f92672">&gt;</span> files <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>File<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>        findJavaFiles(parentDirectory, files);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> files;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">findJavaFiles</span>(File parentDirectory, List<span style="color:#f92672">&lt;</span>File<span style="color:#f92672">&gt;</span> files) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (File file : parentDirectory.<span style="color:#a6e22e">listFiles</span>()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (file.<span style="color:#a6e22e">getName</span>().<span style="color:#a6e22e">endsWith</span>(<span style="color:#e6db74">&#34;.java&#34;</span>))
+</span></span><span style="display:flex;"><span>                files.<span style="color:#a6e22e">add</span>(file);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (file.<span style="color:#a6e22e">isDirectory</span>())
+</span></span><span style="display:flex;"><span>                findJavaFiles(file, files);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">analyzeFile</span>(File javaFile) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        BufferedReader br <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader(<span style="color:#66d9ef">new</span> FileReader(javaFile));
+</span></span><span style="display:flex;"><span>        String line;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> ((line <span style="color:#f92672">=</span> br.<span style="color:#a6e22e">readLine</span>()) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>            measureLine(line);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">measureLine</span>(String line) {
+</span></span><span style="display:flex;"><span>        lineCount<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> lineSize <span style="color:#f92672">=</span> line.<span style="color:#a6e22e">length</span>();
+</span></span><span style="display:flex;"><span>        totalChars <span style="color:#f92672">+=</span> lineSize;
+</span></span><span style="display:flex;"><span>        lineWidthHistogram.<span style="color:#a6e22e">addLine</span>(lineSize, lineCount);
+</span></span><span style="display:flex;"><span>        recordWidestLine(lineSize);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">recordWidestLine</span>(<span style="color:#66d9ef">int</span> lineSize) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (lineSize <span style="color:#f92672">&gt;</span> maxLineWidth) {
+</span></span><span style="display:flex;"><span>            maxLineWidth <span style="color:#f92672">=</span> lineSize;
+</span></span><span style="display:flex;"><span>            widestLineNumber <span style="color:#f92672">=</span> lineCount;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getLineCount</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lineCount;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getMaxLineWidth</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> maxLineWidth;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getWidestLineNumber</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> widestLineNumber;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> LineWidthHistogram <span style="color:#a6e22e">getLineWidthHistogram</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lineWidthHistogram;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">getMeanLineWidth</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">double</span>)totalChars<span style="color:#f92672">/</span>lineCount;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getMedianLineWidth</span>() {
+</span></span><span style="display:flex;"><span>        Integer<span style="color:#f92672">[]</span> sortedWidths <span style="color:#f92672">=</span> getSortedWidths();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> cumulativeLineCount <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> width : sortedWidths) {
+</span></span><span style="display:flex;"><span>            cumulativeLineCount <span style="color:#f92672">+=</span> lineCountForWidth(width);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (cumulativeLineCount <span style="color:#f92672">&gt;</span> lineCount<span style="color:#f92672">/</span>2)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> width;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Cannot get here&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">lineCountForWidth</span>(<span style="color:#66d9ef">int</span> width) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lineWidthHistogram.<span style="color:#a6e22e">getLinesforWidth</span>(width).<span style="color:#a6e22e">size</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer<span style="color:#f92672">[]</span> <span style="color:#a6e22e">getSortedWidths</span>() {
+</span></span><span style="display:flex;"><span>        Set<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> widths <span style="color:#f92672">=</span> lineWidthHistogram.<span style="color:#a6e22e">getWidths</span>();
+</span></span><span style="display:flex;"><span>        Integer<span style="color:#f92672">[]</span> sortedWidths <span style="color:#f92672">=</span> (widths.<span style="color:#a6e22e">toArray</span>(<span style="color:#66d9ef">new</span> Integer<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>));
+</span></span><span style="display:flex;"><span>        Arrays.<span style="color:#a6e22e">sort</span>(sortedWidths);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> sortedWidths;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/clean-code-chapter-6/"
+      title="[Book] Clean Code - Chapter 6"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/clean-code-chapter-4/"
+      title="[Book] Clean Code - Chapter 4"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">© 2023 · phatcvo</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>
