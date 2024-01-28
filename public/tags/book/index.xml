@@ -8,12 +8,20 @@
     <language>en-us</language>
     <atom:link href="https://phatcvo.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Book] Clean Code - VNese</title>
+      <title>[Book] Clean Code - Chapter 1</title>
       <link>https://phatcvo.github.io/blog/clean-code-chapter-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-1/</guid>
       <description>CHƯƠNG 1: CODE SẠCH Bạn đang đọc quyển sách này vì hai lý do. Thứ nhất, bạn là một lập trình viên. Thứ hai, bạn muốn trở thành một lập trình viên giỏi. Tuyệt vời! Chúng tôi cần lập trình viên giỏi.
 Đây là một quyển sách nói về cách để bạn code tốt hơn, và nó chứa đầy code. Chúng ta sẽ xem xét code từ nhiều phương diện, từ trên xuống dưới, từ dưới lên trên, và từ trong ra ngoài.</description>
+    </item>
+    <item>
+      <title>[Book] Clean Code - Chapter 2</title>
+      <link>https://phatcvo.github.io/blog/clean-code-chapter-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phatcvo.github.io/blog/clean-code-chapter-2/</guid>
+      <description>CHƯƠNG 2: NHỮNG CÁI TÊN RÕ NGHĨA - Viết bởi Tim Ottinger
+Giới thiệu Những cái tên có ở khắp mọi nơi trong phần mềm. Chúng ta đặt tên cho các biến, các hàm, các đối số, các lớp và các gói của chúng ta. Chúng ta đặt tên cho những file mã nguồn và thư mục chứa chúng. Chúng ta đặt tên cho những file *.jar, file *.war,... Chúng ta đặt tên và đặt tên.</description>
     </item>
   </channel>
 </rss>

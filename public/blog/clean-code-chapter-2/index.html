@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto light"><head>
+  <title>Phat C. Vo</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Phat C. Vo" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.3" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">        <link rel="icon" type="image" sizes="32x32" href="/favicon.ico">        <link rel="icon" type="image" sizes="16x16" href="/favicon.ico">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\begin{bmatrix}", right: "\end{bmatrix}", display: true },
+            ],
+        });
+    });
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.10/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body);
+    });
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.github.io">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Tech-Blog(EN)</a>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.blogspot.com/">Tech-Blog(VN)</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("bi-moon-fill");
+      el.classList.remove("bi-brightness-high");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("bi-brightness-high");
+      el.classList.remove("bi-moon-fill");
+      window.localStorage.setItem("theme", "dark");
+    }
+  }; 
+
+
+
+</script>
+
+
+
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">[Book] Clean Code - Chapter 2</h1>
+  <p class="mb-1">January 1, 0001</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="chương-2-những-cái-tên-rõ-nghĩa">CHƯƠNG 2: NHỮNG CÁI TÊN RÕ NGHĨA</h1>
+<p><em>- Viết bởi Tim Ottinger</em></p>
+<h2 id="giới-thiệu">Giới thiệu</h2>
+<p>Những cái tên có ở khắp mọi nơi trong phần mềm. Chúng ta đặt tên cho các biến, các hàm, các đối số, các lớp và các gói của chúng ta. Chúng ta đặt tên cho những file mã nguồn và thư mục chứa chúng. Chúng ta đặt tên cho những file <em>*.jar</em>, file <em>*.war,..</em>. Chúng ta đặt tên và đặt tên. Vì chúng ta đặt tên rất nhiều, nên chúng ta cần làm tốt điều đó. Sau đây là một số quy tắc đơn giản để tạo nên những cái tên tốt.</p>
+<h2 id="dùng-những-tên-thể-hiện-được-mục-đích">Dùng những tên thể hiện được mục đích</h2>
+<p>Điều này rất dễ. Nhưng chúng tôi muốn nhấn mạnh rằng chúng tôi nghiêm túc trong việc này. Chọn một cái tên &ldquo;xịn&rdquo; mất khá nhiều thời gian, nhưng lại tiết kiệm (thời gian) hơn sau đó. Vì vậy, hãy quan tâm đến cái tên mà bạn chọn và chỉ thay đổi chúng khi bạn sáng tạo ra tên &ldquo;xịn&rdquo; hơn. Những người đọc code của bạn (kể cả bạn) sẽ <em>sung sướng</em> hơn khi bạn làm điều đó.</p>
+<p>Tên của biến, hàm, hoặc lớp phải trả lời tất cả những câu hỏi về nó. Nó phải cho bạn biết lý do nó tồn tại, nó làm được những gì, và dùng nó ra sao. Nếu có một comment đi kèm theo tên, thì tên đó không thể hiện được mục đích của nó.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> d; <span style="color:#75715e">// elapsed time in days</span>
+</span></span></code></pre></div><p>Tên <strong>d</strong> không tiết lộ điều gì cả. Nó không gợi lên cảm giác gì về thời gian, cũng không liên quan gì đến ngày. Chúng ta nên chọn một tên thể hiện được những gì đang được cân đo, và cả đơn vị đo của chúng:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> elapsedTimeInDays;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> daysSinceCreation;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> daysSinceModification;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> fileAgeInDays;
+</span></span></code></pre></div><p>Việc chọn tên thể hiện được mục đích có thể làm cho việc hiểu và thay đổi code dễ dàng hơn nhiều. Hãy đoán xem mục đích của đoạn code dưới đây là gì?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]&gt;</span> <span style="color:#a6e22e">getThem</span>() {
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]&gt;</span> list1 <span style="color:#f92672">=</span> newArrayList<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]&gt;</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> x : theList)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 4)
+</span></span><span style="display:flex;"><span>            list1.<span style="color:#a6e22e">add</span>(x);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> list1;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tại sao lại nói khó mà biết được đoạn code này đang làm gì? Không có biểu thức phức tạp, khoảng cách và cách thụt đầu dòng hợp lý, chỉ có 3 biến và 2 hằng số được đề cập. Thậm chí không có các lớp (class) và phương thức đa hình nào, nó chỉ có một danh sách mảng (hoặc thứ gì đó trông giống vậy).</p>
+<p>Vấn đề không nằm ở sự đơn giản của code mà nằm ở ý nghĩa của code, do bối cảnh không rõ ràng. Đoạn code trên bắt chúng tôi phải tìm câu trả lời cho các câu hỏi sau:</p>
+<ol>
+<li>theList chứa cái gì?</li>
+<li>Ý nghĩa của chỉ số 0 trong phần tử của theList?</li>
+<li>Số 4 có ý nghĩa gì?</li>
+<li>Danh sách được return thì dùng kiểu gì?</li>
+</ol>
+<p>Câu trả lời không có trong code, nhưng sẽ có ngay sau đây. Giả sử chúng tôi đang làm game <em>dò mìn</em>. Chúng tôi thấy rằng giao diện trò chơi là một danh sách các ô vuông (cell) được gọi là theList. Vậy nên, hãy đổi tên nó thành gameBoard.</p>
+<p>Mỗi ô trên màn hình được biểu diễn bằng một sanh sách đơn giản. Chúng tôi cũng thấy rằng chỉ số của số 0 là vị trí biểu diễn giá trị trạng thái (status value), và giá trị 4 nghĩa là trạng thái <em>được gắn cờ (flagged).</em> Chỉ bằng cách đưa ra các khái niệm này, chúng tôi có thể cải thiện mã nguồn một cách đáng kể:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]&gt;</span> <span style="color:#a6e22e">getFlaggedCells</span>() {
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]&gt;</span> flaggedCells <span style="color:#f92672">=</span> newArrayList<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]&gt;</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> cell : gameBoard)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (cell<span style="color:#f92672">[</span>STATUS_VALUE<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> FLAGGED)
+</span></span><span style="display:flex;"><span>            flaggedCells.<span style="color:#a6e22e">add</span>(cell);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> flaggedCells;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Cần lưu ý rằng mức độ đơn giản của code vẫn không thay đổi, nó vẫn chính xác về toán tử, hằng số, và các lệnh lồng nhau,&hellip;Nhưng đã trở nên rõ ràng hơn rất nhiều.</p>
+<p>Chúng ta có thể đi xa hơn bằng cách viết một lớp đơn giản cho các ô thay vì sử dụng các mảng kiểu int. Nó có thể bao gồm một hàm thể hiện được mục đích (gọi nó là <em>isFlagged – được gắn cờ</em> chẳng hạn) để giấu đi những con số ma thuật <em>(Từ gốc: magic number – Một khái niệm về các hằng số, tìm hiểu thêm tại</em> <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)">https://en.wikipedia.org/wiki/Magic_number_(programming)</a> <em>).</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Cell<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getFlaggedCells</span>() {
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>Cell<span style="color:#f92672">&gt;</span> flaggedCells <span style="color:#f92672">=</span> newArrayList<span style="color:#f92672">&lt;</span>Cell<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (Cell cell : gameBoard)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (cell.<span style="color:#a6e22e">isFlagged</span>())
+</span></span><span style="display:flex;"><span>            flaggedCells.<span style="color:#a6e22e">add</span>(cell);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> flaggedCells;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Với những thay đổi đơn giản này, không quá khó để hiểu những gì mà đoạn code đang trình bày. Đây chính là sức mạnh của việc chọn tên tốt.</p>
+<h2 id="tránh-sai-lệch-thông-tin">Tránh sai lệch thông tin</h2>
+<p>Các lập trình viên phải tránh để lại những dấu hiệu làm code trở nên khó hiểu. Chúng ta nên tránh dùng những từ mang nghĩa khác với nghĩa cố định của nó. Ví dụ, các tên biến như <code>hp</code>, <code>aix</code> và <code>sco</code> là những tên biến vô cùng tồi tệ, chúng là tên của các nền tảng Unix hoặc các biến thể. Ngay cả khi bạn đang code về cạnh huyền (hypotenuse) và hptrông giống như một tên viết tắt tốt, rất có thể đó là một cái tên tồi.</p>
+<p>Không nên quy kết rằng một nhóm các tài khoản là một <code>accountList</code> nếu nó không thật sự là một danh sách (<code>List</code>). Từ <em>danh sách</em> có nghĩa là một thứ gì đó cụ thể cho các lập trình viên. Nếu các tài khoản không thực sự tạo thành danh sách, nó có thể dẫn đến một kết quả sai lầm. Vậy nên, <code>accountGroup</code> hoặc <code>bunchOfAccounts</code>, hoặc đơn giản chỉ là accounts sẽ tốt hơn.</p>
+<p>Cẩn thận với những cái tên gần giống nhau. Mất bao lâu để bạn phân biệt được sự khác nhau giữa <code>XYZControllerForEfficientHandlingOfStrings</code> và <code>XYZControllerForEfficientStorageOfStrings</code> trong cùng một module, hay đâu đó xa hơn một chút? Những cái tên gần giống nhau như thế này thật sự, thật sự rất khủng khiếp cho lập trình viên.</p>
+<p>Một kiểu khủng bố tinh thần khác về những cái tên không rõ ràng là ký tự L viết thường và O viết hoa. Vấn đề? Tất nhiên là nhìn chúng gần như hoàn toàn giống hằng số không và một, kiểu như:</p>
+<pre tabindex="0"><code>int a = l;  
+if ( O == l ) a = O1;  
+else l = 01;
+</code></pre><p>Bạn nghĩ chúng tôi <em>xạo</em>? Chúng tôi đã từng khảo sát, và kiểu code như vậy thực sự rất nhiều. Trong một số trường hợp, tác giả của code đề xuất sử dụng phông chữ khác nhau để tách biệt chúng. Một giải pháp khác có thể được sử dụng là truyền đạt bằng lời nói hoặc để lại tài liệu cho các lập trình viên sau này có thể hiểu nó. Vấn đề được giải quyết mà không cần phải đổi tên để tạo ra một sản phẩm khác.</p>
+<h2 id="tạo-nên-những-sự-khác-biệt-có-nghĩa">Tạo nên những sự khác biệt có nghĩa</h2>
+<p>Các lập trình viên tạo ra vấn đề cho chính họ khi viết code chỉ để đáp ứng cho trình biên dịch hoặc thông dịch. Ví dụ, vì bạn không thể sử dụng cùng một tên để chỉ hai thứ khác nhau trong cùng một khối lệnh hoặc cùng một phạm vi, bạn có thể bị &ldquo;dụ dỗ&rdquo; thay đổi tên một cách tùy tiện. Đôi khi điều đó làm bạn cố tình viết sai chính tả, và người nào đó quyết định sửa lỗi chính tả đó, khiến trình biên dịch không có khả năng hiểu nó (cụ thể – tạo ra một biến tên <em>klass</em> chỉ vì tên <em>class</em> đã được dùng cho thứ gì đó).</p>
+<p>Mặc dù trình biên dịch có thể làm việc với những tên này, nhưng điều đó không có nghĩa là bạn được phép dùng nó. Nếu tên khác nhau, thì chúng cũng có ý nghĩa khác nhau.</p>
+<p>Những tên dạng chuỗi số (a1, a2,&hellip; aN) đi ngược lại nguyên tắc đặt tên có mục đích. Mặc dù những tên như vậy không phải là không đúng, nhưng chúng không có thông tin. Chúng không cung cấp manh mối nào về ý định của tác giả. Ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">copyChars</span>(<span style="color:#66d9ef">char</span> a1<span style="color:#f92672">[]</span>, <span style="color:#66d9ef">char</span> a2<span style="color:#f92672">[]</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> a1.<span style="color:#a6e22e">length</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        a2<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> a1<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hàm này dễ đọc hơn nhiều khi <em>nguyên nhân</em> và <em>mục đích</em> của nó được đặt tên cho các đối số.</p>
+<p>Những từ gây nhiễu tạo nên sự khác biệt, nhưng là sự khác biệt vô dụng. Hãy tưởng tượng rằng bạn có một lớp <code>Product</code>, nếu bạn có một <code>ProductInfo</code> hoặc <code>ProductData</code> khác, thì bạn đã thành công trong việc tạo ra các tên khác nhau nhưng về mặt ngữ nghĩa thì chúng là một. <code>Info</code> và <code>Data</code> là các từ gây nhiễu, giống như <code>a</code>, <code>an</code> và <code>the</code>.</p>
+<p>Lưu ý rằng không có gì sai khi sử dụng các tiền tố như <code>a</code> và <code>the</code> để tạo ra những khác biệt hữu ích. Ví dụ, bạn có thể sử dụng <code>a</code> cho tất cả các biến cục bộ và tất cả các đối số của hàm. <code>a</code> và <code>the</code> sẽ trở thành vô dụng khi bạn quyết định tạo một biến <code>theZork</code> vì trước đó bạn đã có một biến mang tên <code>Zork</code>.</p>
+<p>Những từ gây nhiễu là không cần thiết. Từ <code>variable</code> sẽ không bao giờ xuất hiện trong tên biến, từ <code>table</code> cũng không nên dùng trong tên bảng. <code>NameString</code> sao lại tốt hơn <code>Name</code>? <code>Name</code> có bao giờ là một số đâu mà lại? Nếu <code>Name</code> là một số, nó đã phá vỡ nguyên tắc <em>Tránh sai lệch thông tin.</em> Hãy tưởng tượng bạn đang tìm kiếm một lớp có tên <code>Customer</code>, và một lớp khác có tên <code>CustomerObject</code>. Chúng khác nhau kiểu gì? Cái nào chứa lịch sử thanh toán của khách hàng? Còn cái nào chứa thông tin của khách?</p>
+<p>Có một ứng dụng minh họa cho các lỗi trên, chúng tôi đã thay đổi một chút về tên để bảo vệ tác giả. Đây là những thứ chúng tôi thấy trong mã nguồn:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>getActiveAccount();
+</span></span><span style="display:flex;"><span>getActiveAccounts();
+</span></span><span style="display:flex;"><span>getActiveAccountInfo();
+</span></span></code></pre></div><p>Tôi thắc mắc không biết các lập trình viên trong dự án này phải <code>getActiveAccount</code> như thế nào!</p>
+<p>Trong trường hợp không có quy ước cụ thể, biến <code>moneyAmount</code> không thể phân biệt được với <code>money</code>; <code>customerInfo</code> không thể phân biệt được với <code>customer</code>; <code>accountData</code> không thể phân biệt được với <code>account</code> và <code>theMessage</code> với <code>message</code> được xem là một. Hãy phân biệt tên theo cách cung cấp cho người đọc những khác biệt rõ ràng.</p>
+<h2 id="dùng-những-tên-phát-âm-được">Dùng những tên phát âm được</h2>
+<p>Con người rất giỏi về từ ngữ. Một phần quan trọng trong bộ não của chúng ta được dành riêng cho các khái niệm về từ. Và các từ, theo định nghĩa, có thể phát âm được. Thật lãng phí khi không sử dụng được bộ não mà chúng ta đã tiến hóa nhằm thích nghi với ngôn ngữ nói. Vậy nên, hãy làm cho những cái tên phát âm được đi nào.</p>
+<p>Nếu bạn không thể phát âm nó, thì bạn không thể thảo luận một cách bình thường: &ldquo;Hey, ở đây chúng ta có <em>bee cee arr three cee enn tee</em>, và <em>pee ess zee kyew int</em>, thấy chứ?&rdquo; – Vâng, tôi thấy một thằng thiểu năng. Vấn đề này rất quan trọng vì lập trình cũng là một hoạt động xã hội, chúng ta cần trao đổi với mọi người.</p>
+<p>Tôi có biết một công ty dùng tên <em>genymdhms</em> (generation date, year, month, day, hour, minute, and second – phát sinh ngày, tháng, năm, giờ, phút, giây), họ đi xung quanh tôi và &ldquo;gen why emm dee aich emm ess&rdquo; (cách phát âm theo tiếng Anh). Tôi có thói quen phát âm như những gì tôi viết, vì vậy tôi bắt đầu nói &ldquo;gen-yah-muddahims&rdquo;. Sau này nó được gọi bởi một loạt các nhà thiết kế và phân tích, và nghe vẫn có vẻ ngớ ngẫn. Chúng tôi đã từng troll nhau như thế, nó rất thú vị. Nhưng dẫu thế nào đi nữa, chúng tôi đã chấp nhận những cái tên xấu xí. Những lập trình viên mới của công ty tìm hiểu ý nghĩa của các biến, và sau đó họ nói về những từ ngớ ngẫn, thay vì dùng các thuật ngữ tiếng Anh cho thích hợp. Hãy so sánh:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DtaRcrd102</span> {
+</span></span><span style="display:flex;"><span>    privateDate genymdhms;
+</span></span><span style="display:flex;"><span>    privateDate modymdhms;
+</span></span><span style="display:flex;"><span>    privatefinalString pszqint <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;102&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>và</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Customer</span> {
+</span></span><span style="display:flex;"><span>    privateDate generationTimestamp;
+</span></span><span style="display:flex;"><span>    privateDate modificationTimestamp;
+</span></span><span style="display:flex;"><span>    privatefinalString recordId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;102&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Cuộc trò chuyện giờ đây đã thông minh hơn: &ldquo;Hey, Mikey, take a look at this record! The generation timestamp is set to tomorrow&rsquo;s date! How can that be?&rdquo;</p>
+<h2 id="dùng-những-tên-tìm-kiếm-được">Dùng những tên tìm kiếm được</h2>
+<p>Các tên một chữ cái và các hằng số luôn có vấn đề, đó là không dễ để tìm chúng trong hàng ngàn dòng code.</p>
+<p>Người ta có thể dễ dàng tìm kiếm <code>MAX_CLASSES_PER_STUDENT</code>, nhưng số 7 thì lại rắc rối hơn. Các công cụ tìm kiếm có thể mở các tệp, các hằng, hoặc các biểu thức chứa số 7 này, nhưng được sử dụng với các mục đích khác nhau. Thậm chí còn tồi tệ hơn khi hằng số là một số có giá trị lớn và ai đó vô tình thay đổi giá trị của nó, từ đó tạo ra một lỗi mà các lập trình viên không tìm ra được.</p>
+<p>Tương tự như vậy, tên e là một sự lựa chọn tồi tệ cho bất kỳ biến nào mà một lập trình viên cần tìm kiếm. Nó là chữ cái phổ biến nhất trong tiếng anh và có khả năng xuất hiện trong mọi đoạn code của chương trình. Về vấn đề này, tên dài thì tốt hơn tên ngắn, và những cái tên tìm kiếm được sẽ tốt hơn một hằng số trơ trọi trong code.</p>
+<p>Sở thích cá nhân của tôi là chỉ đặt tên ngắn cho những biến cục bộ bên trong những phương thức ngắn. <em>Độ dài của tên phải tương ứng với phạm vi hoạt động của nó</em>. Nếu một biến hoặc hằng số được nhìn thấy và sử dụng ở nhiều vị trí trong phần thân của mã nguồn, bắt buộc phải đặt cho nó một tên dễ tìm kiếm. Ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>0; j<span style="color:#f92672">&lt;</span>34; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">+=</span> (t<span style="color:#f92672">[</span>j<span style="color:#f92672">]*</span>4)<span style="color:#f92672">/</span>5;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>và</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> realDaysPerIdealDay <span style="color:#f92672">=</span> 4;
+</span></span><span style="display:flex;"><span>constint WORK_DAYS_PER_WEEK <span style="color:#f92672">=</span> 5;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>0; j <span style="color:#f92672">&lt;</span> NUMBER_OF_TASKS; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> realTaskDays <span style="color:#f92672">=</span> taskEstimate<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">*</span> realDaysPerIdealDay;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> realTaskWeeks <span style="color:#f92672">=</span> (realdays <span style="color:#f92672">/</span> WORK_DAYS_PER_WEEK);
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> realTaskWeeks;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Lưu ý rằng sum ở ví dụ trên, dù không phải là một tên đầy đủ nhưng có thể tìm kiếm được. Biến và hằng được cố tình đặt tên dài, nhưng hãy so sánh việc tìm kiếm WORK_DAYS_PER_WEEK dễ hơn bao nhiêu lần so với số 5, đó là chưa kể cần phải lọc lại danh sách tìm kiếm và tìm ra những trường hợp có nghĩa.</p>
+<h2 id="tránh-việc-mã-hóa">Tránh việc mã hóa</h2>
+<p>Các cách mã hóa hiện tại là đủ với chúng tôi. Mã hóa các kiểu dữ liệu hoặc phạm vi thông tin vào tên chỉ đơn giản là thêm một gánh nặng cho việc giải mã. Điều đó không hợp lý khi bắt nhân viên phải học thêm một &ldquo;ngôn ngữ&rdquo; mã hóa khác khác ngoài các ngôn ngữ mà họ dùng để làm việc với code. Đó là một gánh nặng không cần thiết, các tên mã hóa ít khi được phát âm và dễ bị đánh máy sai.</p>
+<h3 id="ký-pháp-hungary">Ký pháp Hungary</h3>
+<p>Ngày trước, khi chúng tôi làm việc với những ngôn ngữ mà độ dài tên là một thách thức, chúng tôi đã loại bỏ sự cần thiết này. Fortran bắt buộc mã hóa bằng những chữ cái đầu tiên, phiên bản BASIC ban đầu của nó chỉ cho phép đặt tên tối đa 6 ký tự. Ký pháp Hungary (KH) đã giúp ích cho việc đặt tên rất nhiều.</p>
+<p>KH thực sự được coi là quan trọng khi Windows C API xuất hiện, khi mọi thứ là một số nguyên, một con trỏ kiểu <code>void</code> hoặc là các chuỗi,&hellip; Trong những ngày đó, trình biên dịch không thể kiểm tra được các lỗi về kiểu dữ liệu, vì vậy các lập trình viên cần một cái phao cứu sinh trong việc nhớ các kiểu dữ liệu này.</p>
+<p>Trong các ngôn ngữ hiện đại, chúng ta có nhiều kiểu dữ liệu mặc định hơn, và các trình biên dịch có thể phân biệt được chúng. Hơn nữa, mọi người có xu hướng làm cho các lớp, các hàm trở nên nhỏ hơn để dễ dàng thấy nguồn gốc dữ liệu của biến mà họ đang sử dụng.</p>
+<p>Các lập trình viên Java thì không cần mã hóa. Các kiểu dữ liệu mặc định là đủ mạnh mẽ, và các công cụ sửa lỗi đã được nâng cấp để chúng có thể phát hiện các vấn đề về dữ liệu trước khi được biên dịch. Vậy nên, hiện nay KH và các dạng mã hóa khác chỉ đơn giản là một loại chướng ngại vật. Chúng làm cho việc đổi tên biến, tên hàm, tên lớp (hoặc kiểu dữ liệu của chúng) trở nên khó khăn hơn. Chúng làm cho code khó đọc, và tạo ra một hệ thống mã hóa có khả năng đánh lừa người đọc:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>PhoneNumber phoneString;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// name not changed when type changed!</span>
+</span></span></code></pre></div><h3 id="các-thành-phần-tiền-tố">Các thành phần tiền tố</h3>
+<p>Bạn cũng không cần phải thêm các tiền tố như m_ vào biến thành viên (member variable) nữa. Các lớp và các hàm phải đủ nhỏ để bạn không cần chúng. Và bạn nên sử dùng các công cụ chỉnh sửa giúp làm nổi bật các biến này, làm cho chúng trở nên khác biệt với phần còn lại.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>publicclass Part {
+</span></span><span style="display:flex;"><span>    privateString m_dsc; <span style="color:#75715e">// The textual description</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span>(String name) {
+</span></span><span style="display:flex;"><span>    m_dsc <span style="color:#f92672">=</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*...*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>publicclass Part {
+</span></span><span style="display:flex;"><span>    String description;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setDescription</span>(String description) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">description</span> <span style="color:#f92672">=</span> description;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Bên cạnh đó, mọi người cũng nhanh chóng bỏ qua các tiền tố (hoặc hậu tố) để xem phần có ý nghĩa của tên. Càng đọc code, chúng ta càng ít thấy các tiền tố. Cuối cùng, các tiền tố trở nên vô hình, và bị xem là một dấu hiệu của những dòng code lạc hậu.</p>
+<h3 id="giao-diện-và-thực-tiễn">Giao diện và thực tiễn</h3>
+<p>Có một số trường hợp đặc biệt cần mã hóa. Ví dụ: bạn đang xây dựng một ABSTRACT FACTORY. Factory sẽ là giao diện và sẽ được thực hiện bởi một lớp cụ thể. Bạn sẽ đặt tên cho chúng là gì? <code>IShapeFactory</code> và <code>ShapeFactory</code> ? Tôi thích dùng những cách đặt tên đơn giản. Trước đây, <code>I</code> rất phổ biến trong các tài liệu, nó làm chúng tôi phân tâm và đưa ra quá nhiều thông tin. Tôi không muốn người dùng biết rằng tôi đang tạo cho họ một giao diện, tôi chỉ muốn họ biết rằng đó là <code>ShapeFactory</code>. Vì vậy, nếu phải lựa chọn việc mã hóa hay thể hiện đầy đủ, tôi sẽ chọn cách thứ nhất. Gọi nó là <code>ShapeFactoryImp</code>, hoặc thậm chí là <code>CShapeFactory</code> là cách hoàn hảo để che giấu thông tin.</p>
+<h2 id="tránh-hiếp-râm-não-người-khác">Tránh &ldquo;hiếp râm não&rdquo; người khác</h2>
+<p>Những lập trình viên khác sẽ không cần phải điên đầu ngồi dịch các tên mà bạn đặt thành những tên mà họ biết. Vấn đề này thường phát sinh khi bạn chọn một thuật ngữ không chính xác.</p>
+<p>Đây là vấn đề với các tên biến đơn. Chắc chắn một vong lặp có thể sử dụng các biến được đặt tên là <code>i</code>, <code>j</code> hoặc <code>k</code> (không bao giờ là <code>l</code> – dĩ nhiên rồi) nếu phạm vi của nó là rất nhỏ và không có tên khác xung đột với nó. Điều này là do việc đặt tên có một chữ cái trong vòng lặp đã trở thành truyền thống. Tuy nhiên, trong hầu hết trường hợp, tên một chữ cái không phải là sự lựa chọn tốt. Nó chỉ là một tên đầu gấu, bắt người đọc phải điên đầu tìm hiểu ý nghĩa, vai trò của nó. Không có lý do nào tồi tệ hơn cho cho việc sử dụng tên c chỉ vì a và b đã được dùng trước đó.</p>
+<p>Nói chung, lập trình viên là những người khá thông minh. Và những người thông minh đôi khi muốn thể hiện điều đó bằng cách hack não người khác. Sau tất cả, nếu bạn đủ khả năng nhớ r là <em>the lower-cased version of the url with the host and scheme removed,</em> thì rõ ràng là – bạn cực kỳ thông minh luôn.</p>
+<p>Sự khác biệt giữa lập trình viên thông minh và lập trình viên chuyên nghiệp là họ – những người chuyên nghiệp hiểu rằng sự rõ ràng là trên hết. Các chuyên gia dùng khả năng của họ để tạo nên những dòng code mà người khác có thể hiểu được.</p>
+<h2 id="tên-lớp">Tên lớp</h2>
+<p>Tên lớp và các đối tượng nên sử dụng danh từ hoặc cụm danh từ, như <code>Customer</code>, <code>WikiPage</code>, <code>Account</code>, và <code>AddressParser</code>. Tránh những từ như <code>Manager</code>, <code>Processor</code>, <code>Data</code>, hoặc <code>Info</code> trong tên của một lớp. Tên lớp không nên dùng động từ.</p>
+<h2 id="tên-các-phương-thức">Tên các phương thức</h2>
+<p>Tên các phương thức nên có động từ hoặc cụm động từ như <code>postPayment</code>, <code>deletePage</code>, hoặc <code>save</code>. Các phương thức truy cập, chỉnh sửa thuộc tính phải được đặt tên cùng với <code>get</code>, <code>set</code> và <code>is</code> theo tiêu chuẩn của Javabean.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>string name <span style="color:#f92672">=</span> employee.<span style="color:#a6e22e">getName</span>();
+</span></span><span style="display:flex;"><span>customer.<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#34;mike&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (paycheck.<span style="color:#a6e22e">isPosted</span>())...
+</span></span></code></pre></div><p>Khi các hàm khởi tạo bị nạp chồng, sử dụng các phương thức tĩnh có tên thể hiện được đối số sẽ tốt hơn. Ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Complex fulcrumPoint <span style="color:#f92672">=</span> Complex.<span style="color:#a6e22e">FromRealNumber</span>(23.<span style="color:#a6e22e">0</span>);
+</span></span></code></pre></div><p>sẽ tốt hơn câu lệnh</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Complex fulcrumPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Complex(23.<span style="color:#a6e22e">0</span>);
+</span></span></code></pre></div><p>Xem xét việc thực thi chúng bằng các hàm khởi tạo private tương ứng.</p>
+<h2 id="đừng-thể-hiện-rằng-bạn-cute">Đừng thể hiện rằng bạn cute</h2>
+<p>Nếu tên quá hóm hỉnh, chúng sẽ chỉ được nhớ bởi tác giả và những người bạn. Liệu có ai biết chức năng của hàm <code>HolyHandGrenade</code> không? Nó rất thú vị, nhưng trong trường hợp này, <code>DeleteItems</code> sẽ là tên tốt hơn. Chọn sự rõ ràng thay vì giải trí.</p>
+<p>Sự cute thường xuất hiện dưới dạng phong tục hoặc tiếng lóng. Ví dụ: đừng dùng <code>whack()</code> thay thế cho <code>kill()</code>, đừng mang những câu đùa trong văn hóa nước mình vào code, như <code>eatMyShorts()</code> có nghĩa là <code>abort()</code>.</p>
+<p><em>Say what you mean. Mean what you say.</em></p>
+<h2 id="chọn-một-từ-cho-mỗi-khái-niệm">Chọn một từ cho mỗi khái niệm</h2>
+<p>Chọn một từ cho một khái niệm và gắn bó với nó. Ví dụ, rất khó hiểu khi <code>fetch</code>, <code>retrieve</code> và <code>get</code> là các phương thức có cùng chức năng, nhưng lại đặt tên khác nhau ở các lớp khác nhau. Làm thế nào để nhớ phương thức nào đi với lớp nào? Buồn thay, bạn phải nhớ tên công ty, nhóm hoặc cá nhân nào đã viết ra các thư viện hoặc các lớp, để nhớ cụm từ nào được dùng cho các phương thức. Nếu không, bạn sẽ mất thời gian để tìm hiểu chúng trong các đoạn code trước đó.</p>
+<p>Các công cụ chỉnh sửa hiện đại như Eclipse và IntelliJ cung cấp các định nghĩa theo ngữ cảnh, chẳng hạn như danh sách các hàm bạn có thể gọi trên một đối tượng nhất định. Nhưng lưu ý rằng, danh sách thường không cung cấp cho bạn các ghi chú bạn đã viết xung quanh tên hàm và danh sách tham số. Bạn may mắn nếu nó cung cấp tên tham số từ các khai báo hàm. Tên hàm phải đứng một mình, và chúng phải nhất quán để bạn có thể chọn đúng phương pháp mà không cần phải tìm hiểu thêm.</p>
+<p>Tương tự như vậy, rất khó hiểu khi <code>controller</code>, <code>manager</code> và <code>driver</code> lại xuất hiện trong cùng một mã nguồn. Có sự khác biệt nào giữa <code>DeviceManager</code> và <code>ProtocolController</code>? Tại sao cả hai đều không phải là <code>controller</code> hay <code>manager</code>? Hay cả hai đều cùng là <code>driver</code>? Tên dẫn bạn đến hai đối tượng có kiểu khác nhau, cũng như có các lớp khác nhau.</p>
+<p>Một từ phù hợp chính là một ân huệ cho những lập trình viên phải dùng code của bạn.</p>
+<h2 id="đừng-chơi-chữ">Đừng chơi chữ</h2>
+<p>Tránh dùng cùng một từ cho hai mục đích. Sử dụng cùng một thuật ngữ cho hai ý tưởng khác nhau về cơ bản là một cách chơi chữ.</p>
+<p>Nếu bạn tuân theo nguyên tắc <em>Chọn một từ cho mỗi khái niệm,</em> bạn có thể kết thúc nhiều lớp với một&hellip; Ví dụ, phương thức add. Miễn là danh sách tham số và giá trị trả về của các phương thức add này tương đương về ý nghĩa, tất cả đều tốt.</p>
+<p>Tuy nhiên, người ta có thể quyết định dùng từ add khi người đó không thực sự tạo nên một hàm có cùng ý nghĩa với cách hoạt động của hàm <code>add</code>. Giả sử chúng tôi có nhiều lớp, trong đó <code>add</code> sẽ tạo một giá trị mới bằng cách cộng hoặc ghép hai giá trị hiện tại. Bây giờ, giả sử chúng tôi đang viết một lớp mới và có một phương thức thêm tham số của nó vào mảng. Chúng tôi có nên gọi nó là <code>add</code> không? Có vẻ phù hợp đấy, nhưng trong trường hợp này, ý nghĩa của chúng là khác nhau, vậy nên chúng tôi dùng một cái tên khác như <code>insert</code> hay <code>append</code> để thay thế. Nếu được dùng cho phương thức mới, add chính xác là một kiểu chơi chữ.</p>
+<p>Mục tiêu của chúng tôi, với tư cách là tác giả, là làm cho code của chúng tôi dễ hiểu nhất có thể. Chúng tôi muốn code của chúng tôi là một bài viết ngắn gọn, chứ không phải là một bài nghiên cứu [&hellip;].</p>
+<h2 id="dùng-thuật-ngữ">Dùng thuật ngữ</h2>
+<p>Hãy nhớ rằng những người đọc code của bạn là những lập trình viên, vậy nên hãy sử dụng các thuật ngữ khoa học, các thuật toán, tên mẫu (pattern),&hellip; cho việc đặt tên. Sẽ không khôn ngoan khi bạn đặt tên của vấn đề theo cách mà khách hàng định nghĩa. Chúng tôi không muốn đồng nghiệp của chúng tôi phải tìm khách hàng để hỏi ý nghĩa của tên, trong khi họ đã biết khái niệm đó – nhưng là dưới dạng một cái tên khác.</p>
+<p>Tên <code>AccountVisitor</code> có ý nghĩa rất nhiều đối với một lập trình viên quen thuộc với mô hình VISITOR (VISITOR pattern). Có lập trình viên nào không biết <code>JobQueue</code>? Có rất nhiều thứ liên quan đến kỹ thuật mà lập trình viên phải đặt tên. Chọn những tên thuật ngữ thường là cách tốt nhất.</p>
+<h2 id="thêm-ngữ-cảnh-thích-hợp">Thêm ngữ cảnh thích hợp</h2>
+<p>Chỉ có một vài cái tên có nghĩa trong mọi trường hợp – số còn lại thì không. Vậy nên, bạn cần đặt tên phù hợp với ngữ cảnh, bằng cách đặt chúng vào các lớp, các hàm hoặc các không gian tên (namespace). Khi mọi thứ thất bại, tiền tố nên được cân nhắc như là giải pháp cuối cùng.</p>
+<p>Hãy tưởng tượng bạn có các biến có tên là <code>firstName</code>, <code>lastName</code>, <code>street</code>, <code>houseNumber</code>, <code>city</code>, <code>state</code> và <code>zipcode</code>. Khi kết hợp với nhau, chúng rõ ràng tạo thành một địa chỉ. Nhưng nếu bạn chỉ thấy biến state được sử dụng một mình trong một phương thức thì sao? Bạn có thể suy luận ra đó là một phần của địa chỉ không?</p>
+<p>Bạn có thể thêm ngữ cảnh bằng cách sử dụng tiền tố: <code>addrFirstName</code>, <code>addrLastName</code>, <code>addrState</code>,&hellip; Ít nhất người đọc sẽ hiểu rằng những biến này là một phần của một cấu trúc lớn hơn. Tất nhiên, một giải pháp tốt hơn là tạo một lớp có tên là <code>Address</code>. Khi đó, ngay cả trình biên dịch cũng biết rằng các biến đó thuộc về một khái niệm lớn hơn.</p>
+<p>Hãy xem xét các phương thức trong <em>Listing 2-1</em>. Các biến có cần một ngữ cảnh có ý nghĩa hơn không? Tên hàm chỉ cung cấp một phần của ngữ cảnh, thuật toán cung cấp phần còn lại. Khi bạn đọc qua hàm, bạn thấy rằng ba biến, <code>number</code>, <code>verb</code> và <code>pluralModifier</code>, là một phần của thông báo &ldquo;giả định thống kê&rdquo;. Thật không may, bối cảnh này phải suy ra mới có được. Khi bạn lần đầu xem xét phương thức, ý nghĩa của các biến là không rõ ràng.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Listing 2-1</strong> Biến với bối cảnh không rõ ràng.</th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printGuessStatistics</span>(<span style="color:#66d9ef">char</span> candidate, <span style="color:#66d9ef">int</span> count) {
+</span></span><span style="display:flex;"><span>    String number;
+</span></span><span style="display:flex;"><span>    String verb;
+</span></span><span style="display:flex;"><span>    String pluralModifier;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> 0) {
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;no&#34;</span>;
+</span></span><span style="display:flex;"><span>        verb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;are&#34;</span>;
+</span></span><span style="display:flex;"><span>        pluralModifier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;s&#34;</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> 1) {
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1&#34;</span>;
+</span></span><span style="display:flex;"><span>        verb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;is&#34;</span>;
+</span></span><span style="display:flex;"><span>        pluralModifier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">=</span> Integer.<span style="color:#a6e22e">toString</span>(count);
+</span></span><span style="display:flex;"><span>        verb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;are&#34;</span>;
+</span></span><span style="display:flex;"><span>        pluralModifier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;s&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    String guessMessage <span style="color:#f92672">=</span> String.<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;There %s %s %s%s&#34;</span>, verb, number, candidate, pluralModifier);
+</span></span><span style="display:flex;"><span>    print(guessMessage);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hàm này hơi dài và các biến được sử dụng xuyên suốt. Để tách hàm thành các phần nhỏ hơn, chúng ta cần tạo một lớp <code>GuessStatisticsMessage</code> và tạo ra ba biến của lớp này. Điều này cung cấp một bối cảnh rõ ràng cho ba biến. Chúng là một phần của <code>GuessStatisticsMessage</code>. Việc cải thiện bối cảnh cũng cho phép thuật toán được rõ ràng hơn bằng cách chia nhỏ nó thành nhiều chức năng nhỏ hơn. (Xem <em>Listing 2-2</em>.)</p>
+<table>
+<thead>
+<tr>
+<th><strong>Listing 2-2</strong> Biến có ngữ cảnh</th>
+</tr>
+</thead>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GuessStatisticsMessage</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String number;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String verb;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String pluralModifier;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">make</span>(<span style="color:#66d9ef">char</span> candidate, <span style="color:#66d9ef">int</span> count) {
+</span></span><span style="display:flex;"><span>        createPluralDependentMessageParts(count);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> String.<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;There %s %s %s%s&#34;</span>,verb, number, candidate, pluralModifier );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createPluralDependentMessageParts</span>(<span style="color:#66d9ef">int</span> count) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> 0) {
+</span></span><span style="display:flex;"><span>            thereAreNoLetters();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> 1) {
+</span></span><span style="display:flex;"><span>            thereIsOneLetter();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            thereAreManyLetters(count);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }	
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">thereAreManyLetters</span>(<span style="color:#66d9ef">int</span> count) {
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">=</span> Integer.<span style="color:#a6e22e">toString</span>(count);
+</span></span><span style="display:flex;"><span>        verb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;are&#34;</span>;
+</span></span><span style="display:flex;"><span>        pluralModifier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;s&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">thereIsOneLetter</span>() {
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1&#34;</span>;
+</span></span><span style="display:flex;"><span>        verb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;is&#34;</span>;
+</span></span><span style="display:flex;"><span>        pluralModifier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">thereAreNoLetters</span>() {
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;no&#34;</span>;
+</span></span><span style="display:flex;"><span>        verb <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;are&#34;</span>;
+</span></span><span style="display:flex;"><span>        pluralModifier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;s&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tên ngắn thường tốt hơn tên dài, miễn là chúng rõ ràng. Thêm đủ ngữ cảnh cho tên sẽ tốt hơn khi cần thiết.</p>
+<p>Tên <code>accountAddress</code> và <code>customerAddress</code> là những tên đẹp cho trường hợp đặc biệt của lớp <code>Address</code> nhưng có thể là tên tồi cho các lớp khác. <code>Address</code> là một tên đẹp cho lớp. Nếu tôi cần phân biệt giữa địa chỉ MAC, địa chỉ cổng (port) và địa chỉ web thì tôi có thể xem xét <code>MAC</code>, <code>PostalAddress</code> và <code>URL</code>. Kết quả là tên chính xác hơn. Đó là tâm điểm của việc đặt tên.</p>
+<h2 id="lời-kết">Lời kết</h2>
+<p>Điều khó khăn nhất của việc lựa chọn tên đẹp là nó đòi hỏi kỹ năng mô tả tốt và nền tảng văn hóa lớn. Đây là vấn đề về học hỏi hơn là vấn đề kỹ thuật, kinh doanh hoặc quản lý. Kết quả là nhiều người trong lĩnh vực này không học cách làm điều đó.</p>
+<p>Mọi người cũng sợ đổi tên mọi thứ vì lo rằng người khác sẽ phản đối. Chúng tôi không chia sẻ nỗi sợ đó cho bạn. Chúng tôi thật sự biết ơn những ai đã đổi tên khác cho biến, hàm,&hellip;(theo hướng tốt hơn). Hầu hết thời gian chúng tôi không thật sự nhớ tên lớp và những phương thức của nó. Chúng tôi có các công cụ giúp chúng tôi trong việc đó để chúng tôi có thể tập trung vào việc code có dễ đọc hay không. Bạn có thể sẽ gây ngạc nhiên cho ai đó khi bạn đổi tên, giống như bạn có thể làm với bất kỳ cải tiến nào khác. Đừng để những cái tên tồi phá hủy sự nghiệp coder của mình.</p>
+<p>Thực hiện theo một số quy tắc trên và xem liệu bạn có cải thiện được khả năng đọc code của mình hay không. Nếu bạn đang bảo trì code của người khác, hãy sử dụng các công cụ tái cấu trúc để giải quyết vấn đề này. Mất một ít thời gian nhưng có thể làm bạn nhẹ nhõm trong vài tháng.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/clean-code-chapter-1/"
+      title="[Book] Clean Code - Chapter 1"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "\\begin{align}", right: "\\end{align}", display: true },
+                { left: "\\begin{bmatrix}", right: "\\end{bmatrix}", display: true },
+            ],
+        });
+    });
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">© 2023 · phatcvo</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

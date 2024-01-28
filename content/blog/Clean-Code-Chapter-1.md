@@ -1,5 +1,5 @@
 ---
-title: "[Book] Clean Code - VNese"
+title: "[Book] Clean Code - Chapter 1"
 date: 2024-1-1
 tags: ["Book"]
 categories: ["Book"]
