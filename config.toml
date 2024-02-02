@@ -15,7 +15,7 @@ publishDir = "public"
     copyright = "&copy; 2023 &middot; phatcvo"
     paginate = 10
 
-    num_posts = 10
+    num_posts = 100
 
     [params.theme]
         # Available themes are 'light', 'dark', 'ocean', and 'pinkish'
