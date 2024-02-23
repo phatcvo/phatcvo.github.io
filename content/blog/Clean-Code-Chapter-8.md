@@ -9,7 +9,7 @@ math: true
 ---
 # Ranh giới
 ## bởi James Grenning
-![Image tilte_1](../image/chap08_image01.png)
+![Image tilte_1](../blog/img/chap08_image01.png)
 Chúng ta hiếm khi kiểm soát hoàn toàn các phần mềm trong hệ thống của mình. Đôi khi chúng ta mua gói của bên thứ ba hoặc sử dụng mã nguồn mở. Những lần khác, chúng ta phụ thuộc vào các nhóm trong công ty để sản xuất các thành phần hoặc hệ thống con. Bằng cách nào đó, chúng ta phải tích hợp các mã ngoài này với mã riêng của chúng ta một cách rõ ràng. Trong chương này, chúng ta sẽ xem xét các phương pháp và kỹ thuật để giữ cho ranh giới của phần mềm của chúng ta được sạch sẽ.
 
 ## Sử dụng mã của bên thứ ba
@@ -182,7 +182,7 @@ Một điều tốt khi viết giao diện mà chúng ta mong muốn là nó n�
 Trong Hình 8-2, bạn có thể thấy rằng chúng ta đã tách các lớp **CommunicationsController** khỏi transmitter API (nằm ngoài tầm kiểm soát của chúng ta và không được xác định). Bằng cách sử dụng interface ứng dụng cụ thể của riêng mình, chúng ta đã giữ cho mã **CommunicationsController** được sạch sẽ và dễ hiểu. Khi transmitter API được xác định, chúng ta đã viết **TransmitterAdapter** để thu hẹp khoảng cách. ADAPTOR đã đóng gói tương tác với API và cung cấp một nơi duy nhất để thay đổi khi API phát triển.  
 **Figure 8-2**  
 **Dự đoán transmitter**  
-![Image tilte_2](../image/chap08_image02.png)
+![Image tilte_2](../blog/img/chap08_image02.png)
 Thiết kế này cũng cung cấp một đường lối rất thuận tiện trong mã, để kiểm tra. Sử dụng **FakeTransmitter** hợp lý, chúng ta có thể kiểm tra các lớp **CommunicationsController**. Chúng ta cũng có thể tạo các bài kiểm tra ranh giới sau khi có **TransmitterAPI** để đảm bảo rằng chúng ta đang sử dụng API đúng cách.
 ## Ranh giới sạch
 Nhiều điều thú vị xảy ra ở ranh giới. Thay đổi là một trong những điều đó. Các thiết kế phần mềm tốt có thể đáp ứng sự thay đổi mà không cần nhiều công sức hay đập đi làm lại. Khi sử dụng mã nằm ngoài tầm kiểm soát, chúng ta phải đặc biệt lưu ý để bảo vệ công sức của mình và đảm bảo việc thay đổi trong tương lai không quá tốn thời gian.
