@@ -177,7 +177,7 @@
 <div class="content">
   <h1 id="ranh-giới">Ranh giới</h1>
 <h2 id="bởi-james-grenning">bởi James Grenning</h2>
-<p><img src="../blog/img/chap08_image01.png" alt="Image tilte_1">
+<p><img src="../img/chap08_image01.png" alt="Image tilte_1">
 Chúng ta hiếm khi kiểm soát hoàn toàn các phần mềm trong hệ thống của mình. Đôi khi chúng ta mua gói của bên thứ ba hoặc sử dụng mã nguồn mở. Những lần khác, chúng ta phụ thuộc vào các nhóm trong công ty để sản xuất các thành phần hoặc hệ thống con. Bằng cách nào đó, chúng ta phải tích hợp các mã ngoài này với mã riêng của chúng ta một cách rõ ràng. Trong chương này, chúng ta sẽ xem xét các phương pháp và kỹ thuật để giữ cho ranh giới của phần mềm của chúng ta được sạch sẽ.</p>
 <h2 id="sử-dụng-mã-của-bên-thứ-ba">Sử dụng mã của bên thứ ba</h2>
 <p>Có một vấn đề giữa nhà cung cấp <strong>interface</strong> và người sử dụng <strong>interface</strong> . Các nhà cung cấp các packages và frameworks bên thứ ba cố gắng mang lại khả năng ứng dụng rộng rãi để họ có thể hoạt động trong nhiều môi trường và thu hút nhiều đối tượng. Mặt khác, người dùng muốn có một <strong>interface</strong> tập trung vào các nhu cầu cụ thể của họ. Điều này có thể gây ra vấn đề ở ranh giới hệ thống của chúng ta.</p>
@@ -312,7 +312,7 @@ Chúng ta hiếm khi kiểm soát hoàn toàn các phần mềm trong hệ thố
 <p>Trong Hình 8-2, bạn có thể thấy rằng chúng ta đã tách các lớp <strong>CommunicationsController</strong> khỏi transmitter API (nằm ngoài tầm kiểm soát của chúng ta và không được xác định). Bằng cách sử dụng interface ứng dụng cụ thể của riêng mình, chúng ta đã giữ cho mã <strong>CommunicationsController</strong> được sạch sẽ và dễ hiểu. Khi transmitter API được xác định, chúng ta đã viết <strong>TransmitterAdapter</strong> để thu hẹp khoảng cách. ADAPTOR đã đóng gói tương tác với API và cung cấp một nơi duy nhất để thay đổi khi API phát triển.<br>
 <strong>Figure 8-2</strong><br>
 <strong>Dự đoán transmitter</strong><br>
-<img src="../blog/img/chap08_image02.png" alt="Image tilte_2">
+<img src="../img/chap08_image02.png" alt="Image tilte_2">
 Thiết kế này cũng cung cấp một đường lối rất thuận tiện trong mã, để kiểm tra. Sử dụng <strong>FakeTransmitter</strong> hợp lý, chúng ta có thể kiểm tra các lớp <strong>CommunicationsController</strong>. Chúng ta cũng có thể tạo các bài kiểm tra ranh giới sau khi có <strong>TransmitterAPI</strong> để đảm bảo rằng chúng ta đang sử dụng API đúng cách.</p>
 <h2 id="ranh-giới-sạch">Ranh giới sạch</h2>
 <p>Nhiều điều thú vị xảy ra ở ranh giới. Thay đổi là một trong những điều đó. Các thiết kế phần mềm tốt có thể đáp ứng sự thay đổi mà không cần nhiều công sức hay đập đi làm lại. Khi sử dụng mã nằm ngoài tầm kiểm soát, chúng ta phải đặc biệt lưu ý để bảo vệ công sức của mình và đảm bảo việc thay đổi trong tương lai không quá tốn thời gian.</p>

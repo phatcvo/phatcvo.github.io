@@ -186,7 +186,7 @@
 <p>Bắt đầu với kích thước file. Một file nên có kích thước như thế nào? Trong Java, kích thước file gắn liền với kích thước của class. Chúng tôi sẽ nói về kích thước của class khi đề cập đến chúng. Hiện tại chỉ cần quan tâm đến kích thước file.</p>
 <p>Kích thước phổ biến của một file mã nguồn Java là bao nhiêu? Chúng tôi nhận thấy rằng có một loạt các kích cỡ và sự khác biệt đáng chú ý trong các hình thức khác nhau của Java. Hình 5.1 cho thấy một vài trong số đó.</p>
 <p>Có bảy dự án khác nhau được mô tả. Junit, FitNesse, testNG, Time and Money (tam), JDepend, Ant, và Tomcat. Đường kẻ đen xuyên qua hình chữ nhật biểu thị số dòng lớn nhất, nhỏ nhất trong mỗi file nguồn. Hình chữ nhật biểu thị cho khoảng 1/3 giá trị phổ biến nhất. Khoảng giữa hình chữ nhật là giá trị trung bình. Ví dụ với dự án FitNesse, kích thước tệp trung bình của loại dự án này là 65 dòng, đa số nằm trong khoảng 40 đến 100+ dòng. File lớn nhất trong dự án có kích thước khoảng 400 dòng, nhỏ nhất là 6 dòng. Xin lưu ý rằng đây là thang đo log, do đó, sự khác biệt nhỏ về chiều dọc cũng đủ để tạo ra thay đổi rất lớn về kích thước trong thực tế.</p>
-<p><img src="../blog/img/chap05_img01.png" alt="Độ dài tệp trong một số dự án" title="Độ dài tệp trong một số dự án"></p>
+<p><img src="../img/chap05_img01.png" alt="Độ dài tệp trong một số dự án" title="Độ dài tệp trong một số dự án"></p>
 <p><em>Hình 5.1 Độ dài tệp trong một số dự án</em></p>
 <p>Junit, FitNesse, và Time and Money (tam) bao gồm các file tương đối nhỏ. Không có file nào vượt quá 500 dòng và đa số các file dưới 200 dòng. Mặt khác, Tomcat và Ant có các file dài vài nghìn dòng và gần một nửa các file dài hơn 200 dòng.</p>
 <p>Điều này có ý nghĩa gì? Các file lớn, thường dài 200-500 dòng chứng tỏ rằng chúng được xây dụng cho các hệ thống quan trọng. Mặc đù đây không phải là một quy tắc bất di bất dịch, nhưng nó nên được xem xét. Các file nhỏ luôn dễ hiểu hơn các file dài.</p>
@@ -458,7 +458,7 @@
 <p>Điều này cho thấy chúng ta nên cố gắng giữ các dòng code của chúng ta ngắn. Giới hạn cũ của Hollerith là 80 ký tự, và tôi không có ý kiến gì khi các dòng có thể vượt quá 100 hay 120 ký tự ở thời điểm hiện tại. Nhưng nhiều hơn số đó thì không hay chút nào.</p>
 <p>Tôi đã từng tuân theo nguyên tắc rằng bạn sẽ không bao giờ phải cuộn chuột sang phải. Nhưng hiện nay màn hình đã rất rộng và các lập trình viên trẻ có thể thu nhỏ phông chữ đến mức họ có thể chứa 200 ký tự trên một dòng. Đừng làm thế. Cá nhân tôi đặt giới hạn của mình là 120.</p>
 <p><img src="RackMultipart20231120-1-afywy9_html_e1c49c078de7966.png" alt="">
-<img src="../blog/img/chap05_img02.png" alt="Phân bố kích thước một dòng trong Java" title="Phân bố kích thước một dòng trong Java">
+<img src="../img/chap05_img02.png" alt="Phân bố kích thước một dòng trong Java" title="Phân bố kích thước một dòng trong Java">
 <em>Hình 5.2 Phân bố kích thước một dòng trong Java</em></p>
 <h3 id="khoảng-cách-và-mật-độ">Khoảng cách và mật độ</h3>
 <p>Chúng tôi sử dụng khoảng trắng để tách biệt những thứ không liên quan lắm, điều đó cũng góp phần làm nổi bật những thứ có liên quan với nhau. Ví dụ như hàm dưới đây:</p>

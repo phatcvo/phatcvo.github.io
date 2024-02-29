@@ -193,7 +193,7 @@ File scratchDir = opts.getScratchDir();
 final String outputDir = scratchDir.getAbsolutePath();
 ```
 
-![chap06_img01.png](../blog/img/chap06_img01.png "")
+![chap06_img01.png](../img/chap06_img01.png "")
 
 Đoạn code trên có vi phạm Law of Demeter (LoD)? Chắc chắn module chứa chúng biết rằng đối tượng `ctxt` chứa `Options`, có `AbsolutePath` (đường dẫn tuyệt đối). Quá nhiều thông tin bị lộ ra.[...]
 

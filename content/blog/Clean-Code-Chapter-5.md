@@ -29,7 +29,7 @@ Kích thước phổ biến của một file mã nguồn Java là bao nhiêu? Ch
 
 Có bảy dự án khác nhau được mô tả. Junit, FitNesse, testNG, Time and Money (tam), JDepend, Ant, và Tomcat. Đường kẻ đen xuyên qua hình chữ nhật biểu thị số dòng lớn nhất, nhỏ nhất trong mỗi file nguồn. Hình chữ nhật biểu thị cho khoảng 1/3 giá trị phổ biến nhất. Khoảng giữa hình chữ nhật là giá trị trung bình. Ví dụ với dự án FitNesse, kích thước tệp trung bình của loại dự án này là 65 dòng, đa số nằm trong khoảng 40 đến 100+ dòng. File lớn nhất trong dự án có kích thước khoảng 400 dòng, nhỏ nhất là 6 dòng. Xin lưu ý rằng đây là thang đo log, do đó, sự khác biệt nhỏ về chiều dọc cũng đủ để tạo ra thay đổi rất lớn về kích thước trong thực tế.
 
-![Độ dài tệp trong một số dự án](../blog/img/chap05_img01.png "Độ dài tệp trong một số dự án")
+![Độ dài tệp trong một số dự án](../img/chap05_img01.png "Độ dài tệp trong một số dự án")
 
 _Hình 5.1 Độ dài tệp trong một số dự án_
 
@@ -344,7 +344,7 @@ Một dòng nên có độ rộng như thế nào? Để trả lời điều đ�
 Tôi đã từng tuân theo nguyên tắc rằng bạn sẽ không bao giờ phải cuộn chuột sang phải. Nhưng hiện nay màn hình đã rất rộng và các lập trình viên trẻ có thể thu nhỏ phông chữ đến mức họ có thể chứa 200 ký tự trên một dòng. Đừng làm thế. Cá nhân tôi đặt giới hạn của mình là 120.
 
 ![](RackMultipart20231120-1-afywy9_html_e1c49c078de7966.png)
-![Phân bố kích thước một dòng trong Java](../blog/img/chap05_img02.png "Phân bố kích thước một dòng trong Java")
+![Phân bố kích thước một dòng trong Java](../img/chap05_img02.png "Phân bố kích thước một dòng trong Java")
 _Hình 5.2 Phân bố kích thước một dòng trong Java_
 
 ### Khoảng cách và mật độ
