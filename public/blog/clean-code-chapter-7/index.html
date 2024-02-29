@@ -177,7 +177,7 @@
 <div class="content">
   <h1 id="chaper-07-xử-lý-lỗi">Chaper 07: Xử lý lỗi</h1>
 <h2 id="michael-feathers">Michael Feathers</h2>
-<p><img src="../image/chap07_image01.png" alt="Image tilte_1"></p>
+<p><img src="../blog/img/chap07_image01.png" alt="Image tilte_1"></p>
 <p>Có vẻ kỳ lạ khi lại có một phần về xử lý lỗi trong một cuốn sách về mã sạch. Xử lý lỗi chỉ là một trong những việc mà tất cả chúng ta phải làm khi lập trình. Đầu vào có thể bất thường và thiết bị có thể bị lỗi. Nói tóm lại, mọi thứ đều có thể xảy ra sai sót, và khi chúng xảy ra, chúng ta với tư cách là người lập trình có trách nhiệm đảm bảo rằng mã của chúng ta thực hiện những gì nó cần làm.</p>
 <p>Tuy nhiên, triển khai với mã sạch phải rõ ràng. Nhiều khi mã bị chi phối hoàn toàn bởi việc xử lý lỗi. Khi tôi nói bị chi phối, tôi không có ý nói rằng xử lý lỗi chỉ là tất cả những gì họ làm. Ý tôi là gần như không thể thấy mã làm gì vì tất cả các lỗi xử lý được rải rác. Xử lý lỗi là quan trọng, <em>nhưng nếu nó che khuất logic thì đó là sai</em>.</p>
 <p>Trong chương này, tôi sẽ trình bày một số kỹ thuật và cân nhắc mà bạn có thể sử dụng để viết mã vừa rõ ràng vừa mạnh mẽ — mã xử lý lỗi một cách duyên dáng và đúng phong cách.</p>
@@ -333,7 +333,7 @@ Chúng ta bắt đầu với <strong>unit test</strong> cho thấy rằng chúng
 <p>Một lợi thế cuối cùng của gói là bạn không bị ràng buộc với các lựa chọn thiết kế API của một nhà cung cấp cụ thể. Bạn có thể xác định một API mà bạn cảm thấy thoải mái. Trong ví dụ trước, chúng ta đã xác định một loại ngoại lệ duy nhất cho lỗi thiết bị <strong>port</strong> và nhận thấy rằng chúng ta có thể viết mã sạch hơn nhiều.</p>
 <p>Thường thì một lớp ngoại lệ duy nhất là tốt cho một vùng mã cụ thể. Thông tin được gửi với ngoại lệ có thể phân biệt các lỗi. Chỉ sử dụng các lớp khác nhau nếu đôi khi bạn muốn bắt một ngoại lệ và cho phép ngoại lệ khác đi qua.</p>
 <h2 id="xác-định-dòng-chảy-bình-thường">Xác định dòng chảy bình thường</h2>
-<p><img src="../image/chap07_image02.png" alt="Image tilte_2"></p>
+<p><img src="../blog/img/chap07_image02.png" alt="Image tilte_2"></p>
 <p>Nếu bạn làm theo lời khuyên trong phần trước, bạn sẽ có một sự tách biệt tốt giữa logic nghiệp vụ và việc xử lý lỗi của bạn. Phần lớn mã của bạn sẽ bắt đầu trông giống như một thuật toán không trang trí. Tuy nhiên, quá trình thực hiện việc này đẩy khả năng phát hiện lỗi ra rìa chương trình của bạn. Bạn bọc các API bên ngoài để bạn có thể đưa ra các ngoại lệ của riêng mình và bạn xác định một trình xử lý phía trên mã của mình để bạn có thể đối phó với bất kỳ tính toán nào bị hủy bỏ. Hầu hết thời gian đây là một cách tiếp cận tuyệt vời, nhưng có một số lúc bạn có thể không muốn nó xẩy ra.</p>
 <p>Hãy xem một ví dụ. Dưới đây là một mã khó hiểu tính tổng các chi phí trong ứng dụng thanh toán:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {

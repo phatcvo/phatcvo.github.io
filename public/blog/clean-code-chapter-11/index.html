@@ -177,7 +177,7 @@
 <div class="content">
   <h1 id="hệ-thống">Hệ thống</h1>
 <h2 id="bởi-tiến-sĩ-kevin-dean-wampler">bởi Tiến sĩ Kevin Dean Wampler</h2>
-<p><img src="../image/chap11_image01.png" alt="Image tilte_1">
+<p><img src="../blog/img/chap11_image01.png" alt="Image tilte_1">
 “Loại bỏ sự phức tạp. Nó bòn rút sự sống của các nhà phát triển, khiến các sản phẩm khó lên kế hoạch, xây dựng và thử nghiệm ”. —Ray Ozzie, CTO, Microsoft Corporation</p>
 <h2 id="bạn-sẽ-xây-dựng-một-thành-phố-như-thế-nào">Bạn sẽ xây dựng một thành phố như thế nào?</h2>
 <p>Bạn có thể tự quản lý tất cả các chi tiết? Chắc là không. Ngay cả việc quản lý một thành phố hiện tại cũng là quá nhiều đối với một người. Tuy nhiên, các thành phố hoạt động (hầu hết thời gian). Chúng hoạt động vì các thành phố có các nhóm người quản lý các khu vực cụ thể của thành phố, hệ thống nước, hệ thống điện, giao thông, thực thi pháp luật, quy tắc xây dựng, v.v. Một số người chịu trách nhiệm về bức tranh toàn cảnh, trong khi những người khác tập trung vào các chi tiết.</p>
@@ -206,13 +206,13 @@
 <p>Một cách để tách việc khởi tạo khỏi việc sử dụng, đơn giản là di chuyển toàn bộ việc khởi tạo sang <strong>main</strong>, hoặc các mô-đun được gọi bởi <strong>main</strong>, và thiết kế phần còn lại của hệ thống với giả định rằng tất cả các đối tượng đã được xây dựng và kết nối phù hợp (Xem Figure 11-1).<br>
 <strong>Figure 11-1</strong><br>
 <strong>Separating construction in main()</strong>
-<img src="../image/chap11_image02.png" alt="Image tilte_2">
+<img src="../blog/img/chap11_image02.png" alt="Image tilte_2">
 Quy trình kiểm soát dễ dàng theo dõi. Hàm <strong>main</strong> xây dựng các đối tượng cần thiết cho hệ thống, sau đó chuyển chúng cho <strong>application</strong>, <strong>application</strong> chỉ việc sử dụng. Lưu ý hướng của các mũi tên phụ thuộc vượt qua rào cản giữa <strong>main</strong> và <strong>application</strong>. Tất cả đều đi về một hướng, hướng ra xa  <strong>main</strong>. Điều này có nghĩa là <strong>application</strong> không có kiến thức về  <strong>main</strong> hoặc về quá trình xây dựng. Nó chỉ đơn giản biết mọi thứ đã được xây dựng đúng cách.</p>
 <h2 id="factories">Factories</h2>
 <p>Tất nhiên, đôi khi chúng ta cần làm cho <strong>application</strong> chịu trách nhiệm về thời điểm một đối tượng được tạo. Ví dụ, trong một hệ thống xử lý đơn đặt hàng, <strong>application</strong> phải tạo các thể hiện <strong>LineItem</strong> để thêm vào <strong>Order</strong>. Trong trường hợp này, chúng ta có thể sử dụng mẫu ABSTRACT FACTORY để cung cấp cho <strong>application</strong> quyền kiểm soát thời điểm xây dựng các <strong>LineItems</strong>, nhưng giữ các chi tiết của cấu trúc đó tách biệt với mã <strong>application</strong> (Xem Figure 11-2).<br>
 <strong>Figure 11-2</strong> <br>
 <strong>Separation construction with factory</strong><br>
-<img src="../image/chap11_image03.png" alt="Image tilte_3">
+<img src="../blog/img/chap11_image03.png" alt="Image tilte_3">
 Một lần nữa lưu ý rằng tất cả các phụ thuộc đều trỏ từ <strong>main</strong> đến ứng dụng <strong>OrderProcessing</strong>. Điều này có nghĩa là <strong>application</strong> được tách ra khỏi việc xây dựng <strong>LineItem</strong>. Khả năng đó được lưu giữ trong <strong>LineItemFactoryImplementation</strong>, nằm ở phía <strong>main</strong>. Tuy nhiên, <strong>application</strong>  hoàn toàn kiểm soát được thời điểm các instances <strong>LineItem</strong> được xây dựng và thậm chí có thể cung cấp các đối số hàm tạo dành riêng cho <strong>application</strong>.</p>
 <h2 id="dependency-injection">Dependency Injection</h2>
 <p>Một cơ chế mạnh mẽ để tách việc xây dựng khỏi việc sử dụng là <strong>Dependency Injection</strong> (DI), ứng dụng <strong>Inversion of Control</strong> (IoC) để quản lý sự phụ thuộc. Đảo ngược kiểm soát chuyển các trách nhiệm thứ cấp từ một đối tượng sang các đối tượng khác có mục đích chuyên biệt, do đó hỗ trợ <strong>Nguyên tắc Trách nhiệm Đơn lẻ</strong>. Trong bối cảnh quản lý phụ thuộc, một đối tượng không nên chịu trách nhiệm về việc khởi tạo các phụ thuộc. Thay vào đó, nó nên chuyển trách nhiệm này cho một cơ chế <strong>“có thẩm quyền”</strong> khác, do đó đảo ngược sự kiểm soát. Bởi vì thiết lập là mối quan tâm toàn cầu, cơ chế có thẩm quyền này thường sẽ là quy trình “main” hoặc một vùng chứa có mục đích đặc biệt.</p>
@@ -462,7 +462,7 @@ Một lần nữa lưu ý rằng tất cả các phụ thuộc đều trỏ từ
 </span></span></code></pre></div><p>Mỗi “bean” giống như một phần của “Russian doll” lồng vào nhau, với một đối tượng miền cho <strong>Bank</strong> được ủy quyền (bọc) bởi một đối tượng truy cập dữ liệu (DAO), chính nó được cấp phép bởi nguồn dữ liệu trình điều khiển JDBC. (See Figure 11-3).<br>
 <strong>Figure 11-3</strong><br>
 <strong>The “Russian doll” of decorators</strong>
-<img src="../image/chap11_image04.png" alt="Image tilte_4"></p>
+<img src="../blog/img/chap11_image04.png" alt="Image tilte_4"></p>
 <p>Khách hàng tin rằng nó đang gọi <strong>getAccounts()</strong> trên một đối tượng <strong>Bank</strong>, nhưng nó thực sự đang nói chuyện với phần ngoài cùng của một tập hợp các đối tượng DECORATOR lồng nhau để mở rộng hành vi cơ bản của <strong>Bank</strong> POJO. Chúng tôi có thể thêm các trình trang trí khác cho các giao dịch, bộ nhớ đệm, v.v.</p>
 <p>Trong ứng dụng, cần có một vài dòng để hỏi vùng chứa DI cho các đối tượng cấp cao nhất trong hệ thống, như được chỉ định trong tệp XML.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    XmlBeanFactory bf <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> XmlBeanFactory(<span style="color:#66d9ef">new</span> ClassPathResource(<span style="color:#e6db74">&#34;app.xml&#34;</span>, getClass()));
