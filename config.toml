@@ -12,7 +12,7 @@ publishDir = "public"
     title = "Phat C. Vo"
     author = "Phat C. Vo"
     description = "Website title"
-    copyright = "&copy; 2023 &middot; phatcvo"
+    copyright = "&copy; 2024 &middot; phatcvo"
     paginate = 100
 
     num_posts = 100
