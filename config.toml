@@ -103,8 +103,14 @@ publishDir = "public"
         icon = "fas fa-briefcase"
 
         [[params.experience.list]]
+            position = "Motion Planning Engineer"
+            dates = "Dec. 2023 - *Present*"
+            company = "STPC Robotics (AR247)"
+            url = "#"
+            details = "Motion planning and control are two crucial aspects of autonomous systems such as robots and self-driving vehicles. Motion planning involves determining optimal paths for robots or vehicles to navigate from their current location to a target destination, while considering obstacles and ensuring safety."
+        [[params.experience.list]]
             position = "Postdoctoral Researcher"
-            dates = "Agu. 2021 - *Present*"
+            dates = "Agu. 2021 - *Dec. 2023*"
             company = "Ulsan National Institute of Science and Technology (UNIST)"
             url = "#"
             details = "Research in Motion Planning for Autonomous systems by Predictive Optimal control, Robust-Adaptive MPC and Reinforcement Learning carrying out maximized safety and efficiency under uncertain and time-varying environments. Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods."
