@@ -20,49 +20,35 @@
       <link>https://phatcvo.github.io/blog/learning-mpc-for-racing/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/learning-mpc-for-racing/</guid>
-      <description>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.
-In the above animation we see the vehicle&amp;rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future.</description>
+      <description>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.&#xA;In the above animation we see the vehicle&amp;rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future.</description>
     </item>
     <item>
       <title>[MPC] Trajectory tracking with a quadrotor by LMPC</title>
       <link>https://phatcvo.github.io/blog/mpc-for-quadrotor/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/mpc-for-quadrotor/</guid>
-      <description>The non-linear dynamics are linearized about a linearization trajectory $\bar{x}, \bar{u}$ while the quadrotor aims to track a different reference trajectory $x_{ref}, u_{ref}$.
-The MPC controller solves the following optimization problem :
-$$\begin{aligned} \min_{x_{1:N},u_{1:N-1}} \quad &amp;amp; \sum_{i=1}^{N-1} \bigg[ (x_i - x_{i,ref})^TQ(x_i - x_{i,ref}) + (u_i - u_{i,ref})^TR(u_i - u_{i,ref}) \bigg] + \frac{1}{2} (x_N - x_{N,ref})^TQ_f(x_N - x_{N,ref}) \\ \textrm{s.t.} \quad &amp;amp; x_1 = x_{\text{IC}} \\ &amp;amp; x_{k+1} = f(\bar{x}_k, \bar{u}_k) + \bigg[\frac{\partial f}{\partial x} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](x_k - \bar{x}_k) + \bigg[\frac{\partial f}{\partial u} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](u_k - \bar{u}_k) \quad \text{for } i = 1,2,\ldots,N-1 \\ &amp;amp; u_{min} \leq u_i \leq u_{max} \quad ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{for } i = 1,2,\ldots,N-1 \\ \end{aligned}$$</description>
+      <description>The non-linear dynamics are linearized about a linearization trajectory $\bar{x}, \bar{u}$ while the quadrotor aims to track a different reference trajectory $x_{ref}, u_{ref}$.&#xA;The MPC controller solves the following optimization problem :&#xA;$$\begin{aligned} \min_{x_{1:N},u_{1:N-1}} \quad &amp;amp; \sum_{i=1}^{N-1} \bigg[ (x_i - x_{i,ref})^TQ(x_i - x_{i,ref}) + (u_i - u_{i,ref})^TR(u_i - u_{i,ref}) \bigg] + \frac{1}{2} (x_N - x_{N,ref})^TQ_f(x_N - x_{N,ref}) \\ \textrm{s.t.} \quad &amp;amp; x_1 = x_{\text{IC}} \\ &amp;amp; x_{k+1} = f(\bar{x}_k, \bar{u}_k) + \bigg[\frac{\partial f}{\partial x} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](x_k - \bar{x}_k) + \bigg[\frac{\partial f}{\partial u} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](u_k - \bar{u}_k) \quad \text{for } i = 1,2,\ldots,N-1 \\ &amp;amp; u_{min} \leq u_i \leq u_{max} \quad ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{for } i = 1,2,\ldots,N-1 \\ \end{aligned}$$</description>
     </item>
     <item>
       <title>[MPC] Model Predictive Control with discrete-time Control Barrier Functions</title>
       <link>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</link>
       <pubDate>Mon, 30 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</guid>
-      <description>The MPC-CBF optimization problem is given by:
-$$\begin{aligned} \min_{u_{t: t+N-1 \mid t}} \quad &amp;amp; \frac{1}{2} \tilde{x}_N^T Q_x \tilde{x}_N+\sum_{k=0}^{N-1} \frac{1}{2} \tilde{x}_k^T Q_x \tilde{x}_k+\frac{1}{2} u_k^T Q_u u_k\\ \textrm{s.t.} \quad &amp;amp; x_{t+k+1 \mid t}=x_{t+k \mid t}+f\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \cdot T_s, \quad k=0, . ., N-1,\\ &amp;amp; x_{\min } \leq x_{t+k \mid t} \leq x_{\max }, \quad k=0, \ldots, N-1,\\ &amp;amp; u_{\min } \leq u_{t+k \mid t} \leq u_{\max }, \quad k=0, \ldots, N-1, \\ &amp;amp; x_{t \mid t}=x_t, \\ &amp;amp; \Delta h\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \geq-\gamma h\left(x_{t+k \mid t}\right), \quad k=0, \ldots, N-1 \\ \end{aligned}$$</description>
+      <description>The MPC-CBF optimization problem is given by:&#xA;$$\begin{aligned} \min_{u_{t: t+N-1 \mid t}} \quad &amp;amp; \frac{1}{2} \tilde{x}_N^T Q_x \tilde{x}_N+\sum_{k=0}^{N-1} \frac{1}{2} \tilde{x}_k^T Q_x \tilde{x}_k+\frac{1}{2} u_k^T Q_u u_k\\ \textrm{s.t.} \quad &amp;amp; x_{t+k+1 \mid t}=x_{t+k \mid t}+f\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \cdot T_s, \quad k=0, . ., N-1,\\ &amp;amp; x_{\min } \leq x_{t+k \mid t} \leq x_{\max }, \quad k=0, \ldots, N-1,\\ &amp;amp; u_{\min } \leq u_{t+k \mid t} \leq u_{\max }, \quad k=0, \ldots, N-1, \\ &amp;amp; x_{t \mid t}=x_t, \\ &amp;amp; \Delta h\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \geq-\gamma h\left(x_{t+k \mid t}\right), \quad k=0, \ldots, N-1 \\ \end{aligned}$$</description>
     </item>
     <item>
       <title>[MPC] Nominal Nonlinear Model Predictive Control</title>
       <link>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</link>
       <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</guid>
-      <description>Nonlinear model predictive control (NMPC) is a popular control method for multivariable control problems with important process constraints. The dynamic equation system is assumed to be given by differential algebraic equations (DAE). The code is mostly meant to be used as a way to verify the performance of more novel algorithms against an implementation more likely to be found in industry. It has the following features:
-Cheap NMPC implementation for both receding and shrinking time horizons Parameter and state estimation using the UKF Efficient solution of nonlinear dynamic optimization formulation using automatic differentiation Always feasible due to soft-constraints Example This is a basic nonlinear model predictive control (NMPC) implementation in Python with soft constraints, which uses an Unscented Kalman filter for state estimation.</description>
+      <description>Nonlinear model predictive control (NMPC) is a popular control method for multivariable control problems with important process constraints. The dynamic equation system is assumed to be given by differential algebraic equations (DAE). The code is mostly meant to be used as a way to verify the performance of more novel algorithms against an implementation more likely to be found in industry. It has the following features:&#xA;Cheap NMPC implementation for both receding and shrinking time horizons Parameter and state estimation using the UKF Efficient solution of nonlinear dynamic optimization formulation using automatic differentiation Always feasible due to soft-constraints Example This is a basic nonlinear model predictive control (NMPC) implementation in Python with soft constraints, which uses an Unscented Kalman filter for state estimation.</description>
     </item>
     <item>
       <title>[MPC] Linear Model Predictive Control</title>
       <link>https://phatcvo.github.io/blog/linear-model-predictive-control/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/linear-model-predictive-control/</guid>
-      <description>Vehicle model linearization Vehicle model is
-$$ \dot{x} = vcos(\phi)$$
-$$ \dot{y} = vsin((\phi)$$
-$$ \dot{v} = a$$
-$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
-State and Input vector:
-$$ z = \begin{bmatrix} x-position \\\ y-position \\\ velocity \\\ yaw-angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$
-$$u = \begin{bmatrix} acceleration \\ steering-angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$
-ODE is
-$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
+      <description>Vehicle model linearization Vehicle model is&#xA;$$ \dot{x} = vcos(\phi)$$&#xA;$$ \dot{y} = vsin((\phi)$$&#xA;$$ \dot{v} = a$$&#xA;$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$&#xA;State and Input vector:&#xA;$$ z = \begin{bmatrix} x-position \\\ y-position \\\ velocity \\\ yaw-angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$&#xA;$$u = \begin{bmatrix} acceleration \\ steering-angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$&#xA;ODE is&#xA;$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
     </item>
   </channel>
 </rss>
