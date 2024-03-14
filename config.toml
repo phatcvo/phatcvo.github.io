@@ -424,7 +424,7 @@ publishDir = "public"
         icon = "fas fa-cogs"
 
         [[params.skill.list]]
-            skill = "Programming Language: Python, C/C++, MATLAB, Simulink, etc"
+            skill = "Programming Language: C/C++, Python, MATLAB, Simulink"
         #    skillrating = 90
         #[[params.skill.list]]
         #    skill = "Frameworks/Libraries: Gym, Pygame, CVXOPT, Ipopt, etc"
