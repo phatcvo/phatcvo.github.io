@@ -12,8 +12,7 @@
       <link>https://phatcvo.github.io/blog/clean-code-chapter-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-1/</guid>
-      <description>CHƯƠNG 1: CODE SẠCH Bạn đang đọc quyển sách này vì hai lý do. Thứ nhất, bạn là một lập trình viên. Thứ hai, bạn muốn trở thành một lập trình viên giỏi. Tuyệt vời! Chúng tôi cần lập trình viên giỏi.
-Đây là một quyển sách nói về cách để bạn code tốt hơn, và nó chứa đầy code. Chúng ta sẽ xem xét code từ nhiều phương diện, từ trên xuống dưới, từ dưới lên trên, và từ trong ra ngoài.</description>
+      <description>CHƯƠNG 1: CODE SẠCH Bạn đang đọc quyển sách này vì hai lý do. Thứ nhất, bạn là một lập trình viên. Thứ hai, bạn muốn trở thành một lập trình viên giỏi. Tuyệt vời! Chúng tôi cần lập trình viên giỏi.&#xA;Đây là một quyển sách nói về cách để bạn code tốt hơn, và nó chứa đầy code. Chúng ta sẽ xem xét code từ nhiều phương diện, từ trên xuống dưới, từ dưới lên trên, và từ trong ra ngoài.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 10</title>
@@ -27,16 +26,14 @@
       <link>https://phatcvo.github.io/blog/clean-code-chapter-11/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-11/</guid>
-      <description>Hệ thống bởi Tiến sĩ Kevin Dean Wampler “Loại bỏ sự phức tạp. Nó bòn rút sự sống của các nhà phát triển, khiến các sản phẩm khó lên kế hoạch, xây dựng và thử nghiệm ”. —Ray Ozzie, CTO, Microsoft Corporation
-Bạn sẽ xây dựng một thành phố như thế nào? Bạn có thể tự quản lý tất cả các chi tiết? Chắc là không. Ngay cả việc quản lý một thành phố hiện tại cũng là quá nhiều đối với một người.</description>
+      <description>Hệ thống bởi Tiến sĩ Kevin Dean Wampler “Loại bỏ sự phức tạp. Nó bòn rút sự sống của các nhà phát triển, khiến các sản phẩm khó lên kế hoạch, xây dựng và thử nghiệm ”. —Ray Ozzie, CTO, Microsoft Corporation&#xA;Bạn sẽ xây dựng một thành phố như thế nào? Bạn có thể tự quản lý tất cả các chi tiết? Chắc là không. Ngay cả việc quản lý một thành phố hiện tại cũng là quá nhiều đối với một người.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 2</title>
       <link>https://phatcvo.github.io/blog/clean-code-chapter-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-2/</guid>
-      <description>CHƯƠNG 2: NHỮNG CÁI TÊN RÕ NGHĨA - Viết bởi Tim Ottinger
-Giới thiệu Những cái tên có ở khắp mọi nơi trong phần mềm. Chúng ta đặt tên cho các biến, các hàm, các đối số, các lớp và các gói của chúng ta. Chúng ta đặt tên cho những file mã nguồn và thư mục chứa chúng. Chúng ta đặt tên cho những file *.jar, file *.war,... Chúng ta đặt tên và đặt tên.</description>
+      <description>CHƯƠNG 2: NHỮNG CÁI TÊN RÕ NGHĨA - Viết bởi Tim Ottinger&#xA;Giới thiệu Những cái tên có ở khắp mọi nơi trong phần mềm. Chúng ta đặt tên cho các biến, các hàm, các đối số, các lớp và các gói của chúng ta. Chúng ta đặt tên cho những file mã nguồn và thư mục chứa chúng. Chúng ta đặt tên cho những file *.jar, file *.war,... Chúng ta đặt tên và đặt tên.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 3</title>
@@ -50,9 +47,7 @@ Giới thiệu Những cái tên có ở khắp mọi nơi trong phần mềm. C
       <link>https://phatcvo.github.io/blog/clean-code-chapter-4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-4/</guid>
-      <description>CHƯƠNG 4: CƠM-MỪN &amp;ldquo;Đừng biến đống code gớm ghiếc của bạn thành comment - hãy viết lại nó&amp;rdquo;
-- Brian W. Kernighan and P. J. Plaugher
-Không gì hữu ích bằng một comment được đặt đúng chổ. Không gì có thể làm lộn xộn đống code của bạn, ngoại trừ những comment ngu xuẩn và dối trá. Và không gì có thể gây nguy hiểm bằng một comment cộc lốc từ đời nào và lại không đúng sự thật.</description>
+      <description>CHƯƠNG 4: CƠM-MỪN &amp;ldquo;Đừng biến đống code gớm ghiếc của bạn thành comment - hãy viết lại nó&amp;rdquo;&#xA;- Brian W. Kernighan and P. J. Plaugher&#xA;Không gì hữu ích bằng một comment được đặt đúng chổ. Không gì có thể làm lộn xộn đống code của bạn, ngoại trừ những comment ngu xuẩn và dối trá. Và không gì có thể gây nguy hiểm bằng một comment cộc lốc từ đời nào và lại không đúng sự thật.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 5</title>

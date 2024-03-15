@@ -20,65 +20,49 @@
       <link>https://phatcvo.github.io/blog/learning-mpc-for-racing/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/learning-mpc-for-racing/</guid>
-      <description>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.
-In the above animation we see the vehicle&amp;rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future.</description>
+      <description>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.&#xA;In the above animation we see the vehicle&amp;rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future.</description>
     </item>
     <item>
       <title>[MPC] Trajectory tracking with a quadrotor by LMPC</title>
       <link>https://phatcvo.github.io/blog/mpc-for-quadrotor/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/mpc-for-quadrotor/</guid>
-      <description>The non-linear dynamics are linearized about a linearization trajectory $\bar{x}, \bar{u}$ while the quadrotor aims to track a different reference trajectory $x_{ref}, u_{ref}$.
-The MPC controller solves the following optimization problem :
-$$\begin{aligned} \min_{x_{1:N},u_{1:N-1}} \quad &amp;amp; \sum_{i=1}^{N-1} \bigg[ (x_i - x_{i,ref})^TQ(x_i - x_{i,ref}) + (u_i - u_{i,ref})^TR(u_i - u_{i,ref}) \bigg] + \frac{1}{2} (x_N - x_{N,ref})^TQ_f(x_N - x_{N,ref}) \\ \textrm{s.t.} \quad &amp;amp; x_1 = x_{\text{IC}} \\ &amp;amp; x_{k+1} = f(\bar{x}_k, \bar{u}_k) + \bigg[\frac{\partial f}{\partial x} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](x_k - \bar{x}_k) + \bigg[\frac{\partial f}{\partial u} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](u_k - \bar{u}_k) \quad \text{for } i = 1,2,\ldots,N-1 \\ &amp;amp; u_{min} \leq u_i \leq u_{max} \quad ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{for } i = 1,2,\ldots,N-1 \\ \end{aligned}$$</description>
+      <description>The non-linear dynamics are linearized about a linearization trajectory $\bar{x}, \bar{u}$ while the quadrotor aims to track a different reference trajectory $x_{ref}, u_{ref}$.&#xA;The MPC controller solves the following optimization problem :&#xA;$$\begin{aligned} \min_{x_{1:N},u_{1:N-1}} \quad &amp;amp; \sum_{i=1}^{N-1} \bigg[ (x_i - x_{i,ref})^TQ(x_i - x_{i,ref}) + (u_i - u_{i,ref})^TR(u_i - u_{i,ref}) \bigg] + \frac{1}{2} (x_N - x_{N,ref})^TQ_f(x_N - x_{N,ref}) \\ \textrm{s.t.} \quad &amp;amp; x_1 = x_{\text{IC}} \\ &amp;amp; x_{k+1} = f(\bar{x}_k, \bar{u}_k) + \bigg[\frac{\partial f}{\partial x} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](x_k - \bar{x}_k) + \bigg[\frac{\partial f}{\partial u} \bigg|_{\bar{x}_k, \bar{u}_k} \bigg](u_k - \bar{u}_k) \quad \text{for } i = 1,2,\ldots,N-1 \\ &amp;amp; u_{min} \leq u_i \leq u_{max} \quad ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{for } i = 1,2,\ldots,N-1 \\ \end{aligned}$$</description>
     </item>
     <item>
       <title>[MPC] Model Predictive Control with discrete-time Control Barrier Functions</title>
       <link>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</link>
       <pubDate>Mon, 30 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/model-predictive-control-with-discrete-time-control-barrier-functions/</guid>
-      <description>The MPC-CBF optimization problem is given by:
-$$\begin{aligned} \min_{u_{t: t+N-1 \mid t}} \quad &amp;amp; \frac{1}{2} \tilde{x}_N^T Q_x \tilde{x}_N+\sum_{k=0}^{N-1} \frac{1}{2} \tilde{x}_k^T Q_x \tilde{x}_k+\frac{1}{2} u_k^T Q_u u_k\\ \textrm{s.t.} \quad &amp;amp; x_{t+k+1 \mid t}=x_{t+k \mid t}+f\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \cdot T_s, \quad k=0, . ., N-1,\\ &amp;amp; x_{\min } \leq x_{t+k \mid t} \leq x_{\max }, \quad k=0, \ldots, N-1,\\ &amp;amp; u_{\min } \leq u_{t+k \mid t} \leq u_{\max }, \quad k=0, \ldots, N-1, \\ &amp;amp; x_{t \mid t}=x_t, \\ &amp;amp; \Delta h\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \geq-\gamma h\left(x_{t+k \mid t}\right), \quad k=0, \ldots, N-1 \\ \end{aligned}$$</description>
+      <description>The MPC-CBF optimization problem is given by:&#xA;$$\begin{aligned} \min_{u_{t: t+N-1 \mid t}} \quad &amp;amp; \frac{1}{2} \tilde{x}_N^T Q_x \tilde{x}_N+\sum_{k=0}^{N-1} \frac{1}{2} \tilde{x}_k^T Q_x \tilde{x}_k+\frac{1}{2} u_k^T Q_u u_k\\ \textrm{s.t.} \quad &amp;amp; x_{t+k+1 \mid t}=x_{t+k \mid t}+f\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \cdot T_s, \quad k=0, . ., N-1,\\ &amp;amp; x_{\min } \leq x_{t+k \mid t} \leq x_{\max }, \quad k=0, \ldots, N-1,\\ &amp;amp; u_{\min } \leq u_{t+k \mid t} \leq u_{\max }, \quad k=0, \ldots, N-1, \\ &amp;amp; x_{t \mid t}=x_t, \\ &amp;amp; \Delta h\left(x_{t+k \mid t}, u_{t+k \mid t}\right) \geq-\gamma h\left(x_{t+k \mid t}\right), \quad k=0, \ldots, N-1 \\ \end{aligned}$$</description>
     </item>
     <item>
       <title>[LQR] iLQR/DDP algorithm for Non-linear trajectory optimization</title>
       <link>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</guid>
-      <description>Differential Dynamic Programming (DDP) is an indirect method which optimizes over the unconstrained control-space. It uses a 2nd-order Taylor series approximation of the cost-to-go in Dynamic Programming (DP) to compute Newton steps on the control trajectory.
-iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is similar to Riccati iterations, but accounts for the regularization and line-search required to handle the nonlinearity. DDP: Second-order terms included (Newton approximation). The iLQR/DDP controller solves the following finite-horizon optimization (Non-linear trajectory optimization) problem:</description>
+      <description>Differential Dynamic Programming (DDP) is an indirect method which optimizes over the unconstrained control-space. It uses a 2nd-order Taylor series approximation of the cost-to-go in Dynamic Programming (DP) to compute Newton steps on the control trajectory.&#xA;iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is similar to Riccati iterations, but accounts for the regularization and line-search required to handle the nonlinearity. DDP: Second-order terms included (Newton approximation). The iLQR/DDP controller solves the following finite-horizon optimization (Non-linear trajectory optimization) problem:</description>
     </item>
     <item>
       <title>[MPC] Nominal Nonlinear Model Predictive Control</title>
       <link>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</link>
       <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/nominal-nonlinear-model-predictive-control/</guid>
-      <description>Nonlinear model predictive control (NMPC) is a popular control method for multivariable control problems with important process constraints. The dynamic equation system is assumed to be given by differential algebraic equations (DAE). The code is mostly meant to be used as a way to verify the performance of more novel algorithms against an implementation more likely to be found in industry. It has the following features:
-Cheap NMPC implementation for both receding and shrinking time horizons Parameter and state estimation using the UKF Efficient solution of nonlinear dynamic optimization formulation using automatic differentiation Always feasible due to soft-constraints Example This is a basic nonlinear model predictive control (NMPC) implementation in Python with soft constraints, which uses an Unscented Kalman filter for state estimation.</description>
+      <description>Nonlinear model predictive control (NMPC) is a popular control method for multivariable control problems with important process constraints. The dynamic equation system is assumed to be given by differential algebraic equations (DAE). The code is mostly meant to be used as a way to verify the performance of more novel algorithms against an implementation more likely to be found in industry. It has the following features:&#xA;Cheap NMPC implementation for both receding and shrinking time horizons Parameter and state estimation using the UKF Efficient solution of nonlinear dynamic optimization formulation using automatic differentiation Always feasible due to soft-constraints Example This is a basic nonlinear model predictive control (NMPC) implementation in Python with soft constraints, which uses an Unscented Kalman filter for state estimation.</description>
     </item>
     <item>
       <title>[MPC] Linear Model Predictive Control</title>
       <link>https://phatcvo.github.io/blog/linear-model-predictive-control/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/linear-model-predictive-control/</guid>
-      <description>Vehicle model linearization Vehicle model is
-$$ \dot{x} = vcos(\phi)$$
-$$ \dot{y} = vsin((\phi)$$
-$$ \dot{v} = a$$
-$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
-State and Input vector:
-$$ z = \begin{bmatrix} x-position \\\ y-position \\\ velocity \\\ yaw-angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$
-$$u = \begin{bmatrix} acceleration \\ steering-angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$
-ODE is
-$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
+      <description>Vehicle model linearization Vehicle model is&#xA;$$ \dot{x} = vcos(\phi)$$&#xA;$$ \dot{y} = vsin((\phi)$$&#xA;$$ \dot{v} = a$$&#xA;$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$&#xA;State and Input vector:&#xA;$$ z = \begin{bmatrix} x-position \\\ y-position \\\ velocity \\\ yaw-angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$&#xA;$$u = \begin{bmatrix} acceleration \\ steering-angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$&#xA;ODE is&#xA;$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
     </item>
     <item>
       <title>[RL] DRL-Basics Reinforcement Learning</title>
       <link>https://phatcvo.github.io/blog/drl-basicsrl/</link>
       <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/drl-basicsrl/</guid>
-      <description>Basics Deep reinforcement learning (DRL) is the integration of deep learning methods, classically used in supervised or unsupervised learning contexts, with reinforcement learning (RL), a well-studied adaptive control method used in problems with delayed and partial feedback [@Sutton1998]. This section starts with the basics of RL, mostly to set the notations, and provides a quick overview of deep neural networks.
-Table of contents Reinforcement learning and Markov Decision Process Policy and value functions Bellman equations Dynamic programming Monte-Carlo sampling Temporal Difference Eligibility traces Actor-critic architectures Function approximation Value-based function approximation Policy-based function approximation Reinforcement learning and Markov Decision Process RL methods apply to problems where an agent interacts with an environment in discrete time steps (@fig:agentenv).</description>
+      <description>Basics Deep reinforcement learning (DRL) is the integration of deep learning methods, classically used in supervised or unsupervised learning contexts, with reinforcement learning (RL), a well-studied adaptive control method used in problems with delayed and partial feedback [@Sutton1998]. This section starts with the basics of RL, mostly to set the notations, and provides a quick overview of deep neural networks.&#xA;Table of contents Reinforcement learning and Markov Decision Process Policy and value functions Bellman equations Dynamic programming Monte-Carlo sampling Temporal Difference Eligibility traces Actor-critic architectures Function approximation Value-based function approximation Policy-based function approximation Reinforcement learning and Markov Decision Process RL methods apply to problems where an agent interacts with an environment in discrete time steps (@fig:agentenv).</description>
     </item>
     <item>
       <title>[Survey] Safe-Optimal Control for Motional Planning based on RL</title>
@@ -99,17 +83,14 @@ Table of contents Reinforcement learning and Markov Decision Process Policy and 
       <link>https://phatcvo.github.io/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/readme/</guid>
-      <description>Create content hugo new content/blog/name-post.md. Build hugo -&amp;gt; Test Locally hugo server -D. Commit to GitHub
-git init git add . git commit -m &amp;#34;add&amp;#34; git branch -M main git push -f origin main Pull to sync git pull origin main
-Note: (debug) githib/yourwebsite-repository -&amp;gt; action tab -&amp;gt; delete Hugo workflow -&amp;gt; Settings tab -&amp;gt; Pages tab - &amp;gt; Create Hugo workflow</description>
+      <description>Create content hugo new content/blog/name-post.md. Build hugo -&amp;gt; Test Locally hugo server -D. Commit to GitHub&#xA;git init git add . git commit -m &amp;#34;add&amp;#34; git branch -M main git push -f origin main Pull to sync git pull origin main&#xA;Note: (debug) githib/yourwebsite-repository -&amp;gt; action tab -&amp;gt; delete Hugo workflow -&amp;gt; Settings tab -&amp;gt; Pages tab - &amp;gt; Create Hugo workflow</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 1</title>
       <link>https://phatcvo.github.io/blog/clean-code-chapter-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-1/</guid>
-      <description>CHƯƠNG 1: CODE SẠCH Bạn đang đọc quyển sách này vì hai lý do. Thứ nhất, bạn là một lập trình viên. Thứ hai, bạn muốn trở thành một lập trình viên giỏi. Tuyệt vời! Chúng tôi cần lập trình viên giỏi.
-Đây là một quyển sách nói về cách để bạn code tốt hơn, và nó chứa đầy code. Chúng ta sẽ xem xét code từ nhiều phương diện, từ trên xuống dưới, từ dưới lên trên, và từ trong ra ngoài.</description>
+      <description>CHƯƠNG 1: CODE SẠCH Bạn đang đọc quyển sách này vì hai lý do. Thứ nhất, bạn là một lập trình viên. Thứ hai, bạn muốn trở thành một lập trình viên giỏi. Tuyệt vời! Chúng tôi cần lập trình viên giỏi.&#xA;Đây là một quyển sách nói về cách để bạn code tốt hơn, và nó chứa đầy code. Chúng ta sẽ xem xét code từ nhiều phương diện, từ trên xuống dưới, từ dưới lên trên, và từ trong ra ngoài.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 10</title>
@@ -123,16 +104,14 @@ Note: (debug) githib/yourwebsite-repository -&amp;gt; action tab -&amp;gt; delet
       <link>https://phatcvo.github.io/blog/clean-code-chapter-11/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-11/</guid>
-      <description>Hệ thống bởi Tiến sĩ Kevin Dean Wampler “Loại bỏ sự phức tạp. Nó bòn rút sự sống của các nhà phát triển, khiến các sản phẩm khó lên kế hoạch, xây dựng và thử nghiệm ”. —Ray Ozzie, CTO, Microsoft Corporation
-Bạn sẽ xây dựng một thành phố như thế nào? Bạn có thể tự quản lý tất cả các chi tiết? Chắc là không. Ngay cả việc quản lý một thành phố hiện tại cũng là quá nhiều đối với một người.</description>
+      <description>Hệ thống bởi Tiến sĩ Kevin Dean Wampler “Loại bỏ sự phức tạp. Nó bòn rút sự sống của các nhà phát triển, khiến các sản phẩm khó lên kế hoạch, xây dựng và thử nghiệm ”. —Ray Ozzie, CTO, Microsoft Corporation&#xA;Bạn sẽ xây dựng một thành phố như thế nào? Bạn có thể tự quản lý tất cả các chi tiết? Chắc là không. Ngay cả việc quản lý một thành phố hiện tại cũng là quá nhiều đối với một người.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 2</title>
       <link>https://phatcvo.github.io/blog/clean-code-chapter-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-2/</guid>
-      <description>CHƯƠNG 2: NHỮNG CÁI TÊN RÕ NGHĨA - Viết bởi Tim Ottinger
-Giới thiệu Những cái tên có ở khắp mọi nơi trong phần mềm. Chúng ta đặt tên cho các biến, các hàm, các đối số, các lớp và các gói của chúng ta. Chúng ta đặt tên cho những file mã nguồn và thư mục chứa chúng. Chúng ta đặt tên cho những file *.jar, file *.war,... Chúng ta đặt tên và đặt tên.</description>
+      <description>CHƯƠNG 2: NHỮNG CÁI TÊN RÕ NGHĨA - Viết bởi Tim Ottinger&#xA;Giới thiệu Những cái tên có ở khắp mọi nơi trong phần mềm. Chúng ta đặt tên cho các biến, các hàm, các đối số, các lớp và các gói của chúng ta. Chúng ta đặt tên cho những file mã nguồn và thư mục chứa chúng. Chúng ta đặt tên cho những file *.jar, file *.war,... Chúng ta đặt tên và đặt tên.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 3</title>
@@ -146,9 +125,7 @@ Giới thiệu Những cái tên có ở khắp mọi nơi trong phần mềm. C
       <link>https://phatcvo.github.io/blog/clean-code-chapter-4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/clean-code-chapter-4/</guid>
-      <description>CHƯƠNG 4: CƠM-MỪN &amp;ldquo;Đừng biến đống code gớm ghiếc của bạn thành comment - hãy viết lại nó&amp;rdquo;
-- Brian W. Kernighan and P. J. Plaugher
-Không gì hữu ích bằng một comment được đặt đúng chổ. Không gì có thể làm lộn xộn đống code của bạn, ngoại trừ những comment ngu xuẩn và dối trá. Và không gì có thể gây nguy hiểm bằng một comment cộc lốc từ đời nào và lại không đúng sự thật.</description>
+      <description>CHƯƠNG 4: CƠM-MỪN &amp;ldquo;Đừng biến đống code gớm ghiếc của bạn thành comment - hãy viết lại nó&amp;rdquo;&#xA;- Brian W. Kernighan and P. J. Plaugher&#xA;Không gì hữu ích bằng một comment được đặt đúng chổ. Không gì có thể làm lộn xộn đống code của bạn, ngoại trừ những comment ngu xuẩn và dối trá. Và không gì có thể gây nguy hiểm bằng một comment cộc lốc từ đời nào và lại không đúng sự thật.</description>
     </item>
     <item>
       <title>[Book] Clean Code - Chapter 5</title>
