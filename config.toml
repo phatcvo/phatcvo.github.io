@@ -107,7 +107,7 @@ publishDir = "public"
             dates = "Dec. 2023 - *Present*"
             company = "STPC Robotics (AR247)"
             url = "#"
-            details = "Motion planning and control are two crucial aspects of autonomous systems such as robots and self-driving vehicles. Motion planning involves determining optimal paths for robots or vehicles to navigate from their current location to a target destination, while considering obstacles and ensuring safety."
+            details = "Develop motion planning algorithms for robots and self-driving vehicles to tackle determining optimal paths for robots or vehicles to navigate from their current location to a target destination, while considering obstacles and ensuring safety."
         [[params.experience.list]]
             position = "Postdoctoral Researcher"
             dates = "Agu. 2021 - *Dec. 2023*"
