@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Racing on </title>
+    <title>racing on </title>
     <link>https://phatcvo.github.io/tags/racing/</link>
-    <description>Recent content in Racing on </description>
+    <description>Recent content in racing on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate>
@@ -20,7 +20,8 @@
       <link>https://phatcvo.github.io/blog/learning-mpc-for-racing/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/learning-mpc-for-racing/</guid>
-      <description>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.&#xA;In the above animation we see the vehicle&amp;rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future.</description>
+      <description>The Learning Model Predictive Control is a data-driven control framework developed at UCB in the MPC lab. In this example, we implemented the LMPC for the autonomous racing problem. The controller drives several laps on race track and it learns from experience how to drive faster.
+In the above animation we see the vehicle&amp;rsquo;s closed-loop trajectory (in black) for laps 5, 30, 31 and 32. At each time instant the LMPC leverages forecast to plan the vehicle trajectory (in red) few seconds into the future.</description>
     </item>
   </channel>
 </rss>

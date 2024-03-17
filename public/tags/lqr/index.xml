@@ -13,7 +13,8 @@
       <link>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/iterative-linear-quadratic-regulator-and-differential-dynamic-programming/</guid>
-      <description>Differential Dynamic Programming (DDP) is an indirect method which optimizes over the unconstrained control-space. It uses a 2nd-order Taylor series approximation of the cost-to-go in Dynamic Programming (DP) to compute Newton steps on the control trajectory.&#xA;iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is similar to Riccati iterations, but accounts for the regularization and line-search required to handle the nonlinearity. DDP: Second-order terms included (Newton approximation). The iLQR/DDP controller solves the following finite-horizon optimization (Non-linear trajectory optimization) problem:</description>
+      <description>Differential Dynamic Programming (DDP) is an indirect method which optimizes over the unconstrained control-space. It uses a 2nd-order Taylor series approximation of the cost-to-go in Dynamic Programming (DP) to compute Newton steps on the control trajectory.
+iLQR: Only keeps the first-order terms (Gauss-Newton approximation), which is similar to Riccati iterations, but accounts for the regularization and line-search required to handle the nonlinearity. DDP: Second-order terms included (Newton approximation). The iLQR/DDP controller solves the following finite-horizon optimization (Non-linear trajectory optimization) problem:</description>
     </item>
   </channel>
 </rss>

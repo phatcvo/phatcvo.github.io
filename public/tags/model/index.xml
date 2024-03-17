@@ -13,7 +13,16 @@
       <link>https://phatcvo.github.io/blog/linear-model-predictive-control/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://phatcvo.github.io/blog/linear-model-predictive-control/</guid>
-      <description>Vehicle model linearization Vehicle model is&#xA;$$ \dot{x} = vcos(\phi)$$&#xA;$$ \dot{y} = vsin((\phi)$$&#xA;$$ \dot{v} = a$$&#xA;$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$&#xA;State and Input vector:&#xA;$$ z = \begin{bmatrix} x-position \\\ y-position \\\ velocity \\\ yaw-angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$&#xA;$$u = \begin{bmatrix} acceleration \\ steering-angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$&#xA;ODE is&#xA;$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
+      <description>Vehicle model linearization Vehicle model is
+$$ \dot{x} = vcos(\phi)$$
+$$ \dot{y} = vsin((\phi)$$
+$$ \dot{v} = a$$
+$$ \dot{\phi} = \frac{vtan(\delta)}{L}$$
+State and Input vector:
+$$ z = \begin{bmatrix} x-position \\\ y-position \\\ velocity \\\ yaw-angle\end{bmatrix} = \begin{bmatrix} x \\\ y \\\ v \\\ \phi\end{bmatrix} $$
+$$u = \begin{bmatrix} acceleration \\ steering-angle \end{bmatrix} = \begin{bmatrix} a \\ \delta \end{bmatrix} $$
+ODE is
+$$ \dot{z} =\frac{\partial }{\partial z} z = f(z, u) = A&amp;rsquo;z+B&amp;rsquo;u$$</description>
     </item>
   </channel>
 </rss>
