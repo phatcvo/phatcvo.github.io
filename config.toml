@@ -115,10 +115,10 @@ publishDir = "public"
             url = "#"
             details = "Research in Motion Planning for Autonomous systems by Predictive Optimal control, Robust-Adaptive MPC and Reinforcement Learning carrying out maximized safety and efficiency under uncertain and time-varying environments. Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods."
         [[params.experience.list]]
-            position = "Graduate Researcher"
+            position = "Postdoctoral Researcher"
             dates = "Mar. 2021 – Jul. 2021"
             url = "#"
-            details = "I prioritized transparency in human‑robot interaction for safe collaborative tasks during teleoperation based on optimal control strategies and Improved Reinforcement Learning."
+            details = "Focused on prioritized transparency in human‑robot interaction for safe collaborative tasks during teleoperation based on optimal control strategies and Improved Reinforcement Learning."
             company = "University of Ulsan (UOU)"
         [[params.experience.list]]
             position = "Graduate Researcher"
