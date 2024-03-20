@@ -205,7 +205,7 @@ publishDir = "public"
             date = "2023"
             journal = "International Journal of Robust and Nonlinear Control (Under Review)"
             url = "#"
-            type = "Journal Articles"
+            type = "Journal Articles (selected Control field)"
 
         [[params.publication.list]]
             title = "An Integrated Motion Planning Scheme for Safe Autonomous Vehicles in Highly Dynamic Environments"
@@ -363,7 +363,7 @@ publishDir = "public"
             date = "2018"
             journal = "International Conference on Mechatronics Technology (ICMT), Jeju, South Korea"
             url = "#"
-            type = "Conferences"
+            type = "Conferences1"
         
         [[params.publication.list]]
             title = "Robust network predictive control of DC motor with delay and drop out"
