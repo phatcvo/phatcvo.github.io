@@ -195,16 +195,16 @@ publishDir = "public"
         [[params.publication.list]]
             title = "Deep Reinforcement Learning-based Ride-sharing Autonomous Mobility-on-Demand Systems"
             authors = "J. Lee, S. Kim, C. P. Vo and J. H. Jeon"
-            date = "2023"
+            date = "2024"
             journal = "Transportation Research Part C: Emerging Technologies (Under Review)"
             url = "#"
             type = "Journal Articles (selected Control field)"
         [[params.publication.list]]
             title = "Adaptive neural tracking control for flexible joint robot including actuator dynamics with disturbance observer"
             authors = "V. D. Phan, C. P. Vo and K. K. Ahn"
-            date = "2023"
-            journal = "International Journal of Robust and Nonlinear Control (Under Review)"
-            url = "#"
+            date = "2024"
+            journal = "International Journal of Robust and Nonlinear Control"
+            url = "https://doi.org/10.1002/rnc.7412"
             type = "Journal Articles (selected Control field)"
 
         [[params.publication.list]]
