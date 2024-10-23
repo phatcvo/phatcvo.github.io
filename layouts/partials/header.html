@@ -2,11 +2,25 @@
   class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
 >
   <div>
-    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="{{ .Site.BaseURL }}">Home</a>    
-    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="{{ `blog` | relURL }}">Blog(EN)</a>
-    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://phatcvo.blogspot.com/">Blog(VN)</a>
+    <a
+      class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800"
+      href="{{ .Site.BaseURL }}"
+      >Home</a
+    >
+    <a
+      class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800"
+      href="{{ `blog` | relURL }}"
+      >Blog</a
+    >
+    {{/*
+    <a
+      class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800"
+      href="https://phatcvo.blogspot.com/"
+      >Blog(VN)</a
+    >
+    */}}
   </div>
-  
+
   <i
     class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
     onclick="lightDark(this)"
@@ -27,11 +41,5 @@
       el.classList.remove("bi-moon-fill");
       window.localStorage.setItem("theme", "dark");
     }
-  }; 
-
-
-
+  };
 </script>
-
-
-
