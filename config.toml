@@ -142,8 +142,8 @@ publishDir = "public"
             position = "Technical Engineer"
             dates = "Sept. 2012 – Agu. 2014"
             url = "#"
-            details = "Took primary responsibility for the electrical tasks of the projects (built up control box and main control program), deployed all over Vietnam, such as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd."
-            company = "Daewoo Royal System Vietnam Co., Ltd."
+            details = "Took primary responsibility for the electrical tasks of the projects (built up control box and main control program), deployed as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd."
+            company = "Automation 5S."
 
     # Education section
     [params.education]
@@ -176,7 +176,16 @@ publishDir = "public"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
-        types = ["Journal Articles (selected Control field)", "Conferences"]
+        #types = ["Journal Articles (selected Control field)", "Conferences"]
+        types = ["See in details"]
+
+        [[params.publication.list]]
+            title = "Google Scholar"
+            authors = ""
+            date = ""
+            journal = ""
+            url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
+            type = "See in details"
 
         [[params.publication.list]]
             title = "Efficient Motion Planning with Minimax Objectives: Synergizing Interval Prediction and Tree-Based Planning"
@@ -430,7 +439,7 @@ publishDir = "public"
         icon = "fas fa-cogs"
 
         [[params.skill.list]]
-            skill = "Programming Language: C/C++, Python, MATLAB, Simulink"
+            skill = "Coding: C/C++, Python, MATLAB"
         #    skillrating = 90
         #[[params.skill.list]]
         #    skill = "Frameworks/Libraries: Gym, Pygame, CVXOPT, Ipopt, etc"
