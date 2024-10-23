@@ -105,9 +105,9 @@ publishDir = "public"
         [[params.experience.list]]
             position = "Motion Planning Engineer"
             dates = "Dec. 2023 - *Present*"
-            company = "STPC Robotics (AR247)"
+            company = "Autonomous Robot 24Hours 7Days (AR247)"
             url = "#"
-            details = "Develop motion planning algorithms for robots and self-driving vehicles to tackle determining optimal paths for robots or vehicles to navigate from their current location to a target destination, while considering obstacles and ensuring safety."
+            details = "Develop motion planning algorithms for delivery robots, autonomous mobile robots, and self-driving vehicles to determine optimal paths for navigation to their destinations while simultaneously addressing behavior planning. These algorithms should take into account dynamic environments and prioritize safety."
         [[params.experience.list]]
             position = "Postdoctoral Researcher"
             dates = "Agu. 2021 - *Dec. 2023*"
