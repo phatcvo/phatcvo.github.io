@@ -12,7 +12,7 @@ publishDir = "public"
     title = "Phat C. Vo"
     author = "Phat C. Vo"
     description = "Website title"
-    copyright = "&copy; 2024 &middot; phatcvo"
+    copyright = "&copy; 2025 &middot; phatcvo"
     paginate = 100
 
     num_posts = 100
@@ -37,7 +37,7 @@ publishDir = "public"
     # Profile section
     [params.profile]
         name = "Phat C. Vo"
-        tagline = "Motion Planning Engineer"
+        tagline = "Motion Planning"
         location = "Gyeonggi-do, South Korea"
         photo = "profile.jpg"
 
@@ -103,7 +103,7 @@ publishDir = "public"
         icon = "fas fa-briefcase"
 
         [[params.experience.list]]
-            position = "Motion Planning Engineer"
+            position = "Senior Robotics Engineer - Motion Planning"
             dates = "Dec. 2023 - *Present*"
             company = "Autonomous Robot 24Hours 7Days (AR247)"
             url = "#"
