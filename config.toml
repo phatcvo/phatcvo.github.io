@@ -95,7 +95,7 @@ publishDir = "public"
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "After years of research in mechatronics systems, my ultimate aspiration is to enhance the safety and efficiency of daily life through technological innovation. My focus revolves around leveraging advancements in control theory and motion planning, particularly in the domains of robotics and mobility systems, including autonomous vehicles."
+        description = "My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning in Autonomous Mobility (Delivery Robot, AMR, AGV, AV, ...)"
 
     # Experience section
     [params.experience]
@@ -107,7 +107,7 @@ publishDir = "public"
             dates = "Dec. 2023 - *Present*"
             company = "Autonomous Robot 24Hours 7Days (AR247)"
             url = "#"
-            details = "Develop motion planning algorithms for delivery robots, autonomous mobile robots, and self-driving vehicles to determine optimal paths for navigation to their destinations while simultaneously addressing behavior planning. These algorithms should take into account dynamic environments and prioritize safety."
+            details = "Specializing in developing cutting-edge motion planning algorithms for Delivery Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 1) Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 2) Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 3) Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 4) Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations."
         [[params.experience.list]]
             position = "Postdoctoral Researcher"
             dates = "Agu. 2021 - *Dec. 2023*"
@@ -180,7 +180,7 @@ publishDir = "public"
         types = ["See in details"]
 
         [[params.publication.list]]
-            title = "Google Scholar"
+            title = " Google Scholar "
             authors = ""
             date = ""
             journal = ""
@@ -420,16 +420,25 @@ publishDir = "public"
 
         [[params.project.list]]
             title = "ERP"
-            url = "#"
+            url = "git@github.com:phatcvo/ERP42-RML.git"
             description = "Educational Robot Platform (ERP) developed by the WeGo Robotics company and build in MORAI for autonomous driving."
         [[params.project.list]]
             title = "OTW"
-            url = "#"
+            url = "git@github.com:phatcvo/OTW-RML.git"
             description = "On The Way (OTW) environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms"
         [[params.project.list]]
             title = "ASM"
             url = "#"
             description = "ROS Navigation Stack with AgileX Scout-Mini (ASM) in Gazebo Simulator"
+        [[params.project.list]]
+            title = "AMR"
+            url = "#"
+            description = "..."
+        [[params.project.list]]
+            title = "Delivery-Robot"
+            url = "#"
+            description = "..."
+
 
 
     # Skill section
