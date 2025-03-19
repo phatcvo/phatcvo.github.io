@@ -95,7 +95,7 @@ publishDir = "public"
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning in Autonomous Mobility (Delivery Robot, AMR, AGV, AV, ...)"
+        description = "My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management in Autonomous Mobility (Delivery Robot, AMR, AGV, AV, ...)"
 
     # Experience section
     [params.experience]
@@ -106,13 +106,13 @@ publishDir = "public"
             position = "Senior Robotics Engineer - Motion Planning"
             dates = "Dec. 2023 - *Present*"
             company = "Autonomous Robot 24Hours 7Days (AR247)"
-            url = "#"
+            url = "http://www.ar247.co.kr/"
             details = "Specializing in developing cutting-edge motion planning algorithms for Delivery Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 1) Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 2) Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 3) Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 4) Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations."
         [[params.experience.list]]
             position = "Postdoctoral Researcher"
             dates = "Agu. 2021 - *Dec. 2023*"
             company = "Ulsan National Institute of Science and Technology (UNIST)"
-            url = "#"
+            url = "https://rml-unist.notion.site/"
             details = "Research in Motion Planning for Autonomous systems by Predictive Optimal control, Robust-Adaptive MPC and Reinforcement Learning carrying out maximized safety and efficiency under uncertain and time-varying environments. Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods."
         [[params.experience.list]]
             position = "Postdoctoral Researcher"
@@ -151,7 +151,7 @@ publishDir = "public"
         icon = "fas fa-graduation-cap"
 
         [[params.education.list]]
-            degree = "Ph.D. in Mechanical and Automotive Engineering"
+            degree = "Ph.D. in Mechanical and Automotive Engineering (Topic: Human-Robot Interaction)"
             college = "University of Ulsan"
             dates = "Sept. 2017 - Feb. 2021"
             thesis_title = "A Sensorless Reflecting Control for Bilateral Haptic Teleoperation System based on Pneumatic Artificial Muscle Actuators."
@@ -160,7 +160,7 @@ publishDir = "public"
             degree = "M.S. in Mechatronics Engineering"
             college = "Ho Chi Minh City University of Technology and Education"
             dates = "Sept. 2014 - Jun. 2016"
-            thesis_title = "2D Lidar-Based SLAM Algorithm for Reception Robot."
+            thesis_title = "Reception Robot: SLAM and Motion control"
             thesis_url = "https://docs.google.com/presentation/d/1wyqDIYaALouqbnQDtUPNyZ__W0eyas9pKhxigUzK4HY/edit?usp=sharing"
         [[params.education.list]]
             degree = "B.S. in Electrical and Electronic Engineering Technology"
@@ -180,7 +180,7 @@ publishDir = "public"
         types = ["See in details"]
 
         [[params.publication.list]]
-            title = " Google Scholar "
+            title = "Google Scholar"
             authors = ""
             date = ""
             journal = ""
@@ -417,27 +417,27 @@ publishDir = "public"
     [params.project]
         title = "Projects"
         icon = "fas fa-project-diagram"
-
         [[params.project.list]]
-            title = "ERP"
+            title = "Beebot (self)"
+            url = "https://github.com/phatcvo/Beebot.git"
+            description = "This project transforms a basic robot into a fully autonomous system. It can navigate environments, avoid obstacles, and execute tasks independently, without any human intervention."
+        [[params.project.list]]
+            title = "Educational Robot Platform"
             url = "git@github.com:phatcvo/ERP42-RML.git"
-            description = "Educational Robot Platform (ERP) developed by the WeGo Robotics company and build in MORAI for autonomous driving."
+            description = "This project is developed by the WeGo Robotics company and build in MORAI for autonomous driving."
         [[params.project.list]]
-            title = "OTW"
+            title = "On The Way environment "
             url = "git@github.com:phatcvo/OTW-RML.git"
-            description = "On The Way (OTW) environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms"
+            description = "This environment is to demonstrate the local planning/decision-making algorithms"
+        
         [[params.project.list]]
-            title = "ASM"
+            title = "Autonomous Mobile Robot"
             url = "#"
-            description = "ROS Navigation Stack with AgileX Scout-Mini (ASM) in Gazebo Simulator"
+            description = "This is to optimize transport and automation in warehouses, factories, and healthcare, improving efficiency and flexibility."
         [[params.project.list]]
-            title = "AMR"
+            title = "Delivery Robot"
             url = "#"
-            description = "..."
-        [[params.project.list]]
-            title = "Delivery-Robot"
-            url = "#"
-            description = "..."
+            description = "This is autonomously transport goods, ensuring efficient and contactless deliveries in urban areas. They can patrol areas, monitor security, and provide real-time data to officers, improving safety and efficiency in public spaces."
 
 
 
