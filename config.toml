@@ -106,7 +106,7 @@ publishDir = "public"
             position = "Senior Robotics Engineer - Motion Planning"
             dates = "Dec. 2023 - *Present*"
             company = "Autonomous Robot 24Hours 7Days (AR247)"
-            url = "http://www.ar247.co.kr/"
+            url = "https://ar247.co.kr/"
             details = "Specializing in developing cutting-edge motion planning algorithms for Delivery Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 1) Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 2) Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 3) Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 4) Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations."
         [[params.experience.list]]
             position = "Postdoctoral Researcher"
