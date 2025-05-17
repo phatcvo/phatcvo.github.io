@@ -151,7 +151,7 @@ publishDir = "public"
         icon = "fas fa-graduation-cap"
 
         [[params.education.list]]
-            degree = "Ph.D. in Mechanical and Automotive Engineering (Topic: Human-Robot Interaction)"
+            degree = "Ph.D. in Mechanical and Automotive Engineering (Minor: Robotics)"
             college = "University of Ulsan"
             dates = "Sept. 2017 - Feb. 2021"
             thesis_title = "A Sensorless Reflecting Control for Bilateral Haptic Teleoperation System based on Pneumatic Artificial Muscle Actuators."
