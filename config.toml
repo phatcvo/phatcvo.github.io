@@ -187,7 +187,7 @@ publishDir = "public"
         format = ["title"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
         #types = ["Journal Articles (selected Control field)", "Conferences"]
-        #types = ["Details"]
+        types = ["Details"]
 
         [[params.publication.list]]
             title = "Google Scholar"
