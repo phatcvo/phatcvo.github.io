@@ -194,21 +194,21 @@ publishDir = "public"
             date = ""
             journal = ""
             url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
-        #    type = "Details"
+            type = "Details"
         [[params.publication.list]]
             title = "Web of Science"
             authors = ""
             date = ""
             journal = ""
             url = "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
-        #    type = "Details"
+            type = "Details"
         [[params.publication.list]]
             title = "Research Gate"
             authors = ""
             date = ""
             journal = ""
             url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
-        #    type = "Details"
+            type = "Details"
 
 
 
