@@ -37,8 +37,8 @@ publishDir = "public"
     # Profile section
     [params.profile]
         name = "Phat C. Vo"
-        tagline = "work hard, get smart"
-        location = "South Korea"
+        tagline = ""
+        location = "work hard, get smart"
         photo = "profile.jpg"
 
     # Section for links to social websites
