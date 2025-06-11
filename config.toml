@@ -181,12 +181,12 @@ publishDir = "public"
     # Publication section
     [params.publication]
         title = "Publications"
-        icon = "ai ai-google-scholar"
+        icon = "fas fa-book"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
         #types = ["Journal Articles (selected Control field)", "Conferences"]
-        types = ["Details"]
+
 
         [[params.publication.list]]
             title = "Google Scholar"
@@ -194,254 +194,36 @@ publishDir = "public"
             date = ""
             journal = ""
             url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
-            type = "Details"
+        #    type = "Details"
         [[params.publication.list]]
             title = "Web of Science"
             authors = ""
             date = ""
             journal = ""
             url = "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
-            type = "Details"
+        #    type = "Details"
         [[params.publication.list]]
             title = "Research Gate"
             authors = ""
             date = ""
             journal = ""
             url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
-            type = "Details"
+        #    type = "Details"
 
 
 
-        [[params.publication.list]]
-            title = "Efficient Motion Planning with Minimax Objectives: Synergizing Interval Prediction and Tree-Based Planning"
-            authors = "C. P. Vo, P. Jung; T. H. Kim and J. H. Jeon"
-            date = "2024"
-            journal = "IEEE Access"
-            url = "https://ieeexplore.ieee.org/abstract/document/10466533"
-            type = "Journal Articles (selected Control field)"
-        [[params.publication.list]]
-            title = "Finite-Time Robust Path-Following Control of Perturbed Autonomous Ground Vehicles Using a Novel Self-Tuning Nonsingular Fast Terminal Sliding Manifold"
-            authors = "C. P. Vo, Q. H. Hoang, T. H. Kim and J. H. Jeon"
-            date = "2024"
-            journal = "Mathematics"
-            url = "https://www.mdpi.com/2227-7390/12/4/549"
-            type = "Journal Articles (selected Control field)"
-        [[params.publication.list]]
-            title = "Deep Reinforcement Learning-based Ride-sharing Autonomous Mobility-on-Demand Systems"
-            authors = "J. Lee, S. Kim, C. P. Vo and J. H. Jeon"
-            date = "2024"
-            journal = "Transportation Research Part C: Emerging Technologies (Under Review)"
-            url = "#"
-            type = "Journal Articles (selected Control field)"
-        [[params.publication.list]]
-            title = "Adaptive neural tracking control for flexible joint robot including actuator dynamics with disturbance observer"
-            authors = "V. D. Phan, C. P. Vo and K. K. Ahn"
-            date = "2024"
-            journal = "International Journal of Robust and Nonlinear Control"
-            url = "https://doi.org/10.1002/rnc.7412"
-            type = "Journal Articles (selected Control field)"
-
-        [[params.publication.list]]
-            title = "An Integrated Motion Planning Scheme for Safe Autonomous Vehicles in Highly Dynamic Environments"
-            authors = "C. P. Vo and J. H. Jeon"
-            date = "2023"
-            journal = "Electronics (12.7)"
-            url = "https://www.mdpi.com/2079-9292/12/7/1566"
-            type = "Journal Articles (selected Control field)"
-
-        [[params.publication.list]]
-            title = "Robust Adaptive Path Tracking Control Scheme for Safe Autonomous Driving via Predicted Interval Algorithm"
-            authors = "C. P. Vo, J. Lee and J. H. Jeon"
-            date = "2022"
-            journal = "IEEE Access (10), 124333–124344"
-            url = "https://ieeexplore.ieee.org/abstract/document/9963947"
-            type = "Journal Articles (selected Control field)"
-
-
-        [[params.publication.list]]
-            title = "Active control strategies for system enhancement and load mitigation of floating offshore wind turbines: A Review"
-            authors = "H. V. A. Truong, T. D. Dang, C. P. Vo and K. K. Ahn"
-            date = "2022"
-            journal = "Renewable and Sustainable Energy Reviews (170), 112958"
-            url = "https://doi.org/10.1016/j.rser.2022.112958"
-            type = "Journal Articles"
-
-        [[params.publication.list]]
-            title = "A rotational switched-mode water-based triboelectric nanogenerator for mechanical energy harvesting and vehicle monitoring"
-            authors = "C. D. Le, T. H. Nguyen, D. L. Vu, C. P. Vo and K. K. Ahn"
-            date = "2022"
-            journal = "Materials Today Sustainability"
-            url = "#"
-            type = "Journal Articles"
-
-        [[params.publication.list]]
-            title = "Direct-current fluid-based triboelectric nanogenerator for harvesting hydrokinetic energy from water flowing through pipes"
-            authors = "Q. T. Nguyen, C. P. Vo and K. K. Ahn"
-            date = "2022"
-            journal = "Applied Sciences"
-            url = "#"
-            type = "Journal Articles"
-
-        [[params.publication.list]]
-            title = "An Adaptive Finite-Time Force-Sensorless Tracking Control Scheme for Pneumatic Muscle Actuators by an Optimal Force Estimation"
-            authors = "C. P. Vo and K. K. Ahn"
-            date = "2021"
-            journal = "IEEE Robotics and Automation Letters (7), 1542-1549"
-            url = "https://ieeexplore.ieee.org/document/9655509"
-            type = "Journal Articles (selected Control field)"
-
-        [[params.publication.list]]
-            title = "Water Electrification based Triboelectric Nanogenerator integrated Harmonic Oscillator for Waste Mechanical Energy Harvesting"
-            authors = "C. D. Le*, C. P. Vo*, D. L. Vu and K. K. Ahn"
-            date = "2021"
-            journal = "Energy Conversion and Management"
-            url = "#"
-            type = "Journal Articles"
-
-        [[params.publication.list]]
-            title = "Surface polarity tuning through epitaxial growth on polyvinylidene fluoride membranes for enhanced performance of liquid-solid triboelectric nanogenerator"
-            authors = "D. L. Vu, C. D. Le, C. P. Vo and K. K. Ahn"
-            date = "2021"
-            journal = "Composites Part B: Engineering"
-            url = "#"
-            type = "Journal Articles"
-
-        [[params.publication.list]]
-            title = "Actuator Fault-Tolerant Control for an Electro-Hydraulic Actuator Using Time Delay Estimation and Feedback Linearization"
-            authors = "V. D. Phan, C. P. Vo, H. V. Dao and K. K. Ahn"
-            date = "2021"
-            journal = "IEEE Access (9), 107111 - 107123"
-            url = "https://ieeexplore.ieee.org/abstract/document/9503378"
-            type = "Journal Articles (selected Control field)"
-
-        [[params.publication.list]]
-            title = "Robust fault-tolerant control of an electro-hydraulic actuator with a novel nonlinear unknown input observer"
-            authors = "V. D. Phan, C. P. Vo, H. V. Dao and K. K. Ahn"
-            date = "2021"
-            journal = "IEEE Access (16), 30750 - 30760"
-            url = "https://ieeexplore.ieee.org/abstract/document/9355137"
-            type = "Journal Articles (selected Control field)"
-
-        [[params.publication.list]]
-            title = "Enhancing the Output Performance of Fluid based Triboelectric Nanogenerator by Using PVDF-HFP/Ionic Liquid Nanoporous Membrane"
-            authors = "D. L. Vu, C. P. Vo, C. D. Le and K. K. Ahn"
-            date = "2021"
-            journal = "International Journal of Energy Research"
-            url = "#"
-            type = "Journal Articles"
-        [[params.publication.list]]
-            title = "A Compact Adjustable Stiffness Rotary Actuator based on Linear Springs: Working Principle, Design, and Experimental Verification"
-            authors = "C. P. Vo, V. D. Phan, T. H. Nguyen and K. K. Ahn"
-            date = "2020"
-            journal = "Actuators"
-            url = "#"
-            type = "Journal Articles (selected Control field)"
-        [[params.publication.list]]
-            title = "Liquid-Solid Contact Electrification Based on Discontinuous-Conduction Triboelectric Nanogenerator Induced by Radially Symmetrical Structure"
-            authors = "C. D. Le*, C. P. Vo*, and K. K. Ahn"
-            date = "2020"
-            journal = "Nano Energy"
-            url = "#"
-            type = "Journal Articles"
-        
-        [[params.publication.list]]
-            title = "A New Pathway for Liquid‐Solid Triboelectric Nanogenerator Using Streaming Flow by a Novel Direct Charge Transfer"
-            authors = "G. H. Nam, J. H. Ahn, G. H. Lee, C. P. Vo and K. K. Ahn"
-            date = "2020"
-            journal = "Advanced Energy and Sustainability Research"
-            url = "#"
-            type = "Journal Articles"
-        
-        [[params.publication.list]]
-            title = "A Novel Force Sensorless Reflecting Control for Bilateral Haptic Teleoperation System"
-            authors = "C. P. Vo, X. D. To, and K. K. Ahn"
-            date = "2020"
-            journal = "IEEE Access (8),  96515 - 96527"
-            url = "https://ieeexplore.ieee.org/abstract/document/9104907"
-            type = "Journal Articles (selected Control field)"
-        [[params.publication.list]]
-            title = "A Novel Adaptive Gain Integral Terminal Sliding Mode Control scheme of a Pneumatic Artificial Muscle system with Time-delay Estimation"
-            authors = "C. P. Vo, X. D. To, and K. K. Ahn"
-            date = "2019"
-            journal = "IEEE Access (7), 141133 - 141143"
-            url = "https://ieeexplore.ieee.org/abstract/document/8851132"
-            type = "Journal Articles (selected Control field)"
-        [[params.publication.list]]
-            title = "Self-powered Flexible PDMS Channel Assisted Discrete Liquid Column Motion Based Triboelectric Nanogenerator (DLC-TENG) as Mechanical Transducer"
-            authors = "M. Shahriar, C. P. Vo, and K. K. Ahn"
-            date = "2019"
-            journal = "International Journal of Precision Engineering and Manufacturing-Green Technology"
-            url = "#"
-            type = "Journal Articles"
-        [[params.publication.list]]
-            title = "Mechanically Active Transducing Element Based on Solid–Liquid Triboelectric Nanogenerator for Self-Powered Sensing"
-            authors = "C. P. Vo, M. Shahriar, C. D. Le, and K. K. Ahn"
-            date = "2019"
-            journal = "International Journal of Precision Engineering and Manufacturing-Green Technology"
-            url = "#"
-            type = "Journal Articles"
-		
-        
-
-        [[params.publication.list]]
-            title = "Variable Impedance Control for a Robotic Leg with External Uncertainties"
-            authors = "C. P. Vo, X. D. To, and K. K. Ahn"
-            date = "2019"
-            journal = "23rd International Conference on Mechatronics Technology (ICMT), Salerno, Italy"
-            url = "https://ieeexplore.ieee.org/abstract/document/8932102"
-            type = "Conferences"
-
-        [[params.publication.list]]
-            title = "The Predictive Control for Networked Control System with Random Delays and Packet Dropouts"
-            authors = "C. P. Vo, D. T. Tran and K. K. Ahn"
-            date = "2018"
-            journal = "International Conference on Mechatronics Technology (ICMT), Jeju, South Korea"
-            url = "#"
-            type = "Conferences1"
-        
-        [[params.publication.list]]
-            title = "Robust network predictive control of DC motor with delay and drop out"
-            authors = "C. P. Vo and K. K. Ahn"
-            date = "2018"
-            journal = "International Conference on Mechatronics Technology (ICMT), Jeju, South Korea"
-            url = "#"
-            type = "Conferences"
-
-        [[params.publication.list]]
-            title = "High-precision Position Control of Soft Actuator Systems"
-            authors = "C. P. Vo and K. K. Ahn"
-            date = "2018"
-            journal = "International Workshop on Active Materials and Soft Mechatronics (AMSM2018), KAIST, Daejeon, South Korea"
-            url = "#"
-            type = "Conferences"
-
-        [[params.publication.list]]
-            title = "Robot Leg"
-            authors = "K.R. Patent No. 10-2020-0182335"
-            date = "2022"
-            journal = "Korean Intellectual Property Office"
-            url = "#"
-            type = "Patents"
-        [[params.publication.list]]
-            title = "Human-robot cooperative control apparatus and method for pneumatic artificial muscle module based on reinforcement learning"
-            authors = "K.R. Patent No. 10-2020-0182336"
-            date = "2022"
-            journal = "Korean Intellectual Property Office"
-            url = "#"
-            type = "Patents"
-        [[params.publication.list]]
-            title = "Adjustable Stiffness Actuator"
-            authors = "K.R. Patent No. 10-2197484"
-            date = "2020"
-            journal = "Korean Intellectual Property Office"
-            url = "#"
-            type = "Patents"
-
+        #[[params.publication.list]]
+        #    title = "Efficient Motion Planning with Minimax Objectives: Synergizing Interval Prediction and Tree-Based Planning"
+        #    authors = "C. P. Vo, P. Jung; T. H. Kim and J. H. Jeon"
+        #    date = "2024"
+        #    journal = "IEEE Access"
+        #    url = "https://ieeexplore.ieee.org/abstract/document/10466533"
+        #    type = "Journal Articles (selected Control field)"
 
     # Project section
     [params.project]
         title = "Projects"
-        icon = "fas fa-github"
+        icon = "fas fa-project-diagram"
         [[params.project.list]]
             title = "Github"
             url = "https://github.com/phatcvo/"
