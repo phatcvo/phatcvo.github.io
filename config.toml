@@ -49,10 +49,10 @@ publishDir = "public"
             icon = "fab fa-linkedin-in"
             url = "https://www.linkedin.com/in/phatcvo/"
             title = "LinkedIn"		
-        #[[params.social.list]]
-        #    icon = "fab fa-stack-overflow"
-        #    url = "#"
-        #    title = "StackOverflow"
+        [[params.social.list]]
+            icon = "fab fa-stack-overflow"
+            url = "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
+            title = "StackOverflow"
         [[params.social.list]]
             icon = "fab fa-researchgate"
             url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
@@ -61,10 +61,10 @@ publishDir = "public"
             icon = "fab fa-twitter"
             url = "https://twitter.com/vophat0607"
             title = "Twitter"
-        [[params.social.list]]
-            icon = "fab fa-orcid"
-            url = "https://orcid.org/0000-0001-6703-5759"
-            title = "Orcid"
+        #[[params.social.list]]
+        #    icon = "fab fa-orcid"
+        #    url = "https://orcid.org/0000-0001-6703-5759"
+        #    title = "Orcid"
         [[params.social.list]]
             icon = "ai ai-google-scholar"
             url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
@@ -78,7 +78,7 @@ publishDir = "public"
     #Specify what is showin in the Accordion
     [[params.showInAccordion]]
         item = "aboutme"
-        expand = true   # true for the section that is initially expanded
+        expand = false   # true for the section that is initially expanded
     [[params.showInAccordion]]
         item = "experience"
     [[params.showInAccordion]]
@@ -89,13 +89,13 @@ publishDir = "public"
         item = "project"
     [[params.showInAccordion]]
         item = "skill"
-    [[params.showInAccordion]]
-        item = "hobby"
+    #[[params.showInAccordion]]
+    #    item = "hobby"
 
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management in Autonomous Mobility (Delivery Robot, AMR, AGV, AV, ...)"
+        description = "My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management in Autonomous Mobility (Delivery/Patrol Robot, AMR, AGV, AV, ...)"
 
     # Experience section
     [params.experience]
@@ -107,7 +107,7 @@ publishDir = "public"
             dates = "Dec. 2023 - *Present*"
             company = "Autonomous Robot 24Hours 7Days (AR247)"
             url = "https://ar247.co.kr/"
-            details = "Specializing in developing cutting-edge motion planning algorithms for Delivery Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 1) Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 2) Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 3) Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 4) Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations."
+            details = "Specializing in developing cutting-edge motion planning algorithms for Delivery/Security Patrol Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 1) Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 2) Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 3) Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 4) Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations."
         [[params.experience.list]]
             position = "Postdoctoral Researcher"
             dates = "Agu. 2021 - *Dec. 2023*"
@@ -177,7 +177,7 @@ publishDir = "public"
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
         #types = ["Journal Articles (selected Control field)", "Conferences"]
-        types = ["See in details"]
+        types = ["Details"]
 
         [[params.publication.list]]
             title = "Google Scholar"
@@ -185,7 +185,16 @@ publishDir = "public"
             date = ""
             journal = ""
             url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
-            type = "See in details"
+            type = "Details"
+        [[params.publication.list]]
+            title = "Web of Science"
+            authors = ""
+            date = ""
+            journal = ""
+            url = "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
+            type = "Details"
+
+
 
         [[params.publication.list]]
             title = "Efficient Motion Planning with Minimax Objectives: Synergizing Interval Prediction and Tree-Based Planning"
@@ -418,26 +427,26 @@ publishDir = "public"
         title = "Projects"
         icon = "fas fa-project-diagram"
         [[params.project.list]]
-            title = "Beebot (self)"
-            url = "https://github.com/phatcvo/Beebot.git"
-            description = "This project transforms a basic robot into a fully autonomous system. It can navigate environments, avoid obstacles, and execute tasks independently, without any human intervention."
-        [[params.project.list]]
-            title = "Educational Robot Platform"
-            url = "git@github.com:phatcvo/ERP42-RML.git"
-            description = "This project is developed by the WeGo Robotics company and build in MORAI for autonomous driving."
-        [[params.project.list]]
-            title = "On The Way environment "
-            url = "git@github.com:phatcvo/OTW-RML.git"
-            description = "This environment is to demonstrate the local planning/decision-making algorithms"
+            title = "Github"
+            url = "https://github.com/phatcvo/"
+            description = "This includes almost all of the open-source code from my personal research projects that can be shared publicly, along with a few private projects kept for security reasons."
+        #[[params.project.list]]
+        #    title = "Educational Robot Platform"
+        #    url = "git@github.com:phatcvo/ERP42-RML.git"
+        #    description = "This project is developed by the WeGo Robotics company and build in MORAI for autonomous driving."
+        #[[params.project.list]]
+        #    title = "On The Way environment "
+        #    url = "https://github.com/phatcvo/OTW-RML.git"
+        #    description = "This environment is to demonstrate the local planning/decision-making algorithms"
         
-        [[params.project.list]]
-            title = "Autonomous Mobile Robot"
-            url = "#"
-            description = "This is to optimize transport and automation in warehouses, factories, and healthcare, improving efficiency and flexibility."
-        [[params.project.list]]
-            title = "Delivery Robot"
-            url = "#"
-            description = "This is autonomously transport goods, ensuring efficient and contactless deliveries in urban areas. They can patrol areas, monitor security, and provide real-time data to officers, improving safety and efficiency in public spaces."
+        #[[params.project.list]]
+        #    title = "Autonomous Mobile Robot"
+        #    url = "#"
+        #    description = "This is to optimize transport and automation in warehouses, factories, and healthcare, improving efficiency and flexibility."
+        #[[params.project.list]]
+        #    title = "Delivery Robot"
+        #    url = "#"
+        #    description = "This is autonomously transport goods, ensuring efficient and contactless deliveries in urban areas. They can patrol areas, monitor security, and provide real-time data to officers, improving safety and efficiency in public spaces."
 
 
 
@@ -448,7 +457,7 @@ publishDir = "public"
         icon = "fas fa-cogs"
 
         [[params.skill.list]]
-            skill = "Coding: C/C++, Python, MATLAB"
+            skill = "C/C++, Python, MATLAB, ROS, Git, Linux, Qt, Gym, Pygame, CVXOPT, Ipopt, MORAI, Carla, Gazebo, etc"
         #    skillrating = 90
         #[[params.skill.list]]
         #    skill = "Frameworks/Libraries: Gym, Pygame, CVXOPT, Ipopt, etc"
