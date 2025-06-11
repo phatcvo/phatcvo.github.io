@@ -112,7 +112,7 @@ publishDir = "public"
         icon = "fas fa-briefcase"
 
         [[params.experience.list]]
-            position = "Senior Robotics Engineer - Motion Planning"
+            position = "Senior Motion Planning Engineer"
             dates = "Dec. 2023 - *Present*"
             company = "Autonomous Robot 24Hours 7Days (AR247)"
             url = "https://ar247.co.kr/"
