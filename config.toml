@@ -49,14 +49,14 @@ publishDir = "public"
             icon = "fab fa-linkedin-in"
             url = "https://www.linkedin.com/in/phatcvo/"
             title = "LinkedIn"		
-        [[params.social.list]]
-            icon = "fab fa-stack-overflow"
-            url = "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
-            title = "StackOverflow"
-        [[params.social.list]]
-            icon = "fab fa-researchgate"
-            url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
-            title = "ResearchGate"
+        #[[params.social.list]]
+        #    icon = "fab fa-stack-overflow"
+        #    url = "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
+        #    title = "StackOverflow"
+        #[[params.social.list]]
+        #    icon = "fab fa-researchgate"
+        #    url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
+        #    title = "ResearchGate"
         [[params.social.list]]
             icon = "fab fa-twitter"
             url = "https://twitter.com/vophat0607"
@@ -65,14 +65,23 @@ publishDir = "public"
         #    icon = "fab fa-orcid"
         #    url = "https://orcid.org/0000-0001-6703-5759"
         #    title = "Orcid"
+        #[[params.social.list]]
+        #    icon = "ai ai-google-scholar"
+        #    url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
+        #    title = "Google Scholar"
+        #[[params.social.list]]
+        #    icon = "fab fa-github"
+        #    url = "https://github.com/phatcvo"
+        #    title = "GitHub"
         [[params.social.list]]
-            icon = "ai ai-google-scholar"
-            url = "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
-            title = "Google Scholar"
+            icon = "fab fa-instagram"
+            url = "https://www.instagram.com/phatcvo/"
+            title = "Instagram"
         [[params.social.list]]
-            icon = "fab fa-github"
-            url = "https://github.com/phatcvo"
-            title = "GitHub"
+            icon = "fab fa-youtube"
+            url = "https://www.youtube.com/@phatcvo"
+            title = "Youtube"
+            
         
 
     #Specify what is showin in the Accordion
@@ -192,6 +201,13 @@ publishDir = "public"
             date = ""
             journal = ""
             url = "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
+            type = "Details"
+        [[params.publication.list]]
+            title = "Research Gate"
+            authors = ""
+            date = ""
+            journal = ""
+            url = "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
             type = "Details"
 
 
