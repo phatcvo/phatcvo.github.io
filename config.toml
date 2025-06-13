@@ -84,10 +84,10 @@ publishDir = "public"
             
         
 
-    #Specify what is showin in the Accordion
+    #Specify what is show in in the Accordion
     [[params.showInAccordion]]
         item = "aboutme"
-        expand = false   # true for the section that is initially expanded
+        expand = true   # true for the section that is initially expanded
     [[params.showInAccordion]]
         item = "experience"
     [[params.showInAccordion]]
