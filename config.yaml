@@ -55,7 +55,7 @@ params:
   aboutme:
     title: About Me
     icon: fas fa-user
-    description: My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management in Autonomous Mobility (Delivery/Patrol Robot, AMR, AGV, AV, ...).
+    description: My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management in Autonomous Mobility (Delivery/Patrol Robot, AMR, AGV, AV, ...)
   experience:
     title: Experiences
     icon: fas fa-briefcase
@@ -63,7 +63,7 @@ params:
       - position: Senior Motion Planning Engineer
         dates: Dec. 2023 - *Present*
         url: "https://ar247.co.kr/"
-        company: Motion Team - Autonomous Robot 24Hours 7Days (AR247)
+        company: Motion Team · Autonomous Robot 24Hours 7Days (AR247)
         details: |1-
           - Specializing in developing cutting-edge motion planning algorithms for Delivery/Security Patrol Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 
             - Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 
@@ -74,7 +74,7 @@ params:
       - position: Postdoctoral Researcher
         dates: Agu. 2021 - Dec. 2023
         url: "https://rml-unist.notion.site/"
-        company: Robotics & Mobility Lab. (RML) - Ulsan National Institute of Science and Technology (UNIST)
+        company: Robotics & Mobility Lab. (RML) · Ulsan National Institute of Science and Technology (UNIST)
         details: |1-
           - Research in Motion Planning for Autonomous systems by Predictive Optimal control, Robust-Adaptive MPC and Reinforcement Learning carrying out maximized safety and efficiency under uncertain and time-varying environments. 
           - Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods.
@@ -82,14 +82,14 @@ params:
       - position: Postdoctoral Researcher
         dates: Sept. 2017 – Feb. 2021
         url: "https://sites.google.com/view/kkahn/home-page"
-        company: Fluid Power & Machine Intelligence Lab. (FPMI) - University of Ulsan (UOU)
+        company: Fluid Power & Machine Intelligence Lab. (FPMI) · University of Ulsan (UOU)
         details: |1-
           - Focused on optimal-based and learning-based Reinforcement Learning for safe collaborative tasks of prioritized human‑robot interaction.
 
       - position: Postdoctoral Researcher
         dates: Sept. 2017 – Feb. 2021
         url: "https://sites.google.com/view/kkahn/home-page"
-        company: Fluid Power & Machine Intelligence Lab. (FPMI) - University of Ulsan (UOU)
+        company: Fluid Power & Machine Intelligence Lab. (FPMI) · University of Ulsan (UOU)
         details: |1-
           - Focused on prioritized human‑robot interaction in teleoperation for safe collaborative tasks based on robust and optimal control strategies.
           - Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems. 
@@ -99,14 +99,14 @@ params:
       - position: Lecturer
         dates: Sept. 2015 – Jul. 2017
         url: "https://english.tdc.edu.vn/"
-        company: Electrical and Electronic Engineering Dept. (EEE) - Thu Duc College of Technology (TDC)
+        company: Electrical and Electronic Engineering Dept. (EEE) · Thu Duc College of Technology (TDC)
         details: |1-
           - Lecture courses: Microprocessor Programming, Basic C/C++ Programming, Circuit Design, Power Electronics, Advanced control theory
 
       - position: Graduate Researcher and Teaching Assistant
         dates: Sept. 2014 – Jun. 2016
         url: "https://openlab.hcmute.edu.vn/"
-        company: Open Lab. - Ho Chi Minh City University of Technology and Education (UTE)
+        company: Open Lab. · Ho Chi Minh City University of Technology and Education (UTE)
         details: |1-
           - Designed and developed Reception Robot: Path-Tracking Control and SLAM
 
