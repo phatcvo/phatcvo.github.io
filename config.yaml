@@ -36,7 +36,7 @@ params:
         url: "https://twitter.com/vophat0607"
         title: Twitter
       - icon: fab fa-discord
-        url: "#"
+        url: "https://discord.gg/6XF9xuD9"
         title: Discord
       - icon: fab fa-github
         url: "https://github.com/phatcvo"
@@ -69,7 +69,7 @@ params:
             - Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 
             - Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 
             - Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 
-            - Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations.
+            - Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations in real-time systems and distributed messaging environments (using MQTT, Rest API, etc.)
 
       - position: Postdoctoral Researcher
         dates: Agu. 2021 - Dec. 2023
@@ -108,14 +108,14 @@ params:
         url: "https://openlab.hcmute.edu.vn/"
         company: Open Lab. · Ho Chi Minh City University of Technology and Education (UTE)
         details: |1-
-          - Designed and developed Reception Robot: Path-Tracking Control and SLAM
+          - Reception Robot: Designed platform and developed Path-Tracking Control (PID, Pure-Pursuit) and SLAM (RANSAC)
 
       - position: Technical Engineer
         dates: Sept. 2012 – Agu. 2014
         url: "#"
         company: Automation 5S (closed)
         details: |1-
-          - Took primary responsibility for the electrical tasks of the projects (built up control box and main control program), deployed as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd.
+          - Took primary responsibility for the electrical tasks of the projects that I built up control box (hardware) and main control program (software) using PLC-HMI (Delta, Autobase, LS, Siemens, Mitsubishi), deployed as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd.
 
   education:
     title: Education
@@ -174,15 +174,52 @@ params:
     title: Projects
     icon: fas fa-project-diagram
     list:
-      - title: Github
-        url: "https://github.com/phatcvo/"
-        description: This includes almost all of the open-source code from my personal research projects that can be shared publicly, along with a few private projects kept for security reasons.
+      - title: Fleet Management System
+        url: ""
+        description: 
+      - title: Heavy Autonomous Mobile Robot 
+        url: ""
+        description: 
+      - title: Patrol Robot
+        url: ""
+        description:
+      - title: Delivery Robot
+        url: ""
+        description: 
+      - title: Beebot
+        url: ""
+        description: 
+      - title: ERP42-Wego
+        url: ""
+        description: 
+      - title: OWT-env
+        url: ""
+        description:
+      - title: Scout-mini
+        url: ""
+        description: 
+      - title: Human-Robot Teleoperation
+        url: ""
+        description: 
+      - title: Network Control System (NCS)
+        url: ""
+        description: 
+      - title: Variable Stiffness Actuator (VSA) 
+        url: ""
+        description: 
+      - title: Rotary Inverted Pendulum
+        url: ""
+        description: 
+      - title: IoT-XBee Network
+        url: ""
+        description:
   skill:
     title: Technical Skills
     panelId: skill-panel
     icon: fas fa-cogs
     list:
-      - skill: "C/C++, Python, MATLAB, ROS, Git, Linux, Qt, Gym, Pygame, CVXOPT, Ipopt, MORAI, Carla, Gazebo, etc"
+      - skill: "C/C++, Python, MATLAB, ROS1/ROS2, Git, Linux, MQTT/REST API, Qt, Gym, Pygame, CVXOPT, Ipopt, MORAI, Carla, Gazebo, etc"
+
       #   skillrating: 90
       # - skill: Skill 3
       #   skillrating: 80
