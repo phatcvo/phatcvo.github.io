@@ -1,0 +1,197 @@
+baseURL: https://phatcvo.github.io/
+languageCode: en-us
+build:
+  writeStats: true
+params:
+  title: phatcvo
+  author: Phat C. Vo
+  description: phatcvo
+  copyright: 
+  theme:
+    mainTheme: null
+    showAttribute: true
+    singlePage: false
+  favicons:
+    use: true
+    metas: |2-
+              <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+              <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+              <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+              <link rel="manifest" href="site.webmanifest">
+              <link rel="mask-icon" href="safari-pinned-tab.svg" color="#252627">
+              <link rel="shortcut icon" href="favicon.ico">
+
+  profile:
+    name: "Phat C. Vo"
+    tagline: 
+    location: "work hard, get smart"
+    photo: profile.jpg
+  social:
+    title: Links
+    list:
+      - icon: fab fa-linkedin-in
+        url: "https://www.linkedin.com/in/phatcvo/"
+        title: LinkedIn
+      - icon: fab fa-twitter
+        url: "https://twitter.com/vophat0607"
+        title: Twitter
+      - icon: fab fa-discord
+        url: "#"
+        title: Discord
+      - icon: fab fa-github
+        url: "https://github.com/phatcvo"
+        title: GitHub
+      - icon: fab fa-youtube
+        url: "https://www.youtube.com/@phatcvo-beelab"
+        title: Youtube
+  showInAccordion:
+    - item: aboutme
+      expand: true
+    - item: experience
+    - item: education
+    - item: publication
+    - item: project
+    - item: skill
+  aboutme:
+    title: About Me
+    icon: fas fa-user
+    description: My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management in Autonomous Mobility (Delivery/Patrol Robot, AMR, AGV, AV, ...).
+  experience:
+    title: Experiences
+    icon: fas fa-briefcase
+    list:
+      - position: Senior Motion Planning Engineer
+        dates: Dec. 2023 - *Present*
+        url: "https://ar247.co.kr/"
+        company: Motion Team - Autonomous Robot 24Hours 7Days (AR247)
+        details: |1-
+          - Specializing in developing cutting-edge motion planning algorithms for Delivery/Security Patrol Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 
+            - Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 
+            - Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 
+            - Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 
+            - Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations.
+
+      - position: Postdoctoral Researcher
+        dates: Agu. 2021 - Dec. 2023
+        url: "https://rml-unist.notion.site/"
+        company: Robotics & Mobility Lab. (RML) - Ulsan National Institute of Science and Technology (UNIST)
+        details: |1-
+          - Research in Motion Planning for Autonomous systems by Predictive Optimal control, Robust-Adaptive MPC and Reinforcement Learning carrying out maximized safety and efficiency under uncertain and time-varying environments. 
+          - Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods.
+
+      - position: Postdoctoral Researcher
+        dates: Sept. 2017 – Feb. 2021
+        url: "https://sites.google.com/view/kkahn/home-page"
+        company: Fluid Power & Machine Intelligence Lab. (FPMI) - University of Ulsan (UOU)
+        details: |1-
+          - Focused on optimal-based and learning-based Reinforcement Learning for safe collaborative tasks of prioritized human‑robot interaction.
+
+      - position: Postdoctoral Researcher
+        dates: Sept. 2017 – Feb. 2021
+        url: "https://sites.google.com/view/kkahn/home-page"
+        company: Fluid Power & Machine Intelligence Lab. (FPMI) - University of Ulsan (UOU)
+        details: |1-
+          - Focused on prioritized human‑robot interaction in teleoperation for safe collaborative tasks based on robust and optimal control strategies.
+          - Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems. 
+          - Enhanced the precision of control trajectory and force tracking in robotics by introducing a novel time‑varying adaptive optimal estimator. 
+          - Developed renewable and sustainable energy system control projects (Fluid‑based Triboelectric Nanogenerator; Floating Offshore Wind Turbines) to optimize as well as maximize power captured.
+      
+      - position: Lecturer
+        dates: Sept. 2015 – Jul. 2017
+        url: "https://english.tdc.edu.vn/"
+        company: Electrical and Electronic Engineering Dept. (EEE) - Thu Duc College of Technology (TDC)
+        details: |1-
+          - Lecture courses: Microprocessor Programming, Basic C/C++ Programming, Circuit Design, Power Electronics, Advanced control theory
+
+      - position: Graduate Researcher and Teaching Assistant
+        dates: Sept. 2014 – Jun. 2016
+        url: "https://openlab.hcmute.edu.vn/"
+        company: Open Lab. - Ho Chi Minh City University of Technology and Education (UTE)
+        details: |1-
+          - Designed and developed Reception Robot: Path-Tracking Control and SLAM
+
+      - position: Technical Engineer
+        dates: Sept. 2012 – Agu. 2014
+        url: "#"
+        company: Automation 5S (closed)
+        details: |1-
+          - Took primary responsibility for the electrical tasks of the projects (built up control box and main control program), deployed as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd.
+
+  education:
+    title: Education
+    icon: fas fa-graduation-cap
+    list:
+      - degree: Ph.D. in Mechanical and Automotive Engineering
+        college: University of Ulsan (UOU)
+        dates: Sept. 2017 - Feb. 2021
+        thesis_title: "A Sensorless Reflecting Control for Bilateral Haptic Teleoperation System based on Pneumatic Artificial Muscle Actuators."
+        thesis_url: "https://docs.google.com/presentation/d/1nLnLlhYPKVGLjesrk4KOT9ENs8s9XkEa3xl5JVZ8FuU/edit?usp=sharing"
+      - degree: M.S. in Mechatronics Engineering
+        college: Ho Chi Minh City University of Technology and Education (UTE)
+        dates: Sept. 2014 - Jun. 2016
+        thesis_title: "Reception Robot: SLAM and Motion control."
+        thesis_url: "https://docs.google.com/presentation/d/1wyqDIYaALouqbnQDtUPNyZ__W0eyas9pKhxigUzK4HY/edit?usp=sharing"
+      - degree: B.S. in Electrical and Electronic Engineering Technology
+        college: Ho Chi Minh City University of Technology and Education (UTE)
+        dates: Sept. 2009 - Jul. 2013
+        thesis_title: "Research of a Network System using XBEE communication and its applications."
+        thesis_url: "https://docs.google.com/presentation/d/1I8YbRjhpZmD74Za1VniCQu2MkVlxSDewq7OfwQ2ha94/edit?usp=sharing"
+  publication:
+    title: Publications
+    icon: fas fa-book
+    format:
+      #- date
+      - title
+      #- authors
+      #- journal
+    types:
+      #- Journal Articles
+      #- Proceedings
+      - Details
+    list:
+      - title: >-
+          Google Scholar
+        authors: ""
+        date: ""
+        journal: ""
+        url: "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
+        type: Details
+      - title: >-
+          Web of Science
+        authors: ""
+        date: ""
+        journal: ""
+        url: "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
+        type: Details
+      - title: >-
+          Research Gate
+        authors: ""
+        date: ""
+        journal: ""
+        url: "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
+        type: Details
+  project:
+    title: Projects
+    icon: fas fa-project-diagram
+    list:
+      - title: Github
+        url: "https://github.com/phatcvo/"
+        description: This includes almost all of the open-source code from my personal research projects that can be shared publicly, along with a few private projects kept for security reasons.
+  skill:
+    title: Technical Skills
+    panelId: skill-panel
+    icon: fas fa-cogs
+    list:
+      - skill: "C/C++, Python, MATLAB, ROS, Git, Linux, Qt, Gym, Pygame, CVXOPT, Ipopt, MORAI, Carla, Gazebo, etc"
+      #   skillrating: 90
+      # - skill: Skill 3
+      #   skillrating: 80
+      # - skill: Skill 4
+      #   skillrating: 50
+  hobby:
+    title: Hobbies
+    icon: fas fa-gamepad
+    list:
+      - hobby: Cooking
+      - hobby: Hiking
+      - hobby: Baking

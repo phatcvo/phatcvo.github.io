@@ -6,7 +6,7 @@
 <meta name="description" content="{{ .Site.Params.description }}" />
 <meta name="author" content="{{ .Site.Params.author }}" />
 {{- $hugoGenerator := index (findRE `content=\"(.+)\"` hugo.Generator) 0 }}
-<meta name="generator" content="aafu theme by Darshan in {{ replaceRE `content=|\"` `` $hugoGenerator }}" />
+<meta name="generator" content="{{ replaceRE `content=|\"` `` $hugoGenerator }}" />
 
 {{ if .Site.Params.favicons.use }}
 {{- $metas := .Site.Params.favicons.metas }}

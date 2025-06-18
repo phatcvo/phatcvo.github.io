@@ -1,2 +1,10 @@
-tmp
+.idea
+node_modules/
+resources
+assets/style.css
+*.toml_
+hugo_stats.json
+.hugo_build.lock
+public/*
+build.ps1
 .vscode

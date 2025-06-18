@@ -1,0 +1,11 @@
+name = "phatcvo"
+description = ""
+homepage = "https://phatcvo.github.io/"
+tags = ["portfolio", "accordion", "resume", "blog", "tailwind"]
+features = ["responsive", "dark", "clean"]
+min_version = "0.134.3"
+theme_version = "2024.10.13"
+
+[author]
+  name = "Phat C. Vo"
+  homepage = "https://phatcvo.github.io/"
