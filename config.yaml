@@ -148,19 +148,19 @@ params:
       #- Proceedings
       # - Details
     list:
-      - title: Google Scholar
+      - site: Google Scholar
         # authors: ""
         # date: ""
         # journal: ""
         url: "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
         # type: Details
-      - title: Web of Science
+      - site: Web of Science
         # authors: ""
         # date: ""
         # journal: ""
         url: "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
         # type: Details
-      - title: Research Gate
+      - site: Research Gate
         # authors: ""
         # date: ""
         # journal: ""
