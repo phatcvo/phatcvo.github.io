@@ -179,8 +179,8 @@ params:
         description: 
       - title: Autonomous Mobile Robot (AMR)
         url: ""
-        description: |1-
-          I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms: a medium-scale robot, a logistics Autonomous Mobile Robot (AMR), and a larger-sized AMR. In each project, I developed and deployed core autonomy software using ROS, including:
+        details: |1-
+          I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms: a medium-scale robot, a logistics AMR, and a larger-sized AMR. In each project, I developed and deployed core autonomy software using ROS, including:
           - Global path planning and scenario generation based on factory map data. 
           - Local trajectory generation algorithms. 
           - Behavioral decision-making, such as obstacle avoidance strategies and speed scenario planning. 
@@ -190,7 +190,7 @@ params:
       - title: Beebot
         url: ""
         description: 
-      - title: Wego-Education Robot Plastform (ERP42)
+      - title: Wego-Education Robot Platform (ERP42)
         url: ""
         description: 
       - title: On The Way (OTW) Env.
