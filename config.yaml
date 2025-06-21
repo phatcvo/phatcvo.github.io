@@ -180,7 +180,8 @@ params:
     
       - title: Autonomous Mobile Robot (AMR)
         url: "#"
-        description: I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms: a medium-scale robot, a logistics AMR, and a larger-sized AMR. In each project, I developed and deployed core autonomy software using ROS, including:
+        description: |2-
+          I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms: a medium-scale robot, a logistics AMR, and a larger-sized AMR. In each project, I developed and deployed core autonomy software using ROS, including:
           - Global path planning and scenario generation based on factory map data. 
           - Local trajectory generation algorithms. 
           - Behavioral planning, such as obstacle avoidance strategies and speed scenario planning. 
