@@ -171,8 +171,8 @@ params:
     icon: fas fa-project-diagram
     list:
       - title: Fleet Management System (FMS)
-        url: "https://ar247.co.kr/"
-        dates: Dec. 2023 - *Present*
+        url: "#"
+        dates: Dec. 2024 - *Present*
         description: |1-
           - I designed and implemented a Fleet Management System (FMS) to coordinate and monitor multiple autonomous mobile robots (AMRs) operating within industrial environments such as factories and logistics centers. The system is responsible for centralized task assignment, traffic management, and inter-robot coordination, ensuring efficient and safe operation across a shared space. 
           Key features of the FMS include:
