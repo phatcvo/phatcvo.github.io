@@ -16,7 +16,7 @@ hugo server
 
 #### Configuration (`config.yaml`)
 
-Customize the theme by modifying the [`config.yaml`](https://github.com/phatcvo/main/config.yaml).
+Customize the theme by modifying the [`config.yaml`](https://github.com/phatcvo/phatcvo.github.io/blob/main/config.yaml).
 
 Key customization options:
 
