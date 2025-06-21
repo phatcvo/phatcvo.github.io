@@ -1,5 +1,3 @@
-## 🚀 Installation
-
 ### 🧪 Local Development
 
 The repository functions as a complete Hugo site out of the box. To run it locally:
@@ -23,10 +21,6 @@ Key customization options:
 - Define which sections appear in the accordion.
 - Control the order of sections.
 - Choose which section should be expanded by default.
-
-#### Profile Image
-
-Replace `profile.jpg` in `static/images` with your own profile picture.
 
 #### Theme Modes
 
