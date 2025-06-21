@@ -1,4 +1,10 @@
-{{ if .Site.Params.publication.types }}
+{{ range.Site.Params.publication.list }}
+<h4>
+  <a href="{{ .url }}">{{- .site -}}</a>
+</h4>
+{{ end }}
+
+{{/*  {{ if .Site.Params.publication.types }}
 {{ range.Site.Params.publication.types }}
 {{ $type := . }}
 <h4 style="text-decoration: underline;">{{ $type }}</h4>
@@ -24,4 +30,4 @@
   {{- end -}}
 </p>
 {{ end }}
-{{ end }}
+{{ end }}  */}}

@@ -55,7 +55,7 @@ params:
   aboutme:
     title: About Me
     icon: fas fa-user
-    description: My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management in Autonomous Mobility (Delivery/Patrol Robot, AMR, AGV, AV, ...)
+    description: My research topic of interest during my PhD includes Robust Control, Human-robot interaction, Optimization, Model Predictive Control and Reinforcement Learning in Robotics. Throughout the past years, I have worked on multiple research projects surrounding the topic of Designing Integrated Strategies for Modularized Robotics/Mobility Systems including self-driving vehicle in Uncertain Environments. My current work focuses on Motion Planning, Behavior Planning, Fleet Management System in Autonomous Mobility.
   experience:
     title: Experiences
     icon: fas fa-briefcase
@@ -65,11 +65,10 @@ params:
         url: "https://ar247.co.kr/"
         company: Motion Team · Autonomous Robot 24Hours 7Days (AR247)
         details: |1-
-          - Specializing in developing cutting-edge motion planning algorithms for Delivery/Security Patrol Robots, Autonomous Mobile Robots (AMR), and Self-driving Vehicles that revolutionize delivery, logistics, and warehouse operations. Expertise includes designing and implementing optimized trajectory planning strategies that ensure safe and efficient navigation. This work integrates 
-            - Advanced Behavior Planning: Designing algorithms for intelligent decision-making in complex environments. 
-            - Obstacle Avoidance: Developing robust solutions for static and dynamic obstacle detection and navigation. 
-            - Diverse Robot Platforms: From lightweight delivery robots to heavy-duty robots with steering-style mechanisms, tailored for industrial applications. In addition, as scalability 
-            - Fleet Management Systems: Optimizing multi-robot coordination and task allocation for seamless operations in real-time systems and distributed messaging environments (using MQTT, Rest API, etc.)
+          - Specializing in developing cutting-edge motion planning algorithms from lightweight to heavy-duty AMR with steering-style mechanism that revolutionize delivery, security patrol, logistics, and warehouse operations. Expertise includes designing and implementing:
+            - Generated local trajectory planning strategies that ensure safe and efficient navigation.
+            - Designed Behavior Planning algorithms for robust/intelligent decision-making in complex environments.
+            - Optimized multi-robot coordination and task allocation in Fleet Management Systems for seamless operations.
 
       - position: Postdoctoral Researcher
         dates: Agu. 2021 - Dec. 2023
@@ -139,44 +138,51 @@ params:
   publication:
     title: Publications
     icon: fas fa-book
-    format:
+    # format:
       #- date
-      - title
+      #- title
       #- authors
       #- journal
-    types:
+    # types:
       #- Journal Articles
       #- Proceedings
-      - Details
+      # - Details
     list:
-      - title: >-
-          Google Scholar
-        authors: ""
-        date: ""
-        journal: ""
+      - title: Google Scholar
+        # authors: ""
+        # date: ""
+        # journal: ""
         url: "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
-        type: Details
-      - title: >-
-          Web of Science
-        authors: ""
-        date: ""
-        journal: ""
+        # type: Details
+      - title: Web of Science
+        # authors: ""
+        # date: ""
+        # journal: ""
         url: "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
-        type: Details
-      - title: >-
-          Research Gate
-        authors: ""
-        date: ""
-        journal: ""
+        # type: Details
+      - title: Research Gate
+        # authors: ""
+        # date: ""
+        # journal: ""
         url: "https://www.researchgate.net/profile/Cong-Phat-Vo?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ"
-        type: Details
+        # type: Details
   project:
     title: Projects
     icon: fas fa-project-diagram
     list:
       - title: Fleet Management System (FMS)
-        url: "#"
-        description: I designed and implemented a Fleet Management System (FMS) to coordinate and monitor multiple autonomous mobile robots (AMRs) operating within industrial environments such as factories and logistics centers. The system is responsible for centralized task assignment, traffic management, and inter-robot coordination, ensuring efficient and safe operation across a shared space. Key features of the FMS include 1) Task Scheduling and Dispatching such as the FMS dynamically assigns delivery, patrol, or inspection tasks to each robot based on availability, proximity, and current workload. 2) Multi-Robot Path Planning and Conflict Resolution, I implemented routing algorithms that avoid congestion and resolve conflicts in real time. This includes handling priority-based rerouting and waiting strategies when multiple robots share narrow roads or intersections. 3) Real-Time Monitoring and Visualization, including the system includes a web-based dashboard (developed by the frontend team), which communicates with the FMS through MQTT. It provides live updates on robot positions, status, battery levels, and task progress, allowing operators to oversee the entire fleet remotely. 3) MQTT-Based Communication Framework, I developed a lightweight and scalable MQTT communication layer to support real-time, bidirectional messaging between the robots, the server, and the web interface. 4) Data Logging via REST API, All mission data, system status, and error logs are sent to a centralized database via a RESTful API, enabling historical analysis, reporting, and debugging. 5) Safety and Rule Enforcement; The FMS integrates safety checks based on virtual geofences, speed zones, and obstacle detection feedback to ensure safe operation alongside human workers and industrial vehicles such as forklifts and trucks. The FMS has been successfully deployed in factory environments where AMRs operate on shared internal roads, coordinating with each other and interacting with web-based tools and human operators. This system forms the central control layer for scalable, safe, and intelligent fleet operation—paving the way for smart factory automation.
+        url: "https://ar247.co.kr/"
+        dates: Dec. 2023 - *Present*
+        description: |1-
+          - I designed and implemented a Fleet Management System (FMS) to coordinate and monitor multiple autonomous mobile robots (AMRs) operating within industrial environments such as factories and logistics centers. The system is responsible for centralized task assignment, traffic management, and inter-robot coordination, ensuring efficient and safe operation across a shared space. 
+          Key features of the FMS include:
+            - Task Scheduling and Dispatching: the FMS dynamically assigns delivery, patrol, or inspection tasks to each robot based on availability, proximity, and current workload. 
+            - Multi-Robot Path Planning and Conflict Resolution: I implemented routing algorithms that avoid congestion and resolve conflicts in real time. This includes handling priority-based rerouting and waiting strategies when multiple robots share narrow roads or intersections. 
+            - Real-Time Monitoring and Visualization: the system includes a web-based dashboard (developed by the frontend team), which communicates with the FMS through MQTT. It provides live updates on robot positions, status, battery levels, and task progress, allowing operators to oversee the entire fleet remotely.
+            - MQTT-Based Communication Framework: I developed a lightweight and scalable MQTT communication layer to support real-time, bidirectional messaging between the robots, the server, and the web interface.
+            - Data Logging via REST API: All mission data, system status, and error logs are sent to a centralized database via a RESTful API, enabling historical analysis, reporting, and debugging. 
+            - Safety and Rule Enforcement: The FMS integrates safety checks based on virtual geofences, speed zones, and obstacle detection feedback to ensure safe operation alongside human workers and industrial vehicles such as forklifts and trucks. 
+          - The FMS has been successfully deployed in factory environments where AMRs operate on shared internal roads, coordinating with each other and interacting with web-based tools and human operators. This system forms the central control layer for scalable, safe, and intelligent fleet operation—paving the way for smart factory automation.
 
     
       - title: Autonomous Mobile Robot (AMR)
