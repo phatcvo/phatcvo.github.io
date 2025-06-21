@@ -195,9 +195,11 @@ params:
       - title: Education Robot Platform (ERP42)
         url: ""
         description: 
-      - title: On The Way (OTW) Env.
-        url: ""
-        description: 
+      - title: On The Way Env. (OTW)
+        url: "#"
+        description: This is an environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms.
+        image: "projects/otw1.gif"
+        source: "git@github.com:phatcvo/OTW-RML.git"
       - title: Human-Robot Teleoperation (HRT)
         url: ""
         description: 
