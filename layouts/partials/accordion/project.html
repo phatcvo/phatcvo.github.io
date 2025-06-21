@@ -1,15 +1,27 @@
 {{ range .Site.Params.project.list }}
-    <div class="mb-6">
-        <h4><a href="{{ .url }}">{{ .title }}</a></h4>
+  <div class="mb-6">
+    <h4><a href="{{ .url }}">{{ .title }}</a></h4>
 
-        {{ if .image }}
-        <img src="{{ .image }}" alt="{{ .title }} image" class="mb-2 w-full max-w-md rounded shadow">
-        {{ end }}
+    {{ if .source }}
+      <p class="mt-2">
+        🔗 <a href="{{ .source }}" target="_blank" class="text-blue-600 hover:underline">Source Code</a>
+      </p>
+    {{ end }}
+    {{ if .link }}
+      <p class="mt-2">
+        🔗 <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:underline">Related link</a>
+      </p>
+    {{ end }}
 
-        {{ if .description }}
-        <div class="prose prose-stone dark:prose-invert max-w-none">
-            {{ .description | markdownify }}
-        </div>
-        {{ end }}
-    </div>
+    {{ if .image }}
+      <img src="{{ .image }}" alt="{{ .title }} image" class="mb-2 w-full max-w-md rounded shadow">
+    {{ end }}
+
+    {{ if .description }}
+      <div class="prose prose-stone dark:prose-invert max-w-none">
+        {{ .description | markdownify }}
+      </div>
+    {{ end }}
+
+  </div>
 {{ end }}
