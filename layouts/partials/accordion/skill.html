@@ -12,12 +12,24 @@
     <code>{{ .skill }}</code>
     <div class="w-120 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 6.25rem;">
         <figure>
-            <img
-                src="https://wakatime.com/share/@phatcvo/56e85417-0b5f-4bb1-916e-b2d557bc9d8b.svg"
-                alt="Wakatime SVG Image"
-                style="width: 100%; height: 100%"
-            />
+            <figure>
+                <picture>
+                    <source
+                    srcset="https://wakatime.com/share/@phatcvo/5fe079e8-4a4b-44d0-b8b0-9c91cdefe0ab.svg"
+                    media="(prefers-color-scheme: dark)"
+                    />
+                    <img
+                    src="https://wakatime.com/share/@phatcvo/e7a25b4c-0eb0-403b-b90f-f340d122094e.svg"
+                    alt="Wakatime SVG Image"
+                    style="width: 100%; height: 100%"
+                    />
+                </picture>
+            </figure>   
         </figure>
         <div id="skill-percent" class="{{ .skillrating }}% bg-blue-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
     </div>
 {{ end }}
+
+
+{{/*  <figure><embed src="https://wakatime.com/share/@phatcvo/5fe079e8-4a4b-44d0-b8b0-9c91cdefe0ab.svg"></embed></figure>
+<figure><embed src="https://wakatime.com/share/@phatcvo/e7a25b4c-0eb0-403b-b90f-f340d122094e.svg"></embed></figure>  */}}
