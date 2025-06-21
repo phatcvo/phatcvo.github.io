@@ -174,18 +174,12 @@ params:
     title: Projects
     icon: fas fa-project-diagram
     list:
-      - title: Fleet Management System
+      - title: Fleet Management System (FMS)
         url: ""
         description: 
-      - title: Heavy Autonomous Mobile Robot 
+      - title: Autonomous Mobile Robot (AMR)
         url: ""
-        description: 
-      - title: Patrol Robot
-        url: ""
-        description:
-      - title: Delivery Robot
-        url: ""
-        description: 
+        description: I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms: a small-scale delivery robot, a logistics Autonomous Mobile Robot (AMR), and a larger-sized AMR. In each project, I developed and deployed core autonomy software using ROS, including: - Global path planning and scenario generation based on factory map data. - Local trajectory generation algorithms. - Behavioral decision-making, such as obstacle avoidance strategies and speed scenario planning. - Safety validation and collision risk assessment. I also created a simulation environment using RViz and developed a user interface using Qt to support system interaction and operational control. Additionally, I developed MQTT-based communication with a central server, enabling coordination and remote control—this functionality is further extended and detailed in (FMS) [#] project. These systems have been successfully deployed in industrial environments, including factories and construction sites, where they operate on shared internal roads alongside other vehicles such as trucks and forklifts. Their applications include last-mile delivery, security patrols, and public area operations.
       - title: Beebot
         url: ""
         description: 
@@ -194,11 +188,8 @@ params:
         description: 
       - title: OWT-env
         url: ""
-        description:
-      - title: Scout-mini
-        url: ""
         description: 
-      - title: Human-Robot Teleoperation
+      - title: Human-Robot Teleoperation (HRT)
         url: ""
         description: 
       - title: Network Control System (NCS)
@@ -207,7 +198,7 @@ params:
       - title: Variable Stiffness Actuator (VSA) 
         url: ""
         description: 
-      - title: Rotary Inverted Pendulum
+      - title: Rotary Inverted Pendulum (RIP)
         url: ""
         description: 
       - title: IoT-XBee Network
