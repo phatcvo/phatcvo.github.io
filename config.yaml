@@ -185,15 +185,15 @@ params:
           - Local trajectory generation algorithms. 
           - Behavioral decision-making, such as obstacle avoidance strategies and speed scenario planning. 
           - Safety validation and collision risk assessment. 
-          I also created a simulation environment using RViz and developed a user interface using Qt to support system interaction and operational control. Additionally, I developed MQTT-based communication with a central server, enabling coordination and remote control—this functionality is further extended and detailed in (FMS) [#] project. 
+          I also created a simulation environment using RViz and developed a user interface using Qt to support system interaction and operational control. Additionally, I developed MQTT-based communication with a central server, enabling coordination and remote control—this functionality is further extended and detailed in ('FMS') [#] project. 
           These systems have been successfully deployed in industrial environments, including factories and construction sites, where they operate on shared internal roads alongside other vehicles such as trucks and forklifts. Their applications include last-mile delivery, security patrols, and public area operations.
       - title: Beebot
         url: ""
         description: 
-      - title: ERP42-Wego
+      - title: Wego-Education Robot Plastform (ERP42)
         url: ""
         description: 
-      - title: OWT-env
+      - title: On The Way (OTW) Env.
         url: ""
         description: 
       - title: Human-Robot Teleoperation (HRT)
