@@ -180,14 +180,7 @@ params:
     
       - title: Autonomous Mobile Robot (AMR)
         url: "#"
-        description: |2-
-          I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms: a medium-scale robot, a logistics AMR, and a larger-sized AMR. In each project, I developed and deployed core autonomy software using ROS, including:
-          - Global path planning and scenario generation based on factory map data. 
-          - Local trajectory generation algorithms. 
-          - Behavioral planning, such as obstacle avoidance strategies and speed scenario planning. 
-          - Collision risk assessment and safety validation. 
-          I also created a simulation environment using RViz and developed a user interface using Qt to support system interaction and operational control. Additionally, I developed MQTT-based communication with a central server, enabling coordination and remote control—this functionality is further extended and detailed in ('FMS') [#] project. 
-          These systems have been successfully deployed in industrial environments, including factories and construction sites, where they operate on shared internal roads alongside other vehicles such as trucks and forklifts. Their applications include last-mile delivery, security patrols, and public area operations.
+        description: I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms: a medium-scale robot, a logistics AMR, and a larger-sized AMR. In each project, I developed and deployed core autonomy software using ROS, including: 1) Global path planning and scenario generation based on factory map data. 2) Local trajectory generation algorithms. 3) Behavioral planning, such as obstacle avoidance strategies and speed scenario planning. 4) Collision risk assessment and safety validation. I also created a simulation environment using RViz and developed a user interface using Qt to support system interaction and operational control. Additionally, I developed MQTT-based communication with a central server, enabling coordination and remote control—this functionality is further extended and detailed in ('FMS')[#] project. These systems have been successfully deployed in industrial environments, including factories and construction sites, where they operate on shared internal roads alongside other vehicles such as trucks and forklifts. Their applications include last-mile delivery, security patrols, and public area operations.
       - title: Beebot
         url: ""
         description: 
