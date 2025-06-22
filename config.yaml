@@ -194,7 +194,7 @@ params:
         url: ""
         image: "images/projects/HRT.png"
         description: |1-
-          Human-Robot Teleoperation (HRT) is the focus of my master’s thesis project, developed using MATLAB and supported by a series of published research works. It aims to establish a reliable and responsive teleoperation framework that balances both human control and robotic autonomy. The project addresses four key aspects:
+          Human-Robot Teleoperation (HRT) is the focus of my Ph.D. thesis project, developed using MATLAB and supported by a series of published research works. It aims to establish a reliable and responsive teleoperation framework that balances both human control and robotic autonomy. The project addresses four key aspects:
             - Robustness: Stable performance despite uncertainties from the operator, environment, or sensors.
             - Performance: Effective task execution with speed and accuracy.
             - Perception: Enhancing the operator’s awareness of the remote environment.
@@ -213,7 +213,7 @@ params:
       - title: Reception Robot
         url: ""
         image: "images/projects/Human.png"
-        description: This master’s thesis focuses on developing an autonomous service robot for indoor spaces such as lobbies, with contributions in SLAM-based map creation and tracking control for safe path following.
+        description: This M.S. thesis focuses on developing an autonomous service robot for indoor spaces such as lobbies, with contributions in SLAM-based map creation and tracking control for safe path following.
             
   skill:
     title: Technical Skills
