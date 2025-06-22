@@ -151,32 +151,31 @@ params:
     list:
       - title: Fleet Management System (FMS)
         url: "#"
-        dates: Nov. 2024 - *Present*
-        image: ""
+        image: "images/projects/FMS.gif"
         description: |1-
           This project is designed for deployment in factory environments where AMRs operate on shared internal roads. The system enables coordinated operation among robots and seamless interaction with web-based tools and human operators. It serves as the central control layer for scalable, safe, and intelligent fleet management—laying the foundation for smart factory automation. 
-        #  I was responsible for several core features, including:
-        #    - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
-        #    - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
-        #    - Real-Time Monitoring and Visualization: Utilizes a web-based dashboard with MQTT communication to support real-time, bidirectional messaging. It provides live updates on robot positions, status, battery levels, and task progress, allowing operators to remotely supervise the entire fleet. 
-        #  Additionally, all mission data, system statuses, and error logs are transmitted to a centralized database via a REST API. This enables comprehensive historical analysis, reporting, and debugging to ensure system reliability and continuous improvement.
+        # I was responsible for several core features, including:
+        # - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
+        # - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
+        # - Real-Time Monitoring and Visualization: Collaborated with the front-end team to integrate a web-based dashboard that supports real-time, bidirectional messaging. It provides live updates on robot positions, statuses, battery levels, and task progress, enabling operators to remotely supervise the entire fleet. All data logs are transmitted to a centralized database, supporting comprehensive historical analysis, reporting, and debugging.
     
       - title: Autonomous Mobile Robot (AMR)
         url: "#"
-        dates: Dec. 2023 - *Present*
-        image: "images/projects/FMS.gif"
+        image: ""
         description: |1-
           These robots with steering-style mechanisms have been deployed in last-mile delivery, security patrols, public areas, and industrial environments, where they operate on shared internal roads alongside other vehicles such as trucks and forklifts.
-        #  I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms. Across each project, I developed and deployed core autonomy software using ROS, including:
-        #    - Global Path Planning based on scenario requirements and factory map data.
-        #    - Local Trajectory Generation Algorithms for smooth and feasible motion control.
-        #    - Behavioral Planning for real-time decision-making, including obstacle avoidance strategies and speed profile planning.
-        #    - Collision Risk Assessment and Safety Validation to ensure reliable and safe navigation.
-        #  To support development and operation, I built a simulation environment using RViz and developed a custom Qt-based user interface to facilitate system interaction and operator control. Additionally, I implemented MQTT-based communication with a central server, enabling real-time coordination, remote control, and system status monitoring. This communication layer is further expanded and integrated in the Fleet Management System (FMS) project.
+        # I led the Motion Planning team in the concurrent development of autonomous capabilities across multiple robotic platforms. For each project, I developed core autonomy software, including:
+        #   - Global Navigation, tailored to scenario requirements and factory map data.
+        #   - Local Trajectory Generation Algorithms to ensure smooth and feasible motion control.
+        #   - Behavioral Planning for real-time decision-making, including obstacle avoidance and speed profile planning.
+        #   - Collision Risk Assessment and Safety Validation to guarantee reliable and safe navigation.
+        # To support development and operations, I built a simulation environment and developed a custom user interface to facilitate system interaction and operator control. Additionally, communication with a central server is maintained to enable real-time coordination, remote control, and system status monitoring—fully integrated into the FMS project.
+
       - title: Beebot
         url: ""
         source: "https://github.com/phatcvo/Beebot.git"
         description: This open-source project transforms a basic mobile robot into a fully autonomous system capable of navigating environments, avoiding obstacles, and executing tasks independently—without any human intervention. As a personal project, it was developed with the goal of building a complete autonomous robot stack from the ground up. The purpose was to create a practical platform for testing and validating various algorithms in real-world conditions. Through this project, I was able to integrate and experiment with key robotics modules in a realistic setting, accelerating development and deepening my understanding of autonomous systems beyond simulation environments.
+
       - title: Education Robot Platform (ERP42)
         url: ""
         image: "images/projects/ERP42.png"
@@ -185,6 +184,7 @@ params:
             - Local planning algorithms, enabling the robot to navigate dynamic environments with smooth and collision-free trajectories.
             - Motion tracking and control logic, ensuring accurate path following and stability under varying conditions.
           To support development and evaluation, I published key planning and tracking data to ROS topics, allowing for real-time visualization, logging, and further analysis. This setup provided a practical and extensible environment for experimenting with and validating autonomous driving algorithms on a compact, education-oriented platform.
+
       - title: On The Way Env. (OTW)
         url: "#"
         image: "images/projects/OTW.gif"
@@ -200,6 +200,7 @@ params:
             - Perception: Enhancing the operator’s awareness of the remote environment.
             - Transparency: Accurately reflecting the environment and robot state to the operator. 
           To find further details in my thesis defense presentation available in the Education section.
+
       - title: Variable Stiffness Actuator (VSA) 
         url: ""
         image: "images/projects/VSA.jpg"
