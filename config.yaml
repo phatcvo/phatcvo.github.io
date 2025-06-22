@@ -164,7 +164,7 @@ params:
       - title: Autonomous Mobile Robot (AMR)
         url: "#"
         dates: Dec. 2023 - *Present*
-        image: ""
+        image: "images/projects/FMS.gif"
         description: |1-
           These robots with steering-style mechanisms have been deployed in last-mile delivery, security patrols, public areas, and industrial environments, where they operate on shared internal roads alongside other vehicles such as trucks and forklifts.
         #  I led the Motion Planning team in the concurrent development of autonomous capabilities for multiple robotic platforms. Across each project, I developed and deployed core autonomy software using ROS, including:
