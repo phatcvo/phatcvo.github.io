@@ -157,7 +157,7 @@ params:
         # I was responsible for several core features, including:
         # - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
         # - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
-        # - Real-Time Monitoring and Visualization: Collaborated with the front-end team to integrate a web-based dashboard that supports real-time, bidirectional messaging. It provides live updates on robot positions, statuses, battery levels, and task progress, enabling operators to remotely supervise the entire fleet. All data logs are transmitted to a centralized database, supporting comprehensive historical analysis, reporting, and debugging.
+        # - Monitoring and Visualization: Collaborated with the front-end team to integrate a web-based dashboard that supports real-time, bidirectional messaging and logging database. It provides live updates on robot statuses, and task progress, enabling operators to remotely supervise the entire fleet.
     
       - title: Autonomous Mobile Robot (AMR)
         url: "#"
@@ -186,7 +186,7 @@ params:
           To support development and evaluation, I published key planning and tracking data to ROS topics, allowing for real-time visualization, logging, and further analysis. This setup provided a practical and extensible environment for experimenting with and validating autonomous driving algorithms on a compact, education-oriented platform.
 
       - title: On The Way Env. (OTW)
-        url: "#"
+        url: "https://github.com/phatcvo/OnTheWay.git"
         image: "images/projects/OTW.gif"
         description: This is an environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms.
         
@@ -221,7 +221,15 @@ params:
     panelId: skill-panel
     icon: fas fa-cogs
     list:
-      - skill: "C/C++, Python, MATLAB, ROS1/ROS2, Git, Linux, MQTT/REST API, Qt, Gym, Pygame, CVXOPT, Ipopt, MORAI, Carla, Gazebo, etc"
+      - skill: "Programming Language: C++, Python, MATLAB, Embedded C, Arduino, Bash, Cmake, PLC,..."
+        skillrating: 80
+      - skill: "Frameworks/Libraries: MQTT/REST API, Qt, Gym, PyTorch, Pygame, CVXOPT, Ipopt, ..."
+        skillrating: 80
+      - skill: "DevTools: ROS1/ROS2, RViz, Git, Docker, ..."
+        skillrating: 80
+      - skill: "Simulators: MORAI, Gazebo, Carla, MATLAB Simulink, ..."
+        skillrating: 80
+      
   hobby:
     title: Hobbies
     icon: fas fa-gamepad
