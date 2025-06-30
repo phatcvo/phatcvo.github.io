@@ -10,26 +10,25 @@
 </script>
 {{ range.Site.Params.skill.list }}
     <code>{{ .skill }}</code>
-    <div class="w-120 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 0.25rem;">
-        {{/*  <figure>
-            <figure>
-                <picture>
-                    <source
-                    srcset="https://wakatime.com/share/@phatcvo/5fe079e8-4a4b-44d0-b8b0-9c91cdefe0ab.svg"
-                    media="(prefers-color-scheme: dark)"
-                    />
-                    <img
-                    src="https://wakatime.com/share/@phatcvo/e7a25b4c-0eb0-403b-b90f-f340d122094e.svg"
-                    alt="Wakatime SVG Image"
-                    style="width: 100%; height: 100%"
-                    />
-                </picture>
-            </figure>   
-        </figure>
-        <div id="skill-percent" class="{{ .skillrating }}% bg-blue-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>  */}}
+    <div class="w-120 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 22.65rem;">
+        <figure>
+            <!-- Light theme WakaTime chart -->
+            <img
+                id="wakatime-light"
+                src="https://wakatime.com/share/@phatcvo/3448f2e6-dcc5-42e8-803d-ff693904bcfa.svg"
+                alt="Wakatime SVG Image (Light)"
+                style="width: 100%; height: 100%"
+                class="block dark:hidden"
+            />
+            <!-- Dark theme WakaTime chart -->
+            <img
+                id="wakatime-dark"
+                src="https://wakatime.com/share/@phatcvo/3978c619-7cbd-4bb6-9c0d-7273e5a8c142.svg"
+                alt="Wakatime SVG Image (Dark)"
+                style="width: 100%; height: 100%"
+                class="hidden dark:block"
+            />
+            </figure>
+        {{/*  <div id="skill-percent" class="{{ .skillrating }}% bg-blue-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>  */}}
     </div>
 {{ end }}
-
-
-{{/*  <figure><embed src="https://wakatime.com/share/@phatcvo/5fe079e8-4a4b-44d0-b8b0-9c91cdefe0ab.svg"></embed></figure>
-<figure><embed src="https://wakatime.com/share/@phatcvo/e7a25b4c-0eb0-403b-b90f-f340d122094e.svg"></embed></figure>  */}}

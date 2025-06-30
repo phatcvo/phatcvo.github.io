@@ -221,14 +221,8 @@ params:
     panelId: skill-panel
     icon: fas fa-cogs
     list:
-      - skill: "Programming Language: C++, Python, MATLAB, Embedded C, Arduino, Bash, Cmake, PLC,..."
-        skillrating: 80
-      - skill: "Frameworks/Libraries: MQTT/REST API, Qt, Gym, PyTorch, Pygame, CVXOPT, Ipopt, ..."
-        skillrating: 80
-      - skill: "DevTools: ROS1/ROS2, RViz, Git, Docker, ..."
-        skillrating: 80
-      - skill: "Simulators: MORAI, Gazebo, Carla, MATLAB Simulink, ..."
-        skillrating: 80
+      - skill: "[Programming Language] C++, Python, MATLAB, Embedded C, Arduino, Bash, Cmake, PLC. [Frameworks/Libraries] MQTT/REST API, Qt, Gym, PyTorch, Pygame, CVXOPT, Ipopt. [DevTools/Simulators]: ROS1/ROS2, RViz, Git, Docker, MORAI, Gazebo, Carla, MATLAB Simulink"
+        # skillrating: 80
       
   hobby:
     title: Hobbies
