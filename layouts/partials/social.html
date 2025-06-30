@@ -2,10 +2,21 @@
 <h2 class="mb-0">{{ .Site.Params.profile.tagline }}</h2>
 <h3 class="mb-4">{{ .Site.Params.profile.location }}</h3>
 <figure>
+  <!-- Light theme WakaTime chart -->
   <img
-    src="https://wakatime.com/share/@phatcvo/56e85417-0b5f-4bb1-916e-b2d557bc9d8b.svg"
-    alt="Wakatime SVG Image"
+    id="wakatime-light"
+    src="https://wakatime.com/share/@phatcvo/e7a25b4c-0eb0-403b-b90f-f340d122094e.svg"
+    alt="Wakatime SVG Image (Light)"
     style="width: 100%; height: 100%"
+    class="block dark:hidden"
+  />
+  <!-- Dark theme WakaTime chart -->
+  <img
+    id="wakatime-dark"
+    src="https://wakatime.com/share/@phatcvo/5fe079e8-4a4b-44d0-b8b0-9c91cdefe0ab.svg"
+    alt="Wakatime SVG Image (Dark)"
+    style="width: 100%; height: 100%"
+    class="hidden dark:block"
   />
 </figure>
 <div class="mb-4 flex flex-wrap justify-center">
