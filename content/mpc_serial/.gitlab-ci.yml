@@ -1,0 +1,15 @@
+image: rust:latest  # Correct official Rust image
+
+before_script:
+  - cargo install mdbook --vers 0.4.36
+
+pages:
+  stage: deploy
+  script:
+    - mdbook build
+    - mv book public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main  # Or your branch name

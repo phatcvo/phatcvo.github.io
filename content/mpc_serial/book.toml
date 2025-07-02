@@ -1,0 +1,20 @@
+[book]
+authors = ["The Contributors"]
+language = "en"
+multilingual = false
+src = "src"
+title = "AR Documentation"
+
+[build]
+create-missing = false
+
+[preprocessor.open-on-gh]
+command = "mdbook-open-on-gh"
+renderer = ["html"]
+
+[output.html]
+git-repository-url = ""
+additional-css = ["open-in.css"]
+
+[output.html.fold]
+enable = true
