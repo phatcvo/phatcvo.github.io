@@ -10,6 +10,7 @@ draft: false
 # Table of contents
 
 - [Table of contents](#table-of-contents)
+- [Deep Reinforcement Learning](#deep-reinforcement-learning)
 - [Optimal Control:](#optimal-control)
   - [Dynamic Programming](#dynamic-programming)
   - [Linear Programming](#linear-programming)
@@ -47,7 +48,6 @@ draft: false
   - [Representation Learning](#representation-learning)
   - [Offline](#offline)
   - [Other](#other)
-- [Deep Reinforcement Learning](#deep-reinforcement-learning)
 - [Learning from Demonstrations:](#learning-from-demonstrations)
   - [Imitation Learning](#imitation-learning)
     - [Applications to Autonomous Driving:](#applications-to-autonomous-driving)
@@ -62,6 +62,10 @@ draft: false
 
 ![RL Diagram](https://raw.githubusercontent.com/phatcvo/phatcv/master/content/blog/post_2/RL.svg)
 
+# Deep Reinforcement Learning
+
+* **`DRL`** [Deep Reinforcement Learning](https://phatcvo.github.io/Lec-DRL)
+  
 # Optimal Control:
 
 ## Dynamic Programming
@@ -469,10 +473,7 @@ draft: false
 * [On Value Functions and the Agent-Environment Boundary](https://arxiv.org/abs/1905.13341), Jiang N. (2019).
 * [How to Train Your Robot with Deep Reinforcement Learning; Lessons We've Learned](https://arxiv.org/abs/2102.02915), Ibartz J. et al (2021).
 
-# Deep Reinforcement Learning
 
-* **`DRL`** [Deep Reinforcement Learning](https://phatcvo.github.io/Lec-DRL)
-  
 # Learning from Demonstrations:
 
 ## Imitation Learning
