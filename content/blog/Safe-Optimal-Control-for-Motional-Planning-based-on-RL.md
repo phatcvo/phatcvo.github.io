@@ -60,7 +60,7 @@ draft: false
   - [Reactive](#reactive)
   - [Architecture and applications](#architecture-and-applications)
 
-![RL Diagram](https://raw.githubusercontent.com/phatcvo/phatcv/master/content/blog/post_2/RL.svg)
+![RL Diagram](https://raw.githubusercontent.com/phatcvo/phatcv/master/content/blog/img/RL.svg)
 
 # Deep Reinforcement Learning
 
@@ -249,14 +249,13 @@ draft: false
 ## Theory:
 
 * [Expected mistake bound model for on-line reinforcement learning](https://pdfs.semanticscholar.org/13b8/1dd08aab636c3761c5eb4337dbe43aedaf31.pdf), Fiechter C-N. (1997).
-* **`UCRL2`** [Near-optimal Regret Bounds for Reinforcement Learning](http://www.jmlr.org/papers/volume11/jaksch10a/jaksch10a.pdf), Jaksch T. (2010). ![Setting](https://img.shields.io/badge/setting-average-green)![Setting](https://img.shields.io/badge/communicating-orange)![Bound](https://img.shields.io/badge/DS(AT)^0.5-orange)
-* **`PSRL`** [Why is Posterior Sampling Better than Optimism for Reinforcement Learning?](https://arxiv.org/abs/1607.00215), Osband I., Van Roy B. (2016). ![Setting](https://img.shields.io/badge/setting-episodic-green) ![Bayesian](https://img.shields.io/badge/bayesian-green)
-* **`UCBVI`** [Minimax Regret Bounds for Reinforcement Learning](http://proceedings.mlr.press/v70/azar17a.html), Azar M., Osband I., Munos R. (2017). ![Setting](https://img.shields.io/badge/setting-episodic-green)![Bound](https://img.shields.io/badge/(H²SAT)^0.5-orange)
-* **`Q-Learning-UCB`** [Is Q-Learning Provably Efficient?](https://papers.nips.cc/paper/7735-is-q-learning-provably-efficient), Jin C., Allen-Zhu Z., Bubeck S., Jordan M. (2018). ![Setting](https://img.shields.io/badge/setting-episodic-green) ![Bound](https://img.shields.io/badge/(H^3SAT)^0.5-orange)
-* **`LSVI-UCB`** [Provably Efficient Reinforcement Learning with Linear Function Approximation](https://arxiv.org/abs/1907.05388), Jin C., Yang Z., Wang Z., Jordan M. (2019). ![Setting](https://img.shields.io/badge/setting-episodic-green) ![Spaces](https://img.shields.io/badge/approximation-linear-green)
+* **`UCRL2`** [Near-optimal Regret Bounds for Reinforcement Learning](http://www.jmlr.org/papers/volume11/jaksch10a/jaksch10a.pdf), Jaksch T. (2010). 
+* **`PSRL`** [Why is Posterior Sampling Better than Optimism for Reinforcement Learning?](https://arxiv.org/abs/1607.00215), Osband I., Van Roy B. (2016). 
+* **`UCBVI`** [Minimax Regret Bounds for Reinforcement Learning](http://proceedings.mlr.press/v70/azar17a.html), Azar M., Osband I., Munos R. (2017). 
+* **`Q-Learning-UCB`** [Is Q-Learning Provably Efficient?](https://papers.nips.cc/paper/7735-is-q-learning-provably-efficient), Jin C., Allen-Zhu Z., Bubeck S., Jordan M. (2018). 
+* **`LSVI-UCB`** [Provably Efficient Reinforcement Learning with Linear Function Approximation](https://arxiv.org/abs/1907.05388), Jin C., Yang Z., Wang Z., Jordan M. (2019). 
 * [Lipschitz Continuity in Model-based Reinforcement Learning](https://arxiv.org/abs/1804.07193), Asadi K. et al (2018).
-* [On Function Approximation in Reinforcement Learning: Optimism in the Face of Large State Spaces](https://arxiv.org/abs/2011.04622), Yang Z., Jin C., Wang Z., Wang M., Jordan M. (2021) ![Setting](https://img.shields.io/badge/setting-episodic-green) ![Spaces](https://img.shields.io/badge/approximation-kernel/nn-green) ![Bound](https://img.shields.io/badge/delta.H^2(T)^0.5-orange)
-
+* [On Function Approximation in Reinforcement Learning: Optimism in the Face of Large State Spaces](https://arxiv.org/abs/2011.04622), Yang Z., Jin C., Wang Z., Wang M., Jordan M. (2021)
 ### Generative Model
 
 *  **`QVI`** [On the Sample Complexity of Reinforcement Learning with a Generative Model](https://arxiv.org/abs/1206.6461), Azar M., Munos R., Kappen B. (2012).
@@ -279,8 +278,8 @@ draft: false
 * **`Coarse-Id`** [On the Sample Complexity of the Linear Quadratic Regulator](https://arxiv.org/abs/1710.01688), Dean S., Mania H., Matni N., Recht B., Tu S. (2017).
 * [Regret Bounds for Robust Adaptive Control of the Linear Quadratic Regulator](http://papers.nips.cc/paper/7673-regret-bounds-for-robust-adaptive-control-of-the-linear-quadratic-regulator), Dean S. et al (2018).
 * [Robust exploration in linear quadratic reinforcement learning](https://papers.nips.cc/paper/9668-robust-exploration-in-linear-quadratic-reinforcement-learning), Umenberger J. et al (2019).
-* [Online Control with Adversarial Disturbances](https://arxiv.org/abs/1902.08721), Agarwal N. et al (2019).  ![Noise](https://img.shields.io/badge/noise-adversarial-red)![Costs](https://img.shields.io/badge/costs-convex-green)
-* [Logarithmic Regret for Online Control](https://arxiv.org/abs/1909.05062), Agarwal N. et al (2019).  ![Noise](https://img.shields.io/badge/noise-adversarial-red)![Costs](https://img.shields.io/badge/costs-convex-green)
+* [Online Control with Adversarial Disturbances](https://arxiv.org/abs/1902.08721), Agarwal N. et al (2019).  
+* [Logarithmic Regret for Online Control](https://arxiv.org/abs/1909.05062), Agarwal N. et al (2019). 
 
 ## Value-based:
 
