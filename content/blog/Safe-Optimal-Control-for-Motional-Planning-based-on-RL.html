@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-18">
+<meta name="description" content="Safe-Optimal Control for Motional Planning based on Reinforcement Learning: Survey">
+
+<title>[Survey] Safe-Optimal Control for Motional Planning based on RL</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/quarto-html/popper.min.js"></script>
+<script src="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Safe-Optimal-Control-for-Motional-Planning-based-on-RL_files/libs/bootstrap/bootstrap-bb8a42f168430693d1c0fc26666c4cdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">[Survey] Safe-Optimal Control for Motional Planning based on RL</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Motion Planning</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Safe-Optimal Control for Motional Planning based on Reinforcement Learning: Survey
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 18, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="table-of-contents" class="level1">
+<h1>Table of contents</h1>
+<ul>
+<li><a href="#table-of-contents">Table of contents</a></li>
+<li><a href="#deep-reinforcement-learning">Deep Reinforcement Learning</a></li>
+<li><a href="#optimal-control">Optimal Control:</a>
+<ul>
+<li><a href="#dynamic-programming">Dynamic Programming</a></li>
+<li><a href="#linear-programming">Linear Programming</a></li>
+<li><a href="#tree-based-planning">Tree-Based Planning</a></li>
+<li><a href="#control-theory">Control Theory</a></li>
+<li><a href="#model-predictive-control">Model Predictive Control</a></li>
+</ul></li>
+<li><a href="#safe-control-">Safe Control :</a>
+<ul>
+<li><a href="#robust-control">Robust Control</a></li>
+<li><a href="#risk-averse-control">Risk-Averse Control</a></li>
+<li><a href="#value-constrained-control">Value-Constrained Control</a></li>
+<li><a href="#state-constrained-control-and-stability">State-Constrained Control and Stability</a></li>
+<li><a href="#uncertain-dynamical-systems">Uncertain Dynamical Systems</a></li>
+</ul></li>
+<li><a href="#game-theory">Game Theory:</a></li>
+<li><a href="#sequential-learning">Sequential Learning:</a>
+<ul>
+<li><a href="#multi-armed-bandit">Multi-Armed Bandit:</a>
+<ul>
+<li><a href="#contextual">Contextual</a></li>
+<li><a href="#best-arm-identification">Best Arm Identification:</a></li>
+<li><a href="#black-box-optimization">Black-box Optimization:</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning:</a>
+<ul>
+<li><a href="#theory">Theory:</a>
+<ul>
+<li><a href="#generative-model">Generative Model</a></li>
+<li><a href="#policy-gradient">Policy Gradient</a></li>
+<li><a href="#linear-systems">Linear Systems</a></li>
+</ul></li>
+<li><a href="#value-based">Value-based:</a></li>
+<li><a href="#policy-based">Policy-based:</a>
+<ul>
+<li><a href="#policy-gradient-1">Policy gradient</a></li>
+<li><a href="#actor-critic">Actor-critic</a></li>
+<li><a href="#derivative-free">Derivative-free</a></li>
+</ul></li>
+<li><a href="#model-based">Model-based:</a></li>
+<li><a href="#exploration">Exploration:</a></li>
+<li><a href="#hierarchy-and-temporal-abstraction">Hierarchy and Temporal Abstraction:</a></li>
+<li><a href="#partial-observability">Partial Observability:</a></li>
+<li><a href="#transfer">Transfer:</a></li>
+<li><a href="#multi-agent">Multi-agent:</a></li>
+<li><a href="#representation-learning">Representation Learning</a></li>
+<li><a href="#offline">Offline</a></li>
+<li><a href="#other">Other</a></li>
+</ul></li>
+<li><a href="#learning-from-demonstrations">Learning from Demonstrations:</a>
+<ul>
+<li><a href="#imitation-learning">Imitation Learning</a>
+<ul>
+<li><a href="#applications-to-autonomous-driving">Applications to Autonomous Driving:</a></li>
+</ul></li>
+<li><a href="#inverse-reinforcement-learning">Inverse Reinforcement Learning</a>
+<ul>
+<li><a href="#applications-to-autonomous-driving-1">Applications to Autonomous Driving:</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#motion-planning">Motion Planning:</a>
+<ul>
+<li><a href="#search">Search</a></li>
+<li><a href="#sampling">Sampling</a></li>
+<li><a href="#optimization">Optimization</a></li>
+<li><a href="#reactive">Reactive</a></li>
+<li><a href="#architecture-and-applications">Architecture and applications</a></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/phatcvo/phatcv/master/content/blog/img/RL.svg" class="img-fluid figure-img"></p>
+<figcaption>RL Diagram</figcaption>
+</figure>
+</div>
+</section>
+<section id="deep-reinforcement-learning" class="level1">
+<h1>Deep Reinforcement Learning</h1>
+<ul>
+<li><strong><code>DRL</code></strong> <a href="https://phatcvo.github.io/Lec-DRL">Deep Reinforcement Learning</a></li>
+</ul>
+</section>
+<section id="optimal-control" class="level1">
+<h1>Optimal Control:</h1>
+<section id="dynamic-programming" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-programming">Dynamic Programming</h2>
+<ul>
+<li>(book) <a href="https://press.princeton.edu/titles/9234.html">Dynamic Programming</a>, Bellman R. (1957).</li>
+<li>(book) <a href="http://web.mit.edu/dimitrib/www/dpchapter.html">Dynamic Programming and Optimal Control, Volumes 1 and 2</a>, Bertsekas D. (1995).</li>
+<li>(book) <a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118625870.html">Markov Decision Processes - Discrete Stochastic Dynamic Programming</a>, Puterman M. (1995).</li>
+<li><a href="https://www.cis.upenn.edu/~mkearns/teaching/cis620/papers/SinghYee.pdf">An Upper Bound on the Loss from Approximate Optimal-Value Functions</a>, Singh S., Yee R. (1994).</li>
+<li><a href="https://link.springer.com/article/10.1057%2Fjors.2014.40">Stochastic optimization of sailing trajectories in an upwind regatta</a>, Dalang R. et al.&nbsp;(2015).</li>
+</ul>
+</section>
+<section id="linear-programming" class="level2">
+<h2 class="anchored" data-anchor-id="linear-programming">Linear Programming</h2>
+<ul>
+<li>(book) <a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118625870.html">Markov Decision Processes - Discrete Stochastic Dynamic Programming</a>, Puterman M. (1995).</li>
+<li><strong><code>REPS</code></strong> <a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI10/paper/viewFile/1851/2264">Relative Entropy Policy Search</a>, Peters J. et al.&nbsp;(2010).</li>
+</ul>
+</section>
+<section id="tree-based-planning" class="level2">
+<h2 class="anchored" data-anchor-id="tree-based-planning">Tree-Based Planning</h2>
+<ul>
+<li><strong><code>ExpectiMinimax</code></strong> <a href="http://www.inf.u-szeged.hu/actacybernetica/edb/vol18n2/pdf/Melko_2007_ActaCybernetica.pdf">Optimal strategy in games with chance nodes</a>, Melkó E., Nagy B. (2007).</li>
+<li><strong><code>Sparse sampling</code></strong> <a href="https://www.cis.upenn.edu/~mkearns/papers/sparsesampling-journal.pdf">A sparse sampling algorithm for near-optimal planning in large Markov decision processes</a>, Kearns M. et al.&nbsp;(2002).</li>
+<li><strong><code>MCTS</code></strong> <a href="https://hal.inria.fr/inria-00116992/document">Efficient Selectivity and Backup Operators in Monte-Carlo Tree Search</a>, Rémi Coulom, <em>SequeL</em> (2006).</li>
+<li><strong><code>UCT</code></strong> <a href="http://ggp.stanford.edu/readings/uct.pdf">Bandit based Monte-Carlo Planning</a>, Kocsis L., Szepesvári C. (2006).</li>
+<li><a href="https://hal.inria.fr/inria-00136198v2">Bandit Algorithms for Tree Search</a>, Coquelin P-A., Munos R. (2007).</li>
+<li><strong><code>OPD</code></strong> <a href="https://hal.inria.fr/hal-00830182">Optimistic Planning for Deterministic Systems</a>, Hren J., Munos R. (2008).</li>
+<li><strong><code>OLOP</code></strong> <a href="http://sbubeck.com/COLT10_BM.pdf">Open Loop Optimistic Planning</a>, Bubeck S., Munos R. (2010).</li>
+<li><strong><code>SOOP</code></strong> <a href="http://researchers.lille.inria.fr/munos/papers/files/adprl13-soop.pdf">Optimistic Planning for Continuous-Action Deterministic Systems</a>, Buşoniu L. et al.&nbsp;(2011).</li>
+<li><strong><code>OPSS</code></strong> <a href="https://www.dcsc.tudelft.nl/~bdeschutter/pub/rep/11_007.pdf">Optimistic planning for sparsely stochastic systems</a>, L. Buşoniu, R. Munos, B. De Schutter, and R. Babuska (2011).</li>
+<li><strong><code>HOOT</code></strong> <a href="https://www.aaai.org/ocs/index.php/ICAPS/ICAPS11/paper/viewFile/2679/3175">Sample-Based Planning for Continuous ActionMarkov Decision Processes</a>, Mansley C., Weinstein A., Littman M. (2011).</li>
+<li><strong><code>HOLOP</code></strong> <a href="https://pdfs.semanticscholar.org/a445/d8cc503781c481c3f3c4ee1758b862b3e869.pdf">Bandit-Based Planning and Learning inContinuous-Action Markov Decision Processes</a>, Weinstein A., Littman M. (2012).</li>
+<li><strong><code>BRUE</code></strong> <a href="https://www.jair.org/index.php/jair/article/view/10905/26003">Simple Regret Optimization in Online Planning for Markov Decision Processes</a>, Feldman Z. and Domshlak C. (2014).</li>
+<li><strong><code>LGP</code></strong> <a href="https://ipvs.informatik.uni-stuttgart.de/mlr/papers/15-toussaint-IJCAI.pdf">Logic-Geometric Programming: An Optimization-Based Approach to Combined Task and Motion Planning</a>, Toussaint M. (2015). <a href="https://www.youtube.com/watch?v=B2s85xfo2uE">🎞️</a></li>
+<li><strong><code>AlphaGo</code></strong> <a href="https://www.nature.com/articles/nature16961">Mastering the game of Go with deep neural networks and tree search</a>, Silver D. et al.&nbsp;(2016).</li>
+<li><strong><code>AlphaGo Zero</code></strong> <a href="https://www.nature.com/articles/nature24270">Mastering the game of Go without human knowledge</a>, Silver D. et al.&nbsp;(2017).</li>
+<li><strong><code>AlphaZero</code></strong> <a href="https://arxiv.org/abs/1712.01815">Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm</a>, Silver D. et al.&nbsp;(2017).</li>
+<li><strong><code>TrailBlazer</code></strong> <a href="https://papers.nips.cc/paper/6253-blazing-the-trails-before-beating-the-path-sample-efficient-monte-carlo-planning.pdf">Blazing the trails before beating the path: Sample-efficient Monte-Carlo planning</a>, Grill J. B., Valko M., Munos R. (2017).</li>
+<li><strong><code>MCTSnets</code></strong> <a href="https://arxiv.org/abs/1802.04697">Learning to search with MCTSnets</a>, Guez A. et al.&nbsp;(2018).</li>
+<li><strong><code>ADI</code></strong> <a href="https://arxiv.org/abs/1805.07470">Solving the Rubik’s Cube Without Human Knowledge</a>, McAleer S. et al.&nbsp;(2018).</li>
+<li><strong><code>OPC/SOPC</code></strong> <a href="http://busoniu.net/files/papers/aut18.pdf">Continuous-action planning for discounted inﬁnite-horizon nonlinear optimal control with Lipschitz values</a>, Buşoniu L., Pall E., Munos R. (2018).</li>
+<li><a href="http://proceedings.mlr.press/v101/osogami19a.html">Real-time tree search with pessimistic scenarios: Winning the NeurIPS 2018 Pommerman Competition</a>, Osogami T., Takahashi T. (2019)</li>
+</ul>
+</section>
+<section id="control-theory" class="level2">
+<h2 class="anchored" data-anchor-id="control-theory">Control Theory</h2>
+<ul>
+<li>(book) <a href="https://books.google.fr/books?id=kwzq0F4cBVAC&amp;printsec=frontcover&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">The Mathematical Theory of Optimal Processes</a>, L. S. Pontryagin, Boltyanskii V. G., Gamkrelidze R. V., and Mishchenko E. F. (1962).</li>
+<li>(book) <a href="http://www.springer.com/gp/book/9781852335489">Constrained Control and Estimation</a>, Goodwin G. (2005).</li>
+<li><strong><code>PI²</code></strong> <a href="http://www.jmlr.org/papers/volume11/theodorou10a/theodorou10a.pdf">A Generalized Path Integral Control Approach to Reinforcement Learning</a>, Theodorou E. et al.&nbsp;(2010).</li>
+<li><strong><code>PI²-CMA</code></strong> <a href="https://arxiv.org/abs/1206.4621">Path Integral Policy Improvement with Covariance Matrix Adaptation</a>, Stulp F., Sigaud O. (2010).</li>
+<li><strong><code>iLQG</code></strong> <a href="http://maeresearch.ucsd.edu/skelton/publications/weiwei_ilqg_CDC43.pdf">A generalized iterative LQG method for locally-optimal feedback control of constrained nonlinear stochastic systems</a>, Todorov E. (2005). <a href="https://github.com/neka-nat/ilqr-gym">:octocat:</a></li>
+<li><strong><code>iLQG+</code></strong> <a href="https://homes.cs.washington.edu/~todorov/papers/TassaIROS12.pdf">Synthesis and stabilization of complex behaviors through online trajectory optimization</a>, Tassa Y. (2012).</li>
+</ul>
+</section>
+<section id="model-predictive-control" class="level2">
+<h2 class="anchored" data-anchor-id="model-predictive-control">Model Predictive Control</h2>
+<ul>
+<li>(book) <a href="http://een.iust.ac.ir/profs/Shamaghdari/MPC/Resources/">Model Predictive Control</a>, Camacho E. (1995).</li>
+<li>(book) <a href="https://books.google.fr/books/about/Predictive_Control.html?id=HV_Y58c7KiwC&amp;redir_esc=y">Predictive Control With Constraints</a>, Maciejowski J. M. (2002).</li>
+<li><a href="http://ieeexplore.ieee.org/document/6728261/">Linear Model Predictive Control for Lane Keeping and Obstacle Avoidance on Low Curvature Roads</a>, Turri V. et al.&nbsp;(2013).</li>
+<li><strong><code>MPCC</code></strong> <a href="https://arxiv.org/abs/1711.07300">Optimization-based autonomous racing of 1:43 scale RC cars</a>, Liniger A. et al.&nbsp;(2014). <a href="https://www.youtube.com/watch?v=mXaElWYQKC4">🎞️</a> | <a href="https://www.youtube.com/watch?v=JoHfJ6LEKVo">🎞️</a></li>
+<li><strong><code>MIQP</code></strong> <a href="https://hal.archives-ouvertes.fr/hal-01342358v1/document">Optimal trajectory planning for autonomous driving integrating logical constraints: An MIQP perspective</a>, Qian X., Altché F., Bender P., Stiller C. de La Fortelle A. (2016).</li>
+</ul>
+</section>
+</section>
+<section id="safe-control" class="level1">
+<h1>Safe Control :</h1>
+<section id="robust-control" class="level2">
+<h2 class="anchored" data-anchor-id="robust-control">Robust Control</h2>
+<ul>
+<li><a href="https://www2.isye.gatech.edu/~anton/MinimaxSP.pdf">Minimax analysis of stochastic problems</a>, Shapiro A., Kleywegt A. (2002).</li>
+<li><strong><code>Robust DP</code></strong> <a href="https://www.researchgate.net/publication/220442530/download">Robust Dynamic Programming</a>, Iyengar G. (2005).</li>
+<li><a href="https://www.researchgate.net/profile/Francisco_Perez-Galarce/post/can_anyone_recommend_a_report_or_article_on_two_stage_robust_optimization/attachment/59d62578c49f478072e9a500/AS%3A272164542976002%401441900491330/download/2011+-+Robust+planning+and+optimization.pdf">Robust Planning and Optimization</a>, Laumanns M. (2011). (lecture notes)</li>
+<li><a href="https://pubsonline.informs.org/doi/pdf/10.1287/moor.1120.0566">Robust Markov Decision Processes</a>, Wiesemann W., Kuhn D., Rustem B. (2012).</li>
+<li><a href="http://www.dynsyslab.org/wp-content/papercite-data/pdf/berkenkamp-ecc15.pdf">Safe and Robust Learning Control with Gaussian Processes</a>, Berkenkamp F., Schoellig A. (2015). <a href="https://www.youtube.com/watch?v=YqhLnCm0KXY">🎞️</a></li>
+<li><strong><code>Tube-MPPI</code></strong> <a href="http://www.roboticsproceedings.org/rss14/p42.pdf">Robust Sampling Based Model Predictive Control with Sparse Objective Information</a>, Williams G. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=32v-e3dptjo">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/2108.06266">Safe Learning in Robotics: From Learning-Based Control to Safe Reinforcement Learning</a>, Lukas Bronke et al.&nbsp;(2021). <a href="https://github.com/utiasDSL/safe-control-gym">:octocat:</a></li>
+</ul>
+</section>
+<section id="risk-averse-control" class="level2">
+<h2 class="anchored" data-anchor-id="risk-averse-control">Risk-Averse Control</h2>
+<ul>
+<li><a href="http://jmlr.org/papers/v16/garcia15a.html">A Comprehensive Survey on Safe Reinforcement Learning</a>, García J., Fernández F. (2015).</li>
+<li><strong><code>RA-QMDP</code></strong> <a href="https://arxiv.org/abs/1812.01254">Risk-averse Behavior Planning for Autonomous Driving under Uncertainty</a>, Naghshvar M. et al.&nbsp;(2018).</li>
+<li><strong><code>StoROO</code></strong> <a href="https://arxiv.org/abs/1904.08205">X-Armed Bandits: Optimizing Quantiles and Other Risks</a>, Torossian L., Garivier A., Picheny V. (2019).</li>
+<li><a href="https://arxiv.org/abs/1911.03618">Worst Cases Policy Gradients</a>, Tang Y. C. et al.&nbsp;(2019).</li>
+<li><a href="https://arxiv.org/abs/2111.02907">Model-Free Risk-Sensitive Reinforcement Learning</a>, Delétang G. et al.&nbsp;(2021).</li>
+<li><a href="https://proceedings.mlr.press/v139/baudry21a.html">Optimal Thompson Sampling strategies for support-aware CVaR bandits</a>, Baudry D., Gautron R., Kaufmann E., Maillard O. (2021).</li>
+</ul>
+</section>
+<section id="value-constrained-control" class="level2">
+<h2 class="anchored" data-anchor-id="value-constrained-control">Value-Constrained Control</h2>
+<ul>
+<li><strong><code>ICS</code></strong> <a href="https://hal.inria.fr/hal-00965176">Will the Driver Seat Ever Be Empty?</a>, Fraichard T. (2014).</li>
+<li><strong><code>SafeOPT</code></strong> <a href="https://arxiv.org/abs/1509.01066">Safe Controller Optimization for Quadrotors with Gaussian Processes</a>, Berkenkamp F., Schoellig A., Krause A. (2015). <a href="https://www.youtube.com/watch?v=GiqNQdzc5TI">🎞️</a> <a href="https://github.com/befelix/SafeOpt">:octocat:</a></li>
+<li><strong><code>SafeMDP</code></strong> <a href="https://arxiv.org/abs/1606.04753">Safe Exploration in Finite Markov Decision Processes with Gaussian Processes</a>, Turchetta M., Berkenkamp F., Krause A. (2016). <a href="https://github.com/befelix/SafeMDP">:octocat:</a></li>
+<li><strong><code>RSS</code></strong> <a href="https://arxiv.org/abs/1708.06374">On a Formal Model of Safe and Scalable Self-driving Cars</a>, Shalev-Shwartz S. et al.&nbsp;(2017).</li>
+<li><strong><code>CPO</code></strong> <a href="https://arxiv.org/abs/1705.10528">Constrained Policy Optimization</a>, Achiam J., Held D., Tamar A., Abbeel P. (2017). <a href="https://github.com/jachiam/cpo">:octocat:</a></li>
+<li><strong><code>RCPO</code></strong> <a href="https://arxiv.org/abs/1805.11074">Reward Constrained Policy Optimization</a>, Tessler C., Mankowitz D., Mannor S. (2018).</li>
+<li><strong><code>BFTQ</code></strong> <a href="https://hal.archives-ouvertes.fr/hal-01867353">A Fitted-Q Algorithm for Budgeted MDPs</a>, Carrara N. et al.&nbsp;(2018).</li>
+<li><strong><code>SafeMPC</code></strong> <a href="https://arxiv.org/abs/1803.08287">Learning-based Model Predictive Control for Safe Exploration</a>, Koller T, Berkenkamp F., Turchetta M. Krause A. (2018).</li>
+<li><strong><code>CCE</code></strong> <a href="https://papers.nips.cc/paper/7974-constrained-cross-entropy-method-for-safe-reinforcement-learning">Constrained Cross-Entropy Method for Safe Reinforcement Learning</a>, Wen M., Topcu U. (2018). <a href="https://github.com/liuzuxin/safe-mbrl">:octocat:</a></li>
+<li><strong><code>LTL-RL</code></strong> <a href="https://arxiv.org/abs/1904.07189">Reinforcement Learning with Probabilistic Guarantees for Autonomous Driving</a>, Bouton M. et al.&nbsp;(2019).</li>
+<li><a href="https://arxiv.org/abs/1904.11483v1">Safe Reinforcement Learning with Scene Decomposition for Navigating Complex Urban Environments</a>, Bouton M. et al.&nbsp;(2019). <a href="https://github.com/sisl/AutomotivePOMDPs.jl">:octocat:</a></li>
+<li><a href="https://arxiv.org/abs/1903.08738">Batch Policy Learning under Constraints</a>, Le H., Voloshin C., Yue Y. (2019).</li>
+<li><a href="https://arxiv.org/abs/1902.04623">Value constrained model-free continuous control</a>, Bohez S. et al (2019). <a href="https://sites.google.com/view/successatanycost">🎞️</a></li>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/8814865">Safely Learning to Control the Constrained Linear Quadratic Regulator</a>, Dean S. et al (2019).</li>
+<li><a href="https://arxiv.org/abs/2002.08550">Learning to Walk in the Real World with Minimal Human Effort</a>, Ha S. et al.&nbsp;(2020) <a href="https://youtu.be/cwyiq6dCgOc">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/2007.03964">Responsive Safety in Reinforcement Learning by PID Lagrangian Methods</a>, Stooke A., Achiam J., Abbeel P. (2020). <a href="https://github.com/astooke/rlpyt/tree/master/rlpyt/projects/safe">:octocat:</a></li>
+<li><strong><code>Envelope MOQ-Learning</code></strong> <a href="https://arxiv.org/abs/1908.08342">A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation</a>, Yang R. et al (2019).</li>
+</ul>
+</section>
+<section id="state-constrained-control-and-stability" class="level2">
+<h2 class="anchored" data-anchor-id="state-constrained-control-and-stability">State-Constrained Control and Stability</h2>
+<ul>
+<li><strong><code>HJI-reachability</code></strong> <a href="http://kth.diva-portal.org/smash/get/diva2:1140173/FULLTEXT01.pdf">Safe learning for control: Combining disturbance estimation, reachability analysis and reinforcement learning with systematic exploration</a>, Heidenreich C. (2017).</li>
+<li><strong><code>MPC-HJI</code></strong> <a href="https://stanfordasl.github.io/wp-content/papercite-data/pdf/Leung.Schmerling.Chen.ea.ISER18.pdf">On Infusing Reachability-Based Safety Assurance within Probabilistic Planning Frameworks for Human-Robot Vehicle Interactions</a>, Leung K. et al.&nbsp;(2018).</li>
+<li><a href="https://arxiv.org/abs/1705.01292">A General Safety Framework for Learning-Based Control in Uncertain Robotic Systems</a>, Fisac J. et al (2017). <a href="https://www.youtube.com/watch?v=WAAxyeSk2bw&amp;feature=youtu.be">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1705.08551">Safe Model-based Reinforcement Learning with Stability Guarantees</a>, Berkenkamp F. et al.&nbsp;(2017).</li>
+<li><strong><code>Lyapunov-Net</code></strong> <a href="https://arxiv.org/abs/1911.06556">Safe Interactive Model-Based Learning</a>, Gallieri M. et al.&nbsp;(2019).</li>
+<li><a href="https://arxiv.org/abs/2011.08105">Enforcing robust control guarantees within neural network policies</a>, Donti P. et al.&nbsp;(2021). <a href="https://github.com/locuslab/robust-nn-control">:octocat:</a></li>
+<li><strong><code>ATACOM</code></strong> <a href="https://openreview.net/forum?id=zwo1-MdMl1P">Robot Reinforcement Learning on the Constraint Manifold</a>, Liu P. et al (2021).</li>
+</ul>
+</section>
+<section id="uncertain-dynamical-systems" class="level2">
+<h2 class="anchored" data-anchor-id="uncertain-dynamical-systems">Uncertain Dynamical Systems</h2>
+<ul>
+<li><a href="https://www.sciencedirect.com/science/article/pii/009630039400112H">Simulation of Controlled Uncertain Nonlinear Systems</a>, Tibken B., Hofer E. (1995).</li>
+<li><a href="https://ieeexplore.ieee.org/iel5/8969/28479/01272787.pdf">Trajectory computation of dynamic uncertain systems</a>, Adrot O., Flaus J-M. (2002).</li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S1474667016362206">Simulation of Uncertain Dynamic Systems Described By Interval Models: a Survey</a>, Puig V. et al.&nbsp;(2005).</li>
+<li><a href="https://hal.inria.fr/hal-01276439/file/Interval_Survey.pdf">Design of interval observers for uncertain dynamical systems</a>, Efimov D., Raïssi T. (2016).</li>
+</ul>
+</section>
+</section>
+<section id="game-theory" class="level1">
+<h1>Game Theory:</h1>
+<ul>
+<li><a href="https://arxiv.org/abs/1810.05766">Hierarchical Game-Theoretic Planning for Autonomous Vehicles</a>, Fisac J. et al.&nbsp;(2018).</li>
+<li><a href="https://arxiv.org/abs/1909.04694">Efficient Iterative Linear-Quadratic Approximations for Nonlinear Multi-Player General-Sum Differential Games</a>, Fridovich-Keil D. et al.&nbsp;(2019). <a href="https://www.youtube.com/watch?v=KPEPk-QrkQ8&amp;feature=youtu.be">🎞️</a></li>
+</ul>
+</section>
+<section id="sequential-learning" class="level1">
+<h1>Sequential Learning:</h1>
+<ul>
+<li><a href="https://www.ii.uni.wroc.pl/~lukstafi/pmwiki/uploads/AGT/Prediction_Learning_and_Games.pdf">Prediction, Learning and Games</a>, Cesa-Bianchi N., Lugosi G. (2006).</li>
+</ul>
+<section id="multi-armed-bandit" class="level2">
+<h2 class="anchored" data-anchor-id="multi-armed-bandit">Multi-Armed Bandit:</h2>
+<ul>
+<li><strong><code>TS</code></strong> <a href="https://www.jstor.org/stable/pdf/2332286.pdf">On the Likelihood that One Unknown Probability Exceeds Another in View of the Evidence of Two Samples</a>, Thompson W. (1933).</li>
+<li><a href="https://www3.nd.edu/~ggoertz/abmir/march1991.pdf">Exploration and Exploitation in Organizational Learning</a>, March J. (1991).</li>
+<li><strong><code>UCB1 / UCB2</code></strong> <a href="https://homes.di.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf">Finite-time Analysis of the Multiarmed Bandit Problem</a>, Auer P., Cesa-Bianchi N., Fischer P. (2002).</li>
+<li><strong><code>Empirical Bernstein / UCB-V</code></strong> <a href="https://hal.inria.fr/hal-00711069/">Exploration-exploitation tradeoff using variance estimates in multi-armed bandits</a>, Audibert J-Y, Munos R., Szepesvari C. (2009).</li>
+<li><a href="https://arxiv.org/abs/0907.3740">Empirical Bernstein Bounds and Sample Variance Penalization</a>, Maurer A., Ponti M. (2009).</li>
+<li><a href="https://papers.nips.cc/paper/4321-an-empirical-evaluation-of-thompson-sampling">An Empirical Evaluation of Thompson Sampling</a>, Chapelle O., Li L. (2011).</li>
+<li><strong><code>kl-UCB</code></strong> <a href="https://arxiv.org/abs/1102.2490">The KL-UCB Algorithm for Bounded Stochastic Bandits and Beyond</a>, Garivier A., Cappé O. (2011).</li>
+<li><strong><code>KL-UCB</code></strong> <a href="https://projecteuclid.org/euclid.aos/1375362558">Kullback-Leibler Upper Confidence Bounds for Optimal Sequential Allocation</a>, Cappé O. et al.&nbsp;(2013).</li>
+<li><strong><code>IDS</code></strong> <a href="https://arxiv.org/abs/1801.09667">Information Directed Sampling and Bandits with Heteroscedastic Noise</a> Kirschner J., Krause A. (2018).</li>
+</ul>
+<section id="contextual" class="level4">
+<h4 class="anchored" data-anchor-id="contextual">Contextual</h4>
+<ul>
+<li><strong><code>LinUCB</code></strong> <a href="https://arxiv.org/abs/1003.0146">A Contextual-Bandit Approach to Personalized News Article Recommendation</a>, Li L. et al.&nbsp;(2010).</li>
+<li><strong><code>OFUL</code></strong> <a href="https://papers.nips.cc/paper/4417-improved-algorithms-for-linear-stochastic-bandits">Improved Algorithms for Linear Stochastic Bandits</a>, Abbasi-yadkori Y., Pal D., Szepesvári C. (2011).</li>
+<li><a href="http://proceedings.mlr.press/v15/chu11a.html">Contextual Bandits with Linear Payoff Functions</a>, Chu W. et al.&nbsp;(2011).</li>
+<li><a href="https://hal.archives-ouvertes.fr/hal-01349727v2">Self-normalization techniques for streaming confident regression</a>, Maillard O.-A. (2017).</li>
+<li><a href="https://arxiv.org/abs/1807.09387">Learning from Delayed Outcomes via Proxies with Applications to Recommender Systems</a> Mann T. et al.&nbsp;(2018). (prediction setting)</li>
+<li><a href="https://arxiv.org/abs/1909.09146">Weighted Linear Bandits for Non-Stationary Environments</a>, Russac Y. et al.&nbsp;(2019).</li>
+<li><a href="http://proceedings.mlr.press/v119/vernade20a.html">Linear bandits with Stochastic Delayed Feedback</a>, Vernade C. et al.&nbsp;(2020).</li>
+</ul>
+</section>
+<section id="best-arm-identification" class="level3">
+<h3 class="anchored" data-anchor-id="best-arm-identification">Best Arm Identification:</h3>
+<ul>
+<li><strong><code>Successive Elimination</code></strong> <a href="http://jmlr.csail.mit.edu/papers/volume7/evendar06a/evendar06a.pdf">Action Elimination and Stopping Conditions for the Multi-Armed Bandit and Reinforcement Learning Problems</a>, Even-Dar E. et al.&nbsp;(2006).</li>
+<li><strong><code>LUCB</code></strong> <a href="https://www.cse.iitb.ac.in/~shivaram/papers/ktas_icml_2012.pdf">PAC Subset Selection in Stochastic Multi-armed Bandits</a>, Kalyanakrishnan S. et al.&nbsp;(2012).</li>
+<li><strong><code>UGapE</code></strong> <a href="https://hal.archives-ouvertes.fr/hal-00747005">Best Arm Identification: A Unified Approach to Fixed Budget and Fixed Confidence</a>, Gabillon V., Ghavamzadeh M., Lazaric A. (2012).</li>
+<li><strong><code>Sequential Halving</code></strong> <a href="http://proceedings.mlr.press/v28/karnin13.pdf">Almost Optimal Exploration in Multi-Armed Bandits</a>, Karnin Z. et al (2013).</li>
+<li><strong><code>M-LUCB / M-Racing</code></strong> <a href="https://arxiv.org/abs/1602.04676">Maximin Action Identification: A New Bandit Framework for Games</a>, Garivier A., Kaufmann E., Koolen W. (2016).</li>
+<li><strong><code>Track-and-Stop</code></strong> <a href="https://arxiv.org/abs/1602.04589">Optimal Best Arm Identification with Fixed Confidence</a>, Garivier A., Kaufmann E. (2016).</li>
+<li><strong><code>LUCB-micro</code></strong> <a href="https://arxiv.org/abs/1706.05198">Structured Best Arm Identification with Fixed Confidence</a>, Huang R. et al.&nbsp;(2017).</li>
+</ul>
+</section>
+<section id="black-box-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="black-box-optimization">Black-box Optimization:</h3>
+<ul>
+<li><strong><code>GP-UCB</code></strong> <a href="https://arxiv.org/abs/0912.3995">Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design</a>, Srinivas N., Krause A., Kakade S., Seeger M. (2009).</li>
+<li><strong><code>HOO</code></strong> <a href="https://arxiv.org/abs/1001.4475">X–Armed Bandits</a>, Bubeck S., Munos R., Stoltz G., Szepesvari C. (2009).</li>
+<li><strong><code>DOO/SOO</code></strong> <a href="https://papers.nips.cc/paper/4304-optimistic-optimization-of-a-deterministic-function-without-the-knowledge-of-its-smoothness">Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness</a>, Munos R. (2011).</li>
+<li><strong><code>StoOO</code></strong> <a href="https://hal.archives-ouvertes.fr/hal-00747575v4/">From Bandits to Monte-Carlo Tree Search: The Optimistic Principle Applied to Optimization and Planning</a>, Munos R. (2014).</li>
+<li><strong><code>StoSOO</code></strong> <a href="http://proceedings.mlr.press/v28/valko13.pdf">Stochastic Simultaneous Optimistic Optimization</a>, Valko M., Carpentier A., Munos R. (2013).</li>
+<li><strong><code>POO</code></strong> <a href="https://hal.inria.fr/hal-01222915v4/">Black-box optimization of noisy functions with unknown smoothness</a>, Grill J-B., Valko M., Munos R. (2015).</li>
+<li><strong><code>EI-GP</code></strong> <a href="https://arxiv.org/abs/1812.06855">Bayesian Optimization in AlphaGo</a>, Chen Y. et al.&nbsp;(2018)</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="reinforcement-learning" class="level1">
+<h1>Reinforcement Learning:</h1>
+<ul>
+<li><a href="https://www.jair.org/media/301/live-301-1562-jair.pdf">Reinforcement learning: A survey</a>, Kaelbling L. et al.&nbsp;(1996).</li>
+</ul>
+<section id="theory" class="level2">
+<h2 class="anchored" data-anchor-id="theory">Theory:</h2>
+<ul>
+<li><p><a href="https://pdfs.semanticscholar.org/13b8/1dd08aab636c3761c5eb4337dbe43aedaf31.pdf">Expected mistake bound model for on-line reinforcement learning</a>, Fiechter C-N. (1997).</p></li>
+<li><p><strong><code>UCRL2</code></strong> <a href="http://www.jmlr.org/papers/volume11/jaksch10a/jaksch10a.pdf">Near-optimal Regret Bounds for Reinforcement Learning</a>, Jaksch T. (2010).</p></li>
+<li><p><strong><code>PSRL</code></strong> <a href="https://arxiv.org/abs/1607.00215">Why is Posterior Sampling Better than Optimism for Reinforcement Learning?</a>, Osband I., Van Roy B. (2016).</p></li>
+<li><p><strong><code>UCBVI</code></strong> <a href="http://proceedings.mlr.press/v70/azar17a.html">Minimax Regret Bounds for Reinforcement Learning</a>, Azar M., Osband I., Munos R. (2017).</p></li>
+<li><p><strong><code>Q-Learning-UCB</code></strong> <a href="https://papers.nips.cc/paper/7735-is-q-learning-provably-efficient">Is Q-Learning Provably Efficient?</a>, Jin C., Allen-Zhu Z., Bubeck S., Jordan M. (2018).</p></li>
+<li><p><strong><code>LSVI-UCB</code></strong> <a href="https://arxiv.org/abs/1907.05388">Provably Efficient Reinforcement Learning with Linear Function Approximation</a>, Jin C., Yang Z., Wang Z., Jordan M. (2019).</p></li>
+<li><p><a href="https://arxiv.org/abs/1804.07193">Lipschitz Continuity in Model-based Reinforcement Learning</a>, Asadi K. et al (2018).</p></li>
+<li><p><a href="https://arxiv.org/abs/2011.04622">On Function Approximation in Reinforcement Learning: Optimism in the Face of Large State Spaces</a>, Yang Z., Jin C., Wang Z., Wang M., Jordan M. (2021) ### Generative Model</p></li>
+<li><p><strong><code>QVI</code></strong> <a href="https://arxiv.org/abs/1206.6461">On the Sample Complexity of Reinforcement Learning with a Generative Model</a>, Azar M., Munos R., Kappen B. (2012).</p></li>
+<li><p><a href="https://arxiv.org/abs/1906.03804">Model-Based Reinforcement Learning with a Generative Model is Minimax Optimal</a>, Agarwal A. et al.&nbsp;(2019).</p></li>
+</ul>
+<section id="policy-gradient" class="level3">
+<h3 class="anchored" data-anchor-id="policy-gradient">Policy Gradient</h3>
+<ul>
+<li><a href="https://papers.nips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation">Policy Gradient Methods for Reinforcement Learning with Function Approximation</a>, Sutton R. et al (2000).</li>
+<li><a href="https://people.eecs.berkeley.edu/~pabbeel/cs287-fa09/readings/KakadeLangford-icml2002.pdf">Approximately Optimal Approximate Reinforcement Learning</a>, Kakade S., Langford J. (2002).</li>
+<li><a href="https://arxiv.org/abs/1908.00261">On the Theory of Policy Gradient Methods: Optimality, Approximation, and Distribution Shift</a>, Agarwal A. et al.&nbsp;(2019)</li>
+<li><a href="https://arxiv.org/abs/2007.08459">PC-PG: Policy Cover Directed Exploration for Provable Policy Gradient Learning</a>, Agarwal A. et al.&nbsp;(2020)</li>
+<li><a href="https://arxiv.org/abs/1906.07073">Is the Policy Gradient a Gradient?</a>, Nota C., Thomas P. S. (2020).</li>
+</ul>
+</section>
+<section id="linear-systems" class="level3">
+<h3 class="anchored" data-anchor-id="linear-systems">Linear Systems</h3>
+<ul>
+<li><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.49.339&amp;rep=rep1&amp;type=pdf">PAC Adaptive Control of Linear Systems</a>, Fiechter C.-N. (1997)</li>
+<li><strong><code>OFU-LQ</code></strong> <a href="http://proceedings.mlr.press/v19/abbasi-yadkori11a/abbasi-yadkori11a.pdf">Regret Bounds for the Adaptive Control of Linear Quadratic Systems</a>, Abbasi-Yadkori Y., Szepesvari C. (2011).</li>
+<li><strong><code>TS-LQ</code></strong> <a href="http://proceedings.mlr.press/v80/abeille18a.html">Improved Regret Bounds for Thompson Sampling in Linear Quadratic Control Problems</a>, Abeille M., Lazaric A. (2018).</li>
+<li><a href="https://tel.archives-ouvertes.fr/tel-01816069/">Exploration-Exploitation with Thompson Sampling in Linear Systems</a>, Abeille M. (2017). (phd thesis)</li>
+<li><strong><code>Coarse-Id</code></strong> <a href="https://arxiv.org/abs/1710.01688">On the Sample Complexity of the Linear Quadratic Regulator</a>, Dean S., Mania H., Matni N., Recht B., Tu S. (2017).</li>
+<li><a href="http://papers.nips.cc/paper/7673-regret-bounds-for-robust-adaptive-control-of-the-linear-quadratic-regulator">Regret Bounds for Robust Adaptive Control of the Linear Quadratic Regulator</a>, Dean S. et al (2018).</li>
+<li><a href="https://papers.nips.cc/paper/9668-robust-exploration-in-linear-quadratic-reinforcement-learning">Robust exploration in linear quadratic reinforcement learning</a>, Umenberger J. et al (2019).</li>
+<li><a href="https://arxiv.org/abs/1902.08721">Online Control with Adversarial Disturbances</a>, Agarwal N. et al (2019).<br>
+</li>
+<li><a href="https://arxiv.org/abs/1909.05062">Logarithmic Regret for Online Control</a>, Agarwal N. et al (2019).</li>
+</ul>
+</section>
+</section>
+<section id="value-based" class="level2">
+<h2 class="anchored" data-anchor-id="value-based">Value-based:</h2>
+<ul>
+<li><strong><code>NFQ</code></strong> <a href="http://ml.informatik.uni-freiburg.de/former/_media/publications/rieecml05.pdf">Neural fitted Q iteration - First experiences with a data efficient neural Reinforcement Learning method</a>, Riedmiller M. (2005).</li>
+<li><strong><code>DQN</code></strong> <a href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf">Playing Atari with Deep Reinforcement Learning</a>, Mnih V. et al.&nbsp;(2013). <a href="https://www.youtube.com/watch?v=iqXKQf2BOSE">🎞️</a></li>
+<li><strong><code>DDQN</code></strong> <a href="https://arxiv.org/abs/1509.06461">Deep Reinforcement Learning with Double Q-learning</a>, van Hasselt H., Silver D. et al.&nbsp;(2015).</li>
+<li><strong><code>DDDQN</code></strong> <a href="https://arxiv.org/abs/1511.06581">Dueling Network Architectures for Deep Reinforcement Learning</a>, Wang Z. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=qJd3yaEN9Sw">🎞️</a></li>
+<li><strong><code>PDDDQN</code></strong> <a href="https://arxiv.org/abs/1511.05952">Prioritized Experience Replay</a>, Schaul T. et al.&nbsp;(2015).</li>
+<li><strong><code>NAF</code></strong> <a href="https://arxiv.org/abs/1603.00748">Continuous Deep Q-Learning with Model-based Acceleration</a>, Gu S. et al.&nbsp;(2016).</li>
+<li><strong><code>Rainbow</code></strong> <a href="https://arxiv.org/abs/1710.02298">Rainbow: Combining Improvements in Deep Reinforcement Learning</a>, Hessel M. et al.&nbsp;(2017).</li>
+<li><strong><code>Ape-X DQfD</code></strong> <a href="https://arxiv.org/abs/1805.11593">Observe and Look Further: Achieving Consistent Performance on Atari</a>, Pohlen T. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=-0xOdnoxAFo&amp;index=4&amp;list=PLnZpNNVLsMmOfqMwJLcpLpXKLr3yKZ8Ak">🎞️</a></li>
+</ul>
+</section>
+<section id="policy-based" class="level2">
+<h2 class="anchored" data-anchor-id="policy-based">Policy-based:</h2>
+<section id="policy-gradient-1" class="level3">
+<h3 class="anchored" data-anchor-id="policy-gradient-1">Policy gradient</h3>
+<ul>
+<li><strong><code>REINFORCE</code></strong> <a href="http://www-anw.cs.umass.edu/~barto/courses/cs687/williams92simple.pdf">Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning</a>, Williams R. (1992).</li>
+<li><strong><code>Natural Gradient</code></strong> <a href="https://papers.nips.cc/paper/2073-a-natural-policy-gradient.pdf">A Natural Policy Gradient</a>, Kakade S. (2002).</li>
+<li><a href="http://www.kyb.mpg.de/fileadmin/user_upload/files/publications/attachments/IROS2006-Peters_%5b0%5d.pdf">Policy Gradient Methods for Robotics</a>, Peters J., Schaal S. (2006).</li>
+<li><strong><code>TRPO</code></strong> <a href="https://arxiv.org/abs/1502.05477">Trust Region Policy Optimization</a>, Schulman J. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=KJ15iGGJFvQ">🎞️</a></li>
+<li><strong><code>PPO</code></strong> <a href="https://arxiv.org/abs/1707.06347">Proximal Policy Optimization Algorithms</a>, Schulman J. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=bqdjsmSoSgI">🎞️</a></li>
+<li><strong><code>DPPO</code></strong> <a href="https://arxiv.org/abs/1707.02286">Emergence of Locomotion Behaviours in Rich Environments</a>, Heess N. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=hx_bgoTF7bs">🎞️</a></li>
+</ul>
+</section>
+<section id="actor-critic" class="level3">
+<h3 class="anchored" data-anchor-id="actor-critic">Actor-critic</h3>
+<ul>
+<li><strong><code>AC</code></strong> <a href="https://papers.nips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf">Policy Gradient Methods for Reinforcement Learning with Function Approximation</a>, Sutton R. et al.&nbsp;(1999).</li>
+<li><strong><code>NAC</code></strong> <a href="https://homes.cs.washington.edu/~todorov/courses/amath579/reading/NaturalActorCritic.pdf">Natural Actor-Critic</a>, Peters J. et al.&nbsp;(2005).</li>
+<li><strong><code>DPG</code></strong> <a href="http://proceedings.mlr.press/v32/silver14.pdf">Deterministic Policy Gradient Algorithms</a>, Silver D. et al.&nbsp;(2014).</li>
+<li><strong><code>DDPG</code></strong> <a href="https://arxiv.org/abs/1509.02971">Continuous Control With Deep Reinforcement Learning</a>, Lillicrap T. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=lV5JhxsrSH8">🎞️ 1</a> |&nbsp;<a href="https://www.youtube.com/watch?v=8CNck-hdys8">2</a> | <a href="https://www.youtube.com/watch?v=xw73qehvSRQ">3</a> | <a href="https://www.youtube.com/watch?v=vWxBmHRnQMI">4</a></li>
+<li><strong><code>MACE</code></strong> <a href="https://www.cs.ubc.ca/~van/papers/2016-TOG-deepRL/index.html">Terrain-Adaptive Locomotion Skills Using Deep Reinforcement Learning</a>, Peng X., Berseth G., van de Panne M. (2016). <a href="https://www.youtube.com/watch?v=KPfzRSBzNX4">🎞️</a> | <a href="https://www.youtube.com/watch?v=A0BmHoujP9k">🎞️</a></li>
+<li><strong><code>A3C</code></strong> <a href="https://arxiv.org/abs/1602.01783">Asynchronous Methods for Deep Reinforcement Learning</a>, Mnih V. et al 2016. <a href="https://www.youtube.com/watch?v=Ajjc08-iPx8">🎞️ 1</a> | <a href="https://www.youtube.com/watch?v=0xo1Ldx3L5Q">2</a> |&nbsp;<a href="https://www.youtube.com/watch?v=nMR5mjCFZCw">3</a></li>
+<li><strong><code>SAC</code></strong> <a href="https://arxiv.org/abs/1801.01290">Soft Actor-Critic : Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor</a>, Haarnoja T. et al.&nbsp;(2018). <a href="https://vimeo.com/252185258">🎞️</a></li>
+<li><strong><code>MPO</code></strong> <a href="https://arxiv.org/abs/1806.06920">Maximum a Posteriori Policy Optimisation</a>, Abdolmaleki A. et al (2018).</li>
+<li><a href="https://arxiv.org/abs/2010.01069">A Deeper Look at Discounting Mismatch in Actor-Critic Algorithms</a>, Zhang S., Laroche R. et al.&nbsp;(2020).</li>
+</ul>
+</section>
+<section id="derivative-free" class="level3">
+<h3 class="anchored" data-anchor-id="derivative-free">Derivative-free</h3>
+<ul>
+<li><strong><code>CEM</code></strong> <a href="http://iew3.technion.ac.il/CE/files/papers/Learning%20Tetris%20Using%20the%20Noisy%20Cross-Entropy%20Method.pdf">Learning Tetris Using the Noisy Cross-Entropy Method</a>, Szita I., Lörincz A. (2006). <a href="https://www.youtube.com/watch?v=UZnDYGk1j2c">🎞️</a></li>
+<li><strong><code>CMAES</code></strong> <a href="https://dl.acm.org/citation.cfm?id=1108843">Completely Derandomized Self-Adaptation in Evolution Strategies</a>, Hansen N., Ostermeier A. (2001).</li>
+<li><strong><code>NEAT</code></strong> <a href="http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf">Evolving Neural Networks through Augmenting Topologies</a>, Stanley K. (2002). <a href="https://www.youtube.com/watch?v=5lJuEW-5vr8">🎞️</a></li>
+<li><strong><code>iCEM</code></strong> <a href="https://arxiv.org/abs/2008.06389">Sample-efficient Cross-Entropy Method for Real-time Planning</a>, Pinneri C. et al.&nbsp;(2020).</li>
+</ul>
+</section>
+</section>
+<section id="model-based" class="level2">
+<h2 class="anchored" data-anchor-id="model-based">Model-based:</h2>
+<ul>
+<li><strong><code>Dyna</code></strong> <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.84.6983&amp;rep=rep1&amp;type=pdf">Integrated Architectures for Learning, Planning, and Reacting Based on Approximating Dynamic Programming</a>, Sutton R. (1990).</li>
+<li><strong><code>PILCO</code></strong> <a href="http://mlg.eng.cam.ac.uk/pub/pdf/DeiRas11.pdf">PILCO: A Model-Based and Data-Efficient Approach to Policy Search</a>, Deisenroth M., Rasmussen C. (2011). (<a href="https://www.youtube.com/watch?v=f7y60SEZfXc">talk</a>)</li>
+<li><strong><code>DBN</code></strong> <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6082928">Probabilistic MDP-behavior planning for cars</a>, Brechtel S. et al.&nbsp;(2011).</li>
+<li><strong><code>GPS</code></strong> <a href="https://arxiv.org/abs/1504.00702">End-to-End Training of Deep Visuomotor Policies</a>, Levine S. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=Q4bMcUk6pcw">🎞️</a></li>
+<li><strong><code>DeepMPC</code></strong> <a href="https://www.cs.stanford.edu/people/asaxena/papers/deepmpc_rss2015.pdf">DeepMPC: Learning Deep Latent Features for Model Predictive Control</a>, Lenz I. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=BwA90MmkvPU">🎞️</a></li>
+<li><strong><code>SVG</code></strong> <a href="https://arxiv.org/abs/1510.09142">Learning Continuous Control Policies by Stochastic Value Gradients</a>, Heess N. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=PYdL7bcn_cM">🎞️</a></li>
+<li><strong><code>FARNN</code></strong> <a href="https://arxiv.org/abs/1610.01439">Nonlinear Systems Identification Using Deep Dynamic Neural Networks</a>, Ogunmolu O. et al.&nbsp;(2016). <a href="https://github.com/lakehanne/FARNN">:octocat:</a></li>
+<li><a href="https://homes.cs.washington.edu/~todorov/papers/KumarICRA16.pdf">Optimal control with learned local models: Application to dexterous manipulation</a>, Kumar V. et al.&nbsp;(2016). <a href="https://www.youtube.com/watch?v=bD5z1I1TU3w">🎞️</a></li>
+<li><strong><code>BPTT</code></strong> <a href="https://arxiv.org/abs/1602.01580">Long-term Planning by Short-term Prediction</a>, Shalev-Shwartz S. et al.&nbsp;(2016). <a href="https://www.youtube.com/watch?v=Nqmv1anUaF4">🎞️ 1</a> | <a href="https://www.youtube.com/watch?v=UgGZ9lMvey8">2</a></li>
+<li><a href="https://arxiv.org/abs/1610.00696">Deep visual foresight for planning robot motion</a>, Finn C., Levine S. (2016). <a href="https://www.youtube.com/watch?v=6k7GHG4IUCY">🎞️</a></li>
+<li><strong><code>VIN</code></strong> <a href="https://arxiv.org/abs/1602.02867">Value Iteration Networks</a>, Tamar A. et al (2016). <a href="https://www.youtube.com/watch?v=RcRkog93ZRU">🎞️</a></li>
+<li><strong><code>VPN</code></strong> <a href="https://arxiv.org/abs/1707.03497">Value Prediction Network</a>, Oh J. et al.&nbsp;(2017).</li>
+<li><strong><code>DistGBP</code></strong> <a href="https://arxiv.org/abs/1705.07177">Model-Based Planning with Discrete and Continuous Actions</a>, Henaff M. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=9Xh2TRQ_4nM">🎞️ 1</a> | <a href="https://www.youtube.com/watch?v=XLdme0TTjiw">2</a></li>
+<li><a href="https://arxiv.org/abs/1703.04070">Prediction and Control with Temporal Segment Models</a>, Mishra N. et al.&nbsp;(2017).</li>
+<li><strong><code>Predictron</code></strong> <a href="https://arxiv.org/abs/1612.08810">The Predictron: End-To-End Learning and Planning</a>, Silver D. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=BeaLdaN2C3Q">🎞️</a></li>
+<li><strong><code>MPPI</code></strong> <a href="https://ieeexplore.ieee.org/document/7989202/">Information Theoretic MPC for Model-Based Reinforcement Learning</a>, Williams G. et al.&nbsp;(2017). <a href="https://github.com/ferreirafabio/mppi_pendulum">:octocat:</a> <a href="https://www.youtube.com/watch?v=f2at-cqaJMM">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1805.07813">Learning Real-World Robot Policies by Dreaming</a>, Piergiovanni A. et al.&nbsp;(2018).</li>
+<li><a href="https://arxiv.org/abs/1810.09365">Coupled Longitudinal and Lateral Control of a Vehicle using Deep Learning</a>, Devineau G., Polack P., Alchté F., Moutarde F. (2018) <a href="https://www.youtube.com/watch?v=yyWy1uavlXs">🎞️</a></li>
+<li><strong><code>PlaNet</code></strong> <a href="https://planetrl.github.io/">Learning Latent Dynamics for Planning from Pixels</a>, Hafner et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=tZk1eof_VNA">🎞️</a></li>
+<li><strong><code>NeuralLander</code></strong> <a href="https://arxiv.org/abs/1811.08027">Neural Lander: Stable Drone Landing Control using Learned Dynamics</a>, Shi G. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=FLLsG0S78ik">🎞️</a></li>
+<li><strong><code>DBN+POMCP</code></strong> <a href="https://tel.archives-ouvertes.fr/tel-02184362">Towards Human-Like Prediction and Decision-Making for Automated Vehicles in Highway Scenarios</a>, Sierra Gonzalez D. (2019).</li>
+<li><a href="https://sites.google.com/view/goal-planning">Planning with Goal-Conditioned Policies</a>, Nasiriany S. et al.&nbsp;(2019). <a href="https://sites.google.com/view/goal-planning#h.p_0m-H0QfKVj4n">🎞️</a></li>
+<li><strong><code>MuZero</code></strong> <a href="https://arxiv.org/abs/1911.08265">Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model</a>, Schrittwiese J. et al.&nbsp;(2019). <a href="https://github.com/werner-duvaud/muzero-general">:octocat:</a></li>
+<li><strong><code>BADGR</code></strong> <a href="https://sites.google.com/view/badgr">BADGR: An Autonomous Self-Supervised Learning-Based Navigation System</a>, Kahn G., Abbeel P., Levine S. (2020). <a href="https://www.youtube.com/watch?v=EMV0zEXbcc4">🎞️</a> <a href="https://github.com/gkahn13/badgr">:octocat:</a></li>
+<li><strong><code>H-UCRL</code></strong> <a href="https://proceedings.neurips.cc//paper_files/paper/2020/hash/a36b598abb934e4528412e5a2127b931-Abstract.html">Efficient Model-Based Reinforcement Learning through Optimistic Policy Search and Planning</a>, Curi S., Berkenkamp F., Krause A. (2020). <a href="https://github.com/sebascuri/hucrl">:octocat:</a></li>
+</ul>
+</section>
+<section id="exploration" class="level2">
+<h2 class="anchored" data-anchor-id="exploration">Exploration:</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/1611.01211">Combating Reinforcement Learning’s Sisyphean Curse with Intrinsic Fear</a>, Lipton Z. et al.&nbsp;(2016).</li>
+<li><strong><code>Pseudo-count</code></strong> <a href="https://arxiv.org/abs/1606.01868">Unifying Count-Based Exploration and Intrinsic Motivation</a>, Bellemare M. et al (2016). <a href="https://www.youtube.com/watch?v=0yI2wJ6F8r0">🎞️</a></li>
+<li><strong><code>HER</code></strong> <a href="https://arxiv.org/abs/1707.01495">Hindsight Experience Replay</a>, Andrychowicz M. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=Dz_HuzgMxzo">🎞️</a></li>
+<li><strong><code>VHER</code></strong> <a href="https://arxiv.org/abs/1901.11529">Visual Hindsight Experience Replay</a>, Sahni H. et al.&nbsp;(2019).</li>
+<li><strong><code>RND</code></strong> <a href="https://arxiv.org/abs/1810.12894">Exploration by Random Network Distillation</a>, Burda Y. et al.&nbsp;(OpenAI) (2018). <a href="https://openai.com/blog/reinforcement-learning-with-prediction-based-rewards/">🎞️</a></li>
+<li><strong><code>Go-Explore</code></strong> <a href="https://arxiv.org/abs/1901.10995">Go-Explore: a New Approach for Hard-Exploration Problems</a>, Ecoffet A. et al.&nbsp;(Uber) (2018). <a href="https://www.youtube.com/watch?v=gnGyUPd_4Eo">🎞️</a></li>
+<li><strong><code>C51-IDS</code></strong> <a href="https://arxiv.org/abs/1812.07544">Information-Directed Exploration for Deep Reinforcement Learning</a>, Nikolov N., Kirschner J., Berkenkamp F., Krause A. (2019). <a href="https://github.com/nikonikolov/rltf">:octocat:</a></li>
+<li><strong><code>Plan2Explore</code></strong> <a href="https://ramanans1.github.io/plan2explore/">Planning to Explore via Self-Supervised World Models</a>, Sekar R. et al.&nbsp;(2020). <a href="https://www.youtube.com/watch?v=GftqnPWsCWw&amp;feature=emb_title">🎞️</a> <a href="https://github.com/ramanans1/plan2explore">:octocat:</a></li>
+<li><strong><code>RIDE</code></strong> <a href="https://openreview.net/pdf?id=rkg-TJBFPB">RIDE: Rewarding Impact-Driven Exploration for Procedurally-Generated Environments</a>, Raileanu R., Rocktäschel T., (2020). <a href="https://github.com/facebookresearch/impact-driven-exploration">:octocat:</a></li>
+</ul>
+</section>
+<section id="hierarchy-and-temporal-abstraction" class="level2">
+<h2 class="anchored" data-anchor-id="hierarchy-and-temporal-abstraction">Hierarchy and Temporal Abstraction:</h2>
+<ul>
+<li><a href="http://www-anw.cs.umass.edu/~barto/courses/cs687/Sutton-Precup-Singh-AIJ99.pdf">Between MDPs and semi-MDPs: A framework for temporal abstraction in reinforcement learning</a>, Sutton R. et al.&nbsp;(1999).</li>
+<li><a href="http://www-anw.cs.umass.edu/pubs/2004/barto_sc_ICDL04.pdf">Intrinsically motivated learning of hierarchical collections of skills</a>, Barto A. et al.&nbsp;(2004).</li>
+<li><strong><code>OC</code></strong> <a href="https://arxiv.org/abs/1609.05140">The Option-Critic Architecture</a>, Bacon P-L., Harb J., Precup D. (2016).</li>
+<li><a href="https://arxiv.org/abs/1610.05182">Learning and Transfer of Modulated Locomotor Controllers</a>, Heess N. et al.&nbsp;(2016). <a href="https://www.youtube.com/watch?v=sboPYvhpraQ&amp;feature=youtu.be">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1610.03295">Safe, Multi-Agent, Reinforcement Learning for Autonomous Driving</a>, Shalev-Shwartz S. et al.&nbsp;(2016).</li>
+<li><strong><code>FuNs</code></strong> <a href="https://arxiv.org/abs/1703.01161">FeUdal Networks for Hierarchical Reinforcement Learning</a>, Vezhnevets A. et al.&nbsp;(2017).</li>
+<li><a href="https://arxiv.org/abs/1703.07887">Combining Neural Networks and Tree Search for Task and Motion Planning in Challenging Environments</a>, Paxton C. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=MM2U_SGMtk8">🎞️</a></li>
+<li><strong><code>DeepLoco</code></strong> <a href="https://www.cs.ubc.ca/~van/papers/2017-TOG-deepLoco/">DeepLoco: Dynamic Locomotion Skills Using Hierarchical Deep Reinforcement Learning</a>, Peng X. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=hd1yvLWm6oA">🎞️</a> | <a href="https://www.youtube.com/watch?v=x-HrYko_MRU">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1811.12927">Hierarchical Policy Design for Sample-Efficient Learning of Robot Table Tennis Through Self-Play</a>, Mahjourian R. et al (2018). <a href="https://sites.google.com/view/robottabletennis">🎞️</a></li>
+<li><strong><code>DAC</code></strong> <a href="https://arxiv.org/abs/1904.12691">DAC: The Double Actor-Critic Architecture for Learning Options</a>, Zhang S., Whiteson S. (2019).</li>
+<li><a href="https://arxiv.org/abs/1908.05224">Multi-Agent Manipulation via Locomotion using Hierarchical Sim2Real</a>, Nachum O. et al (2019). <a href="https://sites.google.com/view/manipulation-via-locomotion">🎞️</a></li>
+<li><a href="http://mrl.snu.ac.kr/publications/ProjectSoftCon/SoftCon.html">SoftCon: Simulation and Control of Soft-Bodied Animals with Biomimetic Actuators</a>, Min S. et al.&nbsp;(2020). <a href="https://www.youtube.com/watch?v=I2ylkhPSkT4">🎞️</a> <a href="https://github.com/seiing/SoftCon">:octocat:</a></li>
+<li><strong><code>H-REIL</code></strong> <a href="http://iliad.stanford.edu/pdfs/publications/cao2020reinforcement.pdf">Reinforcement Learning based Control of Imitative Policies for Near-Accident Driving</a>, Cao Z. et al.&nbsp;(2020). <a href="https://www.youtube.com/watch?v=CY24zlC_HdI&amp;feature=youtu.be">🎞️ 1</a>, <a href="https://www.youtube.com/watch?v=envT7b5YRts&amp;feature=youtu.be">2</a></li>
+</ul>
+</section>
+<section id="partial-observability" class="level2">
+<h2 class="anchored" data-anchor-id="partial-observability">Partial Observability:</h2>
+<ul>
+<li><strong><code>PBVI</code></strong> <a href="https://www.ri.cmu.edu/pub_files/pub4/pineau_joelle_2003_3/pineau_joelle_2003_3.pdf">Point-based Value Iteration: An anytime algorithm for POMDPs</a>, Pineau J. et al.&nbsp;(2003).</li>
+<li><strong><code>cPBVI</code></strong> <a href="http://www.jmlr.org/papers/volume7/porta06a/porta06a.pdf">Point-Based Value Iteration for Continuous POMDPs</a>, Porta J. et al.&nbsp;(2006).</li>
+<li><strong><code>POMCP</code></strong> <a href="https://papers.nips.cc/paper/4031-monte-carlo-planning-in-large-pomdps">Monte-Carlo Planning in Large POMDPs</a>, Silver D., Veness J. (2010).</li>
+<li><a href="http://users.isr.ist.utl.pt/~mtjspaan/POMDPPractioners/pomdp2010_submission_5.pdf">A POMDP Approach to Robot Motion Planning under Uncertainty</a>, Du Y. et al.&nbsp;(2010).</li>
+<li><a href="https://users.cs.duke.edu/~pdinesh/sources/06728533.pdf">Probabilistic Online POMDP Decision Making for Lane Changes in Fully Automated Driving</a>, Ulbrich S., Maurer M. (2013).</li>
+<li><a href="http://proceedings.mlr.press/v28/brechtel13.pdf">Solving Continuous POMDPs: Value Iteration with Incremental Learning of an Efficient Space Representation</a>, Brechtel S. et al.&nbsp;(2013).</li>
+<li><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6957722">Probabilistic Decision-Making under Uncertainty for Autonomous Driving using Continuous POMDPs</a>, Brechtel S. et al.&nbsp;(2014).</li>
+<li><strong><code>MOMDP</code></strong> <a href="http://ares.lids.mit.edu/fm/documents/intentionawaremotionplanning.pdf">Intention-Aware Motion Planning</a>, Bandyopadhyay T. et al.&nbsp;(2013).</li>
+<li><strong><code>DNC</code></strong> <a href="https://www.nature.com/articles/nature20101">Hybrid computing using a neural network with dynamic external memory</a>, Graves A. et al (2016). <a href="https://www.youtube.com/watch?v=B9U8sI7TcMY">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1702.00858">The value of inferring the internal state of traffic participants for autonomous freeway driving</a>, Sunberg Z. et al.&nbsp;(2017).</li>
+<li><a href="https://arxiv.org/abs/1704.04322">Belief State Planning for Autonomously Navigating Urban Intersections</a>, Bouton M., Cosgun A., Kochenderfer M. (2017).</li>
+<li><a href="https://ieeexplore.ieee.org/document/8460914">Scalable Decision Making with Sensor Occlusions for Autonomous Driving</a>, Bouton M. et al.&nbsp;(2018).</li>
+<li><a href="https://hal.inria.fr/hal-01940392">Probabilistic Decision-Making at Road Intersections: Formulation and Quantitative Evaluation</a>, Barbier M., Laugier C., Simonin O., Ibanez J. (2018).</li>
+<li><a href="https://arxiv.org/abs/1810.06224">Beauty and the Beast: Optimal Methods Meet Learning for Drone Racing</a>, Kaufmann E. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=UuQvijZcUSc">🎞️</a></li>
+<li><strong><code>social perception</code></strong> <a href="https://arxiv.org/abs/1905.00988">Behavior Planning of Autonomous Cars with Social Perception</a>, Sun L. et al (2019).</li>
+</ul>
+</section>
+<section id="transfer" class="level2">
+<h2 class="anchored" data-anchor-id="transfer">Transfer:</h2>
+<ul>
+<li><strong><code>IT&amp;E</code></strong> <a href="https://arxiv.org/abs/1407.3501">Robots that can adapt like animals</a>, Cully A., Clune J., Tarapore D., Mouret J-B. (2014). <a href="https://www.youtube.com/watch?v=T-c17RKh3uE">🎞️</a></li>
+<li><strong><code>MAML</code></strong> <a href="https://arxiv.org/abs/1703.03400">Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a>, Finn C., Abbeel P., Levine S. (2017). <a href="https://sites.google.com/view/maml">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1704.03952">Virtual to Real Reinforcement Learning for Autonomous Driving</a>, Pan X. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=Bce2ZSlMuqY">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1804.10332">Sim-to-Real: Learning Agile Locomotion For Quadruped Robots</a>, Tan J. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=lUZUr7jxoqM">🎞️</a></li>
+<li><strong><code>ME-TRPO</code></strong> <a href="https://arxiv.org/abs/1802.10592">Model-Ensemble Trust-Region Policy Optimization</a>, Kurutach T. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=tpS8qj7yhoU">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1803.03835">Kickstarting Deep Reinforcement Learning</a>, Schmitt S. et al.&nbsp;(2018).</li>
+<li><a href="https://blog.openai.com/learning-dexterity/">Learning Dexterous In-Hand Manipulation</a>, OpenAI (2018). <a href="https://www.youtube.com/watch?v=DKe8FumoD4E">🎞️</a></li>
+<li><strong><code>GrBAL / ReBAL</code></strong> <a href="https://arxiv.org/abs/1803.11347">Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning</a>, Nagabandi A. et al.&nbsp;(2018). <a href="https://sites.google.com/berkeley.edu/metaadaptivecontrol">🎞️</a></li>
+<li><a href="https://robotics.sciencemag.org/content/4/26/eaau5872">Learning agile and dynamic motor skills for legged robots</a>, Hwangbo J. et al.&nbsp;(ETH Zurich / Intel ISL) (2019). <a href="https://www.youtube.com/watch?v=ITfBKjBH46E">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1901.07517">Robust Recovery Controller for a Quadrupedal Robot using Deep Reinforcement Learning</a>, Lee J., Hwangbo J., Hutter M. (ETH Zurich RSL) (2019)</li>
+<li><strong><code>IT&amp;E</code></strong> <a href="https://hal.inria.fr/hal-02084619">Learning and adapting quadruped gaits with the “Intelligent Trial &amp; Error” algorithm</a>, Dalin E., Desreumaux P., Mouret J-B. (2019). <a href="https://www.youtube.com/watch?v=v90CWJ_HsnM">🎞️</a></li>
+<li><strong><code>FAMLE</code></strong> <a href="https://arxiv.org/abs/2003.04663">Fast Online Adaptation in Robotics through Meta-Learning Embeddings of Simulated Priors</a>, Kaushik R., Anne T., Mouret J-B. (2020). <a href="https://www.youtube.com/watch?v=QIY1Sm7wHhE">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/2003.08938">Robust Deep Reinforcement Learning against Adversarial Perturbations on Observations</a>, Zhang H. et al (2020). <a href="https://github.com/chenhongge/StateAdvDRL">:octocat:</a></li>
+<li><a href="https://robotics.sciencemag.org/content/5/47/eabc5986">Learning quadrupedal locomotion over challenging terrain</a>, Lee J. et al.&nbsp;(2020). <a href="https://www.youtube.com/watch?v=9j2a1oAHDL8">🎞️</a></li>
+<li><strong><code>PACOH</code></strong> <a href="https://arxiv.org/abs/2002.05551">PACOH: Bayes-Optimal Meta-Learning with PAC-Guarantees</a>, Rothfuss J., Fortuin V., Josifoski M., Krause A. (2021).</li>
+<li><a href="https://arxiv.org/abs/2102.11436">Model-Based Domain Generalization</a>, Robey A. et al.&nbsp;(2021).</li>
+<li><strong><code>SimGAN</code></strong> <a href="https://arxiv.org/abs/2101.06005">SimGAN: Hybrid Simulator Identification for Domain Adaptation via Adversarial Reinforcement Learning</a>, Jiang Y. et al.&nbsp;(2021). <a href="https://www.youtube.com/watch?v=McKOGllO7nc&amp;feature=youtu.be">🎞️</a> <a href="https://github.com/jyf588/SimGAN">:octocat:</a></li>
+<li><a href="https://leggedrobotics.github.io/rl-perceptiveloco/">Learning robust perceptive locomotion for quadrupedal robots in the wild</a>, Miki T. et al.&nbsp;(2022).</li>
+</ul>
+</section>
+<section id="multi-agent" class="level2">
+<h2 class="anchored" data-anchor-id="multi-agent">Multi-agent:</h2>
+<ul>
+<li><strong><code>Minimax-Q</code></strong> <a href="https://www.cs.rutgers.edu/~mlittman/papers/ml94-final.pdf">Markov games as a framework for multi-agent reinforcement learning</a>, M. Littman (1994).</li>
+<li><a href="https://arxiv.org/abs/1709.08071">Autonomous Agents Modelling Other Agents: A Comprehensive Survey and Open Problems</a>, Albrecht S., Stone P. (2017).</li>
+<li><strong><code>MILP</code></strong> <a href="https://arxiv.org/abs/1603.04610">Time-optimal coordination of mobile robots along specified paths</a>, Altché F. et al.&nbsp;(2016). <a href="https://www.youtube.com/watch?v=RiW2OFsdHOY">🎞️</a></li>
+<li><strong><code>MIQP</code></strong> <a href="https://arxiv.org/abs/1706.08046">An Algorithm for Supervised Driving of Cooperative Semi-Autonomous Vehicles</a>, Altché F. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=JJZKfHMUeCI">🎞️</a></li>
+<li><strong><code>SA-CADRL</code></strong> <a href="https://arxiv.org/abs/1703.08862">Socially Aware Motion Planning with Deep Reinforcement Learning</a>, Chen Y. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=CK1szio7PyA">🎞️</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s10514-017-9619-z">Multipolicy decision-making for autonomous driving via changepoint-based behavior prediction: Theory and experiment</a>, Galceran E. et al.&nbsp;(2017).</li>
+<li><a href="https://www.ijcai.org/proceedings/2017/664">Online decision-making for scalable autonomous systems</a>, Wray K. et al.&nbsp;(2017).</li>
+<li><strong><code>MAgent</code></strong> <a href="https://arxiv.org/abs/1712.00600">MAgent: A Many-Agent Reinforcement Learning Platform for Artificial Collective Intelligence</a>, Zheng L. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=HCSm0kVolqI">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1709.05273">Cooperative Motion Planning for Non-Holonomic Agents with Value Iteration Networks</a>, Rehder E. et al.&nbsp;(2017).</li>
+<li><strong><code>MPPO</code></strong> <a href="https://arxiv.org/abs/1709.10082">Towards Optimally Decentralized Multi-Robot Collision Avoidance via Deep Reinforcement Learning</a>, Long P. et al.&nbsp;(2017). <a href="https://sites.google.com/view/drlmaca">🎞️</a></li>
+<li><strong><code>COMA</code></strong> <a href="https://arxiv.org/abs/1709.05273">Counterfactual Multi-Agent Policy Gradients</a>, Foerster J. et al.&nbsp;(2017).</li>
+<li><strong><code>MADDPG</code></strong> <a href="https://arxiv.org/abs/1706.02275">Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments</a>, Lowe R. et al (2017). <a href="https://github.com/openai/maddpg">:octocat:</a></li>
+<li><strong><code>FTW</code></strong> <a href="https://arxiv.org/abs/1807.01281">Human-level performance in first-person multiplayer games with population-based deep reinforcement learning</a>, Jaderberg M. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=dltN4MxV1RI">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/2001.10208">Towards Learning Multi-agent Negotiations via Self-Play</a>, Tang Y. C. (2020).</li>
+<li><strong><code>MAPPO</code></strong> <a href="https://arxiv.org/abs/2103.01955">The Surprising Effectiveness of MAPPO in Cooperative, Multi-Agent Games</a>, Yu C. et al.&nbsp;(2021). |:octocat:](https://github.com/marlbenchmark/on-policy)</li>
+<li><a href="https://discovery.ucl.ac.uk/id/eprint/10124273/">Many-agent Reinforcement Learning</a>, Yang Y. (2021)</li>
+</ul>
+</section>
+<section id="representation-learning" class="level2">
+<h2 class="anchored" data-anchor-id="representation-learning">Representation Learning</h2>
+<ul>
+<li><a href="https://rd.springer.com/content/pdf/10.1023%2FA%3A1017992615625.pdf">Variable Resolution Discretization in Optimal Control</a>, Munos R., Moore A. (2002). <a href="http://researchers.lille.inria.fr/~munos/variable/index.html">🎞️</a></li>
+<li><strong><code>DeepDriving</code></strong> <a href="http://deepdriving.cs.princeton.edu/paper.pdf">DeepDriving: Learning Affordance for Direct Perception in Autonomous Driving</a>, Chen C. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=5hFvoXV9gII">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1604.06915">On the Sample Complexity of End-to-end Training vs.&nbsp;Semantic Abstraction Training</a>, Shalev-Shwartz S. et al.&nbsp;(2016).</li>
+<li><a href="https://arxiv.org/abs/1707.08316">Learning sparse representations in reinforcement learning with sparse coding</a>, Le L., Kumaraswamy M., White M. (2017).</li>
+<li><a href="https://arxiv.org/abs/1803.10122">World Models</a>, Ha D., Schmidhuber J. (2018). <a href="https://worldmodels.github.io/">🎞️</a> <a href="https://github.com/ctallec/world-models">:octocat:</a></li>
+<li><a href="https://arxiv.org/abs/1807.00412">Learning to Drive in a Day</a>, Kendall A. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=eRwTbRtnT1I">🎞️</a></li>
+<li><strong><code>MERLIN</code></strong> <a href="https://arxiv.org/abs/1803.10760">Unsupervised Predictive Memory in a Goal-Directed Agent</a>, Wayne G. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=YFx-D4eEs5A">🎞️ 1</a> | <a href="https://www.youtube.com/watch?v=IiR_NOomcpk">2</a> | <a href="https://www.youtube.com/watch?v=dQMKJtLScmk">3</a> | <a href="https://www.youtube.com/watch?v=xrYDlTXyC6Q">4</a> | <a href="https://www.youtube.com/watch?v=04H28-qA3f8">5</a> | <a href="https://www.youtube.com/watch?v=3iA19h0Vvq0">6</a></li>
+<li><a href="https://arxiv.org/abs/1811.10119">Variational End-to-End Navigation and Localization</a>, Amini A. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=aXI4a_Nvcew">🎞️</a></li>
+<li><a href="https://arxiv.org/pdf/1810.10191.pdf">Making Sense of Vision and Touch: Self-Supervised Learning of Multimodal Representations for Contact-Rich Tasks</a>, Lee M. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=TjwDJ_R2204">🎞️</a></li>
+<li><a href="http://sebastianrisi.com/wp-content/uploads/risi_gecco19.pdf">Deep Neuroevolution of Recurrent and Discrete World Models</a>, Risi S., Stanley K.O. (2019). <a href="https://www.youtube.com/watch?v=a-tcsnZe-yE">🎞️</a> <a href="https://github.com/sebastianrisi/ga-world-models">:octocat:</a></li>
+<li><strong><code>FERM</code></strong> <a href="https://sites.google.com/view/efficient-robotic-manipulation">A Framework for Efficient Robotic Manipulation</a>, Zhan A., Zhao R. et al.&nbsp;(2021). <a href="https://github.com/PhilipZRH/ferm">:octocat:</a></li>
+<li><strong><code>S4RL</code></strong> <a href="https://arxiv.org/abs/2103.06326">S4RL: Surprisingly Simple Self-Supervision for Offline Reinforcement Learning</a>, Sinha S. et al (2021).</li>
+</ul>
+</section>
+<section id="offline" class="level2">
+<h2 class="anchored" data-anchor-id="offline">Offline</h2>
+<ul>
+<li><strong><code>SPI-BB</code></strong> <a href="https://arxiv.org/abs/1712.06924">Safe Policy Improvement with Baseline Bootstrapping</a>, Laroche R. et al (2019).</li>
+<li><strong><code>AWAC</code></strong> <a href="https://arxiv.org/abs/2006.09359">AWAC: Accelerating Online Reinforcement Learning with Offline Datasets</a>, Nair A. et al (2020).</li>
+<li><strong><code>CQL</code></strong> <a href="https://arxiv.org/abs/2006.04779">Conservative Q-Learning for Offline Reinforcement Learning</a>, Kumar A. et al.&nbsp;(2020).</li>
+<li><a href="https://sites.google.com/berkeley.edu/decision-transformer">Decision Transformer: Reinforcement Learning via Sequence Modeling</a>, Chen L., Lu K. et al.&nbsp;(2021). <a href="https://github.com/kzl/decision-transformer">:octocat:</a></li>
+<li><a href="https://trajectory-transformer.github.io/">Reinforcement Learning as One Big Sequence Modeling Problem</a>, Janner M., Li Q., Levine S. (2021).</li>
+</ul>
+</section>
+<section id="other" class="level2">
+<h2 class="anchored" data-anchor-id="other">Other</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/1606.07636">Is the Bellman residual a bad proxy?</a>, Geist M., Piot B., Pietquin O. (2016).</li>
+<li><a href="https://arxiv.org/abs/1709.06560">Deep Reinforcement Learning that Matters</a>, Henderson P. et al.&nbsp;(2017).</li>
+<li><a href="https://arxiv.org/abs/1607.03290">Automatic Bridge Bidding Using Deep Reinforcement Learning</a>, Yeh C. and Lin H. (2016).</li>
+<li><a href="https://arxiv.org/abs/1802.01744">Shared Autonomy via Deep Reinforcement Learning</a>, Reddy S. et al.&nbsp;(2018). <a href="https://sites.google.com/view/deep-assist">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1805.00909">Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review</a>, Levine S. (2018).</li>
+<li><a href="https://arxiv.org/abs/1901.11524">The Value Function Polytope in Reinforcement Learning</a>, Dadashi R. et al.&nbsp;(2019).</li>
+<li><a href="https://arxiv.org/abs/1905.13341">On Value Functions and the Agent-Environment Boundary</a>, Jiang N. (2019).</li>
+<li><a href="https://arxiv.org/abs/2102.02915">How to Train Your Robot with Deep Reinforcement Learning; Lessons We’ve Learned</a>, Ibartz J. et al (2021).</li>
+</ul>
+</section>
+</section>
+<section id="learning-from-demonstrations" class="level1">
+<h1>Learning from Demonstrations:</h1>
+<section id="imitation-learning" class="level2">
+<h2 class="anchored" data-anchor-id="imitation-learning">Imitation Learning</h2>
+<ul>
+<li><strong><code>DAgger</code></strong> <a href="https://www.cs.cmu.edu/~sross1/publications/Ross-AIStats11-NoRegret.pdf">A Reduction of Imitation Learning and Structured Predictionto No-Regret Online Learning</a>, Ross S., Gordon G., Bagnell J. A. (2011).</li>
+<li><strong><code>QMDP-RCNN</code></strong> <a href="https://arxiv.org/abs/1701.02392">Reinforcement Learning via Recurrent Convolutional Neural Networks</a>, Shankar T. et al.&nbsp;(2016). (<a href="https://www.youtube.com/watch?v=gpwA3QNTPOQ">talk</a>)</li>
+<li><strong><code>DQfD</code></strong> <a href="https://pdfs.semanticscholar.org/a7fb/199f85943b3fb6b5f7e9f1680b2e2a445cce.pdf">Learning from Demonstrations for Real World Reinforcement Learning</a>, Hester T. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=JR6wmLaYuu4&amp;list=PLdjpGm3xcO-0aqVf--sBZHxCKg-RZfa5T">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1610.01238">Find Your Own Way: Weakly-Supervised Segmentation of Path Proposals for Urban Autonomy</a>, Barnes D., Maddern W., Posner I. (2016). <a href="https://www.youtube.com/watch?v=rbZ8ck_1nZk">🎞️</a></li>
+<li><strong><code>GAIL</code></strong> <a href="https://arxiv.org/abs/1606.03476">Generative Adversarial Imitation Learning</a>, Ho J., Ermon S. (2016).</li>
+<li><a href="https://arxiv.org/abs/1609.07910">From perception to decision: A data-driven approach to end-to-end motion planning for autonomous ground robots</a>, Pfeiffer M. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=ZedKmXzwdgI">🎞️</a></li>
+<li><strong><code>Branched</code></strong> <a href="https://arxiv.org/abs/1710.02410">End-to-end Driving via Conditional Imitation Learning</a>, Codevilla F. et al.&nbsp;(2017). <a href="https://www.youtube.com/watch?v=cFtnflNe5fM">🎞️</a> | <a href="https://www.youtube.com/watch?v=KunVjVHN3-U">talk</a></li>
+<li><strong><code>UPN</code></strong> <a href="https://arxiv.org/abs/1804.00645">Universal Planning Networks</a>, Srinivas A. et al.&nbsp;(2018). <a href="https://sites.google.com/view/upn-public/home">🎞️</a></li>
+<li><strong><code>DeepMimic</code></strong> <a href="https://xbpeng.github.io/projects/DeepMimic/index.html">DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills</a>, Peng X. B. et al.&nbsp;(2018). <a href="https://www.youtube.com/watch?v=vppFvq2quQ0&amp;feature=youtu.be">🎞️</a></li>
+<li><strong><code>R2P2</code></strong> <a href="https://arxiv.org/abs/1810.06544">Deep Imitative Models for Flexible Inference, Planning, and Control</a>, Rhinehart N. et al.&nbsp;(2018). <a href="https://sites.google.com/view/imitativeforecastingcontrol">🎞️</a></li>
+<li><a href="https://xbpeng.github.io/projects/Robotic_Imitation/index.html">Learning Agile Robotic Locomotion Skills by Imitating Animals</a>, Bin Peng X. et al (2020). <a href="https://www.youtube.com/watch?v=lKYh6uuCwRY">🎞️</a></li>
+<li><a href="https://openreview.net/pdf?id=Skl4mRNYDr">Deep Imitative Models for Flexible Inference, Planning, and Control</a>, Rhinehart N., McAllister R., Levine S. (2020).</li>
+</ul>
+<section id="applications-to-autonomous-driving" class="level3">
+<h3 class="anchored" data-anchor-id="applications-to-autonomous-driving">Applications to Autonomous Driving:</h3>
+<ul>
+<li><a href="https://papers.nips.cc/paper/95-alvinn-an-autonomous-land-vehicle-in-a-neural-network">ALVINN, an autonomous land vehicle in a neural network</a>, Pomerleau D. (1989).</li>
+<li><a href="https://arxiv.org/abs/1604.07316">End to End Learning for Self-Driving Cars</a>, Bojarski M. et al.&nbsp;(2016). <a href="https://www.youtube.com/watch?v=qhUvQiKec2U">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1612.01079">End-to-end Learning of Driving Models from Large-scale Video Datasets</a>, Xu H., Gao Y. et al.&nbsp;(2016). <a href="https://www.youtube.com/watch?v=jxlNfUzbGAY">🎞️</a></li>
+<li><a href="https://arxiv.org/abs/1710.03804">End-to-End Deep Learning for Steering Autonomous Vehicles Considering Temporal Dependencies</a>, Eraqi H. et al.&nbsp;(2017).</li>
+<li><a href="https://www.semanticscholar.org/paper/Driving-Like-a-Human%3A-Imitation-Learning-for-Path-Rehder-Quehl/a1150417083918c3f5f88b7ddad8841f2ce88188">Driving Like a Human: Imitation Learning for Path Planning using Convolutional Neural Networks</a>, Rehder E. et al.&nbsp;(2017).</li>
+<li><a href="https://arxiv.org/abs/1701.06699">Imitating Driver Behavior with Generative Adversarial Networks</a>, Kuefler A. et al.&nbsp;(2017).</li>
+<li><strong><code>PS-GAIL</code></strong> <a href="https://arxiv.org/abs/1803.01044">Multi-Agent Imitation Learning for Driving Simulation</a>, Bhattacharyya R. et al.&nbsp;(2018). <a href="https://github.com/sisl/ngsim_env/blob/master/media/single_multi_model_2_seed_1.gif">🎞️</a> <a href="https://github.com/sisl/ngsim_env">:octocat:</a></li>
+<li><a href="https://arxiv.org/abs/1903.00640">Deep Imitation Learning for Autonomous Driving in Generic Urban Scenarios with Enhanced Safety</a>, Chen J. et al.&nbsp;(2019).</li>
+</ul>
+</section>
+</section>
+<section id="inverse-reinforcement-learning" class="level2">
+<h2 class="anchored" data-anchor-id="inverse-reinforcement-learning">Inverse Reinforcement Learning</h2>
+<ul>
+<li><strong><code>Projection</code></strong> <a href="http://ai.stanford.edu/~ang/papers/icml04-apprentice.pdf">Apprenticeship learning via inverse reinforcement learning</a>, Abbeel P., Ng A. (2004).</li>
+<li><strong><code>MMP</code></strong> <a href="https://www.ri.cmu.edu/pub_files/pub4/ratliff_nathan_2006_1/ratliff_nathan_2006_1.pdf">Maximum margin planning</a>, Ratliff N. et al.&nbsp;(2006).</li>
+<li><strong><code>BIRL</code></strong> <a href="https://www.aaai.org/Papers/IJCAI/2007/IJCAI07-416.pdf">Bayesian inverse reinforcement learning</a>, Ramachandran D., Amir E. (2007).</li>
+<li><strong><code>MEIRL</code></strong> <a href="https://www.aaai.org/Papers/AAAI/2008/AAAI08-227.pdf">Maximum Entropy Inverse Reinforcement Learning</a>, Ziebart B. et al.&nbsp;(2008).</li>
+<li><strong><code>LEARCH</code></strong> <a href="https://www.ri.cmu.edu/pub_files/2009/7/learch.pdf">Learning to search: Functional gradient techniques for imitation learning</a>, Ratliff N., Siver D. Bagnell A. (2009).</li>
+<li><strong><code>CIOC</code></strong> <a href="http://graphics.stanford.edu/projects/cioc/">Continuous Inverse Optimal Control with Locally Optimal Examples</a>, Levine S., Koltun V. (2012). <a href="http://graphics.stanford.edu/projects/cioc/cioc.mp4">🎞️</a></li>
+<li><strong><code>MEDIRL</code></strong> <a href="https://arxiv.org/abs/1507.04888">Maximum Entropy Deep Inverse Reinforcement Learning</a>, Wulfmeier M. (2015).</li>
+<li><strong><code>GCL</code></strong> <a href="https://arxiv.org/abs/1603.00448">Guided Cost Learning: Deep Inverse Optimal Control via Policy Optimization</a>, Finn C. et al.&nbsp;(2016). <a href="https://www.youtube.com/watch?v=hXxaepw0zAw">🎞️</a></li>
+<li><strong><code>RIRL</code></strong> <a href="https://arxiv.org/abs/1705.05427">Repeated Inverse Reinforcement Learning</a>, Amin K. et al.&nbsp;(2017).</li>
+<li><a href="http://ieeexplore.ieee.org/document/7464854/">Bridging the Gap Between Imitation Learning and Inverse Reinforcement Learning</a>, Piot B. et al.&nbsp;(2017).</li>
+</ul>
+<section id="applications-to-autonomous-driving-1" class="level3">
+<h3 class="anchored" data-anchor-id="applications-to-autonomous-driving-1">Applications to Autonomous Driving:</h3>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/4651222/">Apprenticeship Learning for Motion Planning, with Application to Parking Lot Navigation</a>, Abbeel P. et al.&nbsp;(2008).</li>
+<li><a href="http://www.cs.cmu.edu/~bziebart/publications/navigate-bziebart.pdf">Navigate like a cabbie: Probabilistic reasoning from observed context-aware behavior</a>, Ziebart B. et al.&nbsp;(2008).</li>
+<li><a href="http://ieeexplore.ieee.org/abstract/document/5354147/">Planning-based Prediction for Pedestrians</a>, Ziebart B. et al.&nbsp;(2009). <a href="https://www.youtube.com/watch?v=XOZ69Bg4JKg">🎞️</a></li>
+<li><a href="https://www.ri.cmu.edu/pub_files/2010/6/Learning%20for%20Autonomous%20Navigation-%20Advances%20in%20Machine%20Learning%20for%20Rough%20Terrain%20Mobility.pdf">Learning for autonomous navigation</a>, Bagnell A. et al.&nbsp;(2010).</li>
+<li><a href="https://www.ri.cmu.edu/pub_files/2012/6/iser12.pdf">Learning Autonomous Driving Styles and Maneuvers from Expert Demonstration</a>, Silver D. et al.&nbsp;(2012).</li>
+<li><a href="http://ieeexplore.ieee.org/document/7139555/">Learning Driving Styles for Autonomous Vehicles from Demonstration</a>, Kuderer M. et al.&nbsp;(2015).</li>
+<li><a href="https://arxiv.org/abs/1612.03653">Learning to Drive using Inverse Reinforcement Learning and Deep Q-Networks</a>, Sharifzadeh S. et al.&nbsp;(2016).</li>
+<li><a href="https://arxiv.org/abs/1607.02329">Watch This: Scalable Cost-Function Learning for Path Planning in Urban Environments</a>, Wulfmeier M. (2016). <a href="https://www.youtube.com/watch?v=Sdfir_1T-UQ">🎞️</a></li>
+<li><a href="https://robotics.eecs.berkeley.edu/~sastry/pubs/Pdfs%20of%202016/SadighPlanning2016.pdf">Planning for Autonomous Cars that Leverage Effects on Human Actions</a>, Sadigh D. et al.&nbsp;(2016).</li>
+<li><a href="http://ieeexplore.ieee.org/document/7989172/">A Learning-Based Framework for Handling Dilemmas in Urban Automated Driving</a>, Lee S., Seo S. (2017).</li>
+<li><a href="https://arxiv.org/abs/1904.05453">Learning Trajectory Prediction with Continuous Inverse Optimal Control via Langevin Sampling of Energy-Based Models</a>, Xu Y. et al.&nbsp;(2019).</li>
+<li><a href="https://ras.papercept.net/proceedings/ICRA20/0320.pdf">Analyzing the Suitability of Cost Functions for Explaining and Imitating Human Driving Behavior based on Inverse Reinforcement Learning</a>, Naumann M. et al (2020).</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="motion-planning" class="level1">
+<h1>Motion Planning:</h1>
+<section id="search" class="level2">
+<h2 class="anchored" data-anchor-id="search">Search</h2>
+<ul>
+<li><strong><code>Dijkstra</code></strong> <a href="http://www-m3.ma.tum.de/foswiki/pub/MN0506/WebHome/dijkstra.pdf">A Note on Two Problems in Connexion with Graphs</a>, Dijkstra E. W. (1959).</li>
+<li><strong><code>A*</code></strong> <a href="http://ieeexplore.ieee.org/document/4082128/">A Formal Basis for the Heuristic Determination of Minimum Cost Paths</a>, Hart P. et al.&nbsp;(1968).</li>
+<li><a href="https://www.cs.cmu.edu/~maxim/files/planlongdynfeasmotions_rss08.pdf">Planning Long Dynamically-Feasible Maneuvers For Autonomous Vehicles</a>, Likhachev M., Ferguson D. (2008).</li>
+<li><a href="https://www.researchgate.net/profile/Moritz_Werling/publication/224156269_Optimal_Trajectory_Generation_for_Dynamic_Street_Scenarios_in_a_Frenet_Frame/links/54f749df0cf210398e9277af.pdf">Optimal Trajectory Generation for Dynamic Street Scenarios in a Frenet Frame</a>, Werling M., Kammel S. (2010). <a href="https://www.youtube.com/watch?v=Cj6tAQe7UCY">🎞️</a></li>
+<li><a href="http://www.mrt.kit.edu/z/publ/download/2012/StillerZiegler2012SSD.pdf">3D perception and planning for self-driving and cooperative automobiles</a>, Stiller C., Ziegler J. (2012).</li>
+<li><a href="https://www.ri.cmu.edu/pub_files/2014/6/ICRA14_0863_Final.pdf">Motion Planning under Uncertainty for On-Road Autonomous Driving</a>, Xu W. et al.&nbsp;(2014).</li>
+<li><a href="http://julian.togelius.com/Fischer2015Monte.pdf">Monte Carlo Tree Search for Simulated Car Racing</a>, Fischer J. et al.&nbsp;(2015). <a href="https://www.youtube.com/watch?v=GbUMssvolvU">🎞️</a></li>
+</ul>
+</section>
+<section id="sampling" class="level2">
+<h2 class="anchored" data-anchor-id="sampling">Sampling</h2>
+<ul>
+<li><strong><code>RRT*</code></strong> <a href="https://arxiv.org/abs/1105.1186">Sampling-based Algorithms for Optimal Motion Planning</a>, Karaman S., Frazzoli E. (2011). <a href="https://www.youtube.com/watch?v=p3nZHnOWhrg">🎞️</a></li>
+<li><strong><code>LQG-MP</code></strong> <a href="https://people.eecs.berkeley.edu/~pabbeel/papers/vandenBergAbbeelGoldberg_RSS2010.pdf">LQG-MP: Optimized Path Planning for Robots with Motion Uncertainty and Imperfect State Information</a>, van den Berg J. et al.&nbsp;(2010).</li>
+<li><a href="http://rll.berkeley.edu/~sachin/papers/Berg-ISRR2011.pdf">Motion Planning under Uncertainty using Differential Dynamic Programming in Belief Space</a>, van den Berg J. et al.&nbsp;(2011).</li>
+<li><a href="https://groups.csail.mit.edu/rrg/papers/abry_icra11.pdf">Rapidly-exploring Random Belief Trees for Motion Planning Under Uncertainty</a>, Bry A., Roy N. (2011).</li>
+<li><strong><code>PRM-RL</code></strong> <a href="https://arxiv.org/abs/1710.03937">PRM-RL: Long-range Robotic Navigation Tasks by Combining Reinforcement Learning and Sampling-based Planning</a>, Faust A. et al.&nbsp;(2017).</li>
+</ul>
+</section>
+<section id="optimization" class="level2">
+<h2 class="anchored" data-anchor-id="optimization">Optimization</h2>
+<ul>
+<li><a href="https://pdfs.semanticscholar.org/bdca/7fe83f8444bb4e75402a417053519758d36b.pdf">Trajectory planning for Bertha - A local, continuous method</a>, Ziegler J. et al.&nbsp;(2014).</li>
+<li><a href="https://papers.nips.cc/paper/2140-learning-attractor-landscapes-for-learning-motor-primitives.pdf">Learning Attractor Landscapes for Learning Motor Primitives</a>, Ijspeert A. et al.&nbsp;(2002).</li>
+<li><a href="https://arxiv.org/abs/2006.03534">Online Motion Planning based on Nonlinear Model Predictive Control with Non-Euclidean Rotation Groups</a>, Rösmann C. et al (2020). <a href="https://github.com/rst-tu-dortmund/mpc_local_planner">:octocat:</a></li>
+</ul>
+</section>
+<section id="reactive" class="level2">
+<h2 class="anchored" data-anchor-id="reactive">Reactive</h2>
+<ul>
+<li><strong><code>PF</code></strong> <a href="http://ieeexplore.ieee.org/document/1087247/">Real-time obstacle avoidance for manipulators and mobile robots</a>, Khatib O. (1986).</li>
+<li><strong><code>VFH</code></strong> <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=88137">The Vector Field Histogram - Fast Obstacle Avoidance For Mobile Robots</a>, Borenstein J. (1991).</li>
+<li><strong><code>VFH+</code></strong> <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.438.3464&amp;rep=rep1&amp;type=pdf">VFH+: Reliable Obstacle Avoidance for Fast Mobile Robots</a>, Ulrich I., Borenstein J. (1998).</li>
+<li><strong><code>Velocity Obstacles</code></strong> <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.56.6352&amp;rep=rep1&amp;type=pdf">Motion planning in dynamic environments using velocity obstacles</a>, Fiorini P., Shillert Z. (1998).</li>
+</ul>
+</section>
+<section id="architecture-and-applications" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-and-applications">Architecture and applications</h2>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/7339478/">A Review of Motion Planning Techniques for Automated Vehicles</a>, González D. et al.&nbsp;(2016).</li>
+<li><a href="https://arxiv.org/abs/1604.07446">A Survey of Motion Planning and Control Techniques for Self-driving Urban Vehicles</a>, Paden B. et al.&nbsp;(2016).</li>
+<li><a href="https://www.ri.cmu.edu/publications/autonomous-driving-in-urban-environments-boss-and-the-urban-challenge/">Autonomous driving in urban environments: Boss and the Urban Challenge</a>, Urmson C. et al.&nbsp;(2008).</li>
+<li><a href="http://onlinelibrary.wiley.com/doi/10.1002/rob.20266/pdf">The MIT-Cornell collision and why it happened</a>, Fletcher L. et al.&nbsp;(2008).</li>
+<li><a href="http://ieeexplore.ieee.org/document/6803933/">Making bertha drive-an autonomous journey on a historic route</a>, Ziegler J. et al.&nbsp;(2014).</li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
