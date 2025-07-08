@@ -151,7 +151,7 @@ params:
         url: "#"
         image: "images/projects/FMS.gif"
         description: |1-
-          This project is designed for deployment in factory environments where AMRs operate on shared internal roads. The system enables coordinated operation among robots and seamless interaction with web-based tools and human operators. It serves as the central control layer for scalable, safe, and intelligent fleet management—laying the foundation for smart factory automation. 
+          This project is designed based on Conflict-Aware Dispatcher for deployment in large factory environments where AMRs operate on shared internal roads (indoor + outdoor). The system enables coordinated operation among robots and seamless interaction with web-based tools and human operators. It serves as the central control layer for scalable, safe, and intelligent fleet management—laying the foundation for smart factory automation.
         # I was responsible for several core features, including:
         # - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
         # - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
