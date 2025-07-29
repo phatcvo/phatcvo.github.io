@@ -85,7 +85,7 @@ params:
         details: |1-
           - Focused on optimal-based and learning-based Reinforcement Learning for safe collaborative tasks of prioritized human‑robot interaction.
 
-      - position: Postdoctoral Researcher
+      - position: Graduated Researcher
         dates: Sept. 2017 – Feb. 2021
         url: "https://sites.google.com/view/kkahn/home-page"
         company: Fluid Power & Machine Intelligence Lab. (FPMI) · University of Ulsan (UOU)
@@ -143,6 +143,8 @@ params:
         url: "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
       - site: Web of Science
         url: "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
+      - site: Research Gate
+        url: "https://www.researchgate.net/profile/Cong-Phat-Vo-2"
   project:
     title: Projects
     icon: fas fa-project-diagram
