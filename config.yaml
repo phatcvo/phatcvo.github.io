@@ -154,22 +154,22 @@ params:
         image: "images/projects/FMS.gif"
         description: |1-
           This project is designed based on Conflict-Aware Dispatcher for deployment in large factory environments where AMRs operate on shared internal roads (indoor + outdoor). The system enables coordinated operation among robots and seamless interaction with web-based tools and human operators. It serves as the central control layer for scalable, safe, and intelligent fleet management—laying the foundation for smart factory automation.
-        # I was responsible for several core features, including:
-        # - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
-        # - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
-        # - Monitoring and Visualization: Collaborated with the front-end team to integrate a web-based dashboard that supports real-time, bidirectional messaging and logging database. It provides live updates on robot statuses, and task progress, enabling operators to remotely supervise the entire fleet.
+          I was responsible for several core features, including:
+          - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
+          - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
+          - Monitoring and Visualization: Collaborated with the front-end team to integrate a web-based dashboard that supports real-time, bidirectional messaging and logging database. It provides live updates on robot statuses, and task progress, enabling operators to remotely supervise the entire fleet.
     
       - title: Autonomous Mobile Robot (AMR)
         url: "#"
         image: ""
         description: |1-
           These robots, equipped with steering-based locomotion mechanisms, have been deployed for security patrol tasks in public areas and construction sites, as well as for logistics operations in industrial environments. They autonomously navigate complex, shared internal roadways populated by humans and other vehicles such as trucks and forklifts.
-        # I led the Motion Planning team in the concurrent development of autonomous capabilities across multiple robotic platforms. For each project, I developed core autonomy software, including:
-        #   - Global Navigation, tailored to scenario requirements and factory map data.
-        #   - Local Trajectory Generation Algorithms to ensure smooth and feasible motion control.
-        #   - Behavioral Planning for real-time decision-making, including obstacle avoidance and speed profile planning.
-        #   - Collision Risk Assessment and Safety Validation to guarantee reliable and safe navigation.
-        # To support development and operations, I built a simulation environment and developed a custom user interface to facilitate system interaction and operator control. Additionally, communication with a central server is maintained to enable real-time coordination, remote control, and system status monitoring—fully integrated into the FMS project.
+          I led the Motion Planning team in the concurrent development of autonomous capabilities across multiple robotic platforms. For each project, I developed core autonomy software, including:
+            - Global Navigation, tailored to scenario requirements and factory map data.
+            - Local Trajectory Generation Algorithms to ensure smooth and feasible motion control.
+            - Behavioral Planning for real-time decision-making, including obstacle avoidance and speed profile planning.
+            - Collision Risk Assessment and Safety Validation to guarantee reliable and safe navigation.
+          To support development and operations, I built a simulation environment and developed a custom user interface to facilitate system interaction and operator control. Additionally, communication with a central server is maintained to enable real-time coordination, remote control, and system status monitoring—fully integrated into the FMS project.
 
       - title: Beebot
         url: ""
