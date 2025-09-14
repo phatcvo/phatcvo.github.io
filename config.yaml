@@ -140,6 +140,8 @@ params:
         url: "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
       - site: Web of Science
         url: "https://www.webofscience.com/wos/author/record/AAJ-2598-2021"
+      - site: Research Gate
+        url: "https://www.researchgate.net/profile/Cong-Phat-Vo-2"
   project:
     title: Projects
     icon: fas fa-project-diagram
