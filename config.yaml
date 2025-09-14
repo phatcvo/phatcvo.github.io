@@ -65,34 +65,30 @@ params:
         url: "https://ar247.co.kr/"
         company: Motion Team · Autonomous Robot 24Hours 7Days (AR247)
         details: |1-
-          - Specializing in developing cutting-edge motion planning algorithms from lightweight to heavy-duty AMR with steering-style mechanism that revolutionize delivery, security patrol, logistics, and warehouse operations. Expertise includes designing and implementing:
-            - Generated local trajectory planning strategies that ensure safe and efficient navigation.
-            - Designed Behavior Planning algorithms for robust/intelligent decision-making in complex environments.
-            - Optimized multi-robot coordination and task allocation in Fleet Management Systems for seamless operations.
+          - Developed motion planning and trajectory control algorithms for Patrol/Delivery Robots, Light/Heavy AMRs, and autonomous vehicles.
+          - Built high-fidelity simulation environments to validate perception, planning, and control algorithms.
+          - Integrated multi-robot path planning and conflict resolution strategies in factory environments with shared roads.
+          - Deployed real-time fleet monitoring, task scheduling, and operator dashboards for scalable system deployment.
 
       - position: Postdoctoral Researcher
         dates: Agu. 2021 - Dec. 2023
         url: "https://rml-unist.notion.site/"
         company: Robotics & Mobility Lab. (RML) · Ulsan National Institute of Science and Technology (UNIST)
         details: |1-
-          - Research in Motion Planning for Autonomous systems by Predictive Optimal control, Robust-Adaptive MPC and Reinforcement Learning carrying out maximized safety and efficiency under uncertain and time-varying environments. 
-          - Propose a new planning algorithm based on the merits of sampling-based and optimization-based methods.
+          - Developed interval-prediction and tree-based MPC frameworks for autonomous vehicles under uncertainty.
+          - Validated planning algorithms via MORAI, Carla, and Gazebo simulations.
+          - Combined rule-based MPC with reinforcement learning for hybrid motion planning strategies.
 
-      - position: Postdoctoral Researcher
+      - position: Graduate & Postdoctoral Researcher
         dates: Sept. 2017 – Feb. 2021
         url: "https://sites.google.com/view/kkahn/home-page"
         company: Fluid Power & Machine Intelligence Lab. (FPMI) · University of Ulsan (UOU)
         details: |1-
-          - Focused on optimal-based and learning-based Reinforcement Learning for safe collaborative tasks of prioritized human‑robot interaction.
-
-      - position: Postdoctoral Researcher
-        dates: Sept. 2017 – Feb. 2021
-        url: "https://sites.google.com/view/kkahn/home-page"
-        company: Fluid Power & Machine Intelligence Lab. (FPMI) · University of Ulsan (UOU)
-        details: |1-
-          - Focused on prioritized human‑robot interaction in teleoperation for safe collaborative tasks based on robust and optimal control strategies.
-          - Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems. 
-          - Enhanced the precision of control trajectory and force tracking in robotics by introducing a novel time‑varying adaptive optimal estimator. 
+          - Applied reinforcement learning to safe collaborative human-robot interaction tasks.
+          - Developed predictive control and adaptive optimal estimators for robotic systems.
+          - Built simulation environments in Python (Pygame, Gym) to test motion planning strategies.
+          - Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems.
+          - Enhanced the precision of control trajectory and force tracking in robotics by introducing a novel time‑varying adaptive optimal estimator.
           - Developed renewable and sustainable energy system control projects (Fluid‑based Triboelectric Nanogenerator; Floating Offshore Wind Turbines) to optimize as well as maximize power captured.
       
       - position: Lecturer
@@ -100,21 +96,22 @@ params:
         url: "https://english.tdc.edu.vn/"
         company: Electrical and Electronic Engineering Dept. (EEE) · Thu Duc College of Technology (TDC)
         details: |1-
-          - Lecture courses: Microprocessor Programming, Basic C/C++ Programming, Circuit Design, Power Electronics, Advanced control theory
+          - Taught microprocessor programming, C/C++, circuit design, and control theory.
 
       - position: Graduate Researcher and Teaching Assistant
         dates: Sept. 2014 – Jun. 2016
         url: "https://openlab.hcmute.edu.vn/"
         company: Open Lab. · Ho Chi Minh City University of Technology and Education (UTE)
         details: |1-
-          - Reception Robot: Designed platform and developed Path-Tracking Control (PID, Pure-Pursuit) and SLAM (RANSAC)
+          - Taught Robotics and control theory.
+          - Reception Robot: Motion Planning and Control Algorithms for an Autonomous Reception Robot.
 
       - position: Technical Engineer
         dates: Sept. 2012 – Agu. 2014
         url: "#"
-        company: Automation 5S (closed)
+        company: Daewoo Royal System Vietnam Co., Ltd.
         details: |1-
-          - Took primary responsibility for the electrical tasks of the projects that I built up control box (hardware) and main control program (software) using PLC-HMI (Delta, Autobase, LS, Siemens, Mitsubishi), deployed as Auto Parking Car Systems at Bitexco Financial Tower, Lim Tower, HCMC Supreme People’s Court, etc. and Industrial Production Line in CSB Energy Technology Co., Ltd., GS Battery Vietnam Co., Ltd., Hyosung Viet Nam Co., Ltd.
+          - Designed and deployed embedded control systems for automated parking and industrial production lines.
 
   education:
     title: Education
@@ -128,12 +125,12 @@ params:
       - degree: M.S. in Mechatronics Engineering
         college: Ho Chi Minh City University of Technology and Education (UTE)
         dates: Sept. 2014 - Jun. 2016
-        thesis_title: "Reception Robot: SLAM and Motion control."
+        thesis_title: "Motion Planning and Control Algorithms for an Autonomous Reception Robot."
         thesis_url: "https://docs.google.com/presentation/d/1wyqDIYaALouqbnQDtUPNyZ__W0eyas9pKhxigUzK4HY/edit?usp=sharing"
       - degree: B.S. in Electrical and Electronic Engineering Technology
         college: Ho Chi Minh City University of Technology and Education (UTE)
         dates: Sept. 2009 - Jul. 2013
-        thesis_title: "Research of a Network System using XBEE communication and its applications."
+        thesis_title: "Design and Implementation of an XBee-Based Mobile Robot with Remote Control and Sensor Network Integration."
         thesis_url: "https://docs.google.com/presentation/d/1I8YbRjhpZmD74Za1VniCQu2MkVlxSDewq7OfwQ2ha94/edit?usp=sharing"
   publication:
     title: Publications
@@ -151,7 +148,10 @@ params:
         url: "#"
         image: "images/projects/FMS.gif"
         description: |1-
-          This project is designed based on Conflict-Aware Dispatcher for deployment in large factory environments where AMRs operate on shared internal roads (indoor + outdoor). The system enables coordinated operation among robots and seamless interaction with web-based tools and human operators. It serves as the central control layer for scalable, safe, and intelligent fleet management—laying the foundation for smart factory automation.
+          - Developed a fleet management system to coordinate AMRs operating on shared indoor/outdoor roads.
+          - Implemented task scheduling, multi-robot path planning, and real-time conflict resolution strategies.
+          - Integrated server communication for monitoring, logging, and remote control.
+        # This project is designed based on Conflict-Aware Dispatcher for deployment in large factory environments where AMRs operate on shared internal roads (indoor + outdoor). The system enables coordinated operation among robots and seamless interaction with web-based tools and human operators. It serves as the central control layer for scalable, safe, and intelligent fleet management—laying the foundation for smart factory automation.
         # I was responsible for several core features, including:
         # - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
         # - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
@@ -161,7 +161,10 @@ params:
         url: "#"
         image: ""
         description: |1-
-          These robots, equipped with steering-based locomotion mechanisms, have been deployed for security patrol tasks in public areas and construction sites, as well as for logistics operations in industrial environments. They autonomously navigate complex, shared internal roadways populated by humans and other vehicles such as trucks and forklifts.
+          - Led the motion planning and control team in global navigation, local trajectory generation, behavioral planning, and collision risk assessment.
+          - Built simulation tools to validate the full autonomous system, especially behavior planning.
+          - Developed real-time communication and data integration between the robot and server.
+        # These robots, equipped with steering-based locomotion mechanisms, have been deployed for security patrol tasks in public areas and construction sites, as well as for logistics operations in industrial environments. They autonomously navigate complex, shared internal roadways populated by humans and other vehicles such as trucks and forklifts.
         # I led the Motion Planning team in the concurrent development of autonomous capabilities across multiple robotic platforms. For each project, I developed core autonomy software, including:
         #   - Global Navigation, tailored to scenario requirements and factory map data.
         #   - Local Trajectory Generation Algorithms to ensure smooth and feasible motion control.
@@ -178,15 +181,21 @@ params:
         url: ""
         image: "images/projects/ERP42.png"
         description: |1-
-          I worked with the Educational Robot Platform (ERP) developed by WeGo Robotics, which was integrated into the MORAI simulation environment for autonomous driving research and development. Using this platform, I implemented and tested core motion planning components, specifically:
-            - Local planning algorithms, enabling the robot to navigate dynamic environments with smooth and collision-free trajectories.
-            - Motion tracking and control logic, ensuring accurate path following and stability under varying conditions.
-          To support development and evaluation, I published key planning and tracking data to ROS topics, allowing for real-time visualization, logging, and further analysis. This setup provided a practical and extensible environment for experimenting with and validating autonomous driving algorithms on a compact, education-oriented platform.
+          - Implemented local planning and motion tracking algorithms in the MORAI simulator.
+          - Integrated locally developed algorithms into the server-based simulation environment via the bridge node.
+          - Developed a hybrid control framework for concurrent simulation and real robot operation, using simulation outputs to drive the physical robot.
+        # I worked with the Educational Robot Platform (ERP) developed by WeGo Robotics, which was integrated into the MORAI simulation environment for autonomous driving research and development. Using this platform, I implemented and tested core motion planning components, specifically:
+        #   - Local planning algorithms, enabling the robot to navigate dynamic environments with smooth and collision-free trajectories.
+        #   - Motion tracking and control logic, ensuring accurate path following and stability under varying conditions.
+        # To support development and evaluation, I published key planning and tracking data to ROS topics, allowing for real-time visualization, logging, and further analysis. This setup provided a practical and extensible environment for experimenting with and validating autonomous driving algorithms on a compact, education-oriented platform.
 
       - title: On The Way Env. (OTW)
         url: "https://github.com/phatcvo/OnTheWay.git"
         image: "images/projects/OTW.gif"
-        description: This is an environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms.
+        description: |1-
+          - Developed a simulation environment for autonomous vehicles with customizable scenarios.
+          - Used the environment to evaluate and demonstrate local planning and decision-making algorithms.
+        # This is an environment for autonomous vehicles to demonstrate the local planning/decision-making algorithms.
         
       - title: Human-Robot Teleoperation (HRT)
         url: ""
