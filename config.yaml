@@ -84,10 +84,8 @@ params:
         url: "https://sites.google.com/view/kkahn/home-page"
         company: Fluid Power & Machine Intelligence Lab. (FPMI) · University of Ulsan (UOU)
         details: |1-
-          - Applied reinforcement learning to safe collaborative human-robot interaction tasks.
-          - Developed predictive control and adaptive optimal estimators for robotic systems.
-          - Built simulation environments in Python (Pygame, Gym) to test motion planning strategies.
-          - Handled the time‑delay and data‑packet dropout issues utilizing a predictive control algorithm delivering to effectively address challenges within Network Control Systems.
+          - Applied reinforcement learning and predictive control to safe collaborative human-robot interaction tasks.
+          - Developed adaptive optimal estimators and addressed network delay/dropout issues in robotic systems.
           - Enhanced the precision of control trajectory and force tracking in robotics by introducing a novel time‑varying adaptive optimal estimator.
           - Developed renewable and sustainable energy system control projects (Fluid‑based Triboelectric Nanogenerator; Floating Offshore Wind Turbines) to optimize as well as maximize power captured.
       
@@ -104,7 +102,7 @@ params:
         company: Open Lab. · Ho Chi Minh City University of Technology and Education (UTE)
         details: |1-
           - Taught Robotics and control theory.
-          - Reception Robot: Motion Planning and Control Algorithms for an Autonomous Reception Robot.
+          - Motion Planning and Control Algorithms for an Autonomous Reception Robot.
 
       - position: Technical Engineer
         dates: Sept. 2012 – Agu. 2014
