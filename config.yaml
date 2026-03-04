@@ -65,7 +65,7 @@ params:
         url: "https://www.t-robotics.net/"
         company: T-Robotics Co., Ltd
         details: |1-
-        Architecting a next-generation Fleet Management System (FMS) for large-scale AMR deployments.
+          Architecting a next-generation Fleet Management System (FMS) for large-scale AMR deployments.
           - System Design: Designing a proprietary FMS based on industry standards to ensure seamless interoperability and management of heterogeneous AMR fleets.
           - Task Allocation: Developing algorithms for multi-robot task assignment to optimize factory throughput and resource utilization.
           - Traffic & Deadlock Management: Focusing on core logic for deadlock prevention and conflict resolution in high-density, constrained environments.
@@ -76,7 +76,7 @@ params:
         url: "https://ar247.co.kr/"
         company: Autonomous Robot 24Hours 7Days (AR247)
         details: |1-
-        Led the Motion Planning strategy and development for patrol/heavy-duty AMRs, overseeing the transition from simulation-based research to real-world deployment.
+          Led the Motion Planning strategy and development for patrol/heavy-duty AMRs, overseeing the transition from simulation-based research to real-world deployment.
           - Designed motion planning strategies for heavy AMRs and validated them through high-fidelity simulations before deployment.
           - Trained and evaluated RL-based behavior policies within the simulation loop to enhance decision-making robustness.
           - Bridged simulation and real-world operation by integrating planning/control pipelines, improving safety and operational efficiency.
