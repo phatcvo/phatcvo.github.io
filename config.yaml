@@ -60,7 +60,7 @@ params:
     title: Experiences
     icon: fas fa-briefcase
     list:
-    - position: Principal Robotics Engineer | Fleet Systems & Coordination
+      - position: Principal Robotics Engineer | Fleet Systems & Coordination
         dates: Jan. 2026 - *Present*
         url: "https://www.t-robotics.net/"
         company: T-Robotics Co., Ltd
