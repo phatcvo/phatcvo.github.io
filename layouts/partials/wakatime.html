@@ -1,28 +1,24 @@
 {{- $light := .Site.Params.wakatime.chart.light | default "" -}}
 {{- $dark := .Site.Params.wakatime.chart.dark | default "" -}}
-{{- $profile := .Site.Params.wakatime.profile_url | default "https://wakatime.com" -}}
 
 {{- if and $light $dark -}}
 <div class="card p-6" data-reveal>
-  <div class="flex items-start justify-between gap-3">
-    <div>
-      <p class="section-eyebrow">Activity</p>
-      <h3 class="mt-2 text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">WakaTime</h3>
-      <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">Coding activity (last 7 days).</p>
-    </div>
-    <a class="pill-link" href="{{ $profile }}" target="_blank" rel="noopener noreferrer">Profile</a>
+  <div>
+    <p class="section-eyebrow">Activity</p>
+    <h3 class="mt-2 text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">WakaTime Insights</h3>
+    <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">A local snapshot of coding activity (last 7 days).</p>
   </div>
 
   <div class="mt-4 rounded-2xl border border-stone-200 dark:border-stone-800 overflow-hidden bg-stone-50 dark:bg-stone-950">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="{{ $dark }}" />
-      <source media="(prefers-color-scheme: light)" srcset="{{ $light }}" />
+      <source media="(prefers-color-scheme: dark)" srcset="{{ $dark | relURL }}" />
+      <source media="(prefers-color-scheme: light)" srcset="{{ $light | relURL }}" />
       <img
         data-wakatime
-        data-light-src="{{ $light }}"
-        data-dark-src="{{ $dark }}"
-        src="{{ $light }}"
-        alt="WakaTime coding activity chart"
+        data-light-src="{{ $light | relURL }}"
+        data-dark-src="{{ $dark | relURL }}"
+        src="{{ $light | relURL }}"
+        alt="Coding activity chart (7-day snapshot)"
         class="w-full h-auto"
         loading="lazy"
         decoding="async"
@@ -30,5 +26,16 @@
       />
     </picture>
   </div>
+
+  <details class="mt-4 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white/60 dark:bg-stone-950/60 p-4">
+    <summary class="cursor-pointer text-sm font-medium text-stone-800 dark:text-stone-100">Insights</summary>
+    <div class="mt-3 text-sm text-stone-600 dark:text-stone-300">
+      <ul class="list-disc pl-5 space-y-2">
+        <li>This chart is served from this website (no profile link), so your WakaTime account isn’t exposed on-page.</li>
+        <li>To refresh it, replace <code>/static/images/wakatime-light.svg</code> and <code>/static/images/wakatime-dark.svg</code>.</li>
+        <li>The chart stays theme-consistent (light/dark) and does not embed tracking scripts.</li>
+      </ul>
+    </div>
+  </details>
 </div>
 {{- end -}}

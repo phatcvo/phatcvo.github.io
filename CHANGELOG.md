@@ -7,4 +7,4 @@ All notable changes to this site will be documented in this file.
 - Added a token-driven design system (colors, typography, surfaces) and reusable components (cards, buttons, badges).
 - Improved accessibility (skip link, focus-visible styles, aria-labels for icon actions).
 - Improved SEO/share previews (dynamic titles/descriptions, Open Graph/Twitter cards, canonical URL, theme-color).
-- Improved performance/privacy by removing external font/icon CDNs and removing heavy WakaTime embeds from above-the-fold (WakaTime is now lazy-loaded in Skills).
+- Improved performance/privacy by removing external font/icon CDNs and moving coding-activity charts into a lazy-loaded Skills card.

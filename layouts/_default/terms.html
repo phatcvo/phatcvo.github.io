@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+  <header class="section-header" data-reveal>
+    <p class="section-eyebrow">Topics</p>
+    <h1 class="section-title">{{ .Title }}</h1>
+    <p class="section-desc">Browse writing by topic.</p>
+
+    <div class="mt-5 flex flex-wrap gap-3">
+      <a class="btn btn-secondary" href="{{ `blog` | relURL }}">All articles</a>
+      <a class="btn btn-ghost" href="{{ `search` | relURL }}">Search</a>
+    </div>
+  </header>
+
+  {{ $terms := .Data.Terms.Alphabetical }}
+  {{ if gt (len $terms) 0 }}
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      {{ range $terms }}
+        <article class="card p-6" data-reveal>
+          <h2 class="text-lg font-semibold tracking-tight">
+            <a class="hover:underline" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+          </h2>
+          <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}</p>
+          <div class="mt-5">
+            <a class="btn btn-ghost" href="{{ .Page.RelPermalink }}">View posts →</a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="card p-6" data-reveal>
+      <p class="m-0 text-sm text-stone-600 dark:text-stone-300">No topics found.</p>
+    </div>
+  {{ end }}
+</div>
+
+<script defer src="{{ `js/site.js` | relURL }}"></script>
+{{ end }}
