@@ -1,44 +1,18 @@
 {{ define "main" }}
-<div class="grid grid-cols-1 md:grid-cols-5 gap-2 sm py-2">
-  <div class="col-span-2">
-    <div class="bg-gray-300 dark:bg-darker drop-shadow-md p-2 rounded-t-lg">
-      <div class="flex flex-col justify-center">
-        {{ partial "profilePhoto" . }}
-        <div class="px-2 text-center">
-          {{ partial "social" . }}
-          
-        </div>
-      </div>
-    </div>
-    {{ partial "footer" . }}
+<div class="mx-auto max-w-6xl px-4 sm:px-6">
+  <div class="pt-10 sm:pt-14">
+    {{ partial "home/hero" . }}
   </div>
-  <div class="col-span-3 relative">
-    {{ range .Site.Params.showInAccordion }}
-    <div class="px-2">
-      <h2 class="accordion {{- if .expand }} active {{- end }}">
-        {{ $current := index $.Site.Params .item }}
-        <p
-         
-          onclick="expandAccordion(this)"
-          style="cursor: pointer"
-        >
-          <i class="{{ $current.icon }}"></i>
-          {{ $current.title -}}
-        </p>
-      </h2>
 
-      <div
-        class="panel overflow-hidden px-2 ml-2"
-        {{if $current.panelid}}
-        id="{{ $current.panelid }}"
-        {{ end }}
-      >
-        <div class="">{{ partial (print "accordion/" .item) $ }}</div>
-      </div>
-    </div>
-    {{ end }}
-
-    <script src="{{ `js/accordion.js` | relURL }}"></script>
+  <div class="mt-12 sm:mt-16 space-y-14 sm:space-y-20">
+    {{ partial "home/about" . }}
+    {{ partial "home/experience" . }}
+    {{ partial "home/projects" . }}
+    {{ partial "home/publications" . }}
+    {{ partial "home/skills" . }}
+    {{ partial "home/contact" . }}
   </div>
 </div>
+
+<script defer src="{{ `js/site.js` | relURL }}"></script>
 {{ end }}

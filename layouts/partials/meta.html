@@ -1,18 +1,44 @@
-<title>{{ .Site.Params.title }}</title>
+{{- $siteName := (.Site.Params.profile.name | default .Site.Params.title) -}}
+{{- $defaultTitle := (printf "%s — Robotics & Autonomous Systems" $siteName) -}}
+{{- $pageTitle := cond .IsHome $defaultTitle (printf "%s | %s" .Title $siteName) -}}
+{{- $desc := "" -}}
+{{- if .IsHome -}}
+  {{- $desc = (.Site.Params.aboutme.description | plainify | truncate 160) -}}
+{{- else -}}
+  {{- $desc = ((or .Params.description .Summary) | plainify | truncate 160) -}}
+{{- end -}}
 
-<meta name="theme-color" content="" />
+<title>{{ $pageTitle }}</title>
+
 <meta charset="utf-8" />
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<meta name="description" content="{{ .Site.Params.description }}" />
+<meta name="description" content="{{ $desc }}" />
 <meta name="author" content="{{ .Site.Params.author }}" />
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafaf9" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0c0a09" />
+
+<meta property="og:site_name" content="{{ $siteName }}" />
+<meta property="og:title" content="{{ $pageTitle }}" />
+<meta property="og:description" content="{{ $desc }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+<meta property="og:image" content="{{ `images/profile.jpg` | absURL }}" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $pageTitle }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+<meta name="twitter:image" content="{{ `images/profile.jpg` | absURL }}" />
+
 {{- $hugoGenerator := index (findRE `content=\"(.+)\"` hugo.Generator) 0 }}
 <meta name="generator" content="{{ replaceRE `content=|\"` `` $hugoGenerator }}" />
 
 {{ if .Site.Params.favicons.use }}
-{{- $metas := .Site.Params.favicons.metas }}
-{{- range (split $metas "\n") }}
-{{- $original := index (findRE `href=\"(.*?)\"` .) 0 }}
-{{- $processed := replaceRE `href=|\"` `` $original | relURL }}
-{{- replaceRE `(href=\")(.*?)(\")` (print `$1` $processed `$3`) . | safeHTML }}
-{{- end }}
+  {{- $metas := .Site.Params.favicons.metas }}
+  {{- range (split $metas "\n") }}
+    {{- $original := index (findRE `href=\"(.*?)\"` .) 0 }}
+    {{- $processed := replaceRE `href=|\"` `` $original | relURL }}
+    {{- replaceRE `(href=\")(.*?)(\")` (print `$1` $processed `$3`) . | safeHTML }}
+  {{- end }}
 {{- end -}}

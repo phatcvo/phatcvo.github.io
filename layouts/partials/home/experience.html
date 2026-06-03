@@ -1,0 +1,29 @@
+<section id="experience" class="section" data-reveal>
+  <header class="section-header">
+    <p class="section-eyebrow">Experience</p>
+    <h2 class="section-title">Leading autonomy teams & shipping robots</h2>
+    <p class="section-desc">Roles spanning fleet coordination, motion planning, research, and simulation-to-reality transfer.</p>
+  </header>
+
+  <div class="space-y-4">
+    {{ range .Site.Params.experience.list }}
+      <article class="card p-6">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+          <div>
+            <h3 class="card-title">{{ .position }}</h3>
+            <p class="card-subtitle">
+              {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .company }}</a>{{ else }}{{ .company }}{{ end }}
+            </p>
+          </div>
+          <p class="card-meta">{{ .dates | markdownify }}</p>
+        </div>
+
+        {{ if .details }}
+          <div class="mt-4 prose prose-stone dark:prose-invert max-w-none">
+            {{ .details | markdownify }}
+          </div>
+        {{ end }}
+      </article>
+    {{ end }}
+  </div>
+</section>

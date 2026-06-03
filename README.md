@@ -14,13 +14,13 @@ hugo server
 
 #### Configuration (`config.yaml`)
 
-Customize the theme by modifying the [`config.yaml`](https://github.com/phatcvo/phatcvo.github.io/blob/main/config.yaml).
+Customize the site by modifying the [`config.yaml`](https://github.com/phatcvo/phatcvo.github.io/blob/main/config.yaml).
 
 Key customization options:
 
-- Define which sections appear in the accordion.
-- Control the order of sections.
-- Choose which section should be expanded by default.
+- Update homepage sections (About, Experience, Projects, Publications, Skills).
+- Update profile/SEO metadata (name, headline, description).
+- Add/adjust social links.
 
 #### Theme Modes
 

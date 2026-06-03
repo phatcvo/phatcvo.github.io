@@ -1,0 +1,16 @@
+<section id="publications" class="section" data-reveal>
+  <header class="section-header">
+    <p class="section-eyebrow">Publications</p>
+    <h2 class="section-title">Research footprint</h2>
+    <p class="section-desc">Profiles and publication indexes.</p>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {{ range .Site.Params.publication.list }}
+      <a class="card p-6 hover:no-underline" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+        <p class="card-title">{{ .site }}</p>
+        <p class="card-subtitle">View profile</p>
+      </a>
+    {{ end }}
+  </div>
+</section>

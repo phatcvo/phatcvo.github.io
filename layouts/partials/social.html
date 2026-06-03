@@ -1,30 +1,17 @@
-<h1 class="mb-0">{{ .Site.Params.profile.name }}</h1>
-<h2 class="mb-0">{{ .Site.Params.profile.tagline }}</h2>
-<h3 class="mb-4">{{ .Site.Params.profile.location }}</h3>
-<figure>
-  <!-- Light theme WakaTime chart -->
-  <img
-    id="wakatime-light"
-    src="https://wakatime.com/share/@phatcvo/e7a25b4c-0eb0-403b-b90f-f340d122094e.svg"
-    alt="Wakatime SVG Image (Light)"
-    style="width: 100%; height: 100%"
-    class="block dark:hidden"
-  />
-  <!-- Dark theme WakaTime chart -->
-  <img
-    id="wakatime-dark"
-    src="https://wakatime.com/share/@phatcvo/5fe079e8-4a4b-44d0-b8b0-9c91cdefe0ab.svg"
-    alt="Wakatime SVG Image (Dark)"
-    style="width: 100%; height: 100%"
-    class="hidden dark:block"
-  />
-</figure>
-<div class="mb-4 flex flex-wrap justify-center">
-  {{ range.Site.Params.social.list }}
-  <div class="mx-2">
-    <a class="text-2xl" href="{{ .url }}">
-      <i class="mt-1 {{ .icon }}"></i>
+<div class="flex flex-wrap justify-center gap-2">
+  {{ range .Site.Params.social.list }}
+    {{ $raw := .id | default (replaceRE `^.*fa-` `` (.icon | default "")) }}
+    {{ $id := cond (eq $raw "linkedin-in") "linkedin" $raw }}
+    <a
+      class="social-chip"
+      href="{{ .url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="{{ .title }}"
+      title="{{ .title }}"
+    >
+      {{ partial "icon" (dict "name" $id "class" "h-4 w-4") }}
+      <span class="text-sm">{{ .title }}</span>
     </a>
-  </div>
   {{ end }}
 </div>

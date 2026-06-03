@@ -1,0 +1,35 @@
+<section id="contact" class="section" data-reveal>
+  <header class="section-header">
+    <p class="section-eyebrow">Contact</p>
+    <h2 class="section-title">Let’s build reliable autonomy</h2>
+    <p class="section-desc">Open to robotics roles, research collaboration, and technical leadership conversations.</p>
+  </header>
+
+  <div class="card p-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <p class="m-0 text-sm text-stone-600 dark:text-stone-300">Fastest response</p>
+        <p class="m-0 text-lg font-semibold text-stone-900 dark:text-stone-50">LinkedIn</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {{ $linkedin := "" }}
+        {{ range .Site.Params.social.list }}
+          {{ $raw := .id | default (replaceRE `^.*fa-` `` (.icon | default "")) }}
+          {{ $id := cond (eq $raw "linkedin-in") "linkedin" $raw }}
+          {{ if eq $id "linkedin" }}
+            {{ $linkedin = .url }}
+          {{ end }}
+        {{ end }}
+
+        {{ if $linkedin }}
+          <a class="btn btn-primary" href="{{ $linkedin }}" target="_blank" rel="noopener noreferrer">Message me</a>
+        {{ end }}
+        <a class="btn btn-secondary" href="{{ `blog` | relURL }}">Read writing</a>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      {{ partial "social" . }}
+    </div>
+  </div>
+</section>
