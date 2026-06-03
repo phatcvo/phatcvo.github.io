@@ -234,6 +234,89 @@
     @apply marker:text-stone-500 dark:marker:text-stone-400;
   }
 
+  /* Article typography polish */
+  .article-prose {
+    @apply text-[15.5px] sm:text-[16.5px] leading-relaxed;
+  }
+  .article-prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply mt-10 mb-3 text-2xl sm:text-3xl font-semibold tracking-tight;
+    scroll-margin-top: 96px;
+  }
+  .article-prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply mt-8 mb-2 text-xl sm:text-2xl font-semibold tracking-tight;
+    scroll-margin-top: 96px;
+  }
+  .article-prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: rgb(var(--accent));
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+
+  .article-prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply rounded-2xl border border-stone-200 dark:border-stone-800 px-5 py-4;
+    background: rgba(99, 102, 241, 0.06);
+  }
+
+  .article-prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply rounded-2xl border border-stone-200 dark:border-stone-800;
+  }
+
+  .article-prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply w-full text-sm;
+  }
+  .article-prose :where(th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply text-left font-semibold text-stone-900 dark:text-stone-50;
+  }
+  .article-prose :where(td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply align-top;
+  }
+  .article-prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply overflow-hidden rounded-2xl border border-stone-200 dark:border-stone-800;
+  }
+  .article-prose :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply bg-stone-50 dark:bg-stone-950;
+  }
+
+  .article-prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply rounded-2xl border border-stone-200 dark:border-stone-800;
+    background: #0b1220;
+    color: #e5e7eb;
+    box-shadow: var(--shadow-1);
+  }
+  .article-prose :where(code):not(:where(pre code, [class~="not-prose"], [class~="not-prose"] *)) {
+    @apply rounded-lg px-2 py-1 text-[0.9em];
+    background: rgba(99, 102, 241, 0.10);
+    border: 1px solid rgba(99, 102, 241, 0.18);
+  }
+
+  .code-copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.92);
+    cursor: pointer;
+  }
+  .code-copy-btn:hover {
+    background: rgba(255,255,255,0.14);
+  }
+
+  /* Table of contents */
+  .toc ul {
+    @apply list-none pl-0 m-0;
+  }
+  .toc li {
+    @apply my-1;
+  }
+  .toc a {
+    @apply block rounded-lg px-2 py-1 text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 hover:no-underline;
+  }
+
   /* Existing pagination (kept) */
   ul.pagination {
     @apply flex flex-row justify-center;

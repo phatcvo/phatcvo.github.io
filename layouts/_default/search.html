@@ -1,9 +1,21 @@
 {{ define "main" }}
-<script src="/pagefind/pagefind-ui.js"></script>
-<div id="search"></div>
-<script>
-  window.addEventListener("DOMContentLoaded", (event) => {
-    new PagefindUI({ element: "#search", showSubResults: true });
-  });
-</script>
+<div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+  <header class="section-header" data-reveal>
+    <p class="section-eyebrow">Search</p>
+    <h1 class="section-title">Find articles & pages</h1>
+    <p class="section-desc">Search across writing and site content.</p>
+  </header>
+
+  <div class="card p-6" data-reveal>
+    <script src="/pagefind/pagefind-ui.js"></script>
+    <div id="search"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        new PagefindUI({ element: "#search", showSubResults: true });
+      });
+    </script>
+  </div>
+</div>
+
+<script defer src="{{ `js/site.js` | relURL }}"></script>
 {{ end }}
