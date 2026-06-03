@@ -27,10 +27,9 @@ params:
     location: "Autonomous Mobility · Robotics"
     photo: profile.jpg
   wakatime:
-    profile_url: "https://wakatime.com/@phatcvo"
     chart:
-      light: "https://wakatime.com/share/@phatcvo/3448f2e6-dcc5-42e8-803d-ff693904bcfa.svg"
-      dark: "https://wakatime.com/share/@phatcvo/3978c619-7cbd-4bb6-9c0d-7273e5a8c142.svg"
+      light: "/images/wakatime-light.svg"
+      dark: "/images/wakatime-dark.svg"
 
   social:
     title: Links
