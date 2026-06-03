@@ -3,12 +3,6 @@
 
 {{- if and $light $dark -}}
 <div class="card p-6" data-reveal>
-  <div>
-    <p class="section-eyebrow">Activity</p>
-    <h3 class="mt-2 text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">WakaTime Insights</h3>
-    <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">A snapshot of coding activity (last 7 days).</p>
-  </div>
-
   <div class="mt-4 rounded-2xl border border-stone-200 dark:border-stone-800 overflow-hidden bg-stone-50 dark:bg-stone-950">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="{{ $dark }}" />
@@ -26,16 +20,5 @@
       />
     </picture>
   </div>
-
-  <details class="mt-4 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white/60 dark:bg-stone-950/60 p-4">
-    <summary class="cursor-pointer text-sm font-medium text-stone-800 dark:text-stone-100">Insights</summary>
-    <div class="mt-3 text-sm text-stone-600 dark:text-stone-300">
-      <p class="m-0">Top languages (from the share chart):</p>
-      <div class="mt-3 flex flex-wrap gap-2" data-wakatime-insights aria-live="polite">
-        <span class="badge">Loading…</span>
-      </div>
-      <p class="mt-3 text-xs text-stone-500 dark:text-stone-400">No profile link is shown.</p>
-    </div>
-  </details>
 </div>
 {{- end -}}
