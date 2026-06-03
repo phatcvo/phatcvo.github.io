@@ -1,0 +1,28 @@
+{{- $light := .Site.Params.wakatime.chart.light | default "" -}}
+{{- $dark := .Site.Params.wakatime.chart.dark | default "" -}}
+{{- $profile := .Site.Params.wakatime.profile_url | default "https://wakatime.com" -}}
+
+{{- if and $light $dark -}}
+<div class="card p-6" data-reveal>
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <p class="section-eyebrow">Activity</p>
+      <h3 class="mt-2 text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">WakaTime</h3>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">Coding activity (last 7 days).</p>
+    </div>
+    <a class="pill-link" href="{{ $profile }}" target="_blank" rel="noopener noreferrer">Profile</a>
+  </div>
+
+  <div class="mt-4 rounded-2xl border border-stone-200 dark:border-stone-800 overflow-hidden bg-stone-50 dark:bg-stone-950">
+    <img
+      data-wakatime
+      data-light-src="{{ $light }}"
+      data-dark-src="{{ $dark }}"
+      alt="WakaTime coding activity chart"
+      class="w-full h-auto"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</div>
+{{- end -}}
