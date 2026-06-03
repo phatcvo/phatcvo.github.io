@@ -1,0 +1,70 @@
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start" data-reveal>
+  <div class="md:col-span-8">
+    <p class="eyebrow">Robotics PhD · Autonomous Systems · Technical Leadership</p>
+    <h1 class="home-h1">{{ .Site.Params.profile.name | default .Site.Params.author }}</h1>
+
+    {{ $headline := .Site.Params.profile.tagline | default "Principal Robotics Engineer — Fleet Systems, Motion Planning, Multi-Robot Coordination" }}
+    <p class="home-subhead">{{ $headline }}</p>
+
+    <p class="home-lead">
+      {{ .Site.Params.aboutme.description | plainify | truncate 260 }}
+    </p>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+      <span class="badge">Motion Planning</span>
+      <span class="badge">Fleet Management</span>
+      <span class="badge">Multi-Robot Coordination</span>
+      <span class="badge">ROS/ROS2</span>
+      <span class="badge">C++</span>
+      <span class="badge">MQTT</span>
+      <span class="badge">Docker</span>
+      <span class="badge">CI/CD</span>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="#projects">View projects</a>
+      <a class="btn btn-secondary" href="#contact">Contact</a>
+      <a class="btn btn-ghost" href="{{ `blog` | relURL }}">Read writing</a>
+    </div>
+
+    <div class="mt-8">
+      {{ partial "social" . }}
+    </div>
+  </div>
+
+  <div class="md:col-span-4">
+    <div class="card p-5">
+      <div class="flex items-center gap-4">
+        <img
+          class="h-16 w-16 rounded-2xl object-cover"
+          src="{{ `images` | relURL }}/{{ .Site.Params.profile.photo }}"
+          alt="{{ .Site.Params.profile.name | default .Site.Params.author }}"
+          width="128"
+          height="128"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <div>
+          <p class="m-0 text-sm text-stone-500 dark:text-stone-400">Currently</p>
+          <p class="m-0 font-semibold text-stone-900 dark:text-stone-50">{{ (index .Site.Params.experience.list 0).position }}</p>
+          <p class="m-0 text-sm text-stone-600 dark:text-stone-300">{{ (index .Site.Params.experience.list 0).company }}</p>
+        </div>
+      </div>
+
+      <div class="mt-5 grid grid-cols-2 gap-3">
+        <a class="stat" href="#experience">
+          <p class="stat-k">Experience</p>
+          <p class="stat-v">10+ yrs</p>
+        </a>
+        <a class="stat" href="#projects">
+          <p class="stat-k">Focus</p>
+          <p class="stat-v">Robotics</p>
+        </a>
+      </div>
+
+      <p class="mt-5 text-sm text-stone-600 dark:text-stone-300">
+        Based on industry deployments + academic research in planning, control, and uncertainty.
+      </p>
+    </div>
+  </div>
+</section>

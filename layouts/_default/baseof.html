@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}" class="m-auto {{ if .Site.Params.theme.mainTheme }} {{ .Site.Params.theme.mainTheme }} {{ end }}">
+<html lang="{{ .Site.LanguageCode }}" class="{{ if .Site.Params.theme.mainTheme }}{{ .Site.Params.theme.mainTheme }}{{ end }}">
   {{- partial "head.html" . -}}
-  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+  <body class="min-h-screen flex flex-col">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     {{ if not .Site.Params.theme.singlePage }}
-    {{ partial "header" . }}
+      {{ partial "header" . }}
     {{ end }}
-    <main class="grow">
-      {{- block "main" . }}
-      {{- end }}
+
+    <main id="main-content" class="flex-1">
+      {{ if .IsHome }}
+        {{- block "main" . }}{{- end }}
+      {{ else }}
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 py-10">
+          {{- block "main" . }}{{- end }}
+        </div>
+      {{ end }}
     </main>
-    {{ if and (not .IsHome) (not .Site.Params.theme.singlepage) }}
-    {{ partial "footer" . }}
+
+    {{ if not .Site.Params.theme.singlepage }}
+      {{ partial "footer" . }}
     {{ end }}
   </body>
 </html>

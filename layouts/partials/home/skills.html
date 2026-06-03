@@ -1,0 +1,26 @@
+<section id="skills" class="section" data-reveal>
+  <header class="section-header">
+    <p class="section-eyebrow">Skills</p>
+    <h2 class="section-title">Robotics stack</h2>
+    <p class="section-desc">A practical toolkit spanning algorithms, middleware, simulation, and deployment.</p>
+  </header>
+
+  <div class="card p-6">
+    <div class="prose prose-stone dark:prose-invert max-w-none">
+      {{ range .Site.Params.skill.list }}
+        {{ .skill | markdownify }}
+      {{ end }}
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+      <span class="badge">C++</span>
+      <span class="badge">Python</span>
+      <span class="badge">ROS / ROS2</span>
+      <span class="badge">MQTT</span>
+      <span class="badge">Docker</span>
+      <span class="badge">Linux</span>
+      <span class="badge">CI/CD</span>
+      <span class="badge">Simulation (Gazebo/Carla/MORAI)</span>
+    </div>
+  </div>
+</section>

@@ -1,15 +1,10 @@
 html {
   touch-action: manipulation;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
-.panel {
-  max-height: 0;
-  transition: 0.3s ease-out;
-}
-
-.profile-photo-container {
-  img {
-    max-width: 100%;
-  }
+.profile-photo-container img {
+  max-width: 100%;
+  height: auto;
 }

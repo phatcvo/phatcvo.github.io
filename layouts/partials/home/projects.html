@@ -1,0 +1,68 @@
+<section id="projects" class="section" data-reveal>
+  <header class="section-header">
+    <p class="section-eyebrow">Projects</p>
+    <h2 class="section-title">Case studies</h2>
+    <p class="section-desc">Selected systems showcasing autonomy, planning, and fleet-scale engineering.</p>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    {{ range .Site.Params.project.list }}
+      <article class="card overflow-hidden">
+        {{ if .image }}
+          <img
+            src="{{ .image | relURL }}"
+            alt="{{ .title }} preview"
+            class="h-48 w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        {{ end }}
+
+        <div class="p-6">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="card-title">
+              {{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+            </h3>
+            <div class="flex gap-2">
+              {{ if .source }}
+                <a class="pill-link" href="{{ .source }}" target="_blank" rel="noopener noreferrer">Source</a>
+              {{ end }}
+              {{ if .link }}
+                <a class="pill-link" href="{{ .link }}" target="_blank" rel="noopener noreferrer">Link</a>
+              {{ end }}
+            </div>
+          </div>
+
+          <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">
+            {{ .summary | default (.description | plainify | truncate 180) }}
+          </p>
+
+          {{ if .stack }}
+            <div class="mt-4 flex flex-wrap gap-2">
+              {{ range .stack }}
+                <span class="badge">{{ . }}</span>
+              {{ end }}
+            </div>
+          {{ end }}
+
+          {{ if .highlights }}
+            <ul class="mt-4 pl-5 list-disc text-sm text-stone-700 dark:text-stone-200">
+              {{ range .highlights }}
+                <li class="my-1">{{ . }}</li>
+              {{ end }}
+            </ul>
+          {{ end }}
+
+          {{ if .description }}
+            <details class="mt-4 details">
+              <summary class="details-summary">Read details</summary>
+              <div class="mt-3 prose prose-stone dark:prose-invert max-w-none">
+                {{ .description | markdownify }}
+              </div>
+            </details>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
+</section>

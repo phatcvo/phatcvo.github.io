@@ -1,19 +1,51 @@
-<header
-  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
->
-  <div>
-    <a class="nav-menu-item" href="{{ .Site.BaseURL }}">Home</a>
-    <a class="nav-menu-item" href="{{ `blog` | relURL }}">Post</a>
-  </div>
-  <div>
-    <a class="mr-4" href="{{ `search` | relURL }}">
-      <i class="fas fa-search"></i>
-    </a>
-    <i
-      class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
-      onclick="toggleTheme()"
-    ></i>
+<header class="sticky top-0 z-50 border-b border-stone-200/70 dark:border-stone-800/70 bg-white/75 dark:bg-stone-950/65 backdrop-blur">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="{{ .Site.BaseURL }}" class="font-semibold tracking-tight text-stone-900 dark:text-stone-50 hover:no-underline">
+        {{ .Site.Params.profile.name | default .Site.Params.author }}
+      </a>
+      <span class="hidden sm:inline text-sm text-stone-500 dark:text-stone-400">Robotics • Autonomous Systems</span>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+      {{ if .IsHome }}
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      {{ end }}
+      <a class="nav-link" href="{{ `blog` | relURL }}">Writing</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a class="icon-btn" href="{{ `search` | relURL }}" aria-label="Search">
+        {{ partial "icon" (dict "name" "search" "class" "h-5 w-5") }}
+      </a>
+      <button type="button" class="icon-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="inline dark:hidden">{{ partial "icon" (dict "name" "moon" "class" "h-5 w-5") }}</span>
+        <span class="hidden dark:inline">{{ partial "icon" (dict "name" "sun" "class" "h-5 w-5") }}</span>
+      </button>
+
+      <details class="md:hidden relative">
+        <summary class="icon-btn list-none cursor-pointer" aria-label="Open menu">
+          <span class="text-sm font-semibold">Menu</span>
+        </summary>
+        <div class="absolute right-0 mt-2 w-56 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 shadow-lg p-2">
+          {{ if .IsHome }}
+            <a class="mobile-nav-link" href="#about">About</a>
+            <a class="mobile-nav-link" href="#experience">Experience</a>
+            <a class="mobile-nav-link" href="#projects">Projects</a>
+            <a class="mobile-nav-link" href="#publications">Publications</a>
+            <a class="mobile-nav-link" href="#skills">Skills</a>
+            <a class="mobile-nav-link" href="#contact">Contact</a>
+            <div class="my-1 border-t border-stone-200 dark:border-stone-800"></div>
+          {{ end }}
+          <a class="mobile-nav-link" href="{{ `blog` | relURL }}">Writing</a>
+          <a class="mobile-nav-link" href="{{ `search` | relURL }}">Search</a>
+        </div>
+      </details>
+    </div>
   </div>
 </header>
-
-{{ partial "toggleTheme.html" . }}
