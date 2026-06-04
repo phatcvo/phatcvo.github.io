@@ -2,7 +2,7 @@
 {{- $dark := .Site.Params.social.wakatime_card.dark | default "" -}}
 
 {{- if and $light $dark -}}
-<div class="mt-8 rounded-2xl border border-stone-200 dark:border-stone-800 overflow-hidden bg-stone-50 dark:bg-stone-950">
+<div class="mt-8 overflow-hidden rounded-2xl border border-stone-200 dark:border-stone-800">
   <img
     data-wakatime
     data-light-src="{{ $light }}"
