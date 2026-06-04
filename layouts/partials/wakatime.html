@@ -1,5 +1,9 @@
-{{- $light := .Site.Params.wakatime.chart.light | default "" -}}
-{{- $dark := .Site.Params.wakatime.chart.dark | default "" -}}
+{{- $chart_light := .Site.Params.wakatime.chart.light | default "" -}}
+{{- $chart_dark := .Site.Params.wakatime.chart.dark | default "" -}}
+{{- $social_light := .Site.Params.social.wakatime_card.light | default "" -}}
+{{- $social_dark := .Site.Params.social.wakatime_card.dark | default "" -}}
+{{- $light := default $chart_light $social_light -}}
+{{- $dark := default $chart_dark $social_dark -}}
 
 {{- if and $light $dark -}}
 <div class="card p-6" data-reveal>
@@ -19,6 +23,9 @@
         referrerpolicy="no-referrer"
       />
     </picture>
+
+    <!-- Container populated by static/js/site.js with parsed SVG insights -->
+    <div class="p-4" data-wakatime-insights></div>
   </div>
 </div>
 {{- end -}}
