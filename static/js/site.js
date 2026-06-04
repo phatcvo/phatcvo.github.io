@@ -1,7 +1,7 @@
 (() => {
   const html = document.documentElement;
 
-  const getTheme = () => (html.classList.contains("dark") ? "dark" : "light");
+  const getTheme = () => (html.classList.contains("light") ? "dark" : "light");
 
   const initWakatime = () => {
     const imgs = Array.from(document.querySelectorAll("img[data-wakatime]"));
@@ -48,7 +48,7 @@
           .map((it) => `<span class="badge">${escapeHtml(it.label)} ${it.pct.toFixed(2)}%</span>`)
           .join("");
       } catch {
-        container.innerHTML = '<span class="badge">Insights unavailable</span>';
+        // container.innerHTML = '<span class="badge">Insights unavailable</span>';
       }
     };
 
