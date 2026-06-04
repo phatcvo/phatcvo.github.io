@@ -6,7 +6,7 @@
   </header>
 
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-    <div class="card p-6 lg:col-span-7">
+    <div class="card p-6 lg:col-span-7" data-reveal>
       <div class="prose prose-stone dark:prose-invert max-w-none">
         {{ range .Site.Params.skill.list }}
           {{ .skill | markdownify }}
@@ -23,13 +23,12 @@
         <span class="badge">CI/CD</span>
         <span class="badge">Simulation (Gazebo/Carla/MORAI)</span>
       </div>
-      <div class="lg:col-span-5">
-      {{ partial "wakatime" . }}
-    </div>
-    </div>
-    <div class="lg:col-span-5">
+
       {{ partial "wakatime_code" . }}
     </div>
-    
+
+    <div class="lg:col-span-5">
+      {{ partial "wakatime" . }}
+    </div>
   </div>
 </section>
