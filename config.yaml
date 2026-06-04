@@ -49,6 +49,12 @@ params:
       - icon: fab fa-youtube
         url: "https://www.youtube.com/@phatcvo-beelab"
         title: Youtube
+      - icon: fab fa-heart
+        url: "https://wakatime.com/@phatcvo"
+        title: WakaTime
+    wakatime_card:
+      light: "https://wakatime.com/share/@phatcvo/e7a25b4c-0eb0-403b-b90f-f340d122094e.svg"
+      dark:  "https://wakatime.com/share/@phatcvo/5fe079e8-4a4b-44d0-b8b0-9c91cdefe0ab.svg"
   showInAccordion:
     - item: aboutme
       expand: true
