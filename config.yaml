@@ -190,6 +190,7 @@ params:
 
       - title: Beebot
         url: ""
+        image: "images/projects/beebot.png"
         source: "https://github.com/phatcvo/Beebot.git"
         summary: Open-source autonomous mobile robot stack built from the ground up for real-world testing.
         stack:
