@@ -4,22 +4,21 @@
 {{- if and $light $dark -}}
 <div data-reveal>
   <div class="overflow-hidden rounded-2xl border border-stone-200 dark:border-stone-800">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="{{ $dark }}" />
-      <source media="(prefers-color-scheme: light)" srcset="{{ $light }}" />
-      <img
-        data-wakatime
-        data-light-src="{{ $light }}"
-        data-dark-src="{{ $dark }}"
-        src="{{ $light }}"
-        alt="Coding activity chart (7-day snapshot)"
-        class="w-full h-auto"
-        loading="lazy"
-        decoding="async"
-        referrerpolicy="no-referrer"
-      />
-    </picture>
+    <img
+      data-wakatime
+      data-light-src="{{ $light }}"
+      data-dark-src="{{ $dark }}"
+      src="{{ $light }}"
+      alt="Coding activity chart (7-day snapshot)"
+      class="w-full h-auto"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+    />
   </div>
 
+  <div class="mt-3 flex flex-wrap gap-2" data-wakatime-insights aria-live="polite">
+    <span class="badge">Loading…</span>
+  </div>
 </div>
 {{- end -}}
