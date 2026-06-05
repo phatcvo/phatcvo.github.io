@@ -2,17 +2,15 @@
 {{- $dark := .Site.Params.social.wakatime_card.dark | default "" -}}
 
 {{- if and $light $dark -}}
-<div class="mt-8 overflow-hidden rounded-2xl border border-stone-200 dark:border-stone-800">
-  <img
-    data-wakatime
-    data-light-src="{{ $light }}"
-    data-dark-src="{{ $dark }}"
-    src="{{ $light }}"
-    alt="Coding activity heatmap"
-    class="w-full h-auto"
-    loading="lazy"
-    decoding="async"
-    referrerpolicy="no-referrer"
-  />
-</div>
+<img
+  data-wakatime
+  data-light-src="{{ $light }}"
+  data-dark-src="{{ $dark }}"
+  src="{{ $light }}"
+  alt="Coding activity heatmap"
+  class="mt-8 w-full h-auto"
+  loading="lazy"
+  decoding="async"
+  referrerpolicy="no-referrer"
+/>
 {{- end -}}
