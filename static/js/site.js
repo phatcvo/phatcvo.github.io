@@ -1,7 +1,7 @@
 (() => {
   const html = document.documentElement;
 
-  const getTheme = () => (html.classList.contains("light") ? "dark" : "light");
+  const getTheme = () => (html.classList.contains("dark") ? "dark" : "light");
 
   const initWakatime = () => {
     const imgs = Array.from(document.querySelectorAll("img[data-wakatime]"));
@@ -15,9 +15,20 @@
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#39;");
 
+    const findInsightsContainer = (img) => {
+      let el = img;
+      for (let i = 0; i < 6 && el; i++) {
+        if (el.querySelector) {
+          const c = el.querySelector("[data-wakatime-insights]");
+          if (c) return c;
+        }
+        el = el.parentElement;
+      }
+      return null;
+    };
+
     const loadInsights = async (img) => {
-      const card = img.closest(".card");
-      const container = card ? card.querySelector("[data-wakatime-insights]") : null;
+      const container = findInsightsContainer(img);
       if (!container) return;
       if (container.dataset.loaded === "1") return;
       container.dataset.loaded = "1";
@@ -48,7 +59,7 @@
           .map((it) => `<span class="badge">${escapeHtml(it.label)} ${it.pct.toFixed(2)}%</span>`)
           .join("");
       } catch {
-        // container.innerHTML = '<span class="badge">Insights unavailable</span>';
+        container.innerHTML = '<span class="badge">Insights unavailable</span>';
       }
     };
 
@@ -60,24 +71,32 @@
       img.dataset.loaded = "1";
     };
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            setSrc(e.target);
-            void loadInsights(e.target);
-            io.unobserve(e.target);
-          }
-        }
-      },
-      { threshold: 0.15 }
-    );
+    const activate = (img) => {
+      setSrc(img);
+      void loadInsights(img);
+    };
 
-    imgs.forEach((img) => io.observe(img));
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              activate(e.target);
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.15 }
+      );
+
+      imgs.forEach((img) => io.observe(img));
+    } else {
+      imgs.forEach(activate);
+    }
 
     const mo = new MutationObserver(() => {
       for (const img of imgs) {
-        if (img.dataset.loaded === "1") setSrc(img);
+        if (img.dataset.loaded === "1" || img.complete) setSrc(img);
       }
     });
     mo.observe(html, { attributes: true, attributeFilter: ["class"] });
