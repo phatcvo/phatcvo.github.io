@@ -288,6 +288,27 @@ params:
           - Built SLAM-based mapping and tracking control for safe indoor navigation.
         description: This M.S. thesis focuses on developing an autonomous service robot for indoor spaces such as lobbies, with contributions in SLAM-based map creation and tracking control for safe path following.
             
+      - title: RRT* Qt Demo (Dubins)
+        url: ""
+        image: "images/projects/RRT.png"
+        source: "https://github.com/phatcvo/Mission_planner_GUI.git"
+        summary: A small Qt-based demo implementing RRT* with Dubins paths and interactive obstacle drawing.
+        stack:
+          - C++
+          - Qt
+          - RRT*
+          - Dubins paths
+        highlights:
+          - Interactive rectangular obstacle drawing with mouse.
+          - Includes launcher script for easy running: run_app.sh
+        description: |1-
+          A small Qt-based demo implementing RRT* with Dubins paths.The GUI supports drawing rectangular obstacles interactively.
+          To draw an obstacle: press the left mouse button at one corner, drag to the opposite corner, then release. The rectangle will be added to the obstacle list and the scene will refresh.
+          
+          The included launcher script simplifies running the app:
+          chmod +x run_app.sh && ./run_app.sh
+          Repository: https://github.com/phatcvo/Mission_planner_GUI.git
+            
   skill:
     title: Technical Skills
     panelId: skill-panel
