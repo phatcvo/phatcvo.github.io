@@ -309,6 +309,23 @@ params:
           chmod +x run_app.sh && ./run_app.sh
           Repository: https://github.com/phatcvo/Mission_planner_GUI.git
             
+      - title: Multi-Robot Trajectory Planner
+        url: ""
+        image: "images/projects/random_env.gif"
+        source: "https://github.com/phatcvo/extend-multi-robot-traj-planner.git"
+        summary: This code proposes an efficient trajectory planning approach that generates safe, dynamically feasible and near-optimal trajectories for multiple non-holonomic mobile robots in obstacle-rich environments.
+        stack:
+          - C++
+          - Python
+          - Optimization
+        highlights:
+          - Generates safe, dynamically-feasible near-optimal trajectories for multiple non-holonomic robots.
+          - Designed for obstacle-rich, cluttered environments with real-time performance.
+        description: |1-
+          This code proposes an efficient trajectory planning approach that generates safe, dynamically feasible and near-optimal trajectories for multiple non-holonomic mobile robots in obstacle-rich environments. Reference from original paper: https://arxiv.org/abs/2012.08135
+          
+          Repository: https://github.com/phatcvo/extend-multi-robot-traj-planner.git
+          
   skill:
     title: Technical Skills
     panelId: skill-panel
