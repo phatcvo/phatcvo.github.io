@@ -254,26 +254,27 @@ params:
           - Built customizable scenarios to benchmark local planning and decision-making behavior.
         description: This is a customized simulation environment with customizable scenarios for autonomous vehicles to demonstrate the local planning/decision-making algorithms.
       
-           - title: RRT*-Dubins (Qt Demo)
+      - title: RRT*-Dubins (Qt Demo)
         url: "https://github.com/phatcvo/Mission_planner_GUI.git"
         image: "images/projects/RRT.png"
         source: "https://github.com/phatcvo/Mission_planner_GUI.git"
         summary: A small Qt-based demo implementing RRT* with Dubins paths and interactive obstacle drawing.
         stack:
-          - C++
-          - Qt
-          - RRT*
-          - Dubins paths
+         - C++
+         - Qt
+         - Motion Planning
+         - RRT*
+         - Dubins paths
         highlights:
-          - Interactive rectangular obstacle drawing with mouse.
-          - Includes launcher script for easy running: run_app.sh
+         - Interactive rectangular obstacle drawing with mouse.
+         - Includes launcher script for easy running: run_app.sh
         description: |1-
-          A small Qt-based demo implementing RRT* with Dubins paths.The GUI supports drawing rectangular obstacles interactively.
-          To draw an obstacle: press the left mouse button at one corner, drag to the opposite corner, then release. The rectangle will be added to the obstacle list and the scene will refresh.
+         A small Qt-based demo implementing RRT* with Dubins paths.The GUI supports drawing rectangular obstacles interactively.
+         To draw an obstacle: press the left mouse button at one corner, drag to the opposite corner, then release. The rectangle will be added to the obstacle list and the scene will refresh.
           
-          The included launcher script simplifies running the app:
-          chmod +x run_app.sh && ./run_app.sh
-            
+         The included launcher script simplifies running the app:
+         chmod +x run_app.sh && ./run_app.sh
+          
       - title: Multi-Robot Trajectory Planner
         url: "https://github.com/phatcvo/extend-multi-robot-traj-planner.git"
         image: "images/projects/random_env.gif"
@@ -282,13 +283,15 @@ params:
         stack:
           - C++
           - Python
-          - Optimization
+          - Motion Planning
+          - Trajectory Optimization
+          - Multi-Robot Coordination
         highlights:
           - Generates safe, dynamically-feasible near-optimal trajectories for multiple non-holonomic robots.
           - Designed for obstacle-rich, cluttered environments with real-time performance.
         description: |1-
           This code proposes an efficient trajectory planning approach that generates safe, dynamically feasible and near-optimal trajectories for multiple non-holonomic mobile robots in obstacle-rich environments. Reference from original paper: https://arxiv.org/abs/2012.08135
-        
+          
       - title: Safe-Critical-control-via-CBF
         url: "https://github.com/phatcvo/Safe-Critical-control-via-CBF.git"
         image: "images/projects/CBF.gif"
