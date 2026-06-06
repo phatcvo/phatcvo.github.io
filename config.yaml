@@ -293,9 +293,9 @@ params:
     panelId: skill-panel
     icon: fas fa-cogs
     list:
-      - skill: "[Programming & Algorithms] C/C++, Python, MATLAB, Reinforcement Learning & Optimal Control."
-      - skill: "[Simulation & Development Tools] RViz (ROS), MORAI, Gazebo, Carla, MATLAB Simulink, Qt, Gym, Pygame, Git, Docker, Linux."
-      - skill: "[Middleware & Cloud]: MQTT, REST API, ROS/ROS2, Modbus, AWS."
+      # - skill: "[Programming & Algorithms] C/C++, Python, MATLAB, Reinforcement Learning & Optimal Control."
+      # - skill: "[Simulation & Development Tools] RViz (ROS), MORAI, Gazebo, Carla, MATLAB Simulink, Qt, Gym, Pygame, Git, Docker, Linux."
+      # - skill: "[Middleware & Cloud]: MQTT, REST API, ROS/ROS2, Modbus, AWS."
         # skillrating: 80
       
   hobby:
