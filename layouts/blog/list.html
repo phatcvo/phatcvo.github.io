@@ -13,91 +13,56 @@
     </div>
   </header>
 
-  {{ $posts := where .Pages "Type" "blog" }}
-  {{ if gt (len $posts) 0 }}
+  {{ $collections := .Sections }}
+  {{ $articles := .RegularPages }}
+  {{ if or $collections $articles }}
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-      {{ range $posts.ByDate.Reverse }}
+      {{ range $collections.ByWeight }}
         <article class="card p-6" data-reveal>
-          <div class="flex items-center justify-between gap-3">
-            <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">
-              {{ .Date.Format "Jan 2, 2006" }}
-            </p>
-            <p class="m-0 text-xs text-stone-500 dark:text-stone-400">{{ .ReadingTime }} min</p>
-          </div>
-
+          <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">Course</p>
           <h2 class="mt-3 text-lg font-semibold tracking-tight">
             <a class="hover:underline" href="{{ .RelPermalink }}">{{ .Title }}</a>
           </h2>
+          {{ with .Params.description }}<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ . | plainify | truncate 140 }}</p>{{ end }}
+          <div class="mt-5"><a class="btn btn-ghost" href="{{ .RelPermalink }}">Open course →</a></div>
+        </article>
+      {{ end }}
 
+      {{ range $articles.ByDate.Reverse }}
+        <article class="card p-6" data-reveal>
+          <div class="flex items-center justify-between gap-3">
+            <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">{{ .Date.Format "Jan 2, 2006" }}</p>
+            <p class="m-0 text-xs text-stone-500 dark:text-stone-400">{{ .ReadingTime }} min</p>
+          </div>
+          <h2 class="mt-3 text-lg font-semibold tracking-tight">
+            <a class="hover:underline" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
           {{ $summary := (or .Params.description .Summary) | plainify | truncate 140 }}
-          {{ if $summary }}
-            <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ $summary }}</p>
-          {{ end }}
-
-          <div class="mt-4 flex flex-wrap gap-2">
-            {{ with .Params.tags }}
-              {{ range first 4 . }}
-                <a class="pill-link" href="{{ `tags` | relURL }}/{{ . | urlize }}">{{ . }}</a>
-              {{ end }}
-            {{ end }}
-            {{ with .Params.categories }}
-              {{ range first 2 . }}
-                <a class="pill-link" href="{{ `categories` | relURL }}/{{ . | urlize }}">{{ . }}</a>
-              {{ end }}
-            {{ end }}
-          </div>
-
-          <div class="mt-5">
-            <a class="btn btn-ghost" href="{{ .RelPermalink }}">Read article →</a>
-          </div>
+          {{ if $summary }}<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ $summary }}</p>{{ end }}
+          <div class="mt-5"><a class="btn btn-ghost" href="{{ .RelPermalink }}">Read article →</a></div>
         </article>
       {{ end }}
     </div>
-  {{ else }}
-    <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <article class="card p-6" data-reveal>
-        <p class="section-eyebrow">Featured</p>
-        <h2 class="mt-2 text-xl font-semibold tracking-tight">Courses & resources</h2>
-        <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">Until posts are published here, these are the best places to explore my material.</p>
-
-        <div class="mt-5 grid grid-cols-1 gap-3">
-          <a class="card p-5 hover:no-underline" href="https://phatcvo.github.io/Lec-DRL/" target="_blank" rel="noopener noreferrer">
-            <p class="card-title">Deep Reinforcement Learning</p>
-            <p class="card-subtitle">Course · Fundamentals + applications</p>
-          </a>
-          <a class="card p-5 hover:no-underline" href="https://phatcvo.github.io/Lec-MPC/" target="_blank" rel="noopener noreferrer">
-            <p class="card-title">Model Predictive Control</p>
-            <p class="card-subtitle">Course · Theory + practice</p>
-          </a>
-          <a class="card p-5 hover:no-underline" href="https://phatcvo.github.io/Safe-Optimal-Control/" target="_blank" rel="noopener noreferrer">
-            <p class="card-title">Safe-Optimal Control for Motion Planning (RL)</p>
-            <p class="card-subtitle">Course · Safety + optimality</p>
-          </a>
-          <a class="card p-5 hover:no-underline" href="https://phatcvo.blogspot.com/" target="_blank" rel="noopener noreferrer">
-            <p class="card-title">Old Blog (Vietnamese)</p>
-            <p class="card-subtitle">Archive · Personal writing</p>
-          </a>
-        </div>
-      </article>
-
-      <aside class="card p-6" data-reveal>
-        <p class="section-eyebrow">Coming soon</p>
-        <h3 class="mt-2 text-xl font-semibold tracking-tight">Robotics engineering notes</h3>
-        <p class="mt-2 text-sm text-stone-600 dark:text-stone-300">
-          I’ll publish short, high-signal articles here: architecture decisions, planning tradeoffs, fleet-scale reliability, and reproducible experiments.
-        </p>
-        <div class="mt-5 flex flex-wrap gap-2">
-          <span class="badge">Fleet systems</span>
-          <span class="badge">Motion planning</span>
-          <span class="badge">ROS2</span>
-          <span class="badge">CI/CD</span>
-        </div>
-        <div class="mt-6">
-          <a class="btn btn-primary" href="{{ `search` | relURL }}">Search site</a>
-        </div>
-      </aside>
-    </div>
   {{ end }}
+
+  {{/* Persistent block: courses/resources not yet migrated into this site. */}}
+  <section class="mt-12" data-reveal>
+    <h2 class="section-eyebrow">Other courses & resources</h2>
+    <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+      <a class="card p-5 hover:no-underline" href="https://phatcvo.github.io/Lec-MPC/" target="_blank" rel="noopener noreferrer">
+        <p class="card-title">Model Predictive Control</p>
+        <p class="card-subtitle">Course · Theory + practice</p>
+      </a>
+      <a class="card p-5 hover:no-underline" href="https://phatcvo.github.io/Safe-Optimal-Control/" target="_blank" rel="noopener noreferrer">
+        <p class="card-title">Safe-Optimal Control for Motion Planning (RL)</p>
+        <p class="card-subtitle">Course · Safety + optimality</p>
+      </a>
+      <a class="card p-5 hover:no-underline" href="https://phatcvo.blogspot.com/" target="_blank" rel="noopener noreferrer">
+        <p class="card-title">Old Blog (Vietnamese)</p>
+        <p class="card-subtitle">Archive · Personal writing</p>
+      </a>
+    </div>
+  </section>
 </div>
 
 <script defer src="{{ `js/site.js` | relURL }}"></script>
