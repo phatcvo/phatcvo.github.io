@@ -46,6 +46,13 @@
       {{ end }}
     </header>
 
+    {{ if .Params.toc }}
+      <nav class="mt-8 card p-5" aria-label="Table of contents">
+        <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">On this page</p>
+        <div class="toc mt-3 text-sm prose prose-stone dark:prose-invert max-w-none">{{ .TableOfContents }}</div>
+      </nav>
+    {{ end }}
+
     <div class="mt-8 prose prose-stone dark:prose-invert max-w-none article-prose text-justify hyphens-auto">
       {{ .Content }}
     </div>

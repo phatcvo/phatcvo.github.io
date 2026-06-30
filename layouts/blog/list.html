@@ -18,29 +18,43 @@
   {{ if or $collections $articles }}
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       {{ range $collections.ByWeight }}
+        {{ $isSeries := eq .Params.collection_type "series" }}
         <article class="card p-6" data-reveal>
-          <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">Course</p>
+          <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">{{ if $isSeries }}Series{{ else }}Course{{ end }}</p>
           <h2 class="mt-3 text-lg font-semibold tracking-tight">
             <a class="hover:underline" href="{{ .RelPermalink }}">{{ .Title }}</a>
           </h2>
           {{ with .Params.description }}<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ . | plainify | truncate 140 }}</p>{{ end }}
-          <div class="mt-5"><a class="btn btn-ghost" href="{{ .RelPermalink }}">Open course →</a></div>
+          <p class="mt-3 text-xs text-stone-500 dark:text-stone-400">{{ len .Pages }} {{ if $isSeries }}posts{{ else }}lectures{{ end }}</p>
+          <div class="mt-5"><a class="btn btn-ghost" href="{{ .RelPermalink }}">{{ if $isSeries }}View series →{{ else }}Open course →{{ end }}</a></div>
         </article>
       {{ end }}
 
       {{ range $articles.ByDate.Reverse }}
-        <article class="card p-6" data-reveal>
-          <div class="flex items-center justify-between gap-3">
-            <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">{{ .Date.Format "Jan 2, 2006" }}</p>
-            <p class="m-0 text-xs text-stone-500 dark:text-stone-400">{{ .ReadingTime }} min</p>
-          </div>
-          <h2 class="mt-3 text-lg font-semibold tracking-tight">
-            <a class="hover:underline" href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </h2>
-          {{ $summary := (or .Params.description .Summary) | plainify | truncate 140 }}
-          {{ if $summary }}<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ $summary }}</p>{{ end }}
-          <div class="mt-5"><a class="btn btn-ghost" href="{{ .RelPermalink }}">Read article →</a></div>
-        </article>
+        {{ if eq .Params.collection_type "survey" }}
+          <article class="card p-6" data-reveal>
+            <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">Survey</p>
+            <h2 class="mt-3 text-lg font-semibold tracking-tight">
+              <a class="hover:underline" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            {{ $summary := (or .Params.description .Summary) | plainify | truncate 140 }}
+            {{ if $summary }}<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ $summary }}</p>{{ end }}
+            <div class="mt-5"><a class="btn btn-ghost" href="{{ .RelPermalink }}">Read survey →</a></div>
+          </article>
+        {{ else }}
+          <article class="card p-6" data-reveal>
+            <div class="flex items-center justify-between gap-3">
+              <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">{{ .Date.Format "Jan 2, 2006" }}</p>
+              <p class="m-0 text-xs text-stone-500 dark:text-stone-400">{{ .ReadingTime }} min</p>
+            </div>
+            <h2 class="mt-3 text-lg font-semibold tracking-tight">
+              <a class="hover:underline" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            {{ $summary := (or .Params.description .Summary) | plainify | truncate 140 }}
+            {{ if $summary }}<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">{{ $summary }}</p>{{ end }}
+            <div class="mt-5"><a class="btn btn-ghost" href="{{ .RelPermalink }}">Read article →</a></div>
+          </article>
+        {{ end }}
       {{ end }}
     </div>
   {{ end }}

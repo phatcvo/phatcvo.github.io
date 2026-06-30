@@ -1,8 +1,9 @@
 {{ define "main" }}
+{{ $isSeries := eq .Params.collection_type "series" }}
 <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
   <header class="section-header" data-reveal>
     <a class="pill-link" href="{{ `blog` | relURL }}">← Back to Writing</a>
-    <p class="section-eyebrow mt-4">Course</p>
+    <p class="section-eyebrow mt-4">{{ if $isSeries }}Series{{ else }}Course{{ end }}</p>
     <h1 class="section-title">{{ .Title }}</h1>
     {{ with .Params.description }}<p class="section-desc">{{ . }}</p>{{ end }}
   </header>
@@ -15,7 +16,11 @@
     {{ range $i, $p := .Pages.ByWeight }}
       <li>
         <a class="card p-5 flex items-center gap-4 hover:no-underline" href="{{ $p.RelPermalink }}">
-          <span class="text-sm font-semibold tabular-nums text-stone-500 dark:text-stone-400">{{ printf "%02d" (add $i 1) }}</span>
+          {{ if $isSeries }}
+            <span class="text-sm font-semibold" style="color: rgb(var(--accent));">•</span>
+          {{ else }}
+            <span class="text-sm font-semibold tabular-nums text-stone-500 dark:text-stone-400">{{ printf "%02d" (add $i 1) }}</span>
+          {{ end }}
           <span class="font-semibold text-stone-900 dark:text-stone-50">{{ $p.Title }}</span>
           <span class="ml-auto text-xs text-stone-500 dark:text-stone-400">{{ $p.ReadingTime }} min</span>
         </a>
