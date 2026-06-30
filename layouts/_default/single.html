@@ -24,6 +24,9 @@
             <span class="text-stone-500 dark:text-stone-400">Reading</span>
             <span>{{ .ReadingTime }} min</span>
           </span>
+          {{ with .Params.slides_url }}
+            <a class="pill-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">Slides ↗</a>
+          {{ end }}
         </div>
 
         {{ $tags := .Params.tags }}

@@ -4,6 +4,7 @@ date: 2026-06-30
 weight: 40
 math: true
 tags: ["Deep RL"]
+slides_url: "https://phatcvo.github.io/Lec-DRL/slides/1.3-MC.html"
 ---
 
 
