@@ -1,8 +1,21 @@
+{{- /* Navigate by weight within the current section so order matches the course list.
+       (.PrevInSection/.NextInSection order by date, which breaks when posts share a date.) */ -}}
+{{- $pages := .CurrentSection.RegularPages.ByWeight -}}
+{{- $cur := .RelPermalink -}}
+{{- $prev := false -}}
+{{- $next := false -}}
+{{- $n := len $pages -}}
+{{- range $i, $p := $pages -}}
+  {{- if eq $p.RelPermalink $cur -}}
+    {{- if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end -}}
+    {{- if lt (add $i 1) $n }}{{ $next = index $pages (add $i 1) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
 <div class="flex flex-col sm:flex-row gap-3 sm:items-stretch sm:justify-between">
-  {{ if .PrevInSection }}
-    <a class="card p-5 hover:no-underline flex-1" href="{{ .PrevInSection.RelPermalink }}">
+  {{ if $prev }}
+    <a class="card p-5 hover:no-underline flex-1" href="{{ $prev.RelPermalink }}">
       <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">Previous</p>
-      <p class="mt-2 mb-0 font-semibold text-stone-900 dark:text-stone-50">{{ .PrevInSection.Title }}</p>
+      <p class="mt-2 mb-0 font-semibold text-stone-900 dark:text-stone-50">{{ $prev.Title }}</p>
     </a>
   {{ else }}
     <div class="card p-5 flex-1 opacity-50">
@@ -11,10 +24,10 @@
     </div>
   {{ end }}
 
-  {{ if .NextInSection }}
-    <a class="card p-5 hover:no-underline flex-1" href="{{ .NextInSection.RelPermalink }}">
+  {{ if $next }}
+    <a class="card p-5 hover:no-underline flex-1" href="{{ $next.RelPermalink }}">
       <p class="m-0 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">Next</p>
-      <p class="mt-2 mb-0 font-semibold text-stone-900 dark:text-stone-50">{{ .NextInSection.Title }}</p>
+      <p class="mt-2 mb-0 font-semibold text-stone-900 dark:text-stone-50">{{ $next.Title }}</p>
     </a>
   {{ else }}
     <div class="card p-5 flex-1 opacity-50">
