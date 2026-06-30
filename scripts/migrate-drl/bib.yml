@@ -1,0 +1,4 @@
+bibliography:
+  - /home/cody/Documents/github/Lec-DRL/assets/ReinforcementLearning.bib
+  - /home/cody/Documents/github/Lec-DRL/assets/DeepLearning.bib
+link-citations: true
