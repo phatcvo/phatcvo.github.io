@@ -9,7 +9,8 @@
     {{ end }}
 
     <main id="main-content" class="flex-1">
-      {{ if .IsHome }}
+      {{ if or .IsHome (eq .Section "blog") }}
+        {{/* Home and blog pages set their own width in their templates. */}}
         {{- block "main" . }}{{- end }}
       {{ else }}
         <div class="mx-auto max-w-3xl px-4 sm:px-6 py-10">
