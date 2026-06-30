@@ -231,6 +231,20 @@ params:
           - Designed the project as a practical platform for validating algorithms beyond simulation.
         description: This open-source project transforms a basic mobile robot into a fully autonomous system capable of navigating environments, avoiding obstacles, and executing tasks independently—without any human intervention. As a personal project, it was developed with the goal of building a complete autonomous robot stack from the ground up. The purpose was to create a practical platform for testing and validating various algorithms in real-world conditions. Through this project, I was able to integrate and experiment with key robotics modules in a realistic setting, accelerating development and deepening my understanding of autonomous systems beyond simulation environments.
 
+      - title: Racing-MPC-CBF
+        url: "https://github.com/phatcvo/Racing-MPC-CBF.git"
+        image: "images/projects/racing.gif"
+        source: "https://github.com/phatcvo/Racing-MPC-CBF.git"
+        summary: Open-source toolkit for testing control and planning problems in car racing simulation.
+        stack:
+          - MPC
+          - CBF
+          - Python
+        highlights:
+          - Built an end-to-end autonomy stack to navigate, avoid obstacles, and execute tasks.
+          - Designed the project as a practical platform for validating algorithms beyond simulation.
+        description: This open-source project provides a toolkit to test control and planning problems for car racing simulation environment. Parallelized optimization for overtake racing behavior with multiple autonomous vehicles. Design model predictive control with control barrier functions for obstacle avoidance in car racing problems.
+
       - title: Education Robot Platform (ERP42)
         url: ""
         image: "images/projects/ERP42.png"
