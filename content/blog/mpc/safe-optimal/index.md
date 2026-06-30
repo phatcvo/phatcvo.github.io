@@ -4,7 +4,7 @@ description: "A survey of safe-optimal control for motion planning based on rein
 date: 2023-01-01
 weight: 30
 math: true
-collection_type: survey
+collection_type: Article
 toc: true
 ---
 
