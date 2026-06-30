@@ -1,0 +1,209 @@
+[
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/0-Introduction.qmd",
+    "stem": "0-Introduction",
+    "slug": "0-introduction",
+    "weight": 10,
+    "title": "Introduction",
+    "old_url": "/Lec-DRL/posts/0-Introduction.html",
+    "new_url": "/blog/drl/0-introduction/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/1.1-Bandits.qmd",
+    "stem": "1.1-Bandits",
+    "slug": "1-1-bandits",
+    "weight": 20,
+    "title": "Sampling and Bandits",
+    "old_url": "/Lec-DRL/posts/1.1-Bandits.html",
+    "new_url": "/blog/drl/1-1-bandits/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/1.2-MDP.qmd",
+    "stem": "1.2-MDP",
+    "slug": "1-2-mdp",
+    "weight": 30,
+    "title": "Markov Decision Process",
+    "old_url": "/Lec-DRL/posts/1.2-MDP.html",
+    "new_url": "/blog/drl/1-2-mdp/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/1.3-MC.qmd",
+    "stem": "1.3-MC",
+    "slug": "1-3-mc",
+    "weight": 40,
+    "title": "Monte Carlo methods",
+    "old_url": "/Lec-DRL/posts/1.3-MC.html",
+    "new_url": "/blog/drl/1-3-mc/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/1.4-TD.qmd",
+    "stem": "1.4-TD",
+    "slug": "1-4-td",
+    "weight": 50,
+    "title": "Temporal Difference learning",
+    "old_url": "/Lec-DRL/posts/1.4-TD.html",
+    "new_url": "/blog/drl/1-4-td/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/1.5-FunctionApproximation.qmd",
+    "stem": "1.5-FunctionApproximation",
+    "slug": "1-5-functionapproximation",
+    "weight": 60,
+    "title": "Function approximation",
+    "old_url": "/Lec-DRL/posts/1.5-FunctionApproximation.html",
+    "new_url": "/blog/drl/1-5-functionapproximation/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/1.6-DeepNetworks.qmd",
+    "stem": "1.6-DeepNetworks",
+    "slug": "1-6-deepnetworks",
+    "weight": 70,
+    "title": "Deep learning",
+    "old_url": "/Lec-DRL/posts/1.6-DeepNetworks.html",
+    "new_url": "/blog/drl/1-6-deepnetworks/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.1-DQN.qmd",
+    "stem": "2.1-DQN",
+    "slug": "2-1-dqn",
+    "weight": 80,
+    "title": "Deep Q-network (DQN)",
+    "old_url": "/Lec-DRL/posts/2.1-DQN.html",
+    "new_url": "/blog/drl/2-1-dqn/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.2-DQNvariants.qmd",
+    "stem": "2.2-DQNvariants",
+    "slug": "2-2-dqnvariants",
+    "weight": 90,
+    "title": "DQN variants (Rainbow)",
+    "old_url": "/Lec-DRL/posts/2.2-DQNvariants.html",
+    "new_url": "/blog/drl/2-2-dqnvariants/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.3-PolicyGradient.qmd",
+    "stem": "2.3-PolicyGradient",
+    "slug": "2-3-policygradient",
+    "weight": 100,
+    "title": "Policy Gradient methods",
+    "old_url": "/Lec-DRL/posts/2.3-PolicyGradient.html",
+    "new_url": "/blog/drl/2-3-policygradient/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.4-ActorCritic.qmd",
+    "stem": "2.4-ActorCritic",
+    "slug": "2-4-actorcritic",
+    "weight": 110,
+    "title": "Advantage Actor-Critic (A3C)",
+    "old_url": "/Lec-DRL/posts/2.4-ActorCritic.html",
+    "new_url": "/blog/drl/2-4-actorcritic/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.5-DPG.qmd",
+    "stem": "2.5-DPG",
+    "slug": "2-5-dpg",
+    "weight": 120,
+    "title": "Deep Deterministic Policy Gradient (DDPG)",
+    "old_url": "/Lec-DRL/posts/2.5-DPG.html",
+    "new_url": "/blog/drl/2-5-dpg/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.6-PPO.qmd",
+    "stem": "2.6-PPO",
+    "slug": "2-6-ppo",
+    "weight": 130,
+    "title": "Policy optimization (TRPO, PPO)",
+    "old_url": "/Lec-DRL/posts/2.6-PPO.html",
+    "new_url": "/blog/drl/2-6-ppo/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.7-ACER.qmd",
+    "stem": "2.7-ACER",
+    "slug": "2-7-acer",
+    "weight": 140,
+    "title": "Actor-Critic with Experience Replay (ACER)",
+    "old_url": "/Lec-DRL/posts/2.7-ACER.html",
+    "new_url": "/blog/drl/2-7-acer/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/2.8-EntropyRL.qmd",
+    "stem": "2.8-EntropyRL",
+    "slug": "2-8-entropyrl",
+    "weight": 150,
+    "title": "Maximum Entropy RL (SAC)",
+    "old_url": "/Lec-DRL/posts/2.8-EntropyRL.html",
+    "new_url": "/blog/drl/2-8-entropyrl/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/3.1-ModelBased.qmd",
+    "stem": "3.1-ModelBased",
+    "slug": "3-1-modelbased",
+    "weight": 160,
+    "title": "Model-based RL",
+    "old_url": "/Lec-DRL/posts/3.1-ModelBased.html",
+    "new_url": "/blog/drl/3-1-modelbased/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/3.2-LearnedModels.qmd",
+    "stem": "3.2-LearnedModels",
+    "slug": "3-2-learnedmodels",
+    "weight": 170,
+    "title": "Model-based-augmented model-free RL (Dyna-Q, I2A)",
+    "old_url": "/Lec-DRL/posts/3.2-LearnedModels.html",
+    "new_url": "/blog/drl/3-2-learnedmodels/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/3.3-ImportanceSampling.qmd",
+    "stem": "3.3-ImportanceSampling",
+    "slug": "3-3-importancesampling",
+    "weight": 180,
+    "title": "Off-policy Actor-Critic",
+    "old_url": "/Lec-DRL/posts/3.3-ImportanceSampling.html",
+    "new_url": "/blog/drl/3-3-importancesampling/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/3.3-Planning.qmd",
+    "stem": "3.3-Planning",
+    "slug": "3-3-planning",
+    "weight": 190,
+    "title": "Planning (MPC, TDM)",
+    "old_url": "/Lec-DRL/posts/3.3-Planning.html",
+    "new_url": "/blog/drl/3-3-planning/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/3.4-WorldModels.qmd",
+    "stem": "3.4-WorldModels",
+    "slug": "3-4-worldmodels",
+    "weight": 200,
+    "title": "World models, Dreamer",
+    "old_url": "/Lec-DRL/posts/3.4-WorldModels.html",
+    "new_url": "/blog/drl/3-4-worldmodels/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/3.5-AlphaGo.qmd",
+    "stem": "3.5-AlphaGo",
+    "slug": "3-5-alphago",
+    "weight": 210,
+    "title": "AlphaGo",
+    "old_url": "/Lec-DRL/posts/3.5-AlphaGo.html",
+    "new_url": "/blog/drl/3-5-alphago/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/3.5-NaturalGradient.qmd",
+    "stem": "3.5-NaturalGradient",
+    "slug": "3-5-naturalgradient",
+    "weight": 220,
+    "title": "Natural gradients",
+    "old_url": "/Lec-DRL/posts/3.5-NaturalGradient.html",
+    "new_url": "/blog/drl/3-5-naturalgradient/"
+  },
+  {
+    "src": "/home/cody/Documents/github/Lec-DRL/posts/4.1-Outlook.qmd",
+    "stem": "4.1-Outlook",
+    "slug": "4-1-outlook",
+    "weight": 230,
+    "title": "Intrinsic motivation",
+    "old_url": "/Lec-DRL/posts/4.1-Outlook.html",
+    "new_url": "/blog/drl/4-1-outlook/"
+  }
+]
