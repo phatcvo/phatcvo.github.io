@@ -15,8 +15,10 @@
         <a class="nav-link" href="#publications">Publications</a>
         <a class="nav-link" href="#skills">Skills</a>
         <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" href="{{ `blog` | relURL }}">Writing</a>
+      {{ else }}
+        <a class="nav-link" href="{{ .Site.BaseURL }}">← Back to Home Page</a>
       {{ end }}
-      <a class="nav-link" href="{{ `blog` | relURL }}">Writing</a>
     </nav>
 
     <div class="flex items-center gap-2">
@@ -41,8 +43,10 @@
             <a class="mobile-nav-link" href="#skills">Skills</a>
             <a class="mobile-nav-link" href="#contact">Contact</a>
             <div class="my-1 border-t border-stone-200 dark:border-stone-800"></div>
+            <a class="mobile-nav-link" href="{{ `blog` | relURL }}">Writing</a>
+          {{ else }}
+            <a class="mobile-nav-link" href="{{ .Site.BaseURL }}">← Back to Home Page</a>
           {{ end }}
-          <a class="mobile-nav-link" href="{{ `blog` | relURL }}">Writing</a>
           <a class="mobile-nav-link" href="{{ `search` | relURL }}">Search</a>
         </div>
       </details>
