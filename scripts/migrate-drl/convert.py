@@ -20,6 +20,11 @@ XREF = re.compile(r"\*{0,2}\?@[\w:-]+\?*\*{0,2}")    # unresolved cross-post xre
 def clean(md: str) -> str:
     """Resolve artifacts Quarto's gfm pass leaves behind."""
     md = md.replace("&#10;", "\n")                  # decode literal newline entities
+    # Collapse display math to a single line so Goldmark can't mis-parse multi-line
+    # $$...$$ blocks (e.g. matrix rows turned into headings, splitting delimiters).
+    md = re.sub(r"\$\$(.+?)\$\$",
+                lambda m: " $$ " + " ".join(m.group(1).split()) + " $$ ",
+                md, flags=re.S)
     md = FENCE.sub("", md)                          # drop .columns/.column layout fences
     md = md.replace('src="img/', 'src="/images/drl/').replace("src='img/", "src='/images/drl/")
     md = IMG.sub("](/images/drl/", md)              # markdown image paths

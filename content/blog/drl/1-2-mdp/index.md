@@ -49,18 +49,12 @@ a finite MDP, we have:
     probability of arriving in the state $s'$ at time $t+1$ after being
     in the state $s$ and performing the action $a$ at time $t$:
 
-$$\begin{aligned}
-    \mathcal{P}: \mathcal{S} \times \mathcal{A} \rightarrow & P(\mathcal{S}) \\
-    p(s' | s, a) & =  P (s_{t+1} = s' | s_t = s, a_t = a) \\
-\end{aligned}$$
+ $$ \begin{aligned} \mathcal{P}: \mathcal{S} \times \mathcal{A} \rightarrow & P(\mathcal{S}) \\ p(s' | s, a) & = P (s_{t+1} = s' | s_t = s, a_t = a) \\ \end{aligned} $$ 
 
 5.  The **expected reward function** defining the (stochastic) reward
     obtained after performing $a$ in state $s$ and arriving in $s'$:
 
-$$\begin{aligned}
-    \mathcal{R}: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \rightarrow & \Re \\
-    r(s, a, s') &=  \mathbb{E} (r_{t+1} | s_t = s, a_t = a, s_{t+1} = s') \\
-\end{aligned}$$
+ $$ \begin{aligned} \mathcal{R}: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \rightarrow & \Re \\ r(s, a, s') &= \mathbb{E} (r_{t+1} | s_t = s, a_t = a, s_{t+1} = s') \\ \end{aligned} $$ 
 
 6.  The **discount factor** $\gamma \in [0, 1]$.
 
@@ -89,7 +83,7 @@ Importantly, the **Markov property** states that:
 
 In mathematical terms for a transition $(s_t, a_t, s_{t+1})$:
 
-$$    p(s_{t+1}|s_t, a_t) = p(s_{t+1}|s_t, a_t, s_{t-1}, a_{t-1}, \dots s_0, a_0)$$
+ $$ p(s_{t+1}|s_t, a_t) = p(s_{t+1}|s_t, a_t, s_{t-1}, a_{t-1}, \dots s_0, a_0) $$ 
 
 i.e. you do not need the full history of the agent to predict where it
 will arrive after an action. In simple problems, this is just a question
@@ -128,7 +122,7 @@ reward and ignore its variance, as we suppose that we can take actions
 an infinity of times. However, distributional RL investigates the role
 of this variance (see Section *(cross-reference)*).
 
-$$r(s, a, s') =  \mathbb{E} (r_{t+1} | s_t = s, a_t = a, s_{t+1} = s')$$
+ $$ r(s, a, s') = \mathbb{E} (r_{t+1} | s_t = s, a_t = a, s_{t+1} = s') $$ 
 
 <div id="fig-rewarddistribution">
 
@@ -156,11 +150,11 @@ Figure 3: Dense vs. sparse rewards. Source:
 
 Over time, the MDP will be in a sequence of states (possibly infinite):
 
-$$s_0 \rightarrow s_1 \rightarrow s_2  \rightarrow \ldots \rightarrow s_T$$
+ $$ s_0 \rightarrow s_1 \rightarrow s_2 \rightarrow \ldots \rightarrow s_T $$ 
 
 and collect a sequence of rewards:
 
-$$r_1 \rightarrow r_2 \rightarrow r_3  \rightarrow \ldots \rightarrow r_{T}$$
+ $$ r_1 \rightarrow r_2 \rightarrow r_3 \rightarrow \ldots \rightarrow r_{T} $$ 
 
 <div id="fig-rl-sequence">
 
@@ -173,7 +167,7 @@ Figure 4: Sequence of transitions over time in a MDP.
 In a MDP, we are interested in maximizing the **return** $R_t$, i.e. the
 discounted sum of **future** rewards after the step $t$:
 
-$$    R_t = r_{t+1} + \gamma \, r_{t+2} + \gamma^2 \, r_{t+3} + \ldots = \sum_{k=0}^\infty \gamma^k \, r_{t+k+1}$$
+ $$ R_t = r_{t+1} + \gamma \, r_{t+2} + \gamma^2 \, r_{t+3} + \ldots = \sum_{k=0}^\infty \gamma^k \, r_{t+k+1} $$ 
 
 The return is sometimes called the **reward-to-go**: how much reward
 will I collect from now on? Of course, you can never know the return at
@@ -185,7 +179,7 @@ More generally, for a trajectory (episode)
 $\tau = (s_0, a_0, r_1, s_1, a_1, \ldots, s_T)$, one can define its
 return as:
 
-$$ R(\tau) = \sum_{t=0}^{T} \gamma^t \, r_{t+1} $$
+ $$ R(\tau) = \sum_{t=0}^{T} \gamma^t \, r_{t+1} $$ 
 
 The **discount factor** (or discount rate, or discount)
 $\gamma \in [0, 1]$ is a very important parameter in RL: It defines the
@@ -207,7 +201,7 @@ Another important property is that, when $\gamma < 1$, $\gamma^k$ tends
 to 0 when $k$ goes to infinity: this makes sure that the return is
 always **finite**. We can therefore try to maximize it.
 
-$$    R_t = r_{t+1} + \gamma \, r_{t+2} + \gamma^2 \, r_{t+3} + \ldots = \sum_{k=0}^\infty \gamma^k \, r_{t+k+1}$$
+ $$ R_t = r_{t+1} + \gamma \, r_{t+2} + \gamma^2 \, r_{t+3} + \ldots = \sum_{k=0}^\infty \gamma^k \, r_{t+k+1} $$ 
 
 <div id="fig-decayinggamma">
 
@@ -223,15 +217,13 @@ length $T$, e.g. plays of a game, trips through a maze), the return is
 always finite and easy to compute at the end of the episode. The
 discount factor can be set to 1.
 
-$$ 
-    R_t = \sum_{k=0}^{T} r_{t+k+1}$$
+ $$ R_t = \sum_{k=0}^{T} r_{t+k+1} $$ 
 
 For **continuing tasks** (which can not be split into episodes), the
 return could become infinite if $\gamma = 1$. The discount factor has to
 be smaller than 1.
 
-$$ 
-    R_t = \sum_{k=0}^{\infty} \gamma^k \, r_{t+k+1}$$
+ $$ R_t = \sum_{k=0}^{\infty} \gamma^k \, r_{t+k+1} $$ 
 
 > **Note**
 >
@@ -258,7 +250,7 @@ $$
 >
 > When selecting $a_1$ in $s_1$, the discounted return is:
 >
-> $$    R = 0 + \gamma \, 0 + \gamma^2 \, 0 + \gamma^3 \, 10 + \ldots = 10 \, \gamma^3$$
+>  $$ R = 0 + \gamma \, 0 + \gamma^2 \, 0 + \gamma^3 \, 10 + \ldots = 10 \, \gamma^3 $$ 
 >
 > while it is $R= 1$ for the action $a_2$.
 >
@@ -274,23 +266,20 @@ $$
 The probability that an agent selects a particular action $a$ in a given
 state $s$ is called the **policy** $\pi$.
 
-$$\begin{align}
-    \pi &: \mathcal{S} \times \mathcal{A} \rightarrow P(\mathcal{S})\\
-    (s, a) &\rightarrow \pi(s, a)  = P(a_t = a | s_t = s) \\
-\end{align}$$
+ $$ \begin{align} \pi &: \mathcal{S} \times \mathcal{A} \rightarrow P(\mathcal{S})\\ (s, a) &\rightarrow \pi(s, a) = P(a_t = a | s_t = s) \\ \end{align} $$ 
 
 The policy can be **deterministic** (one action has a probability of 1,
 the others 0) or **stochastic**. In all cases, the sum of the
 probabilities in a given state must be one:
 
-$$    \sum_{a \in \mathcal{A}(s)} \pi(s, a) = 1$$
+ $$ \sum_{a \in \mathcal{A}(s)} \pi(s, a) = 1 $$ 
 
 The goal of an agent is to find a policy that maximizes the sum of
 received rewards on the long term, i.e. the return $R_t$ at each each
 time step. This policy is called the **optimal policy** $\pi^*$. It
 maximizes the following objective function:
 
-$$    \pi^* = \text{argmax} \, \mathcal{J}(\pi) = \text{argmax} \,  \mathbb{E}_{\tau \sim \rho_\pi} [R(\tau)]$$
+ $$ \pi^* = \text{argmax} \, \mathcal{J}(\pi) = \text{argmax} \, \mathbb{E}_{\tau \sim \rho_\pi} [R(\tau)] $$ 
 
 where $\rho_\pi$ is the density distribution of the trajectories
 generated by the policy $\pi$.
@@ -314,7 +303,7 @@ a state $s$ is defined as the mathematical expectation of the return
 when starting from that state and thereafter following the agent’s
 current policy $\pi$:
 
-$$  V^{\pi} (s) = \mathbb{E}_{\rho_\pi} ( R_t | s_t = s) = \mathbb{E}_{\rho_\pi} ( \sum_{k=0}^{\infty} \gamma^k r_{t+k+1} |s_t=s ) $$
+ $$ V^{\pi} (s) = \mathbb{E}_{\rho_\pi} ( R_t | s_t = s) = \mathbb{E}_{\rho_\pi} ( \sum_{k=0}^{\infty} \gamma^k r_{t+k+1} |s_t=s ) $$ 
 
 The mathematical expectation operator $\mathbb{E}(\cdot)$ is indexed by
 $\rho_\pi$, the probability distribution of states achievable with
@@ -341,10 +330,7 @@ the expected return starting
 Similarly, the **action-value** (or **Q-value**) for a state-action pair
 $(s, a)$ under the policy $\pi$ is defined as:
 
-$$\begin{align}
-    Q^{\pi} (s, a)  & = \mathbb{E}_{\rho_\pi} ( R_t | s_t = s, a_t =a) \\
-                    & = \mathbb{E}_{\rho_\pi} ( \sum_{k=0}^{\infty} \gamma^k r_{t+k+1} |s_t=s, a_t=a) \\
-\end{align}$$
+ $$ \begin{align} Q^{\pi} (s, a) & = \mathbb{E}_{\rho_\pi} ( R_t | s_t = s, a_t =a) \\ & = \mathbb{E}_{\rho_\pi} ( \sum_{k=0}^{\infty} \gamma^k r_{t+k+1} |s_t=s, a_t=a) \\ \end{align} $$ 
 
 The Q-value of an action is sometimes called its **utility**: is it
 worth taking this action?
@@ -356,7 +342,7 @@ worth taking this action?
 The value of a state $V^{\pi}(s)$ depends on the value $Q^{\pi} (s, a)$
 of the action that will be chosen by the policy $\pi$ in $s$:
 
-$$        V^{\pi}(s) = \mathbb{E}_{a \sim \pi(s,a)} [Q^{\pi} (s, a)] = \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, Q^{\pi} (s, a)$$
+ $$ V^{\pi}(s) = \mathbb{E}_{a \sim \pi(s,a)} [Q^{\pi} (s, a)] = \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, Q^{\pi} (s, a) $$ 
 
 If the policy $\pi$ is deterministic (the same action is chosen every
 time), the value of the state is the same as the value of that action
@@ -369,27 +355,23 @@ weighted average (i.e. expectation) of the value of the actions.
 We can note that the return at time $t$ depends on the **immediate
 reward** $r_{t+1}$ and the return at the next time step $t+1$:
 
-$$\begin{aligned}
-    R_t &= r_{t+1} + \gamma \, r_{t+2} +  \gamma^2  \, r_{t+3} + \dots + \gamma^k \, r_{t+k+1} + \dots \\
-        &= r_{t+1} + \gamma \, ( r_{t+2} +  \gamma \, r_{t+3} + \dots + \gamma^{k-1} \, r_{t+k+1} + \dots) \\
-        &= r_{t+1} + \gamma \,  R_{t+1} \\
-\end{aligned}$$
+ $$ \begin{aligned} R_t &= r_{t+1} + \gamma \, r_{t+2} + \gamma^2 \, r_{t+3} + \dots + \gamma^k \, r_{t+k+1} + \dots \\ &= r_{t+1} + \gamma \, ( r_{t+2} + \gamma \, r_{t+3} + \dots + \gamma^{k-1} \, r_{t+k+1} + \dots) \\ &= r_{t+1} + \gamma \, R_{t+1} \\ \end{aligned} $$ 
 
 When taking the mathematical expectation of that identity, we obtain:
 
-$$    \mathbb{E}_{\rho_\pi}[R_t] = r(s_t, a_t, s_{t+1}) + \gamma \, \mathbb{E}_{\rho_\pi}[R_{t+1}]$$
+ $$ \mathbb{E}_{\rho_\pi}[R_t] = r(s_t, a_t, s_{t+1}) + \gamma \, \mathbb{E}_{\rho_\pi}[R_{t+1}] $$ 
 
 It becomes clear that the value of an action depends on the immediate
 reward received just after the action, as well as the value of the next
 state:
 
-$$        Q^{\pi}(s_t, a_t) = r(s_t, a_t, s_{t+1}) + \gamma \,  V^{\pi} (s_{t+1})$$
+ $$ Q^{\pi}(s_t, a_t) = r(s_t, a_t, s_{t+1}) + \gamma \, V^{\pi} (s_{t+1}) $$ 
 
 However, this is only for a fixed $(s_t, a_t, s_{t+1})$ transition.
 Taking transition probabilities into account, one can obtain the
 Q-values through the equation:
 
-$$    Q^{\pi}(s, a) = \mathbb{E}_{s' \sim p(s'|s, a)} [ r(s, a, s') + \gamma \, V^{\pi} (s') ] = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{\pi} (s') ]$$
+ $$ Q^{\pi}(s, a) = \mathbb{E}_{s' \sim p(s'|s, a)} [ r(s, a, s') + \gamma \, V^{\pi} (s') ] = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{\pi} (s') ] $$ 
 
 The value of an action depends on:
 
@@ -409,10 +391,7 @@ Putting together those two equations, a fundamental property of value
 functions used throughout reinforcement learning is that they satisfy a
 particular recursive relationship:
 
-$$\begin{aligned}
-        V^{\pi}(s)  &= \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, Q^{\pi} (s, a)\\
-                    &= \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{\pi} (s') ]
-\end{aligned}$$
+ $$ \begin{aligned} V^{\pi}(s) &= \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, Q^{\pi} (s, a)\\ &= \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{\pi} (s') ] \end{aligned} $$ 
 
 This equation is called the **Bellman equation** for $V^{\pi}$. It
 expresses the relationship between the value of a state $V^\pi(s)$ and
@@ -423,10 +402,7 @@ admits one and only one solution $V^{\pi}(s)$.
 
 The same recursive relationship stands for $Q^{\pi}(s, a)$:
 
-$$\begin{aligned}
-        Q^{\pi}(s, a)  &= \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{\pi} (s') ] \\
-                    &=  \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, \sum_{a' \in \mathcal{A}(s')} \pi(s', a') \, Q^{\pi} (s', a')]
-\end{aligned}$$
+ $$ \begin{aligned} Q^{\pi}(s, a) &= \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{\pi} (s') ] \\ &= \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, \sum_{a' \in \mathcal{A}(s')} \pi(s', a') \, Q^{\pi} (s', a')] \end{aligned} $$ 
 
 which is called the **Bellman equation** for $Q^{\pi}$.
 
@@ -442,16 +418,16 @@ the long term. Value functions define a partial ordering over policies:
 > A policy $\pi$ is better than another policy $\pi'$ if its expected
 > return is greater or equal than that of $\pi'$ for all states $s$.
 >
-> $$        \pi \geq \pi' \Leftrightarrow V^{\pi}(s) \geq V^{\pi'}(s) \quad \forall s \in \mathcal{S}$$
+>  $$ \pi \geq \pi' \Leftrightarrow V^{\pi}(s) \geq V^{\pi'}(s) \quad \forall s \in \mathcal{S} $$ 
 
 For a MDP, there exists at least one policy that is better than all the
 others: this is the **optimal policy** $\pi^*$. We note $V^*(s)$ and
 $Q^*(s, a)$ the optimal value of the different states and actions under
 $\pi^*$.
 
-$$   V^* (s) = \max_{\pi} V^{\pi}(s) \quad \forall s \in \mathcal{S}$$
+ $$ V^* (s) = \max_{\pi} V^{\pi}(s) \quad \forall s \in \mathcal{S} $$ 
 
-$$    Q^* (s, a) = \max_{\pi} Q^{\pi}(s, a) \quad \forall s \in \mathcal{S}, \quad \forall a \in \mathcal{A}$$
+ $$ Q^* (s, a) = \max_{\pi} Q^{\pi}(s, a) \quad \forall s \in \mathcal{S}, \quad \forall a \in \mathcal{A} $$ 
 
 When the policy is optimal $\pi^*$, the link between the V and Q values
 is even easier. The V and Q values are maximal for the optimal policy:
@@ -460,32 +436,29 @@ there is no better alternative.
 The optimal action $a^*$ to perform in the state $s$ is the one with the
 highest optimal Q-value $Q^*(s, a)$.
 
-$$    a^* = \text{argmax}_a \, Q^*(s, a)$$
+ $$ a^* = \text{argmax}_a \, Q^*(s, a) $$ 
 
 By definition, this action will bring the maximal return when starting
 in $s$. The optimal policy is therefore **greedy** with respect to
 $Q^*(s, a)$, i.e. **deterministic**.
 
-$$    \pi^*(s, a) = \begin{cases}
-                1 \; \text{if} \; a = a^* \\
-                0 \; \text{otherwise.}
-                \end{cases}$$
+ $$ \pi^*(s, a) = \begin{cases} 1 \; \text{if} \; a = a^* \\ 0 \; \text{otherwise.} \end{cases} $$ 
 
 As the optimal policy is deterministic, the optimal value of a state is
 equal to the value of the optimal action:
 
-$$    V^* (s)  = \max_{a \in \mathcal{A}(s)} Q^{\pi^*} (s, a)$$
+ $$ V^* (s) = \max_{a \in \mathcal{A}(s)} Q^{\pi^*} (s, a) $$ 
 
 The expected return after being in $s$ is the same as the expected
 return after being in $s$ and choosing the optimal action $a^*$, as this
 is the only action that can be taken. This allows to define the
 **Bellman optimality equation** for $V^*$:
 
-$$    V^* (s)  = \max_{a \in \mathcal{A}(s)} \sum_{s' \in \mathcal{S}}  p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{*} (s') ]$$
+ $$ V^* (s) = \max_{a \in \mathcal{A}(s)} \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{*} (s') ] $$ 
 
 The same Bellman optimality equation stands for $Q^*$:
 
-$$    Q^* (s, a)  = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s')  + \gamma \max_{a' \in \mathcal{A}(s')} Q^* (s', a') ]$$
+ $$ Q^* (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \max_{a' \in \mathcal{A}(s')} Q^* (s', a') ] $$ 
 
 The optimal value of $(s, a)$ depends on the optimal action in the next
 state $s'$.
@@ -498,9 +471,7 @@ state $s'$.
 
     * If there are $N$ states $s$, there are $N$ Bellman equations with $N$ unknowns $V^*(s)$.
 
-$$
-    V^* (s)  = \max_{a \in \mathcal{A}(s)} \sum_{s' \in \mathcal{S}}  p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{*} (s') ]
-$$
+ $$ V^* (s) = \max_{a \in \mathcal{A}(s)} \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V^{*} (s') ] $$ 
 
 * If the dynamics of the environment are known ($p(s' | s, a)$ and $r(s, a, s')$), then in principle one can solve this system of equations using linear algebra.
 
@@ -512,18 +483,16 @@ $$
 
     * If there are $N$ states and $M$ actions available, there are $N\times M$ equations with $N\times M$ unknowns $Q^*(s, a)$.
 
-$$
-    Q^* (s, a)  = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s')  + \gamma \max_{a' \in \mathcal{A}(s')} Q^* (s', a') ]
-$$
+ $$ Q^* (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \max_{a' \in \mathcal{A}(s')} Q^* (s', a') ] $$ 
 
 # Obtaining the optimal policy from the optimal values
 
 
 * $V^*$ and $Q^*$ are interdependent: one needs only to compute one of them.
 
-$$V^* (s)  = \max_{a \in \mathcal{A}(s)} \, Q^{*} (s, a)$$
+ $$ V^* (s) = \max_{a \in \mathcal{A}(s)} \, Q^{*} (s, a) $$ 
 
-$$Q^* (s, a)  = \sum_{s' \in \mathcal{S}} \, p(s' | s, a) \, [r(s, a, s') + \gamma V^*(s') ] $$
+ $$ Q^* (s, a) = \sum_{s' \in \mathcal{S}} \, p(s' | s, a) \, [r(s, a, s') + \gamma V^*(s') ] $$ 
 
 
 ![](/images/drl/fullvi.png)
@@ -532,9 +501,7 @@ $$Q^* (s, a)  = \sum_{s' \in \mathcal{S}} \, p(s' | s, a) \, [r(s, a, s') + \gam
 
 * If you only have $V^*(s)$, you need to perform a **one-step-ahead** search using the dynamics of the MDP:
 
-$$
-    Q^* (s, a)  = \sum_{s' \in \mathcal{S}} \, p(s' | s, a) \, [r(s, a, s') + \gamma V^*(s') ]
-$$
+ $$ Q^* (s, a) = \sum_{s' \in \mathcal{S}} \, p(s' | s, a) \, [r(s, a, s') + \gamma V^*(s') ] $$ 
 
 and then select the optimal action with the highest $Q^*$-value.
 
@@ -546,12 +513,7 @@ and then select the optimal action with the highest $Q^*$-value.
 
 * If you have all $Q^*(s, a)$, the optimal policy is straightforward:
 
-$$
-    \pi^*(s, a) = \begin{cases}
-                1 \; \text{if} \; a = \text{argmax}_a \, Q^*(s, a) \\
-                0 \; \text{otherwise.}
-                \end{cases}
-$$
+ $$ \pi^*(s, a) = \begin{cases} 1 \; \text{if} \; a = \text{argmax}_a \, Q^*(s, a) \\ 0 \; \text{otherwise.} \end{cases} $$ 
 
 
 ![](/images/drl/fullvi.png)
@@ -627,9 +589,9 @@ Let’s note $\mathcal{P}_{ss'}^\pi$ the transition probability between
 $s$ and $s'$ (dependent on the policy $\pi$) and $\mathcal{R}_{s}^\pi$
 the expected reward in $s$ (also dependent):
 
-$$  \mathcal{P}_{ss'}^\pi = \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, p(s' | s, a)$$
+ $$ \mathcal{P}_{ss'}^\pi = \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, p(s' | s, a) $$ 
 
-$$  \mathcal{R}_{s}^\pi = \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, \sum_{s' \in \mathcal{S}} \, p(s' | s, a) \ r(s, a, s')$$
+ $$ \mathcal{R}_{s}^\pi = \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, \sum_{s' \in \mathcal{S}} \, p(s' | s, a) \ r(s, a, s') $$ 
 
 The Bellman equation becomes
 $V^{\pi} (s)  = \mathcal{R}_{s}^\pi + \gamma \, \displaystyle\sum_{s' \in \mathcal{S}} \, \mathcal{P}_{ss'}^\pi \, V^{\pi} (s')$.
@@ -638,63 +600,41 @@ simplified.
 
 Let’s now put the Bellman equations in a matrix-vector form.
 
-$$      V^{\pi} (s)  = \mathcal{R}_{s}^\pi + \gamma \, \sum_{s' \in \mathcal{S}} \, \mathcal{P}_{ss'}^\pi \, V^{\pi} (s')$$
+ $$ V^{\pi} (s) = \mathcal{R}_{s}^\pi + \gamma \, \sum_{s' \in \mathcal{S}} \, \mathcal{P}_{ss'}^\pi \, V^{\pi} (s') $$ 
 
 We first define the vector of state values $\mathbf{V}^\pi$:
 
-$$  \mathbf{V}^\pi = \begin{bmatrix}
-      V^\pi(s_1) \\ V^\pi(s_2) \\ \vdots \\ V^\pi(s_n) \\
-  \end{bmatrix}$$
+ $$ \mathbf{V}^\pi = \begin{bmatrix} V^\pi(s_1) \\ V^\pi(s_2) \\ \vdots \\ V^\pi(s_n) \\ \end{bmatrix} $$ 
 
 and the vector of expected reward $\mathbf{R}^\pi$:
 
-$$  \mathbf{R}^\pi = \begin{bmatrix}
-      \mathcal{R}^\pi(s_1) \\ \mathcal{R}^\pi(s_2) \\ \vdots \\ \mathcal{R}^\pi(s_n) \\
-  \end{bmatrix}$$
+ $$ \mathbf{R}^\pi = \begin{bmatrix} \mathcal{R}^\pi(s_1) \\ \mathcal{R}^\pi(s_2) \\ \vdots \\ \mathcal{R}^\pi(s_n) \\ \end{bmatrix} $$ 
 
 The state transition matrix $\mathcal{P}^\pi$ is defined as:
 
-$$  \mathcal{P}^\pi = \begin{bmatrix}
-      \mathcal{P}_{s_1 s_1}^\pi & \mathcal{P}_{s_1 s_2}^\pi & \ldots & \mathcal{P}_{s_1 s_n}^\pi \\
-      \mathcal{P}_{s_2 s_1}^\pi & \mathcal{P}_{s_2 s_2}^\pi & \ldots & \mathcal{P}_{s_2 s_n}^\pi \\
-      \vdots & \vdots & \vdots & \vdots \\
-      \mathcal{P}_{s_n s_1}^\pi & \mathcal{P}_{s_n s_2}^\pi & \ldots & \mathcal{P}_{s_n s_n}^\pi \\
-  \end{bmatrix}$$
+ $$ \mathcal{P}^\pi = \begin{bmatrix} \mathcal{P}_{s_1 s_1}^\pi & \mathcal{P}_{s_1 s_2}^\pi & \ldots & \mathcal{P}_{s_1 s_n}^\pi \\ \mathcal{P}_{s_2 s_1}^\pi & \mathcal{P}_{s_2 s_2}^\pi & \ldots & \mathcal{P}_{s_2 s_n}^\pi \\ \vdots & \vdots & \vdots & \vdots \\ \mathcal{P}_{s_n s_1}^\pi & \mathcal{P}_{s_n s_2}^\pi & \ldots & \mathcal{P}_{s_n s_n}^\pi \\ \end{bmatrix} $$ 
 
 You can simply check that:
 
-$$  \begin{bmatrix}
-      V^\pi(s_1) \\ V^\pi(s_2) \\ \vdots \\ V^\pi(s_n) \\
-  \end{bmatrix} = 
-  \begin{bmatrix}
-      \mathcal{R}^\pi(s_1) \\ \mathcal{R}^\pi(s_2) \\ \vdots \\ \mathcal{R}^\pi(s_n) \\
-  \end{bmatrix}
-  + \gamma \, \begin{bmatrix}
-      \mathcal{P}_{s_1 s_1}^\pi & \mathcal{P}_{s_1 s_2}^\pi & \ldots & \mathcal{P}_{s_1 s_n}^\pi \\
-      \mathcal{P}_{s_2 s_1}^\pi & \mathcal{P}_{s_2 s_2}^\pi & \ldots & \mathcal{P}_{s_2 s_n}^\pi \\
-      \vdots & \vdots & \vdots & \vdots \\
-      \mathcal{P}_{s_n s_1}^\pi & \mathcal{P}_{s_n s_2}^\pi & \ldots & \mathcal{P}_{s_n s_n}^\pi \\
-  \end{bmatrix} \times \begin{bmatrix}
-      V^\pi(s_1) \\ V^\pi(s_2) \\ \vdots \\ V^\pi(s_n) \\
-  \end{bmatrix}$$
+ $$ \begin{bmatrix} V^\pi(s_1) \\ V^\pi(s_2) \\ \vdots \\ V^\pi(s_n) \\ \end{bmatrix} = \begin{bmatrix} \mathcal{R}^\pi(s_1) \\ \mathcal{R}^\pi(s_2) \\ \vdots \\ \mathcal{R}^\pi(s_n) \\ \end{bmatrix} + \gamma \, \begin{bmatrix} \mathcal{P}_{s_1 s_1}^\pi & \mathcal{P}_{s_1 s_2}^\pi & \ldots & \mathcal{P}_{s_1 s_n}^\pi \\ \mathcal{P}_{s_2 s_1}^\pi & \mathcal{P}_{s_2 s_2}^\pi & \ldots & \mathcal{P}_{s_2 s_n}^\pi \\ \vdots & \vdots & \vdots & \vdots \\ \mathcal{P}_{s_n s_1}^\pi & \mathcal{P}_{s_n s_2}^\pi & \ldots & \mathcal{P}_{s_n s_n}^\pi \\ \end{bmatrix} \times \begin{bmatrix} V^\pi(s_1) \\ V^\pi(s_2) \\ \vdots \\ V^\pi(s_n) \\ \end{bmatrix} $$ 
 
 leads to the same equations as:
 
-$$      V^{\pi} (s)  = \mathcal{R}_{s}^\pi + \gamma \, \sum_{s' \in \mathcal{S}} \, \mathcal{P}_{ss'}^\pi \, V^{\pi} (s')$$
+ $$ V^{\pi} (s) = \mathcal{R}_{s}^\pi + \gamma \, \sum_{s' \in \mathcal{S}} \, \mathcal{P}_{ss'}^\pi \, V^{\pi} (s') $$ 
 
 for all states $s$. The Bellman equations for all states $s$ can
 therefore be written with a matrix-vector notation as:
 
-$$  \mathbf{V}^\pi = \mathbf{R}^\pi + \gamma \, \mathcal{P}^\pi \, \mathbf{V}^\pi $$
+ $$ \mathbf{V}^\pi = \mathbf{R}^\pi + \gamma \, \mathcal{P}^\pi \, \mathbf{V}^\pi $$ 
 
 If we know $\mathcal{P}^\pi$ and $\mathbf{R}^\pi$ (dynamics of the MDP
 for the policy $\pi$), we can simply obtain the state values:
 
-$$  (\mathbb{I} - \gamma \, \mathcal{P}^\pi ) \times \mathbf{V}^\pi = \mathbf{R}^\pi$$
+ $$ (\mathbb{I} - \gamma \, \mathcal{P}^\pi ) \times \mathbf{V}^\pi = \mathbf{R}^\pi $$ 
 
 where $\mathbb{I}$ is the identity matrix, what gives:
 
-$$  \mathbf{V}^\pi = (\mathbb{I} - \gamma \, \mathcal{P}^\pi )^{-1} \times \mathbf{R}^\pi$$
+ $$ \mathbf{V}^\pi = (\mathbb{I} - \gamma \, \mathcal{P}^\pi )^{-1} \times \mathbf{R}^\pi $$ 
 
 If we have $n$ states, the matrix $\mathcal{P}^\pi$ has $n^2$ elements.
 Inverting $\mathbb{I} - \gamma \, \mathcal{P}^\pi$ requires at least
@@ -710,7 +650,7 @@ sequence of consecutive state-value functions which should converge from
 initially wrong estimates $V_0(s)$ towards the real state-value function
 $V^{\pi}(s)$.
 
-$$      V_0 \rightarrow V_1 \rightarrow V_2 \rightarrow \ldots \rightarrow V_k \rightarrow V_{k+1} \rightarrow \ldots \rightarrow V^\pi$$
+ $$ V_0 \rightarrow V_1 \rightarrow V_2 \rightarrow \ldots \rightarrow V_k \rightarrow V_{k+1} \rightarrow \ldots \rightarrow V^\pi $$ 
 
 <img src="/images/drl/iterativepolicyevaluation2.png" style="width:80.0%"
 alt="Iterative policy estimaiton. Source: David Silver. http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html" />
@@ -719,7 +659,7 @@ The value function at step $k+1$ $V_{k+1}(s)$ is computed using the
 previous estimates $V_{k}(s)$ and the Bellman equation transformed into
 an **update rule**.
 
-$$  \mathbf{V}_{k+1} = \mathbf{R}^\pi + \gamma \, \mathcal{P}^\pi \, \mathbf{V}_k$$
+ $$ \mathbf{V}_{k+1} = \mathbf{R}^\pi + \gamma \, \mathcal{P}^\pi \, \mathbf{V}_k $$ 
 
 $V_\infty = V^{\pi}$ is a fixed point of this update rule because of the
 uniqueness of the solution to the Bellman equation.
@@ -754,30 +694,30 @@ choose an action $a \neq \pi(s)$ or not in order to improve the policy.
 The value of an action $a$ in the state $s$ for the policy $\pi$ is
 given by:
 
-$$     Q^{\pi} (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \, V^{\pi}(s') ]$$
+ $$ Q^{\pi} (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \, V^{\pi}(s') ] $$ 
 
 If the Q-value of an action $a$ is higher than the one currently
 selected by the **deterministic** policy:
 
-$$Q^{\pi} (s, a) > Q^{\pi} (s, \pi(s)) = V^{\pi}(s)$$
+ $$ Q^{\pi} (s, a) > Q^{\pi} (s, \pi(s)) = V^{\pi}(s) $$ 
 
 then it is better to select $a$ once in $s$ and thereafter follow $\pi$.
 If there is no better action, we keep the previous policy for this
 state. This corresponds to a **greedy** action selection over the
 Q-values, defining a **deterministic** policy $\pi(s)$:
 
-$$\pi(s) \leftarrow \text{argmax}_a \, Q^{\pi} (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \, V^{\pi}(s') ]$$
+ $$ \pi(s) \leftarrow \text{argmax}_a \, Q^{\pi} (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \, V^{\pi}(s') ] $$ 
 
 After the policy improvement, the Q-value of each deterministic action
 $\pi(s)$ has increased or stayed the same.
 
-$$\text{argmax}_a \; Q^{\pi} (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \, V^{\pi}(s') ] \geq Q^\pi(s, \pi(s))$$
+ $$ \text{argmax}_a \; Q^{\pi} (s, a) = \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [r(s, a, s') + \gamma \, V^{\pi}(s') ] \geq Q^\pi(s, \pi(s)) $$ 
 
 This defines an improved policy $\pi'$, where all states and actions
 have a higher value than previously. **Greedy action selection** over
 the state value function implements policy improvement:
 
-$$\pi' \leftarrow \text{Greedy}(V^\pi)$$
+ $$ \pi' \leftarrow \text{Greedy}(V^\pi) $$ 
 
 > **Tip**
 >
@@ -793,7 +733,7 @@ yield an even better policy $\pi''$. The algorithm **policy iteration**
 successively uses **policy evaluation** and **policy improvement** to
 find the optimal policy.
 
-$$  \pi_0 \xrightarrow[]{E} V^{\pi_0} \xrightarrow[]{I} \pi_1 \xrightarrow[]{E} V^{\pi^1} \xrightarrow[]{I}  ... \xrightarrow[]{I} \pi^* \xrightarrow[]{E} V^{*}$$
+ $$ \pi_0 \xrightarrow[]{E} V^{\pi_0} \xrightarrow[]{I} \pi_1 \xrightarrow[]{E} V^{\pi^1} \xrightarrow[]{I} ... \xrightarrow[]{I} \pi^* \xrightarrow[]{E} V^{*} $$ 
 
 The **optimal policy** being deterministic, policy improvement can be
 greedy over the state-action values. If the policy does not change after
@@ -836,7 +776,7 @@ of policy evaluation, not after complete convergence.
 As policy improvement returns a deterministic greedy policy, updating of
 the value of a state is then simpler:
 
-$$  V_{k+1}(s) = \max_a \sum_{s'} p(s' | s,a) [r(s, a, s') + \gamma \, V_k(s') ]$$
+ $$ V_{k+1}(s) = \max_a \sum_{s'} p(s' | s,a) [r(s, a, s') + \gamma \, V_k(s') ] $$ 
 
 Note that this is equivalent to turning the **Bellman optimality
 equation** into an update rule. Value iteration converges to $V^*$,
@@ -874,17 +814,13 @@ not change much anymore.
 
 **Full policy-evaluation backup**
 
-$$
-    V_{k+1} (s) \leftarrow \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V_k (s') ]
-$$
+ $$ V_{k+1} (s) \leftarrow \sum_{a \in \mathcal{A}(s)} \pi(s, a) \, \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V_k (s') ] $$ 
 
 ![](/images/drl/fullpe.png){width=20%}
 
 **Full value-iteration backup**
 
-$$
-    V_{k+1} (s) \leftarrow \max_{a \in \mathcal{A}(s)} \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V_k (s') ]
-$$
+ $$ V_{k+1} (s) \leftarrow \max_{a \in \mathcal{A}(s)} \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V_k (s') ] $$ 
 
 ![](/images/drl/fullvi.png){width=20%}
 
@@ -912,9 +848,7 @@ $$
     
         * Update the value of this state.
 
-        $$
-          V(s) =  \max_a \,  \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V (s') ]
-        $$
+         $$ V(s) = \max_a \, \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V (s') ] $$ 
 
 * We must still ensure that all states are visited, but their frequency and order is irrelevant.
 -->
@@ -926,11 +860,11 @@ $$
 
 * **Prioritized sweeping** selects in priority the states with the largest remaining **Bellman error**:
 
-$$\delta = |\max_a \,  \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V (s') ] - V(s) |$$
+ $$ \delta = |\max_a \, \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V (s') ] - V(s) | $$ 
 
 * A large Bellman error means that the current estimate $V(s)$ is very different from the **target** $y$: 
 
-$$y = \max_a \,  \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V (s') ]$$
+ $$ y = \max_a \, \sum_{s' \in \mathcal{S}} p(s' | s, a) \, [ r(s, a, s') + \gamma \, V (s') ] $$ 
 
 * States with a high Bellman error should be updated in priority. 
 
