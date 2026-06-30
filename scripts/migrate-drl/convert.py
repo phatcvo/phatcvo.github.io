@@ -7,6 +7,8 @@ ROOT = Path("/home/cody/Documents/github/phatcvo.github.io")
 MANIFEST = json.loads((ROOT / "scripts/migrate-drl/manifest.json").read_text())
 BIB = ROOT / "scripts/migrate-drl/bib.yml"
 DEST = ROOT / "content/blog/drl"
+SLIDES_DIR = Path("/home/cody/Documents/github/Lec-DRL/slides")
+SLIDE_OVERRIDE = {"2.3-PolicyGradient": "2.3-PG", "2.8-EntropyRL": "2.8-SAC"}
 
 H1 = re.compile(r"^#\s+.*$")
 IMG = re.compile(r"\]\(img/")  # markdown image path prefix
@@ -55,16 +57,27 @@ def strip_first_h1(md: str) -> str:
     return "\n".join(lines)
 
 
+def slide_url(stem: str):
+    """Return the published slide URL for a post stem, or None if no deck exists."""
+    s = SLIDE_OVERRIDE.get(stem, stem)
+    if (SLIDES_DIR / f"{s}.qmd").exists():
+        return f"https://phatcvo.github.io/Lec-DRL/slides/{s}.html"
+    return None
+
+
 def front_matter(item: dict) -> str:
-    return (
-        "---\n"
-        f'title: "{item["title"].replace(chr(34), chr(39))}"\n'
-        "date: 2026-06-30\n"
-        f'weight: {item["weight"]}\n'
-        "math: true\n"
-        'tags: ["Deep RL"]\n'
-        "---\n\n"
-    )
+    lines = [
+        "---",
+        f'title: "{item["title"].replace(chr(34), chr(39))}"',
+        "date: 2026-06-30",
+        f'weight: {item["weight"]}',
+        "math: true",
+        'tags: ["Deep RL"]',
+    ]
+    url = slide_url(item["stem"])
+    if url:
+        lines.append(f'slides_url: "{url}"')
+    return "\n".join(lines) + "\n---\n\n"
 
 
 def convert(item: dict):
