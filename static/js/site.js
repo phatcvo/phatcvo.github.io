@@ -118,7 +118,7 @@
           }
         }
       },
-      { root: null, threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+      { root: null, threshold: 0, rootMargin: "0px 0px -10% 0px" }
     );
 
     revealEls.forEach((el) => io.observe(el));
