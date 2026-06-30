@@ -2,6 +2,16 @@ baseURL: https://phatcvo.github.io/
 languageCode: en-us
 build:
   writeStats: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true   # required: pandoc gfm output for callouts emits raw HTML
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          inline: [["$", "$"], ["\\(", "\\)"]]
+          block: [["$$", "$$"], ["\\[", "\\]"]]
 params:
   title: Phat C. Vo
   author: Phat C. Vo
