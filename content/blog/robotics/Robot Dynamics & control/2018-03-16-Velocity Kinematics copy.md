@@ -1,12 +1,12 @@
 ---
-layout: post
-title:  "robotics_and_control"
-categories: robotics_and_control
-tags: robotics
-comments: true
+title:  "Robot Dynamics & control: Lecture 5 - Velocity Kinematics - The Manipulator Jacobian"
+description: "robotics_and_control"
+date: 2023-01-01
+weight: 30
+math: true
+collection_type: Article
+toc: true
 ---
-
-# Robot Dynamics & control: Lecture 5 - Velocity Kinematics - The Manipulator Jacobian
 
 ## Table of Contents
 {:.no_toc}
