@@ -1,27 +1,19 @@
 ---
 title:  "Robot Dynamics & control: Lecture 1 - Introduction"
 description: "robotics_and_control"
-date: 2023-01-01
+date: 2018-03-02
 weight: 30
 math: true
 collection_type: Article
 toc: true
 ---
 
-## Table of Contents
-{:.no_toc}
-0. this unordered seed list will be replaced by toc as unordered list
-{:toc}
-
 ## Components & Structure of Robots:
 - Robot manipulators are composed of links connected by __joints__ into a __kinematic chain__.
   -   __Revolute__ joint: allows relative rotation between two links.
   -   __Prismatic__ joint: allows a linear relative motion between two links.
 
-
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/1.png" class="lead" data-width="240" data-height="180" />
-</figure>
+![](/images/Robot_dynamics/1.png)
 
 
 ### Degrees of Freedom
@@ -42,51 +34,39 @@ toc: true
 - This configuration provides for relatively large freedom of movement in a compact space
 - The links and joints are analogous to human joint.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/2.png" class="lead" data-width="180" data-height="120" />
-</figure>
+![](/images/Robot_dynamics/2.png)
 
 
 ####  Spherical Configuration(RRP)
 - The third joint of the articulated robot is replaced by a prismatic joint.
 - The 'Stanford-arm' is an example of a spherical manupulator.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/3.png" class="lead" data-width="240" data-height="180" />
-</figure>
+![](/images/Robot_dynamics/3.png)
 
 #### SCARA Configuration(RRP)
 - The so-called SCARA(Selective Compliant Articulated Robot for Assembly) has $$z_0, z_1, z_2$$ prallel.
 - Ideal for table top assembly such as pick and place task. 
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/4.png" class="lead" data-width="240" data-height="180" />
-</figure>
+![](/images/Robot_dynamics/4.png)
 
 #### Cylindrical Configuration(RPP)
 - The first joint is revolute, while the second and third joints are prismatic.
 - This is often used in materials transfer task.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/5.png" class="lead" data-width="240" data-height="180" />
-</figure>
+![](/images/Robot_dynamics/5.png)
 
 #### Cartesian Configuration(PPP)
 - The configuration is useful for table-top assembly applications.
 - This is often used in pick and place operations.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/6.png" class="lead" data-width="240" data-height="180" />
-</figure>
+![](/images/Robot_dynamics/6.png)
 
 #### Parallel manupulator
 - The configuration forms a closed chain by using several independent kinematic chains connecting the vase to the end-effector.
 - The closed chain results in greater structural rigidity.
 - This robot generally have __much structural rigidity__ than serial link robots.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/8.png" class="lead" style="width:240px; height=:180px" />
-</figure>
+![](/images/Robot_dynamics/8.png)
 
 ### Wrists and End-Effectors 
 - The wrist of a manipulator refers to the joints in the kinematic chain berween the arm and hand.
@@ -95,9 +75,7 @@ toc: true
 - The arm and wrist assemblies are used primarily __for positioning the end-effector__(=hand)
 - The simplest type of end-effector are grippers.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/9.png" class="lead" style="width:480px; height=:240px" />
-</figure>
+![](/images/Robot_dynamics/9.png)
 
 
 -------
@@ -107,9 +85,7 @@ toc: true
 - The first problem is to describe __position and orientation of the tool__.
 - Determination of the position and orientation of the end-effector(or tool) in terms of joint variables(angle or displacement).
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/10.png" class="lead"   style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/10.png)
 
 
 ## Forward kinematic equations 
@@ -154,9 +130,7 @@ $$
 - There may be __many solutions or infinite number of solution__.
   - we can impose constraints.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/11.png" class="lead"   style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/11.png)
 
 
 ## Law of Cosines
@@ -182,9 +156,7 @@ $$
 
 ## Inverse kinematic equations.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/12.png" class="lead"   style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/12.png)
 
 $$
 \begin{aligned} 
@@ -261,10 +233,7 @@ $$
 ## Another way - Numerical Solution
 -  In contrast to the closed form(geometry solution), it absolutely __needs a forward kinematics__.
 
-
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/13.png" class="lead"   style="width:480px; height=:640px"/>
-</figure>
+![](/images/Robot_dynamics/13.png)
 
 
 
@@ -368,14 +337,8 @@ $$
 - __Forward dynamics__: Computes the robot motion __from the joint torques or forces applied__.
 
 ## Example 1: Three link-revolute arm
-
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/14.png" class="lead"   style="width:480px; height=:320px"/>
-</figure>
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/15.png" class="lead"   style="width:480px; height=:320px"/>
-</figure>
-
+![](/images/Robot_dynamics/14.png)
+![](/images/Robot_dynamics/15.png)
 -------
 
 # Problem 6: Position Control
@@ -398,15 +361,9 @@ $$
   - Objectives: tracking and disturbance rejection.
     - Pose에 따라 moment가 달라져 disturbance가 달라지지만 높은 기어비 때문에 무시.
   
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/16.png" class="lead"   style="width:180px; height=:120px"/>
-</figure>
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/17.png" class="lead"   style="width:480px; height=:240px"/>
-</figure>
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/18.png" class="lead"   style="width:640px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/16.png)
+![](/images/Robot_dynamics/17.png)
+![](/images/Robot_dynamics/18.png)
 
 - Each joint has to follow the desired joint angle accurately!
 
@@ -421,15 +378,6 @@ $$
      - We can use the Hybrid control(Position + Force control)
    - A force control strategy is one that modifies position trajectories based on the sensed forses.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/19.png" class="lead"   style="width:640px; height=:480px"/>
-</figure>
+![](/images/Robot_dynamics/19.png)
 
 >  __The end-effector forces are related to the joint torques!!__
-
-
-------------
-
-> Reference:
-- [SEOULTECH - HRRLAB](http://hrrlab.com)
-- [SEOULTECH - Robot Dynamics & Control, Lecture slides](http://hrrlab.com/)
