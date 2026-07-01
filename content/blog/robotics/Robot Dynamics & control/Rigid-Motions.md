@@ -1,17 +1,12 @@
 ---
 title:  "Robot Dynamics & control: Lecture 2 - Rigid Motions and Homogeneous Transforms"
 description: "robotics_and_control"
-date: 2023-01-01
+date: 2018-04-01
 weight: 30
 math: true
 collection_type: Article
 toc: true
 ---
-
-## Table of Contents
-{:.no_toc}
-0. this unordered seed list will be replaced by toc as unordered list
-{:toc}
 
 ## Introduction
 - Robot kinematocs is concerned with the establishment of various coordinate systems to represent the __positions and orientations__ of rigid objects and with __transformations__ among these coordinate frames.

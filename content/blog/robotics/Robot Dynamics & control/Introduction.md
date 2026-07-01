@@ -19,7 +19,7 @@ toc: true
 ### Degrees of Freedom
   - The number of joints determines the DOF of the manipulator.
   - A typical manipulator should possess at least six independent DOF:
-    - Three for positioning + Three for orientation.
+  - Three for positioning + Three for orientation.
   - With fewer than six DOF the arm cannot reach every point in its work encironment with arbitray orientation.
 
 
@@ -196,8 +196,7 @@ $$
 \end{aligned} 
 $$
 
-  - 아래의 식(1)을 얻기 위해 $$cos \theta_1, sin\theta_2$$를 각각 곱하고, 아래의 식(2)을 얻기 위해 $$sin \theta_1, cos \theta_1$$를 각각 곱한다.
-  - 이 후 x, y를 곱하여 더하rh 빼서 $$cos \theta_1,sin \theta_1$$를 얻어 $$\theta_1$$ 을 구한다.
+Multiply by $\cos \theta_1$ and $\sin \theta_2$ respectively to obtain Equation (1) below, and multiply by $\sin \theta_1$ and $\cos \theta_1$ respectively to obtain Equation (2) below. Then, multiply by $x$ and $y$, and perform addition and subtraction to isolate $\cos \theta_1$ and $\sin \theta_1$, thereby solving for $\theta_1$.
 
 $$
 \begin{aligned} 
