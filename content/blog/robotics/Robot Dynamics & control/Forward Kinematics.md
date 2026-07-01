@@ -1,17 +1,12 @@
 ---
 title:  "Robot Dynamics & control: Lecture 3 - Forward Kinematics: The Denavit-Hartenberg Convention"
 description: "robotics_and_control"
-date: 2023-01-01
+date: 2018-03-09
 weight: 30
 math: true
 collection_type: Article
 toc: true
 ---
-
-## Table of Contents
-{:.no_toc}
-0. this unordered seed list will be replaced by toc as unordered list
-{:toc}
 
 ## Introduction
 - The forward kinematics problem is to determine the __position and orientation__ of the end-effector, given the values for the joint variables of the robot.

@@ -1,17 +1,12 @@
 ---
 title:  "Robot Dynamics & control: Lecture 4 - Inverse Kinematics"
 description: "robotics_and_control"
-date: 2023-01-01
+date: 2018-03-12
 weight: 30
 math: true
 collection_type: Article
 toc: true
 ---
-
-## Table of Contents
-{:.no_toc}
-0. this unordered seed list will be replaced by toc as unordered list
-{:toc}
 
 ## Introduction
 - This chapter is concerned with the inverse problem of __finding the joint variables__ in terms of the __end-effector position and orientation__.
