@@ -91,10 +91,8 @@ $$
   - Suppose the frame $$o_1 x_1 y_1 z_1$$  is rotated through an angle about the $$z_0$$ axis, and it is desired to find the resulting transformation matrix $$R^0_1$$.
   - Note that by convention the positive sense for the angle is given by the right hand rule;
     - That is, a positive rotation of degrees about the z-axis would advance a right-hand threaded screw along the positive z-axis.
-
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec2/1.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+    - 
+![](/images/Robot_dynamics/lec2/1.png)
 
 $$
 \begin{aligned}
@@ -177,9 +175,7 @@ p \cdot z_0  \\
 \end{aligned} 
 $$
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec2/2.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec2/2.png)
 
 -  Combining these two equations
 
@@ -270,9 +266,8 @@ $$
 > Note
 > > Actually, the order of sequence can be defined according to diverse type, but z-y-z is the common order of sequence.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec2/3.png" class="lead"   style="width:640px; height=:480px"/>
-</figure>
+![](/images/Robot_dynamics/lec2/3.png)
+
 
 $$
 \begin{aligned} R^0_1
@@ -334,9 +329,7 @@ $$
 \end{aligned} 
 $$
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec2/4.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec2/4.png)
 
 - If $$\theta > 0$$ 
 
@@ -474,9 +467,7 @@ $$
   - $$x_0 \rightarrow y_0 \rightarrow z_0$$ (current coordinate perspective).
   - $$z \rightarrow y \rightarrow x$$ (global coordinate perspective).
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec2/5.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec2/5.png)
 
 $$
 \begin{aligned} R^0_1
@@ -767,9 +758,3 @@ $$
 - $$s = (s_x, s_y, s_z)^T$$ : direction of $$y_1$$ in the $$o_0 x_0 y_0 z_0$$.
 - $$a = (a_x, a_y, a_z)^T$$ : direction of $$z_1$$ in the $$o_0 x_0 y_0 z_0$$.
 - $$d = (d_x, d_y, d_z)^T$$ : vector from $$o_0$$ to the origin $$o_1$$ in the $$o_0 x_0 y_0 z_0$$.
-
-------------
-
-> Reference:
-- [SEOULTECH - HRRLAB](http://hrrlab.com)
-- [SEOULTECH - Robot Dynamics & Control, Lecture slides](http://hrrlab.com/)

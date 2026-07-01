@@ -44,9 +44,7 @@ $$
 - Joint i is fixed at link i-1, so when joint i is actuated, link i moves.
 - Link 0(the first link) is fixed and does not move when the joints are actuated.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/1.png" class="lead"   style="width:480px; height=:360px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/1.png)
 
 - With the i^{th} joint, we associate a joint variable, denoted by q_i.
   - $$\theta_i$$: joint $$i$$ revolute
@@ -54,9 +52,7 @@ $$
 - __$$o_i x_i y_i z_i$$ is attached to link i__ $$\rightarrow$$ when joint i is actuated, link i and its attached frame $$o_i x_i y_i z_i$$ experience a resulting motion.
 - The frame $$o_0 x_0 y_0 z_0$$ which is attached to the robot base, is referred to as the __inertial frame__(=world coordinate).
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/2.png" class="lead"   style="width:480px; height=:360px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/2.png)
 
 
 - Suppose $$A_i$$ is the __homogeneous transformation matrix__ that expresses the position and orientation of $$o_i x_i y_i z_i$$ with respect to $$o_{i-1} x_{i-1} y_{i-1} z_{i-1}$$.
@@ -179,9 +175,7 @@ $$
 >
 > DH2) The axis $$x_1$$ intersects the axis $$z_0$$
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/3.png" class="lead"   style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/3.png)
 
 - Under DH1 and DH2, we claim that there exist __unique numbers__ $$a, d, \theta , \alpha$$ such that.
   - $$A = Rot_{z,\theta} Trans_{z,d} Trans_{x,a} Rot_{x, \alpha}$$
@@ -190,17 +184,13 @@ $$
   - a: Distance between the axes $$z_0$$ and $$z_1$$ measured along the axis $$x_1$$
   - d: Distance between the origin $$o_0$$ and the intersection of the $$x_1$$ axis with $$z_0$$ measured along the $$z_0$$ axis.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/3.png" class="lead"  style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/3.png)
 
 - Physical interpretation of 4 quantities:
   - $$\alpha$$: Angle between the axes $$z_0$$ and $$z_1$$ measured in a plane normal to $$x_1$$.
   - $$\theta$$: Angle between $$x_0$$ and $$x_1$$ measured in a plane normal to $$z_0$$.
   
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/4.png" class="lead"  style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/4.png)
 
 - Assigning the coordinate frames
   - For a given robot manipulator, one can always choose the frame 0, 1, ..., n in such a way that __the DH1 and DH2 are satisfied__.
@@ -211,43 +201,33 @@ $$
   - If joint i+1 is revolute, $$z_i$$ is the axis of revolution of joint i+1.
   - If joint i+1 is prismatic, $$z_i$$ is the axis of translation of joint i+1.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/5.png" class="lead"  style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/5.png)
 
 - In order to set up frame i it is necessary to consider 3 cases:
 - case 1:
   - $$z_{i-1}$$ and $$z_i$$ are not coplanar:
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/6.png" class="lead"  style="width:360px; height=:240px"/>
-</figure> 
+![](/images/Robot_dynamics/lec3/6.png)
 
 - case 2:
   - $$z_{i-1}$$ is parallel to $$z_i$$:
     - $$d_i, \alpha_i$$ are 0 in this case
 
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/7.png" class="lead"  style="width:360px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/7.png)
 
 - case 3:
   - $$z_{i-1}$$ intersects $$z_i$$:
     - $$a_i$$ are 0 in this case
 
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/8.png" class="lead"  style="width:360px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/8.png)
 
 
 -  This constructive procedure works frame 0, ..., n-1 in an n-link robot.
 -  The __final coordinate system__ $$o_n x_n y_n z_n$$ is commonly referred to as __the end-effctor(or tool frame)__
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/9.png" class="lead"  style="width:360px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/9.png)
 
 - Terminology arises from the fact that the direction __a__ is the approach direction, the __s__ direction is the sliding direction, and __n__ is the direction normal to the plane formed by __a__ and __s__.
 
@@ -270,15 +250,11 @@ $$5.$$ Establish $$y_i$$ to complete a right-hand frame
 
 $$6.$$ Establish the end-effector frame $$o_n x_n y_n z_n$$. Assuming the n-th joint is revolute, set $$z_n$$ = __a__ along the direction $$z_{n-1}$$. Establish the origin on conveniently along $$z_n$$, preferably at the center of the gripper or at the tip of any tool. Set $$y_n$$ = __s__ in the direction of the gripper closure.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/11.png" class="lead"  style="width:480px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/11.png)
 
 $$7.$$ Create a table of link parameters $$a_i, \alpha_i , d_i, \theta_i$$.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec3/12.png" class="lead"  style="width480px; height=:360px"/>
-</figure>
+![](/images/Robot_dynamics/lec3/12.png)
 
 $$8.$$ From the homogeneous transformation matrices $$A_i$$ by substituting the above parameters into 
 
@@ -296,10 +272,3 @@ s_{\theta_i} & c_{\theta_i}c_{\alpha_i} & -c_{\theta_i}s_{\alpha_i} & \alpha_i s
 $$
 
 $$9.$$ Form $$T^0_n = A_1 \cdots A_n$$. This then gives the position and orientation of the tool frame expressed in base coordinates.
-
-
-------------
-
-> Reference:
-- [SEOULTECH - HRRLAB](http://hrrlab.com)
-- [SEOULTECH - Robot Dynamics & Control, Lecture slides](http://hrrlab.com/)

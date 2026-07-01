@@ -105,16 +105,11 @@ where $$T_{ij}, h_{ij}$$ refer to the 12 nontrivial entries of $$T^0_n$$ and $$H
 - Recall the Stanford manipualtor.
 - Suppose that the desired position and orientation of the final frame are given by
 
-
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/1.png" class="lead"   style="width:240px; height=:480px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/1.png)
 
 - To find the corresponding variables $$\theta_1, ..., \theta_6$$, we must solve the following simultaneous set of nonlinear trigonometric eq.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/2.png" class="lead"   style="width:480px; height=:560px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/2.png)
 
 > Note
 > > It is too difficult to solve directly in closed form. 
@@ -166,9 +161,7 @@ $$
   - Motion of __final 3 links__ about these axes __will not change the position of $$o_c$$__
   - Thus, the __position of the wrist__ center is thus __function of only the first 3 joint variables__ ($$\thata_1, \theta_2$$ and $$d_3$$).
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/3.png" class="lead"   style="width:240px; height=:480px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/3.png)
 
 - The origin of the tool frame, $$o$$:
 
@@ -286,9 +279,7 @@ $$
 Consider the elbow manipulator shown in Fig. 4.2, with the components of denoted $$o^0_c$$ by $$x_c, y_c, z_c$$.
 We project $$o_c$$ onto the $$x_0 - y_0$$ plane.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/4.png" class="lead"   style="width:480px; height=:360px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/4.png)
 
 From this projection
 
@@ -310,23 +301,17 @@ This second solution leads to different solutions for $$\theta_2$$ and $$\theta_
 
 The above solution is valid unless $$x_c = y_c = 0$$. In this case, the manipulator is in a singular configuration shown in Fig. 4.5, and there are thus __infinitely many solutions__ for $$\theta_1$$.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/5.png" class="lead"   style="width:240px; height=:180px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/5.png)
 
 
 If there is an offset d, then the wrist center cannot intersect $$z_0$$. 
 In this case, there will be only 2 solution for $$\theta_1 \rightarrow$$ __These correspond to the so-called left arm and right arm configuration__.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/6.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/6.png)
 
 -  Case 1) Left arm configuration:
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/7.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/7.png)
 
 Geometrically, 
 
@@ -339,9 +324,7 @@ $$
 
 -  Case 2) Right arm configuration:
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/8.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/8.png)
 
 Geometrically, 
 
@@ -356,9 +339,7 @@ $$
 
 To find the angles $$\theta_2, \theta_3$$ for the elbow manipulator given $$\theta_1$$, we consider the plane formed by the second and third links
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/9.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/9.png)
 
 Previously,
 
@@ -381,10 +362,7 @@ $$
 
 > The two solution for $$\theta_3$$ correspond to the elbow-up position and elbow-down position, respectively.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/10.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
-
+![](/images/Robot_dynamics/lec4/10.png)
 ### Spherical Configuration
 
 we  solve the inverse position kinematics for a 3 D.O.F spherical manipulator.
@@ -406,9 +384,7 @@ $$
 
 if both $$x_c$$ and $$y_c$$ are zero, the configuration is singular and $$\theta_1$$ may take on any value.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/11.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/11.png)
 
 The angle $$\theta_2$$ is given by
 
@@ -494,9 +470,7 @@ $$
 
 ### Example1: Articulated Manipulator with Spherical Wrist
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/12.png" class="lead"   style="width:320px; height=:600px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/12.png)
 
 Using DH parameters, we can derive the matrix $$R^0_3$$.
 
@@ -612,9 +586,7 @@ If $$s_5 = 0$$, then joint axes $$z_3$$ and $$z_5$$ are colinear, and this is a 
 
 One complete inverse kinematic solution of the 6 DOF elbow manipulator which has no joint offsets and a spherical wrist.
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/13.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/12.png)
 
 Given, 
 - $$o$$: end-effector position
@@ -661,9 +633,7 @@ $$
 
 Forward kinematics defined by
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/13.png" class="lead"   style="width:480px; height=:360px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/13.png)
 
 There is no solution of the above equation, unless R is of the form
 
@@ -696,9 +666,7 @@ $$
 \end{aligned} 
 $$
 
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/15.png" class="lead"   style="width:320px; height=:240px"/>
-</figure>
+![](/images/Robot_dynamics/lec4/15.png)
 
 Then, 
 
@@ -723,27 +691,6 @@ $$
 
 - Basic flowchart:
   
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/16.png" class="lead"   style="width:480px; height=:600px"/>
-</figure>
-
-- Numerical derivation of J:
-  
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/17.png" class="lead"   style="width:240px; height=:360px"/>
-</figure>
-  
-<figure>
-  <img alt="An image with a caption" src="/static/images/Robot_dynamics/lec4/18.png" class="lead"   style="width:480px; height=:600px"/>
-</figure>
-
-
-
-
-
-
-------------
-
-> Reference:
-- [SEOULTECH - HRRLAB](http://hrrlab.com)
-- [SEOULTECH - Robot Dynamics & Control, Lecture slides](http://hrrlab.com/)
+![](/images/Robot_dynamics/lec4/16.png)
+![](/images/Robot_dynamics/lec4/17.png)
+![](/images/Robot_dynamics/lec4/18.png)
