@@ -63,7 +63,7 @@ $$
 
 $$
 \begin{aligned}
-T^i_j = A_{i+1} A_{i+2} \cdot A_{j-1} A_{j} \qquad if \quad i < j \\
+T^i_j = A_{i+1} A_{i+2} \cdots A_{j-1} A_{j} \qquad if \quad i < j \\
 T^i_j = I \qquad  if \quad i = j \\
 T^i_j = (T^j_i)^{-1} \qquad  if \quad i > j
 \end{aligned} 
@@ -80,7 +80,7 @@ R^0_n & o^0_n\\
 0 & 1 \\
 \end{bmatrix} \\
 &= T^0_n \\
-&= A_1(q_i) \cdot A_n(q_n)
+&= A_1(q_1) \cdots A_n(q_n)
 \end{aligned} 
 $$
 
@@ -148,8 +148,8 @@ s_{\theta_i} & c_{\theta_i} & 0 & 0\\
 \\
 &=
 \begin{bmatrix} 
-c_{\theta_i} & -s_{\theta_i}c_{\alpha_i} & s_{\theta_i}s_{\alpha_i} & \alpha_i c_{\theta_i}\\  
-s_{\theta_i} & c_{\theta_i}c_{\alpha_i} & -c_{\theta_i}s_{\alpha_i} & \alpha_i s_{\theta_i}\\
+c_{\theta_i} & -s_{\theta_i}c_{\alpha_i} & s_{\theta_i}s_{\alpha_i} & a_i c_{\theta_i}\\  
+s_{\theta_i} & c_{\theta_i}c_{\alpha_i} & -c_{\theta_i}s_{\alpha_i} & a_i s_{\theta_i}\\
 0 & s_{\alpha_i} & c_{\alpha_i}& d_i\\
 0 & 0 & 0 & 1\\
 \end{bmatrix} 
@@ -258,8 +258,8 @@ $$
 &= Rot_{z, \theta_i} Trans_{z, d_i} Trans_{x, a_i} Rot_{x, \alpha_i}  \\
 &=
 \begin{bmatrix} 
-c_{\theta_i} & -s_{\theta_i}c_{\alpha_i} & s_{\theta_i}s_{\alpha_i} & \alpha_i c_{\theta_i}\\  
-s_{\theta_i} & c_{\theta_i}c_{\alpha_i} & -c_{\theta_i}s_{\alpha_i} & \alpha_i s_{\theta_i}\\
+c_{\theta_i} & -s_{\theta_i}c_{\alpha_i} & s_{\theta_i}s_{\alpha_i} & a_i c_{\theta_i}\\  
+s_{\theta_i} & c_{\theta_i}c_{\alpha_i} & -c_{\theta_i}s_{\alpha_i} & a_i s_{\theta_i}\\
 0 & s_{\alpha_i} & c_{\alpha_i}& d_i\\
 0 & 0 & 0 & 1\\
 \end{bmatrix} 

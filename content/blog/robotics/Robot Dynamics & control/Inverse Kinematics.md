@@ -326,7 +326,7 @@ Geometrically,
 $$
 \begin{aligned} 
 & \theta_1 = \alpha + \beta \\
- where, \alpha &= Atan2(y_c, x_c), \beta = \gamma + \pi = Atan2(d, \sqrt{r^2 - d^2}) + \pi = Atan2(- d, - \sqrt{r^2 +  -d^2}) 
+ where, \alpha &= Atan2(y_c, x_c), \beta = \gamma + \pi = Atan2(d, \sqrt{r^2 - d^2}) + \pi = Atan2(- d, - \sqrt{r^2 - d^2}) 
 \end{aligned} 
 $$
 
@@ -365,7 +365,7 @@ The first joint variable is the base rotation and solution is
 
 $$
 \begin{aligned} 
-\theta_1 = Atan2(y_c, x_c) \qquad x_c \neq 0 \quad and \quad  y_c \neq 0
+\theta_1 = Atan2(y_c, x_c) \qquad x_c \neq 0 \quad or \quad  y_c \neq 0
 \end{aligned} 
 $$
 
@@ -373,7 +373,7 @@ Second solution is
 
 $$
 \begin{aligned} 
-\theta_2 = \pi + Atan2(y_c, x_c)
+\theta_1 = \pi + Atan2(y_c, x_c)
 \end{aligned} 
 $$
 
@@ -470,13 +470,8 @@ $$
 Using DH parameters, we can derive the matrix $$R^0_3$$.
 
 $$
-\begin{aligned} R^0_3 =
+\begin{aligned} R^0_3
 &=
-\begin{bmatrix} 
-R^3_6 & o^3_6\\  
-0 & 1\\
-\end{bmatrix} &=
-
 \begin{bmatrix} 
 c_1 c_{23}& - c_1 s_{23} & s_1 \\
 s_1 c_{23}  & -s_1 s_{23} &  -c_1\\
@@ -535,7 +530,7 @@ $$
 & c_4 s_5 = c_1 c_{23} r_{13} + s_1 c_{23} r_{23} + s_{23} r_{33} \\
 & s_4 s_5 = -c_1 s_{23} r_{13} -s_1 s_{23} r_{23} + c_{23} r_{33} \\
 & c_5 = s_1 r_{13} - c_1 r_{23}\\
-& \therefore \theta_5 = Atan2(\pm \sqrt{1-(s_1 r_{13} - c_1 r_{23})^2 , s_1 r_{13} - c_1 r_{23}})
+& \therefore \theta_5 = Atan2(\pm \sqrt{1-(s_1 r_{13} - c_1 r_{23})^2}, s_1 r_{13} - c_1 r_{23})
 \end{aligned} 
 $$
 
@@ -571,7 +566,7 @@ $$
 \end{aligned} 
 $$
 
-If $$s_5 = 0$$, then joint axes $$z_3$$ and $$z_5$$ are colinear, and this is a __singular configuration__, so there are infinitely many solution($$\theta_4 + \theta_6 can be determined)
+If $$s_5 = 0$$, then joint axes $$z_3$$ and $$z_5$$ are colinear, and this is a __singular configuration__, so there are infinitely many solutions (only $$\theta_4 + \theta_6$$ can be determined)
 
 
 
@@ -611,15 +606,15 @@ $$
 \begin{aligned}  
 & x_c = o_x - d_6 r_{13}\\
 & y_c = o_y - d_6 r_{23}\\
-& z_c = o_z - d_6 r_{13}\\
+& z_c = o_z - d_6 r_{33}\\
 \\ 
 & \theta_1 = Atan2(y_c, x_c)\\
 & \theta_2 = Atan2(z_c -d_1, \sqrt{x^2_c +y^2_c}) - Atan2(a_3 s_3, a_2 + a_3c_3) \\
 & \theta_3 = Atan2(\pm \sqrt{1-D^2}, D) \\
 & \qquad where,\quad D  = \frac{x^2_c + y^2_c  + (z_c -d_1)^2 - a_2 ^2 - a^2 _3}{2 a_2 a_3} \\
-& \theta_4 = Atan2(\pm (-c_1s_{23}r_{13} -s_1s_{23}r_{23} + c_{23}r_{33}), \pm (c_1c_{23}r_{13} + s_1 c_{23} r_{23} + s_{23} r_{23}))\\
+& \theta_4 = Atan2(\pm (-c_1s_{23}r_{13} -s_1s_{23}r_{23} + c_{23}r_{33}), \pm (c_1c_{23}r_{13} + s_1 c_{23} r_{23} + s_{23} r_{33}))\\
 & \theta_5 = Atan2(\pm \sqrt{1-(s_1 r_{13} - c_1 r_{23})^2}, s_1 r_{13} -c_1 r_{23})\\
-& \theta_6 = Atan2(\pm (s_1 r_{12 - c_1 r_{22}}), \pm (-s_1 r_{11} + c_1 r_{21}))\\
+& \theta_6 = Atan2(\pm (s_1 r_{12} - c_1 r_{22}), \pm (-s_1 r_{11} + c_1 r_{21}))\\
 
 \end{aligned} 
 $$
@@ -643,11 +638,11 @@ s_\alpha  & -c_\alpha &  0\\
 \end{aligned} 
 $$
 
-And if this is the case, the sum $$\theta_1 + \theta_2 - \theta_4 is determined by
+And if this is the case, the sum $$\theta_1 + \theta_2 - \theta_4$$ is determined by
 
 $$
 \begin{aligned} 
-\theta_1 + \theta_2  - \theta_2 = \alpha = Atan2(r_{12}, r_{11})
+\theta_1 + \theta_2  - \theta_4 = \alpha = Atan2(r_{12}, r_{11})
 \end{aligned} 
 $$
 
@@ -655,7 +650,7 @@ Projecting the manipulator configuration onto the $$x_0 - y_0$$ plane:
 
 $$
 \begin{aligned} 
-& \theta_2 = Atan2(\pm \sqrt{1-c^2_c}, c_2)\\
+& \theta_2 = Atan2(\pm \sqrt{1-c_2^2}, c_2)\\
 &where \quad c_2 = \frac{x_c^2 +y^2_c -a_1^2 -a^2_2}{2a_1a_2}\\
 & \theta_1 = Atan2(y_c, x_c) - Atan2(a_2s_2, a_1 + a_2 c_2)
 \end{aligned} 
@@ -667,7 +662,7 @@ Then,
 
 $$
 \begin{aligned} 
-\theta_2 &=  \theta_1 + \theta_2 - \alpha \\
+\theta_4 &=  \theta_1 + \theta_2 - \alpha \\
 &= \theta_1 + \theta_2 -Atan2(r_{12}, r_{11})
 \end{aligned} 
 $$

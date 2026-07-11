@@ -148,7 +148,7 @@ $$
 $$
 \begin{aligned} 
   & sin ^2 \theta  _2 + cos ^2 \theta_2 =  1 \rightarrow sin \theta _2 = \pm  \sqrt{1 - D^2} \\
-  &  \therefore  \theta _2 = tan ^{-1} (\frac{1 - D^2}{D})
+  &  \therefore  \theta _2 = tan ^{-1} (\frac{\pm \sqrt{1 - D^2}}{D})
 \end{aligned} 
 $$
 
@@ -203,14 +203,14 @@ $$
   & x = a_1 cos \theta_1 + a_2 cos(\theta _1 + \theta _2)  \\
   & y = a_1 sin \theta_1 + a_2 sin(\theta _1 + \theta _2)  \\
   \\
-  & x cos \theta_1  = a_1 cos ^2 \theta_2 + a_2 cos \theta_1 (cos \theta_1 cos\theta_2 - sin \theta_1 sin \theta_2) \\
-  & y sin \theta_1  = a_1 sin ^2 \theta_2 + a_2 sin \theta_1 (sin \theta_1 cos\theta_2 - cos \theta_1 sin \theta_2) \\
+  & x cos \theta_1  = a_1 cos ^2 \theta_1 + a_2 cos \theta_1 (cos \theta_1 cos\theta_2 - sin \theta_1 sin \theta_2) \\
+  & y sin \theta_1  = a_1 sin ^2 \theta_1 + a_2 sin \theta_1 (sin \theta_1 cos\theta_2 + cos \theta_1 sin \theta_2) \\
   & \qquad \qquad \qquad \triangledown  \\
-  & x cos \theta_1 + y sin \theta_1 = a_1 + cos \theta_2 \qquad(1)\\
+  & x cos \theta_1 + y sin \theta_1 = a_1 + a_2 cos \theta_2 \qquad(1)\\
   \\
   \\
   & x sin \theta_1  = a_1 sin \theta_1 cos  \theta_1 + a_2 sin \theta_1 (cos \theta_1 cos\theta_2 - sin \theta_1 sin \theta_2) \\
-  & y cos \theta_1  = a_1 sin \theta_1 cos \theta_1 + a_2 cos \theta_1 (sin \theta_1 cos\theta_2 - cos \theta_1 sin \theta_2) \\
+  & y cos \theta_1  = a_1 sin \theta_1 cos \theta_1 + a_2 cos \theta_1 (sin \theta_1 cos\theta_2 + cos \theta_1 sin \theta_2) \\
   & \qquad \qquad \qquad \triangledown  \\
   & x sin \theta_1 - y cos \theta_1 = -a_2 sin \theta_2 \qquad(2)\\
   \\
@@ -260,13 +260,13 @@ $$
   \frac{\partial x}{\partial \theta_1} &  \frac{\partial x}{\partial \theta_2} \\
   \frac{\partial y}{\partial \theta_1} & \frac{\partial y}{\partial \theta_2}  \\
 \end{bmatrix} 
-\begin{bmatrix} \theta_1  \\ \theta_2 \end{bmatrix} \\
+\begin{bmatrix} \dot\theta_1  \\ \dot\theta_2 \end{bmatrix} \\
 & =
 \begin{bmatrix} 
   -a_1 sin \theta_1 - a_2 sin (\theta_1 + \theta_2) &  - a_2 sin(\theta_1 + \theta_2) \\
   a_1 cos\theta_1 + a_2 cos (\theta_1 + \theta_2) & a_2 cos(\theta_1 + \theta_2)  \\
 \end{bmatrix} 
-\begin{bmatrix} \theta_1  \\ \theta_2 \end{bmatrix} \\
+\begin{bmatrix} \dot\theta_1  \\ \dot\theta_2 \end{bmatrix} \\
 \end{aligned} 
 $$
 
