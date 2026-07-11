@@ -22,8 +22,7 @@ z \\
 \theta \\
 \phi \\
 \end{bmatrix} 
-=
-f(\theta_1,  \cdots , \theta_n, d_1 ,  \cdots , d_n)
+= f(\theta_1,  \cdots , \theta_n, d_1 ,  \cdots , d_n)
 \end{aligned} 
 $$
 

@@ -388,7 +388,7 @@ s_{\phi}c_{\psi}+c_{\phi}s_{\psi}  & -s_{\phi}s_{\psi}+c_{\phi}c_{\psi} & 0\\
  s_{\phi+\psi}  & c_{\phi + \psi} & 0\\
 0 & 0 & 1
 \end{bmatrix}
-=
+&=
 \begin{bmatrix} 
 r_{11} & r_{12} & 0\\
 r_{21} & r_{22} & 0\\
@@ -425,7 +425,7 @@ $$
 - s_{\phi-\psi}  & c_{\phi - \psi} & 0\\
 0 & 0 & -1
 \end{bmatrix}
-=
+&=
 \begin{bmatrix} 
 r_{11} & r_{12} & 0\\
 r_{21} & r_{22} & 0\\

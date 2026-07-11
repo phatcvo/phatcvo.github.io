@@ -23,8 +23,7 @@ d_1 \\
 \vdots \\
 d_n \\
 \end{bmatrix} 
-=
-f(x,  y , z, \psi,  \theta , \phi)
+= f(x,  y , z, \psi,  \theta , \phi)
 \end{aligned} 
 $$
 
@@ -35,8 +34,7 @@ $$
 $$
 \begin{aligned}
 H = (x,  y , z, \psi,  \theta , \phi)
-=
-\begin{bmatrix} 
+= \begin{bmatrix} 
 R & o \\
 0 & 1 \\
 \end{bmatrix} 
