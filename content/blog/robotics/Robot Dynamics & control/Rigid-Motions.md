@@ -56,7 +56,7 @@ R ^0 _1
 &=
 \begin{bmatrix} 
 x_1 \cdot  x_0  & y_1 \cdot  x_0  \\
-x_0 \cdot  y_0  & y_1 \cdot  y_0  
+x_1 \cdot  y_0  & y_1 \cdot  y_0  
 \end{bmatrix}
 &=
 {(R^1 _0)}^{-1}
@@ -92,7 +92,7 @@ $$
 $$
 \begin{aligned}
 & x_1 \cdot x_0  = cos \theta & y_1 \cdot x_0 = - sin \theta \\
-& x_1 \cdot x_0  = cos \theta & y _1 \cdot x_0 = - sin \theta\\
+& x_1 \cdot y_0  = sin \theta & y _1 \cdot y_0 = cos \theta\\
 & z_0 \cdot z_1 = 1
 \end{aligned} 
 $$
@@ -186,8 +186,8 @@ $$
 &= 
 \begin{bmatrix} 
 x_1 \cdot x_0 & y_1 \cdot x_0 & z_1 \cdot x_0\\
-x_1 \cdot y_0 & y_1 \cdot x_0 & z_1 \cdot x_0\\
-x_1 \cdot z_0 & y_1 \cdot x_0 & z_1 \cdot x_0\\
+x_1 \cdot y_0 & y_1 \cdot y_0 & z_1 \cdot y_0\\
+x_1 \cdot z_0 & y_1 \cdot z_0 & z_1 \cdot z_0\\
 \end{bmatrix}
 \begin{bmatrix} 
 u\\
@@ -330,13 +330,13 @@ $$
 
 $$
 \begin{aligned} 
-\theta 
-&= arctan(r_{23}, r_{33}) \\
+\phi 
+&= arctan(r_{23}, r_{13}) \\
 &= arctan(s_{\phi}s_{\theta}, c_{\phi} s_{\theta}) \\
 \\
 \psi 
 &= arctan(r_{32}, -r_{31}) \\
-&= arctan(s_{\theta}s_{\psi}, s_{\theta} s_{\psi})
+&= arctan(s_{\theta}s_{\psi}, s_{\theta} c_{\psi})
 \end{aligned} 
 $$
 
@@ -344,13 +344,13 @@ $$
 
 $$
 \begin{aligned} 
-\theta 
-&= arctan(-r_{23}, -r_{33}) \\
+\phi 
+&= arctan(-r_{23}, -r_{13}) \\
 &= arctan(-s_{\phi}s_{\theta}, -c_{\phi} s_{\theta}) \\
 \\
 \psi 
 &= arctan(-r_{32}, r_{31}) \\
-&= arctan(-s_{\theta}s_{\psi}, -s_{\theta} s_{\psi})
+&= arctan(-s_{\theta}s_{\psi}, -s_{\theta} c_{\psi})
 \end{aligned} 
 $$
 
@@ -467,7 +467,7 @@ $$
 $$
 \begin{aligned} R^0_1
 &=
-R_{z, \phi} R_{y, \theta} R_{z, \psi} \\
+R_{z, \phi} R_{y, \theta} R_{x, \psi} \\
 &= 
 \begin{bmatrix} 
 c_{\phi} & -s_{\phi} & 0\\
@@ -496,7 +496,7 @@ $$
 > Note
 > > Now, the order of sequence is z-y-x. But, x-y-z is also possible to define the order.
 
-- Consider the problem of determining the roll, pitch, yaw angles, $$\pi, \theta, \psi$$, given the rotation matrix:
+- Consider the problem of determining the roll, pitch, yaw angles, $$\phi, \theta, \psi$$, given the rotation matrix:
 
 $$
 \begin{aligned} R
@@ -554,7 +554,7 @@ $$
 
 $$
 \begin{aligned} 
-p^0 = R^0_1 p^1 + d^0_1
+p^0 = R^0_1 p^1 + d^0_1 \\
 p^1 = R^1_2 p^2 + d^1_2
 \end{aligned} 
 $$
@@ -583,12 +583,12 @@ $$
 $$
 \begin{aligned} 
 & R^0_2 &= R^0_1 R^1_2 \\
-& p^0_2 &= d^0_1 + R^0_1 d^1_2
+& d^0_2 &= d^0_1 + R^0_1 d^1_2
 \end{aligned} 
 $$
 
-- $$p^0_1$$: the vector from $$o_0$$ to $$o_1$$ w.r.t $$o_0 x_0 y_0 z_0$$.
-- $$R^0_1 d^1 d_2$$: the vector from $$o_1$$ to $$o_2$$ expressed in the orientation of the $$o_0 x_0 y_0 z_0$$.
+- $$d^0_1$$: the vector from $$o_0$$ to $$o_1$$ w.r.t $$o_0 x_0 y_0 z_0$$.
+- $$R^0_1 d^1_2$$: the vector from $$o_1$$ to $$o_2$$ expressed in the orientation of the $$o_0 x_0 y_0 z_0$$.
 
 - Matrix calculation (4x4 matrix)
   - 0 = row vector(0 0 0)
@@ -626,7 +626,7 @@ $$ H =
 R & d\\
 0 & 1\\
 \end{bmatrix}; 
-\qquad R \in SO(3), d \in \R^3
+\qquad R \in SO(3), d \in \mathbb{R}^3
 \end{aligned} 
 $$
 
@@ -740,7 +740,7 @@ n_x & s_x & a_x & d_x\\
 n_y & s_y & a_y & d_y\\
 n_z & s_z & a_z & d_z\\
 0 & 0 & 0 & 1\\
-\end{bmatrix} =
+\end{bmatrix}
 &=
 \begin{bmatrix} 
 n & s & a & d\\
