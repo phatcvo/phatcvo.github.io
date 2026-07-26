@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 border-b border-stone-200/70 dark:border-stone-800/70 bg-white/75 dark:bg-stone-950/65 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-stone-300/70 dark:border-stone-800/70 bg-stone-50/80 dark:bg-stone-950/70 backdrop-blur">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
     <div class="flex items-center gap-3">
       <a href="{{ .Site.BaseURL }}" class="font-semibold tracking-tight text-stone-900 dark:text-stone-50 hover:no-underline">
@@ -11,6 +11,7 @@
       {{ if .IsHome }}
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#education">Education</a>
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="#publications">Publications</a>
         <a class="nav-link" href="#skills">Skills</a>
@@ -34,10 +35,11 @@
         <summary class="icon-btn list-none cursor-pointer" aria-label="Open menu">
           <span class="text-sm font-semibold">Menu</span>
         </summary>
-        <div class="absolute right-0 mt-2 w-56 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 shadow-lg p-2">
+        <div class="absolute right-0 mt-2 w-56 rounded-xl border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 shadow-lg p-2">
           {{ if .IsHome }}
             <a class="mobile-nav-link" href="#about">About</a>
             <a class="mobile-nav-link" href="#experience">Experience</a>
+            <a class="mobile-nav-link" href="#education">Education</a>
             <a class="mobile-nav-link" href="#projects">Projects</a>
             <a class="mobile-nav-link" href="#publications">Publications</a>
             <a class="mobile-nav-link" href="#skills">Skills</a>
