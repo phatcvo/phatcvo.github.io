@@ -100,6 +100,11 @@ module.exports = {
             ...proseTokens,
             "code::before": false,
             "code::after": false,
+            /* The report is square-cornered throughout; the typography plugin
+             * rounds `pre` and `kbd`, and `important: true` makes those rules
+             * unbeatable from a stylesheet — so zero them at the source. */
+            pre: { borderRadius: "0" },
+            kbd: { borderRadius: "0" },
             a: {
               textDecoration: "none",
               "&:hover": { textDecoration: "underline" },
