@@ -33,7 +33,7 @@ params:
 
   profile:
     name: "Phat C. Vo"
-    tagline: "Principal Robotics Engineer — Fleet Systems, Motion Planning, Multi-Robot Coordination"
+    tagline: "Principal Robotics Engineer — Fleet Coordination, Motion Planning"
     location: "Autonomous Mobility · Robotics"
     photo: profile.jpg
   wakatime:
