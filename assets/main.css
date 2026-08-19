@@ -317,6 +317,7 @@
     box-shadow: var(--shadow-1);
   }
 
+
   .code-copy-btn {
     position: absolute;
     top: 10px;
@@ -375,4 +376,29 @@
 .article-prose :where(code):not(:where(pre code, [class~="not-prose"], [class~="not-prose"] *)) {
   background: rgb(var(--accent) / 0.09);
   border: 1px solid rgb(var(--accent) / 0.22);
+}
+
+/* Mermaid diagrams. The <pre> carries `not-prose` (see the render hook), so
+   it is outside the typography plugin's reach and gets its figure styling
+   here rather than through .article-prose. That exclusion is what keeps node
+   labels compact: mermaid draws them as real HTML inside <foreignObject>,
+   where a 1.25em prose paragraph margin inflates every node in the graph. */
+pre.mermaid {
+  margin: 2rem 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  overflow-x: auto;
+  line-height: 1.35;
+}
+pre.mermaid > svg {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+/* Before the library runs, the raw diagram source would flash on screen. */
+pre.mermaid:not([data-processed="true"]) {
+  visibility: hidden;
 }

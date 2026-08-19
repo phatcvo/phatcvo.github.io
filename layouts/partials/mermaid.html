@@ -1,0 +1,76 @@
+{{- if .Store.Get "hasMermaid" -}}
+  <script src="{{ `mermaid/mermaid.min.js` | relURL }}"></script>
+  <script>
+    (function () {
+      const isDark = () => document.documentElement.classList.contains("dark");
+
+      const config = () => ({
+        startOnLoad: false,
+        // antiscript, not strict: strict encodes every HTML tag in a label,
+        // which turns <br/> into nothing and runs multi-line node labels
+        // together. antiscript keeps the markup and strips <script>. Diagram
+        // sources come from this repository, not from readers.
+        securityLevel: "antiscript",
+        theme: isDark() ? "dark" : "neutral",
+        fontFamily:
+          "'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif",
+        // htmlLabels stays on so <br/> works in node labels. The <pre> is
+        // marked not-prose, which keeps the article's paragraph spacing out
+        // of the <foreignObject> those labels live in.
+        flowchart: { htmlLabels: true, curve: "basis", useMaxWidth: true },
+        sequence: { useMaxWidth: true, wrap: true },
+        // Injected into each diagram's own scoped <style>, so it beats
+        // anything the page stylesheet says about a <p>. Node labels are HTML
+        // inside <foreignObject> and inherit the document's paragraph
+        // spacing; left alone, every node in the graph grows by 16px.
+        themeCSS:
+          ".nodeLabel p, .edgeLabel p, .label p, .messageText, .noteText p" +
+          " { margin: 0; padding: 0; }",
+        themeVariables: {
+          fontSize: "14px",
+          primaryColor: isDark() ? "#1f2937" : "#f4f4f5",
+          primaryTextColor: isDark() ? "#e5e7eb" : "#18181b",
+          primaryBorderColor: isDark() ? "#4b5563" : "#a1a1aa",
+          lineColor: isDark() ? "#9ca3af" : "#52525b",
+        },
+      });
+
+      // Keep the source around: mermaid replaces the element's contents with
+      // SVG, so a re-render after a theme change has nothing left to read.
+      const blocks = Array.from(document.querySelectorAll("pre.mermaid"));
+      blocks.forEach((el) => {
+        el.dataset.source = el.textContent;
+      });
+
+      const render = async () => {
+        try {
+          blocks.forEach((el) => {
+            el.innerHTML = el.dataset.source;
+            el.removeAttribute("data-processed");
+          });
+          mermaid.initialize(config());
+          await mermaid.run({ nodes: blocks });
+        } catch (err) {
+          // CSS hides an unprocessed block to stop the source flashing on
+          // screen. If the library never ran, show the source rather than a
+          // gap where a diagram should be.
+          console.error("mermaid render failed", err);
+          blocks.forEach((el) => {
+            el.style.visibility = "visible";
+          });
+        }
+      };
+
+      render();
+
+      // The theme toggle flips a class on <html>; re-draw to match.
+      const toggle = window.toggleTheme;
+      if (typeof toggle === "function") {
+        window.toggleTheme = function () {
+          toggle.apply(this, arguments);
+          render();
+        };
+      }
+    })();
+  </script>
+{{- end -}}

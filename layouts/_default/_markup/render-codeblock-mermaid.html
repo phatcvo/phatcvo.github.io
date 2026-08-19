@@ -1,0 +1,17 @@
+{{- /*
+  Render ```mermaid fences as a <pre class="mermaid"> block instead of a code
+  block, and flag the page so baseof.html loads the library.
+
+  `not-prose` is load-bearing, not decoration. Mermaid draws node labels as
+  real HTML inside <foreignObject>, so the typography plugin's prose rules
+  land on them and a 1.25em paragraph margin inflates every node. Every prose
+  rule carries a :not(:where([class~="not-prose"], ...)) escape hatch; this is
+  it.
+
+  The source is HTML-escaped, not passed through safeHTML. A raw `<br/>` in a
+  diagram label would otherwise be parsed by the browser into a real <br>
+  element inside the <pre>, and the textContent mermaid reads back drops it —
+  so a two-line node label silently renders as one run-on line.
+*/ -}}
+{{- .Page.Store.Set "hasMermaid" true -}}
+<pre class="mermaid not-prose" aria-label="diagram">{{- .Inner -}}</pre>

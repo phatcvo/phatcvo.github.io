@@ -89,7 +89,7 @@ runtime is left?" without knowing anything about batteries. Article 10.
 | Sensor | What it gives the robot |
 |---|---|
 | LiDAR | distance to everything around it, ~15 times a second |
-| IMU | acceleration and rotation rate — how it is *actually* moving |
+| IMU — MicroStrain **3DM-GX5-AHRS** | acceleration and rotation rate — how it is *actually* moving |
 | Wheel encoders | how far each wheel turned |
 | RGBD camera | colour + depth, for higher-level perception later |
 | Bumper | physical contact, the last line of defence |
@@ -142,20 +142,25 @@ other. Same controller configuration, same `diff_drive_controller`, same EKF,
 same command relay. **Only the hardware component underneath swaps** — Gazebo's
 on one side, the MD200T RS485 driver on the other.
 
-```text
-                    /cmd_vel
-                        │
-                    twist_mux
-                        │
-              diff_drive_controller
-                        │
-              ┌─────────┴─────────┐
-              │                   │
-      gz_ros2_control        beebot2_motor
-              │                   │
-          Gazebo              RS485 → MD200T
-                                  │
-                            Motor L / Motor R
+```mermaid
+flowchart TD
+  CMD["/cmd_vel"] --> MUX["twist_mux"]
+  MUX --> DDC["diff_drive_controller"]
+  DDC --> SEAM{{"hardware component"}}
+  SEAM --> GZC["gz_ros2_control"]
+  SEAM --> MOT["beebot2_motor"]
+  GZC --> GZ["Gazebo"]
+  MOT --> RS["RS485 → MD200T"]
+  RS --> M["Motor L / Motor R"]
+
+  classDef shared fill:#e7e5e4,stroke:#57534e,color:#1c1917
+  classDef sim fill:#bfdbfe,stroke:#1d4ed8,color:#1c1917
+  classDef real fill:#fde68a,stroke:#b45309,color:#1c1917
+  classDef seam fill:#fef3c7,stroke:#b45309,color:#1c1917
+  class CMD,MUX,DDC shared
+  class GZC,GZ sim
+  class MOT,RS,M real
+  class SEAM seam
 ```
 
 The payoff is that anything which behaves differently between simulation and the
@@ -196,7 +201,7 @@ about exactly that.
 | 5 | describe its own body | URDF |
 | 6 | exist in simulation | Gazebo |
 | 7 | be one robot in two worlds | A single interface |
-| 8 | feel its own motion | IMU |
+| 8 | feel its own motion | IMU (3DM-GX5-AHRS) |
 | 9 | see | LiDAR |
 | 10 | know its own power state | Battery / BMS |
 | 11 | build a map | SLAM |
