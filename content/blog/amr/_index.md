@@ -21,32 +21,23 @@ ten minutes of screen time.
 So the series is not organised as "today we learn ROS 2, today we learn Gazebo,
 today we learn SLAM." It is organised as:
 
-```text
-The robot has nothing
-        ↓
-It learns to drive
-        ↓
-It learns to take commands
-        ↓
-It learns to feel its own motion
-        ↓
-It learns to see
-        ↓
-It learns to build a map
-        ↓
-It learns where it is
-        ↓
-It learns where to go
-        ↓
-It learns to avoid obstacles
-        ↓
-It learns to protect itself
-        ↓
-It learns to charge
-        ↓
-It learns to do a job
-        ↓
-It learns to work alongside other robots
+```mermaid
+flowchart TD
+  A["the robot has nothing"] --> B["it learns to drive"]
+  B --> C["it learns to take commands"]
+  C --> D["it learns to feel its own motion"]
+  D --> E["it learns to see"]
+  E --> F["it learns to build a map"]
+  F --> G["it learns where it is"]
+  G --> H["it learns where to go"]
+  H --> I["it learns to avoid obstacles"]
+  I --> J["it learns to protect itself"]
+  J --> K["it learns to charge"]
+  K --> L["it learns to do a job"]
+  L --> M["it learns to work alongside other robots"]
+
+  classDef step fill:#e7e5e4,stroke:#57534e,color:#1c1917
+  class A,B,C,D,E,F,G,H,I,J,K,L,M step
 ```
 
 Every article is one step of that ladder. Each one starts from a problem the

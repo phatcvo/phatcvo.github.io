@@ -24,14 +24,17 @@ you cannot tell those five apart. On the bench you can.
 
 ## 1. The chain
 
-```text
-PC
- ↓  ROS 2
-ros2_control
- ↓  RS485 (USB adapter)
-MD200T controller
- ↓
-Motor L / Motor R
+```mermaid
+flowchart TD
+  PC["PC"] -->|"ROS 2"| RC["ros2_control"]
+  RC -->|"RS485, via a USB adapter"| MD["MD200T controller"]
+  MD --> ML["Motor L"]
+  MD --> MR["Motor R"]
+
+  classDef sw fill:#bfdbfe,stroke:#1d4ed8,color:#1c1917
+  classDef hw fill:#fde68a,stroke:#b45309,color:#1c1917
+  class PC,RC sw
+  class MD,ML,MR hw
 ```
 
 Every arrow in that diagram is a place it can break. The plan is to bring them up
@@ -289,4 +292,4 @@ The drive system works on the bench. Now it goes onto the platform — motors,
 wheels, controller mounting, wiring, and the first time the robot moves under its
 own power.
 
-**Next: Making the AMR Move for the First Time.**
+**Next: [Making the AMR Move for the First Time](../03-first-movement/).**
