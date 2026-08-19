@@ -1,5 +1,5 @@
 ---
-title:  "Robot Dynamics & control: Lecture 1 - Introduction"
+title:  "Robot Dynamics & Control: Lecture 1 - Introduction"
 description: "robotics_and_control"
 date: 2018-03-02
 weight: 30
@@ -8,297 +8,258 @@ collection_type: Article
 toc: true
 ---
 
-## Components & Structure of Robots:
-- Robot manipulators are composed of links connected by __joints__ into a __kinematic chain__.
-  -   __Revolute__ joint: allows relative rotation between two links.
-  -   __Prismatic__ joint: allows a linear relative motion between two links.
+## Components & Structure of Robots
+
+Robot manipulators are composed of links connected by __joints__ into a __kinematic chain__. Two joint types cover almost every industrial manipulator:
+
+- __Revolute__ joint: allows relative rotation between two links.
+- __Prismatic__ joint: allows a linear relative motion between two links.
 
 ![](/images/Robot_dynamics/1.png)
 
-
 ### Degrees of Freedom
-  - The number of joints determines the DOF of the manipulator.
-  - A typical manipulator should possess at least six independent DOF:
-  - Three for positioning + Three for orientation.
-  - With fewer than six DOF the arm cannot reach every point in its work encironment with arbitray orientation.
 
+The number of joints determines the degrees of freedom (DOF) of the manipulator. A typical manipulator should possess at least six independent DOF: three for positioning and three for orientation. With fewer than six DOF the arm cannot reach every point in its work environment with an arbitrary orientation.
 
 ### Workspace
-- The total volume swept out by the end-effector as the manipulator executes all possible motions.
-- __Reachable workspace__ : entire set of points reachable by the manipulator
-- __Dextrous workspace__: subset of the reachable workspace that the manipulator can reach with an arbitrary orientation of the end-effector. 
+
+The workspace is the total volume swept out by the end-effector as the manipulator executes all possible motions. It is usually described in two parts:
+
+- __Reachable workspace__: the entire set of points reachable by the manipulator.
+- __Dexterous workspace__: the subset of the reachable workspace that the manipulator can reach with an arbitrary orientation of the end-effector.
 
 ### Common Kinematic Arrangements
 
-####  Articulated configuration(RRR)
-- This configuration provides for relatively large freedom of movement in a compact space
-- The links and joints are analogous to human joint.
+#### Articulated configuration (RRR)
+
+This configuration provides relatively large freedom of movement in a compact space. Its links and joints are analogous to the human arm.
 
 ![](/images/Robot_dynamics/2.png)
 
+#### Spherical configuration (RRP)
 
-####  Spherical Configuration(RRP)
-- The third joint of the articulated robot is replaced by a prismatic joint.
-- The 'Stanford-arm' is an example of a spherical manupulator.
+The third joint of the articulated robot is replaced by a prismatic joint. The Stanford arm is an example of a spherical manipulator.
 
 ![](/images/Robot_dynamics/3.png)
 
-#### SCARA Configuration(RRP)
-- The so-called SCARA(Selective Compliant Articulated Robot for Assembly) has $$z_0, z_1, z_2$$ prallel.
-- Ideal for table top assembly such as pick and place task. 
+#### SCARA configuration (RRP)
+
+The SCARA (Selective Compliant Articulated Robot for Assembly) has $z_0$, $z_1$ and $z_2$ parallel. It is ideal for table-top assembly such as pick-and-place tasks.
 
 ![](/images/Robot_dynamics/4.png)
 
-#### Cylindrical Configuration(RPP)
-- The first joint is revolute, while the second and third joints are prismatic.
-- This is often used in materials transfer task.
+#### Cylindrical configuration (RPP)
+
+The first joint is revolute, while the second and third joints are prismatic. This arrangement is often used in materials-transfer tasks.
 
 ![](/images/Robot_dynamics/5.png)
 
-#### Cartesian Configuration(PPP)
-- The configuration is useful for table-top assembly applications.
-- This is often used in pick and place operations.
+#### Cartesian configuration (PPP)
+
+This configuration is useful for table-top assembly applications and is often used in pick-and-place operations.
 
 ![](/images/Robot_dynamics/6.png)
 
-#### Parallel manupulator
-- The configuration forms a closed chain by using several independent kinematic chains connecting the vase to the end-effector.
-- The closed chain results in greater structural rigidity.
-- This robot generally have __much structural rigidity__ than serial link robots.
+#### Parallel manipulator
+
+A parallel manipulator forms a closed chain by using several independent kinematic chains connecting the base to the end-effector. The closed chain results in greater structural rigidity, so these robots are generally __much more rigid__ than serial-link robots.
 
 ![](/images/Robot_dynamics/8.png)
 
-### Wrists and End-Effectors 
-- The wrist of a manipulator refers to the joints in the kinematic chain berween the arm and hand.
-- It is increasingly common to design manipulators with __spherical wrists__, by which we mean wrists whose three joint axes intersect at common point.
-- 6 DOF = __3 DOF for wrist + 3DOF for arm__
-- The arm and wrist assemblies are used primarily __for positioning the end-effector__(=hand)
-- The simplest type of end-effector are grippers.
+### Wrists and End-Effectors
+
+The wrist of a manipulator refers to the joints in the kinematic chain between the arm and the hand. It is increasingly common to design manipulators with a __spherical wrist__, meaning a wrist whose three joint axes intersect at a common point. A six-DOF arm is then split as __three DOF for the arm plus three DOF for the wrist__: the arm and wrist assemblies are used primarily __to position and orient the end-effector__ (the hand). The simplest end-effectors are grippers.
 
 ![](/images/Robot_dynamics/9.png)
-
 
 -------
 
 # Problem 1: Forward Kinematics
 
-- The first problem is to describe __position and orientation of the tool__.
-- Determination of the position and orientation of the end-effector(or tool) in terms of joint variables(angle or displacement).
+The first problem is to describe the __position and orientation of the tool__, that is, to determine the position and orientation of the end-effector in terms of the joint variables (angles or displacements).
 
 ![](/images/Robot_dynamics/10.png)
 
+## Forward kinematic equations
 
-## Forward kinematic equations 
+### Tool (end-effector) position
 
-###  Tool(End-effector) position 
 $$
 \begin{aligned}
-\qquad   x = a_1 cos \theta_1 + a_2 cos( \theta_1 + \theta_2) \\
-\qquad   y = a_1 sin \theta_1 + a_2 sin( \theta_1 + \theta_2)
-\end{aligned} 
- $$
-
-###  Tool(End-effector) Orientation
-Rotation matrix:
+x &= a_1 \cos\theta_1 + a_2 \cos(\theta_1 + \theta_2) \\
+y &= a_1 \sin\theta_1 + a_2 \sin(\theta_1 + \theta_2)
+\end{aligned}
 $$
-\begin{aligned}
-\qquad \begin{bmatrix}
-                 i_2  \cdot i_0  & j_2  \cdot i_0  \\
-                 i_2  \cdot j_0  & j_2  \cdot j_0          
-               \end{bmatrix}
-&=
+
+### Tool (end-effector) orientation
+
+The orientation is captured by the rotation matrix
+
+$$
 \begin{bmatrix}
-                 cos(\theta_1 + \theta_2)  & -sin(\theta_1 + \theta_2) \\
-                 sin(\theta_1 + \theta_2)   & cos(\theta_1 + \theta_2)          
-               \end{bmatrix}
-\end{aligned} 
- $$
+i_2 \cdot i_0 & j_2 \cdot i_0 \\
+i_2 \cdot j_0 & j_2 \cdot j_0
+\end{bmatrix} =
+\begin{bmatrix}
+\cos(\theta_1 + \theta_2) & -\sin(\theta_1 + \theta_2) \\
+\sin(\theta_1 + \theta_2) & \cos(\theta_1 + \theta_2)
+\end{bmatrix}
+$$
 
- > Note: __Denavit-Hartenberg Convention & Homogeneous transformation__ is needed to express these relationship.
-
-
+> Note: the __Denavit-Hartenberg convention and the homogeneous transformation__ are needed to express this relationship systematically.
 
 -------
 
-
 # Problem 2: Inverse Kinematics
 
-- In order to command the robot to move to arbitrary position, we need the joint variables __in terms of x and y coordinates__.
-  - we may need the forward kinematic equations in advance.
+In order to command the robot to move to an arbitrary position, we need the joint variables __in terms of the $x$ and $y$ coordinates__, so the forward kinematic equations are normally needed in advance.
 
-- Since the forward kinematic equations are nonlinear, a solution may not be easy.
-- There may be __many solutions or infinite number of solution__.
-  - we can impose constraints.
+Since the forward kinematic equations are nonlinear, a solution may not be easy to obtain, and there may be __many solutions or an infinite number of solutions__. In that case we can impose additional constraints to select one.
 
 ![](/images/Robot_dynamics/11.png)
-
 
 ## Law of Cosines
 
 $$
-\begin{aligned} 
-  & cos \theta_2 = \frac{x^2 + y^2 - a_1 ^2 - a^2 _2}{2 a_1 a_2} &\cong D  \\
-  & \therefore  \theta _2 = cos ^{-1}(D)  
-\end{aligned} 
+\begin{aligned}
+\cos\theta_2 &= \frac{x^2 + y^2 - a_1^2 - a_2^2}{2 a_1 a_2} \triangleq D \\
+\therefore\ \theta_2 &= \cos^{-1}(D)
+\end{aligned}
 $$
 
--  Not better way.
--  This can not distinguish the elbow up and down.
+This is not the best approach, because $\cos^{-1}$ cannot distinguish between the elbow-up and elbow-down configurations. Using the sine as well removes the ambiguity:
 
 $$
-\begin{aligned} 
-  & sin ^2 \theta  _2 + cos ^2 \theta_2 =  1 \rightarrow sin \theta _2 = \pm  \sqrt{1 - D^2} \\
-  &  \therefore  \theta _2 = tan ^{-1} (\frac{\pm \sqrt{1 - D^2}}{D})
-\end{aligned} 
+\begin{aligned}
+\sin^2\theta_2 + \cos^2\theta_2 &= 1 \;\rightarrow\; \sin\theta_2 = \pm\sqrt{1 - D^2} \\
+\therefore\ \theta_2 &= \operatorname{atan2}\!\left(\pm\sqrt{1 - D^2},\; D\right)
+\end{aligned}
 $$
 
-- __Signs determine__ the elbow up and down.
+__The sign determines__ the elbow-up and elbow-down solutions.
 
-## Inverse kinematic equations.
+## Inverse kinematic equations
 
 ![](/images/Robot_dynamics/12.png)
 
 $$
-\begin{aligned} 
-  & \theta  _2 = tan ^{-1} \frac{\pm \sqrt{1 - D ^2}}{D} \\
-  & \theta  _1 = tan ^{-1} (\frac{y}{x}) - tan ^{-1}(\frac{a_2 sin \theta _2}{a_1 + a_2 cos \theta_2}) 
-\end{aligned} 
+\begin{aligned}
+\theta_2 &= \operatorname{atan2}\!\left(\pm\sqrt{1 - D^2},\; D\right) \\
+\theta_1 &= \operatorname{atan2}(y,\, x) - \operatorname{atan2}\!\left(a_2 \sin\theta_2,\; a_1 + a_2 \cos\theta_2\right)
+\end{aligned}
 $$
 
-- For verification, we can check using the Forward Kinematics(__cross-check__)
+The result can be verified by substituting it back into the forward kinematics (a __cross-check__).
 
 ## Another way - Closed form
 
-- __Closed form__: $$ \theta_1, \theta_2 $$ is expressed with x, y using forward kinematics.
-
-  - x, y를 제곱하여 $$cos \theta_2, sin \theta_2$$을 얻은 후, $$\theta_2$$를 구한다.
+In the __closed form__ approach, $\theta_1$ and $\theta_2$ are expressed in terms of $x$ and $y$ using the forward kinematics. Squaring $x$ and $y$ and adding them eliminates $\theta_1$, which yields $\cos\theta_2$ and $\sin\theta_2$ and hence $\theta_2$.
 
 $$
-\begin{aligned} 
-  & x = a_1 cos \theta_1 + a_2 cos(\theta _1 + \theta _2)  \\
-  & y = a_1 sin \theta_1 + a_2 sin(\theta _1 + \theta _2)  \\
-  & \qquad \qquad \qquad \triangledown  \\
-  \\
-  x^2 
-    &= a^2 _1 cos ^2 \theta_1 + a^2_2   cos^2 (\theta_1 + \theta_2 ) + 2 a_1 a_2 cos \theta_1 cos(\theta_1 + \theta_2)\\
-    & = a^2 _1 cos ^2 \theta_1 + a^2_2   cos^2 (\theta_1 + \theta_2 ) +  a_1 a_2 (cos (2 \theta_1 + \theta_2) + cos\theta_2)\\
-  y^2 &= a^2 _1 sin ^2 \theta_1 + a^2_2   sin^2 (\theta_1 + \theta_2 ) + 2 a_1 a_2 sin \theta_1 sin(\theta_1 + \theta_2)\\
-    & = a^2 _1 sin ^2 \theta_1 + a^2_2   sin^2 (\theta_1 + \theta_2 ) -  a_1 a_2 (cos (2 \theta_1 + \theta_2) - cos\theta_2)\\
-    & \qquad \qquad \qquad   \triangledown  \\
-  \\
-  & x^2 +y^2  = a^2_1 +a^2 _2 + 2a_1 a_2 cos \theta_2 \\
-  & \qquad \qquad \qquad  \triangledown  \\
-  \\
-  & cos \theta_2 = \frac{x^2 + y^2 - a_1 ^2 - a^2 _2}{2 a_1 a_2} \quad \cong D \\
-  & sin \theta_2 = \pm \sqrt{1 - D^2} \\
-  \\
-  & \therefore \theta_2 = tan ^{-1} (\frac{\pm \sqrt{1-D^2}}{D})
-\end{aligned} 
+\begin{aligned}
+x &= a_1 \cos\theta_1 + a_2 \cos(\theta_1 + \theta_2) \\
+y &= a_1 \sin\theta_1 + a_2 \sin(\theta_1 + \theta_2) \\
+&\qquad\qquad \triangledown \\[4pt]
+x^2 &= a_1^2 \cos^2\theta_1 + a_2^2 \cos^2(\theta_1 + \theta_2) + 2 a_1 a_2 \cos\theta_1 \cos(\theta_1 + \theta_2) \\
+&= a_1^2 \cos^2\theta_1 + a_2^2 \cos^2(\theta_1 + \theta_2) + a_1 a_2 \left[\cos(2\theta_1 + \theta_2) + \cos\theta_2\right] \\
+y^2 &= a_1^2 \sin^2\theta_1 + a_2^2 \sin^2(\theta_1 + \theta_2) + 2 a_1 a_2 \sin\theta_1 \sin(\theta_1 + \theta_2) \\
+&= a_1^2 \sin^2\theta_1 + a_2^2 \sin^2(\theta_1 + \theta_2) - a_1 a_2 \left[\cos(2\theta_1 + \theta_2) - \cos\theta_2\right] \\
+&\qquad\qquad \triangledown \\[4pt]
+x^2 + y^2 &= a_1^2 + a_2^2 + 2 a_1 a_2 \cos\theta_2 \\
+&\qquad\qquad \triangledown \\[4pt]
+\cos\theta_2 &= \frac{x^2 + y^2 - a_1^2 - a_2^2}{2 a_1 a_2} \triangleq D \\
+\sin\theta_2 &= \pm\sqrt{1 - D^2} \\[4pt]
+\therefore\ \theta_2 &= \operatorname{atan2}\!\left(\pm\sqrt{1 - D^2},\; D\right)
+\end{aligned}
 $$
 
-Multiply by $\cos \theta_1$ and $\sin \theta_2$ respectively to obtain Equation (1) below, and multiply by $\sin \theta_1$ and $\cos \theta_1$ respectively to obtain Equation (2) below. Then, multiply by $x$ and $y$, and perform addition and subtraction to isolate $\cos \theta_1$ and $\sin \theta_1$, thereby solving for $\theta_1$.
+To recover $\theta_1$, multiply the $x$ equation by $\cos\theta_1$ and the $y$ equation by $\sin\theta_1$, then add them to obtain Equation (1). Next multiply the $x$ equation by $\sin\theta_1$ and the $y$ equation by $\cos\theta_1$, then subtract them to obtain Equation (2). Combining (1) and (2) with $x$ and $y$ by addition and subtraction isolates $\cos\theta_1$ and $\sin\theta_1$, and hence $\theta_1$.
 
 $$
-\begin{aligned} 
-  & x = a_1 cos \theta_1 + a_2 cos(\theta _1 + \theta _2)  \\
-  & y = a_1 sin \theta_1 + a_2 sin(\theta _1 + \theta _2)  \\
-  \\
-  & x cos \theta_1  = a_1 cos ^2 \theta_1 + a_2 cos \theta_1 (cos \theta_1 cos\theta_2 - sin \theta_1 sin \theta_2) \\
-  & y sin \theta_1  = a_1 sin ^2 \theta_1 + a_2 sin \theta_1 (sin \theta_1 cos\theta_2 + cos \theta_1 sin \theta_2) \\
-  & \qquad \qquad \qquad \triangledown  \\
-  & x cos \theta_1 + y sin \theta_1 = a_1 + a_2 cos \theta_2 \qquad(1)\\
-  \\
-  \\
-  & x sin \theta_1  = a_1 sin \theta_1 cos  \theta_1 + a_2 sin \theta_1 (cos \theta_1 cos\theta_2 - sin \theta_1 sin \theta_2) \\
-  & y cos \theta_1  = a_1 sin \theta_1 cos \theta_1 + a_2 cos \theta_1 (sin \theta_1 cos\theta_2 + cos \theta_1 sin \theta_2) \\
-  & \qquad \qquad \qquad \triangledown  \\
-  & x sin \theta_1 - y cos \theta_1 = -a_2 sin \theta_2 \qquad(2)\\
-  \\
-  \\
-  & (x^2 + y^2 )cos \theta_1 = x(a_1 + a_2 cos \theta_2) +y a_2 sin \theta_2  \qquad \because x \cdot (1) - y \cdot (2)  \\
-  & \qquad \qquad \qquad \triangledown  \\
-  & cos \theta_1 = \frac{x(a_1 + a_2 cos \theta_2) +y a_2 sin \theta_2 }{(x^2 + y^2 )}  \\
-  \\
-  \\
-  & (x^2 + y^2 )sin \theta_1 = y(a_1 + a_2 cos \theta_2) -x  a_2 sin \theta_2  \qquad \because y \cdot (1) + x \cdot (2)  \\
-  & \qquad \qquad \qquad \triangledown  \\
-  & sin \theta_1 = \frac{y(a_1 + a_2 cos \theta_2) -x a_2 sin \theta_2 }{(x^2 + y^2 )}  \\
-  \\
-  & \therefore \theta_1 = tan ^{-1} (\frac{y(a_1 + a_2 cos \theta_2) - x a_2 sin \theta_2}{x(a_1 + a_2 cos \theta_2) + y a_2 sin \theta_2})
-
-\end{aligned} 
+\begin{aligned}
+x &= a_1 \cos\theta_1 + a_2 \cos(\theta_1 + \theta_2) \\
+y &= a_1 \sin\theta_1 + a_2 \sin(\theta_1 + \theta_2) \\[4pt]
+x \cos\theta_1 &= a_1 \cos^2\theta_1 + a_2 \cos\theta_1 \left(\cos\theta_1 \cos\theta_2 - \sin\theta_1 \sin\theta_2\right) \\
+y \sin\theta_1 &= a_1 \sin^2\theta_1 + a_2 \sin\theta_1 \left(\sin\theta_1 \cos\theta_2 + \cos\theta_1 \sin\theta_2\right) \\
+&\qquad\qquad \triangledown \\
+x \cos\theta_1 + y \sin\theta_1 &= a_1 + a_2 \cos\theta_2 \qquad (1) \\[8pt]
+x \sin\theta_1 &= a_1 \sin\theta_1 \cos\theta_1 + a_2 \sin\theta_1 \left(\cos\theta_1 \cos\theta_2 - \sin\theta_1 \sin\theta_2\right) \\
+y \cos\theta_1 &= a_1 \sin\theta_1 \cos\theta_1 + a_2 \cos\theta_1 \left(\sin\theta_1 \cos\theta_2 + \cos\theta_1 \sin\theta_2\right) \\
+&\qquad\qquad \triangledown \\
+x \sin\theta_1 - y \cos\theta_1 &= -a_2 \sin\theta_2 \qquad (2) \\[8pt]
+(x^2 + y^2)\cos\theta_1 &= x\left(a_1 + a_2 \cos\theta_2\right) + y\, a_2 \sin\theta_2 \qquad \because x \cdot (1) - y \cdot (2) \\
+&\qquad\qquad \triangledown \\
+\cos\theta_1 &= \frac{x\left(a_1 + a_2 \cos\theta_2\right) + y\, a_2 \sin\theta_2}{x^2 + y^2} \\[8pt]
+(x^2 + y^2)\sin\theta_1 &= y\left(a_1 + a_2 \cos\theta_2\right) - x\, a_2 \sin\theta_2 \qquad \because y \cdot (1) + x \cdot (2) \\
+&\qquad\qquad \triangledown \\
+\sin\theta_1 &= \frac{y\left(a_1 + a_2 \cos\theta_2\right) - x\, a_2 \sin\theta_2}{x^2 + y^2} \\[8pt]
+\therefore\ \theta_1 &= \operatorname{atan2}\!\left(y\left(a_1 + a_2 \cos\theta_2\right) - x\, a_2 \sin\theta_2,\; x\left(a_1 + a_2 \cos\theta_2\right) + y\, a_2 \sin\theta_2\right)
+\end{aligned}
 $$
 
 ## Another way - Numerical Solution
--  In contrast to the closed form(geometry solution), it absolutely __needs a forward kinematics__.
+
+In contrast to the closed form (geometric) solution, the numerical solution absolutely __requires the forward kinematics__.
 
 ![](/images/Robot_dynamics/13.png)
-
-
 
 -------
 
 # Problem 3: Velocity Kinematics
 
-- In order to __follow a contour__ at constant velocity, or at any prescribed velocity, we must know the __relationship between the velocity of the tool(end-effector) and the joint velocities__.
-  - we can __differentiate the equations__ to obtain
-  
-$$
-\begin{aligned} 
-  & \dot{x} = - a_1 \dot{\theta_1} sin \theta_1 - a_2 (\dot{\theta_1} + \dot{\theta_2}) sin(\theta _1 + \theta _2)  \\
-  & \dot{y} = a_1 \dot{\theta_1} cos \theta_1 + a_2 (\dot{\theta_1} + \dot{\theta_2}) cos(\theta _1 + \theta _2)  \\
-\end{aligned} 
-$$
-
-If $$ x = \begin{bmatrix} x  \\ y \end{bmatrix} $$ and $$ \theta = \begin{bmatrix} \theta_1  \\ \theta_2 \end{bmatrix} $$,
+In order to __follow a contour__ at constant velocity, or at any prescribed velocity, we must know the __relationship between the velocity of the tool (end-effector) and the joint velocities__. Differentiating the forward kinematic equations gives
 
 $$
-\begin{aligned}  \dot{x} 
-& = J \dot{\theta} \\
-& =
-\begin{bmatrix} 
-  \frac{\partial x}{\partial \theta_1} &  \frac{\partial x}{\partial \theta_2} \\
-  \frac{\partial y}{\partial \theta_1} & \frac{\partial y}{\partial \theta_2}  \\
-\end{bmatrix} 
-\begin{bmatrix} \dot\theta_1  \\ \dot\theta_2 \end{bmatrix} \\
-& =
-\begin{bmatrix} 
-  -a_1 sin \theta_1 - a_2 sin (\theta_1 + \theta_2) &  - a_2 sin(\theta_1 + \theta_2) \\
-  a_1 cos\theta_1 + a_2 cos (\theta_1 + \theta_2) & a_2 cos(\theta_1 + \theta_2)  \\
-\end{bmatrix} 
-\begin{bmatrix} \dot\theta_1  \\ \dot\theta_2 \end{bmatrix} \\
-\end{aligned} 
+\begin{aligned}
+\dot{x} &= -a_1 \dot{\theta}_1 \sin\theta_1 - a_2 \left(\dot{\theta}_1 + \dot{\theta}_2\right)\sin(\theta_1 + \theta_2) \\
+\dot{y} &= a_1 \dot{\theta}_1 \cos\theta_1 + a_2 \left(\dot{\theta}_1 + \dot{\theta}_2\right)\cos(\theta_1 + \theta_2)
+\end{aligned}
 $$
 
-- where, J is Jacobian.
-
-
-- Using inverse Jacobian give
+With $\mathbf{x} = \begin{bmatrix} x & y \end{bmatrix}^{T}$ and $\boldsymbol{\theta} = \begin{bmatrix} \theta_1 & \theta_2 \end{bmatrix}^{T}$, this becomes
 
 $$
-\begin{aligned} 
-\dot{\theta} &= J ^{-1} \dot{x} \\
-
-\begin{bmatrix} \dot{\theta_1}  \\ \dot{\theta_2} \end{bmatrix}
+\begin{aligned}
+\dot{\mathbf{x}}
+&= J \dot{\boldsymbol{\theta}} \\
 &=
-\frac{1}{a_1 a_2 sin \theta_2}
-\begin{bmatrix} 
-  a_2 cos (\theta_1 + \theta_2) &   a_2 sin(\theta_1 + \theta_2) \\
-  -a_1 cos\theta_1 - a_2 cos (\theta_1 + \theta_2) & -a_1 sin \theta_1 - a_2 sin(\theta_1 + \theta_2)  \\
-\end{bmatrix} 
-\begin{bmatrix} \dot{x}  \\ \dot{y} \end{bmatrix} \\
-\end{aligned} 
+\begin{bmatrix}
+  \dfrac{\partial x}{\partial \theta_1} & \dfrac{\partial x}{\partial \theta_2} \\[6pt]
+  \dfrac{\partial y}{\partial \theta_1} & \dfrac{\partial y}{\partial \theta_2}
+\end{bmatrix}
+\begin{bmatrix} \dot{\theta}_1 \\ \dot{\theta}_2 \end{bmatrix} \\
+&=
+\begin{bmatrix}
+  -a_1 \sin\theta_1 - a_2 \sin(\theta_1 + \theta_2) & -a_2 \sin(\theta_1 + \theta_2) \\
+  a_1 \cos\theta_1 + a_2 \cos(\theta_1 + \theta_2) & a_2 \cos(\theta_1 + \theta_2)
+\end{bmatrix}
+\begin{bmatrix} \dot{\theta}_1 \\ \dot{\theta}_2 \end{bmatrix}
+\end{aligned}
 $$
 
-- __Singular Configuration__:
-  - Where there is __no inverse Jacobian__.
-  - At singular configuration, the manipulator cannot move in certain dirctions.
+where $J$ is the Jacobian. Using the inverse Jacobian gives
 
-$$ 
-\begin{aligned} 
-   Det \quad J = a_1 a_2 sin \theta_2 = 0 \\
-  \therefore \theta_2 = 0 \quad or \quad \pi
-\end{aligned} 
+$$
+\begin{aligned}
+\dot{\boldsymbol{\theta}} &= J^{-1} \dot{\mathbf{x}} \\
+\begin{bmatrix} \dot{\theta}_1 \\ \dot{\theta}_2 \end{bmatrix}
+&=
+\frac{1}{a_1 a_2 \sin\theta_2}
+\begin{bmatrix}
+  a_2 \cos(\theta_1 + \theta_2) & a_2 \sin(\theta_1 + \theta_2) \\
+  -a_1 \cos\theta_1 - a_2 \cos(\theta_1 + \theta_2) & -a_1 \sin\theta_1 - a_2 \sin(\theta_1 + \theta_2)
+\end{bmatrix}
+\begin{bmatrix} \dot{x} \\ \dot{y} \end{bmatrix}
+\end{aligned}
+$$
+
+A __singular configuration__ is one in which __no inverse Jacobian exists__. At a singular configuration the manipulator cannot move in certain directions:
+
+$$
+\begin{aligned}
+\det J &= a_1 a_2 \sin\theta_2 = 0 \\
+\therefore\ \theta_2 &= 0 \quad \text{or} \quad \pi
+\end{aligned}
 $$
 
 -------
@@ -306,77 +267,68 @@ $$
 # Problem 4: Path Planning and Trajectory Generation
 
 ## Path planning
-- Determines a path in task space to mode  the robot to a goal position while avoiding collision with objects in its workspace, __without time considerations,__, that is, without considering velocities and accelerations.
 
-## Trajectory Generation:
-- Determine the __time history__ of the manipulator along a given path.
+Path planning determines a path in task space that moves the robot to a goal position while avoiding collisions with objects in its workspace, __without time considerations__ — that is, without considering velocities and accelerations.
+
+## Trajectory Generation
+
+Trajectory generation determines the __time history__ of the manipulator along a given path.
 
 -------
 
 # Problem 5: Dynamics
 
-- Relationship between __motion and forces(Equation of motion)__.
-- How much force is required to achieve the given motion?
-  - __Rigid body dynamics__: Dynamics of target object which has __no strain or deformation__ in the body.
-  
-$$ 
-\begin{aligned} 
-\qquad \qquad \qquad  M(q) \ddot{q} + C(q, \dot{q}) \dot{q} + G(q) = \tau 
-\end{aligned} 
+Dynamics describes the relationship between __motion and forces (the equation of motion)__ and answers the question of how much force is required to achieve a given motion. __Rigid body dynamics__ treats a target object that undergoes __no strain or deformation__:
+
+$$
+M(q)\,\ddot{q} + C(q, \dot{q})\,\dot{q} + G(q) = \tau
 $$
 
-- $$M$$: Inertia matrix.
-- $$C$$: Centrigufal and Coriolis matrix.
-- $$G$$: Gravity matrix.
-- $$q$$: Generalized coordinate(angle or position)
-- $$\tau$$ : Generalized force(torque or force)
+- $M$: inertia matrix.
+- $C$: centrifugal and Coriolis matrix.
+- $G$: gravity matrix.
+- $q$: generalized coordinate (angle or position).
+- $\tau$: generalized force (torque or force).
 
-
-- __Inverse dynamics__: Computes the __required joint torques or forces__ that lead to the given robot motion.
-- __Forward dynamics__: Computes the robot motion __from the joint torques or forces applied__.
+__Inverse dynamics__ computes the __required joint torques or forces__ that lead to a given robot motion, whereas __forward dynamics__ computes the robot motion __resulting from the applied joint torques or forces__.
 
 ## Example 1: Three link-revolute arm
+
 ![](/images/Robot_dynamics/14.png)
 ![](/images/Robot_dynamics/15.png)
+
 -------
 
 # Problem 6: Position Control
 
-- The control prolem for robot manipulator is the problem of determining the time history of __joint inputs (joint forces or torques or inputs to the actuators, for example, voltage)__ required to cause the end-effector to execute a desired motion.
-- There are many control techniques and methodologies.
-  - An important thing is that control methods depends on __hardware/software and application__
-    - Cartesian manipulator vs. Elbow type manupulator
-    - DC motor with reduction gear vs. High torgue DC motor without gwar (High tech. for interaction)
-    - Point-to-point path vs. Continous path
-    - More complicated hardward, the more advanced control methods.
+The control problem for a robot manipulator is the problem of determining the time history of the __joint inputs (joint forces, torques, or actuator inputs such as voltage)__ required to cause the end-effector to execute a desired motion.
 
+There are many control techniques and methodologies, and the appropriate one depends on the __hardware, software and application__:
+
+- Cartesian manipulator vs. elbow-type manipulator.
+- DC motor with reduction gear vs. high-torque DC motor without gear (high-end designs for interaction).
+- Point-to-point path vs. continuous path.
+
+The more complicated the hardware, the more advanced the control method that is required.
 
 ## Example: Independent Joint Position Control
 
-- Features:
-  - Simplest type of control strategy.
-  - Each axis is controlled as a SISO(Single Input/Single Outpue) system.
-  - Any coupling effects due to the motion of the other links is either ignored or treated as a disturbance.
-  - Objectives: tracking and disturbance rejection.
-    - Pose에 따라 moment가 달라져 disturbance가 달라지지만 높은 기어비 때문에 무시.
-  
+This is the simplest type of control strategy. Each axis is controlled as a SISO (single-input/single-output) system, and any coupling effects due to the motion of the other links are either ignored or treated as a disturbance. The objectives are tracking and disturbance rejection.
+
+The moment — and therefore the disturbance — varies with the pose, but it is neglected here because of the high gear ratio.
+
 ![](/images/Robot_dynamics/16.png)
 ![](/images/Robot_dynamics/17.png)
 ![](/images/Robot_dynamics/18.png)
 
-- Each joint has to follow the desired joint angle accurately!
+Each joint has to follow the desired joint angle accurately.
 
 -------
 
 # Problem 7: Force Control
 
--  Why Force Control?:
-   -  Pure position control is not adequate for task which involve extensive contact with the environment.
-      -  e.g., assembly, grinding, deburring
-   - Need to control the force as well (slight deviation of the end effector would caues either to loose contact or to press too strongly).
-     - We can use the Hybrid control(Position + Force control)
-   - A force control strategy is one that modifies position trajectories based on the sensed forses.
+Why force control? Pure position control is not adequate for tasks that involve extensive contact with the environment, such as assembly, grinding and deburring. In such tasks the force must be controlled as well, because a slight deviation of the end-effector would cause it either to lose contact or to press too strongly. Hybrid control (position plus force control) addresses this: a force control strategy is one that modifies position trajectories based on the sensed forces.
 
 ![](/images/Robot_dynamics/19.png)
 
->  __The end-effector forces are related to the joint torques!!__
+>  __The end-effector forces are related to the joint torques.__
