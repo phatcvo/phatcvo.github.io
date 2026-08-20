@@ -1,0 +1,10 @@
+{{- /*
+  One numbered callout inside an `annotated` figure.
+  x / y are percentages of the image box — they scale with it, so the dot
+  stays on the part it points at at every width.
+*/ -}}
+{{- $x := .Get "x" -}}
+{{- $y := .Get "y" -}}
+{{- if not $x }}{{ errorf "callout: x is required — %s" .Position }}{{ end -}}
+{{- if not $y }}{{ errorf "callout: y is required — %s" .Position }}{{ end -}}
+<div class="anno-item" style="--x:{{ $x }}%;--y:{{ $y }}%"><span class="anno-num"></span><span class="anno-text">{{ .Inner | .Page.RenderString }}</span></div>

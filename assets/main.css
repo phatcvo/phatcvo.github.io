@@ -402,3 +402,378 @@ pre.mermaid > svg {
 pre.mermaid:not([data-processed="true"]) {
   visibility: hidden;
 }
+
+/* ---------------------------------------------------------------------------
+ * Figures: photos, annotated photos, and wiring diagrams.
+ *
+ * All three carry `not-prose` (see the shortcodes), so like pre.mermaid they
+ * sit outside the typography plugin's reach and are styled here. Unlayered,
+ * so they outrank the plugin's non-important rules.
+ * ------------------------------------------------------------------------ */
+
+.fig {
+  margin: 2rem auto;
+}
+.fig picture,
+.fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+.fig img {
+  border: 1px solid rgb(var(--border));
+  border-radius: 0.5rem;
+  /* The renders are cut out on white. On the dark theme that is a glaring
+     slab, so knock it back rather than letting it burn a hole in the page. */
+  background: #fff;
+}
+html.dark .fig img {
+  filter: brightness(0.88) contrast(1.02);
+}
+.fig figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgb(var(--text-muted));
+  text-align: left;
+  text-wrap: pretty;
+}
+.fig figcaption :is(p, a) {
+  margin: 0;
+}
+
+/* Annotated photos ------------------------------------------------------- */
+
+.anno-stage {
+  position: relative;
+}
+.anno-layer {
+  position: absolute;
+  inset: 0;
+  counter-reset: anno;
+  pointer-events: none;
+}
+.anno-key {
+  counter-reset: anno;
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.4rem 1.5rem;
+}
+.anno-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: rgb(var(--text-muted));
+}
+.anno-num::before {
+  counter-increment: anno;
+  content: counter(anno);
+  display: inline-grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: rgb(var(--accent));
+  color: rgb(var(--on-accent));
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+}
+/* On the image: the numbered dot only. The key below carries the words, so
+   the dots are aria-hidden and must not repeat them. */
+.anno-layer .anno-item {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+}
+.anno-layer .anno-text {
+  display: none;
+}
+.anno-layer .anno-num::before {
+  box-shadow: 0 0 0 3px rgb(var(--bg-elevated)), var(--shadow-1);
+}
+
+/* Wiring diagrams -------------------------------------------------------- */
+
+.wiring {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  border: 1px solid rgb(var(--border));
+  border-radius: 0.75rem;
+  background: rgb(var(--bg-elevated));
+}
+.wiring-title {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgb(var(--text));
+}
+.wiring-sub {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: rgb(var(--text-muted));
+}
+.wiring-stage {
+  position: relative;
+  margin-top: 1.25rem;
+}
+/* Stacking, bottom to top: wires, then the cards that hide their ends, then
+   the pin labels — a label near a card edge has to stay readable on top of
+   it, which is exactly where the short runs put it. */
+.wiring-wires,
+.wiring-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.wiring-wires { z-index: 0; }
+.wiring-labels { z-index: 2; }
+.wiring-wires path {
+  stroke-width: 1.75;
+  fill: none;
+}
+.wiring-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  /* Wide enough for the wires to breathe and for a pin label to sit in the
+     gap rather than on a card; the JS fans parallel runs apart inside it. */
+  gap: 6.5rem;
+}
+.wiring-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.wiring-col-label {
+  margin: 0 0 -1.75rem;
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--text-muted));
+}
+.wiring-node {
+  position: relative;
+  padding: 0.85rem;
+  border: 1px solid rgb(var(--border));
+  border-radius: 0.6rem;
+  background: rgb(var(--bg));
+  box-shadow: var(--shadow-1);
+}
+.wiring-photo {
+  display: grid;
+  place-items: center;
+  height: 5.5rem;
+  margin-bottom: 0.6rem;
+  border-radius: 0.35rem;
+  background: #fff;
+}
+.wiring-photo img {
+  max-height: 5.5rem;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+html.dark .wiring-photo {
+  background: #f2f2f0;
+}
+.wiring-node-title {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: rgb(var(--text));
+}
+.wiring-node-sub {
+  margin: 0.15rem 0 0;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: rgb(var(--text-muted));
+}
+.wiring-node-items {
+  margin: 0.5rem 0 0;
+  padding-left: 0.95rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: rgb(var(--text-muted));
+}
+.wiring-node-items li {
+  margin: 0.1rem 0;
+}
+.wiring-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+  background: rgb(var(--bg-elevated));
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  color: rgb(var(--text-muted));
+  pointer-events: auto;
+}
+.wiring-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.75rem;
+  color: rgb(var(--text-muted));
+}
+.wiring-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.wiring-swatch {
+  width: 1.4rem;
+  height: 0;
+  border-top-width: 2px;
+  border-top-style: solid;
+}
+.wiring figcaption {
+  margin: 1.25rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgb(var(--border));
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgb(var(--text-muted));
+  text-wrap: pretty;
+}
+.wiring figcaption p {
+  margin: 0;
+}
+
+/* One colour per signal kind, shared by the wire, its arrowhead, its label
+   and the legend swatch — so the legend cannot drift from the diagram.
+   These deliberately ignore the site accent: RS485 in teal and motor phase in
+   the --go green were indistinguishable side by side. The hues below are the
+   ones the hand-drawn version of this diagram already used, and they stay
+   apart from each other for the common forms of colour blindness. */
+:root { --w-serial: 100 116 139; --w-rs485: 37 99 235; --w-phase: 21 128 61;
+        --w-encoder: 194 120 3; --w-power: 194 65 12; --w-gnd: 30 41 59; }
+html.dark { --w-serial: 148 163 184; --w-rs485: 96 165 250; --w-phase: 74 222 128;
+            --w-encoder: 251 191 36; --w-power: 249 115 22; --w-gnd: 226 232 240; }
+
+.wiring-wires path[data-kind="serial"],
+.wiring-swatch[data-kind="serial"] { stroke: rgb(var(--w-serial)); border-top-color: rgb(var(--w-serial)); }
+.wiring-wires path[data-kind="rs485"],
+.wiring-swatch[data-kind="rs485"] { stroke: rgb(var(--w-rs485)); border-top-color: rgb(var(--w-rs485)); }
+.wiring-wires path[data-kind="phase"],
+.wiring-swatch[data-kind="phase"] { stroke: rgb(var(--w-phase)); border-top-color: rgb(var(--w-phase)); }
+.wiring-wires path[data-kind="encoder"],
+.wiring-swatch[data-kind="encoder"] { stroke: rgb(var(--w-encoder)); border-top-color: rgb(var(--w-encoder)); }
+.wiring-wires path[data-kind="power"],
+.wiring-swatch[data-kind="power"] { stroke: rgb(var(--w-power)); border-top-color: rgb(var(--w-power)); }
+.wiring-wires path[data-kind="gnd"],
+.wiring-swatch[data-kind="gnd"] { stroke: rgb(var(--w-gnd)); border-top-color: rgb(var(--w-gnd)); }
+
+/* The label takes the wire's colour too, so a pin name is traceable to its
+   run without following the curve by eye. */
+.wiring-label[data-kind="serial"] { color: rgb(var(--w-serial)); }
+.wiring-label[data-kind="rs485"] { color: rgb(var(--w-rs485)); }
+.wiring-label[data-kind="phase"] { color: rgb(var(--w-phase)); }
+.wiring-label[data-kind="encoder"] { color: rgb(var(--w-encoder)); }
+.wiring-label[data-kind="power"] { color: rgb(var(--w-power)); }
+.wiring-label[data-kind="gnd"] { color: rgb(var(--w-gnd)); }
+
+.wiring-wires path[data-kind="encoder"] { stroke-dasharray: 5 4; }
+.wiring-swatch[data-kind="encoder"] { border-top-style: dashed; }
+
+.wiring-wires marker path[data-kind="serial"] { fill: rgb(var(--w-serial)); stroke: none; }
+.wiring-wires marker path[data-kind="rs485"] { fill: rgb(var(--w-rs485)); stroke: none; }
+.wiring-wires marker path[data-kind="phase"] { fill: rgb(var(--w-phase)); stroke: none; }
+.wiring-wires marker path[data-kind="encoder"] { fill: rgb(var(--w-encoder)); stroke: none; stroke-dasharray: none; }
+.wiring-wires marker path[data-kind="power"] { fill: rgb(var(--w-power)); stroke: none; }
+.wiring-wires marker path[data-kind="gnd"] { fill: rgb(var(--w-gnd)); stroke: none; }
+
+/* Until the script measures the cards there is nothing sensible to draw, and
+   a half-drawn set of wires is worse than none. */
+.wiring:not([data-drawn]) .wiring-wires,
+.wiring:not([data-drawn]) .wiring-labels {
+  opacity: 0;
+}
+
+/* The connection list. On a wide screen the drawn wires already say this, so
+   it is clipped rather than removed — display:none would take it away from
+   screen readers too, and it is the only accessible description the figure
+   has. Below the breakpoint the gutter-routed wires carry no pin labels and
+   this becomes the visible key. */
+.wiring-runs {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  list-style: none;
+}
+.wiring-runs code {
+  font-family: var(--f-mono);
+  font-size: 0.95em;
+}
+
+@media (max-width: 60rem) {
+  .wiring-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3.5rem;
+    /* Room for the gutter lanes the wires are routed through. */
+    padding-left: 4.5rem;
+  }
+  .wiring-col {
+    gap: 3.5rem;
+  }
+  .wiring-col-label {
+    margin-bottom: -2.25rem;
+  }
+  .wiring-runs {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 1.5rem 0 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: rgb(var(--text-muted));
+  }
+  .wiring-runs li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .wiring-runs strong {
+    color: rgb(var(--text));
+    font-weight: 600;
+  }
+  .wiring-runs .wiring-swatch {
+    flex: none;
+    position: relative;
+    top: -0.25rem;
+  }
+  /* The legend is redundant once every run is spelled out with its own
+     swatch. */
+  .wiring-legend {
+    display: none;
+  }
+}

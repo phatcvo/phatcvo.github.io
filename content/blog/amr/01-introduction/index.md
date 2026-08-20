@@ -45,6 +45,11 @@ The robot in this series is **BEEBOT2**, a differential-drive indoor AMR: two
 driven wheels on a common axis, plus casters for balance. Steering is done by
 driving the two wheels at different speeds — no steering rack, no servo.
 
+{{< photo
+  src="amr/robot_design_exterior" w="1200" h="380"
+  alt="Left: BEEBOT2 seen from the front with the side panels open, showing the status panel and the internal decks. Right: the same robot with its outer shell closed."
+  caption="Front and closed-shell views. The status panel — pack state of charge, e-stop, two USB ports — is the only part of the robot an operator ever touches." >}}
+
 The workspace also carries a second, much larger platform called **AMR**, a
 300 kg warehouse vehicle whose geometry was measured from a 2018 machine. Both
 robots share the same code; the same launch files bring up either one. That is
@@ -70,6 +75,18 @@ secretly hard-coded to one chassis.
 > the envelope, not the chassis.
 
 ## 3. The hardware
+
+{{< annotated
+  src="amr/robot_design_cutaway" w="990" h="748"
+  alt="A cutaway three-quarter view of BEEBOT2 with the side panels removed, showing the roof plate, the front status panel, two internal equipment decks, one drive wheel and a caster."
+  caption="The same render with the side panels off. Everything below is one of these six things." >}}
+{{< callout x="42" y="8" >}}Roof plate — the 360° scanner mounts here{{< /callout >}}
+{{< callout x="30" y="32" >}}Status panel — pack SoC, e-stop, USB{{< /callout >}}
+{{< callout x="70" y="38" >}}Upper deck — controller and I/O{{< /callout >}}
+{{< callout x="71" y="57" >}}Lower deck — battery pack and BMS{{< /callout >}}
+{{< callout x="30" y="73" >}}Drive wheel — one of two, on a common axis{{< /callout >}}
+{{< callout x="57" y="86" >}}Caster — balance only, never driven{{< /callout >}}
+{{< /annotated >}}
 
 ### Drive
 

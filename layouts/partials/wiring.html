@@ -1,0 +1,6 @@
+{{- /* Loaded only on pages that actually rendered a `wiring` figure. Same
+       Store gate as mermaid.html, and for the same reason: .Store is only
+       populated once the page content has been rendered. */ -}}
+{{- if .Store.Get "hasWiring" -}}
+  <script defer src="{{ `js/wiring.js` | relURL }}"></script>
+{{- end -}}
