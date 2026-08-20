@@ -1,0 +1,97 @@
+{{- /*
+  A physical/electrical diagram: real component photos as cards, connections
+  drawn between them.
+
+  Mermaid owns topology and logic. This owns the things mermaid cannot say —
+  which connector, which pair of wires, what the part looks like when you buy
+  it. Unlike a flat PNG of the same diagram it reflows on a phone, keeps its
+  part numbers as selectable text, and follows the dark-mode toggle.
+
+  The definition lives in data/wiring/NAME.yaml rather than inline, so a
+  diagram is diffable on its own and can be reused across articles.
+
+  Usage:  wiring shortcode, one param — name="motor_control"
+*/ -}}
+{{- $name := .Get "name" -}}
+{{- if not $name }}{{ errorf "wiring: name is required — %s" .Position }}{{ end -}}
+{{/* site.Data, not hugo.Data: Hugo deprecated the former in 0.156 but the
+     deploy workflow pins HUGO_VERSION 0.128, where hugo.Data does not exist
+     yet. Switch this over when that pin moves, not before. */}}
+{{- $d := index site.Data.wiring $name -}}
+{{- if not $d -}}
+  {{- errorf "wiring: no data file at data/wiring/%s.yaml" $name -}}
+{{- end -}}
+{{- .Page.Store.Set "hasWiring" true -}}
+{{- $id := printf "w-%s-%d" $name .Ordinal -}}
+
+<figure class="not-prose wiring" id="{{ $id }}">
+  {{- with $d.title }}<p class="wiring-title">{{ . }}</p>{{ end }}
+  {{- with $d.subtitle }}<p class="wiring-sub">{{ . }}</p>{{ end }}
+
+  <div class="wiring-stage">
+    {{/* Paths are drawn into this by static/js/wiring.js once the cards have
+         been laid out — their positions are not knowable at build time. */}}
+    <svg class="wiring-wires" aria-hidden="true" focusable="false"></svg>
+    <div class="wiring-labels" aria-hidden="true"></div>
+
+    <div class="wiring-grid" style="--cols:{{ len $d.columns }}">
+      {{- range $d.columns }}
+      {{- $col := .id }}
+      <div class="wiring-col">
+        <p class="wiring-col-label">{{ .label }}</p>
+        {{- range where $d.nodes "column" $col }}
+        <div class="wiring-node" data-node="{{ .id }}">
+          {{- $palt := .photo_alt | default "" }}
+          {{- with .photo }}
+          <div class="wiring-photo">
+            <picture>
+              <source srcset="{{ printf "images/%s.webp" . | relURL }}" type="image/webp">
+              <img src="{{ printf "images/%s.png" . | relURL }}" alt="{{ $palt }}" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          {{- end }}
+          <p class="wiring-node-title">{{ .title }}</p>
+          {{- with .subtitle }}<p class="wiring-node-sub">{{ . }}</p>{{ end }}
+          {{- with .items }}
+          <ul class="wiring-node-items">
+            {{- range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{- end }}
+        </div>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+  </div>
+
+  {{/* safeJS, or html/template treats this as a JS context and JSON-encodes
+       the already-encoded string a second time, leaving the reader a quoted
+       string where wiring.js expects an array. The source is this repo's own
+       data file, not reader input. */}}
+  <script type="application/json" class="wiring-edges">{{ $d.edges | jsonify | safeJS }}</script>
+
+  {{/* Every run as text. The SVG is aria-hidden — a drawn curve says nothing
+       to a screen reader — so this list is the diagram's accessible
+       description, and on a narrow screen where the wires are routed through
+       a gutter it is also where the pin names live. */}}
+  <ul class="wiring-runs">
+    {{- range $d.edges }}
+    {{- $from := index (where $d.nodes "id" .from) 0 }}
+    {{- $to := index (where $d.nodes "id" .to) 0 }}
+    <li>
+      <span class="wiring-swatch" data-kind="{{ .kind }}"></span>
+      <span><strong>{{ $from.title }}</strong> → <strong>{{ $to.title }}</strong>{{ with .label }} — <code>{{ . }}</code>{{ end }}</span>
+    </li>
+    {{- end }}
+  </ul>
+
+  {{- with $d.legend }}
+  <ul class="wiring-legend">
+    {{- range . }}
+    <li><span class="wiring-swatch" data-kind="{{ .kind }}"></span>{{ .label }}</li>
+    {{- end }}
+  </ul>
+  {{- end }}
+
+  {{- with $d.note }}<figcaption>{{ . | $.Page.RenderString }}</figcaption>{{ end }}
+</figure>

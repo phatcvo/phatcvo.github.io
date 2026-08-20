@@ -1,0 +1,35 @@
+{{- /*
+  A photograph or render, served as WebP with a PNG fallback.
+
+  `not-prose` is load-bearing: tailwind.config.js sets `important: true`, so
+  every rule the typography plugin emits is !important and cannot be beaten
+  from a stylesheet. The mermaid render hook takes the same escape hatch.
+
+  Params
+    src     path under /images/, WITHOUT extension — "amr/robot_design_3view"
+            resolves to /images/amr/robot_design_3view.webp + .png
+    alt     required; describes the image for readers who cannot see it
+    caption optional; rendered below, markdown allowed
+    w, h    intrinsic pixel size. Always pass both: they set the aspect ratio
+            that reserves space before the image loads, which is what stops
+            the article reflowing mid-read.
+    max     optional max-width (default 100%), e.g. "48rem"
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- if not $src }}{{ errorf "photo: src is required — %s" .Position }}{{ end -}}
+{{- if not $alt }}{{ errorf "photo: alt is required — %s" .Position }}{{ end -}}
+{{- $w := .Get "w" -}}
+{{- $h := .Get "h" -}}
+{{- $base := printf "images/%s" $src -}}
+<figure class="not-prose fig"{{ with .Get "max" }} style="max-width:{{ . }}"{{ end }}>
+  <picture>
+    <source srcset="{{ printf "%s.webp" $base | relURL }}" type="image/webp">
+    <img src="{{ printf "%s.png" $base | relURL }}" alt="{{ $alt }}"
+         {{ with $w }}width="{{ . }}"{{ end }} {{ with $h }}height="{{ . }}"{{ end }}
+         loading="lazy" decoding="async">
+  </picture>
+  {{- with .Get "caption" }}
+  <figcaption>{{ . | $.Page.RenderString }}</figcaption>
+  {{- end }}
+</figure>

@@ -49,6 +49,10 @@ The controller is an **MDROBOT MD200T**: one board, two BLDC channels, DC 12–4
 That single-bus detail shapes everything later. There is one link to get right,
 not two — but also one link whose failure takes out both wheels at once.
 
+The diagram above is the logical chain. This is the same chain as hardware:
+
+{{< wiring name="motor_control" >}}
+
 ### What RS485 actually is
 
 If you have only used UART or USB, RS485 is worth thirty seconds:

@@ -9,17 +9,18 @@ collection_type: series
 
 *Companion articles to the [Build an AMR from Zero](https://www.youtube.com/@phatcvo-beelab) video series.*
 
-The videos show the build. These articles are the notes behind them — the
-numbers, the parameters, the failures, and the reasoning that does not fit in
-ten minutes of screen time.
+{{< photo
+  src="amr/robot_design_3view" w="1600" h="829"
+  alt="Three views of BEEBOT2: a cutaway three-quarter view showing the internal decks, a front view, and the closed outer shell."
+  caption="BEEBOT2 as designed — a differential-drive indoor AMR: two driven wheels on a common axis, casters for balance. This is the enclosure concept; the scanners the robot needs from article 09 onward are not shown on it." >}}
+
+The videos show the build. These articles are the notes behind them — the numbers, the parameters, the failures, and the reasoning that does not fit in ten minutes of screen time.
 
 ## The philosophy
 
-> The robot is the main character. ROS 2, Gazebo, LiDAR, IMU, SLAM and Nav2 are
-> just tools that give it new abilities.
+> The robot is the main character. ROS 2, Gazebo, LiDAR, IMU, SLAM and Nav2 are just tools that give it new abilities.
 
-So the series is not organised as "today we learn ROS 2, today we learn Gazebo,
-today we learn SLAM." It is organised as:
+So the series is not organised as "today we learn ROS 2, today we learn Gazebo, today we learn SLAM." It is organised as:
 
 ```mermaid
 flowchart TD
@@ -65,17 +66,13 @@ ends with the next problem.
 
 - Robotics, mechatronics and automation students.
 - Engineers learning robotics, or moving from ROS 1 to ROS 2.
-- Anyone who wants a practical route into AMRs rather than a tutorial tour of
-  individual packages.
+- Anyone who wants a practical route into AMRs rather than a tutorial tour of individual packages.
 
-You do not need prior ROS experience for article 01. From article 02 onward, a
-Linux machine and a willingness to read a serial protocol datasheet will take
+You do not need prior ROS experience for article 01. From article 02 onward, a Linux machine and a willingness to read a serial protocol datasheet will take
 you a long way.
 
 ## One rule for the whole series
 
-**Nothing is called "done" because it ran once.** Every claim in these articles
-carries the measurement behind it, or it is labelled as untested. Where the real
-robot disagrees with the simulation, both numbers are shown.
+**Nothing is called "done" because it ran once.** Every claim in these articles carries the measurement behind it, or it is labelled as untested. Where the real robot disagrees with the simulation, both numbers are shown.
 
 Read them in order below.

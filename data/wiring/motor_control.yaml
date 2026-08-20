@@ -1,0 +1,88 @@
+# Physical/electrical diagram for article 02. Rendered by the `wiring`
+# shortcode: {{< wiring name="motor_control" >}}
+#
+# Columns lay the cards out left to right; edges are drawn between cards by
+# static/js/wiring.js after layout, so the whole thing reflows on a phone
+# instead of becoming a 1536px image nobody can read.
+
+title: "PC (ROS 2) ↔ MD200T ↔ 2× BLDC motors"
+subtitle: "Bench wiring — everything between a ROS 2 topic and a turning wheel"
+
+columns:
+  - id: compute
+    label: Compute
+  - id: driver
+    label: Driver
+  - id: actuators
+    label: Actuators
+
+nodes:
+  - id: pc
+    column: compute
+    title: PC — Ubuntu 22.04
+    subtitle: ROS 2 Jazzy
+    items:
+      - rclcpp / rclpy
+      - publishes velocity / position / torque
+      - reads status + diagnostics
+
+  - id: converter
+    column: compute
+    title: USB ↔ RS485
+    subtitle: FTDI converter
+    photo: amr/parts/usb_rs485
+    photo_alt: A blue USB-to-RS485 converter with a green screw terminal
+
+  - id: md200t
+    column: driver
+    title: MDROBOT MD200T
+    subtitle: DC 12–48 V, 10 A per channel
+    photo: amr/parts/md200t
+    photo_alt: The MD200T two-channel BLDC controller
+    items:
+      - two channels, one bus
+      - speed / position / torque
+      - built-in encoder inputs
+      - RS485 Modbus RTU
+
+  - id: psu
+    column: driver
+    title: 24 V DC supply
+    subtitle: bench PSU
+    photo: amr/parts/psu_24v
+    photo_alt: An open-frame 24 volt DC power supply
+
+  - id: motor1
+    column: actuators
+    title: Motor channel 1
+    subtitle: ZLLG65ASM250-L — 6.5 in, 24 V, 6.5 N·m
+    photo: amr/parts/bldc_wheel
+    photo_alt: A 6.5 inch rubber-tyred BLDC hub motor
+
+  - id: motor2
+    column: actuators
+    title: Motor channel 2
+    subtitle: ZLLG65ASM250-L — 6.5 in, 24 V, 6.5 N·m
+    photo: amr/parts/bldc_wheel
+    photo_alt: A 6.5 inch rubber-tyred BLDC hub motor
+
+edges:
+  - { from: pc,       to: converter, kind: serial,  label: USB (VCP) }
+  - { from: converter, to: md200t,   kind: rs485,   label: "A+ / B−" }
+  - { from: psu,      to: md200t,    kind: power,   label: "+24 V / GND" }
+  - { from: md200t,   to: motor1,    kind: phase,   label: "U1 / V1 / W1" }
+  - { from: md200t,   to: motor1,    kind: encoder, label: "ENC1± / GND" }
+  - { from: md200t,   to: motor2,    kind: phase,   label: "U2 / V2 / W2" }
+  - { from: md200t,   to: motor2,    kind: encoder, label: "ENC2± / GND" }
+
+legend:
+  - { kind: serial,  label: USB / serial }
+  - { kind: rs485,   label: RS485 — Modbus RTU }
+  - { kind: phase,   label: Motor phase (3-ph) }
+  - { kind: encoder, label: Encoder / Hall }
+  - { kind: power,   label: DC 24 V + GND }
+
+note: >-
+  One RS485 bus carries both wheels. That is the whole reason article 02 spends
+  its time on addressing: get the two channel IDs wrong and both wheels answer
+  to the same command.

@@ -1,0 +1,31 @@
+{{- /*
+  A photo with numbered callouts pinned to it, plus a readable key beneath.
+
+  `.Inner` (the rendered `callout` children) is emitted twice on purpose: once
+  into the overlay, where CSS shows only the numbered dot, and once into the
+  key, where CSS shows the number and its text. The overlay copy is
+  aria-hidden — the dots carry no information on their own, so a screen reader
+  gets the key and nothing duplicated.
+
+  Params: src, alt, w, h, caption, max — as in the `photo` shortcode.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- if not $src }}{{ errorf "annotated: src is required — %s" .Position }}{{ end -}}
+{{- if not $alt }}{{ errorf "annotated: alt is required — %s" .Position }}{{ end -}}
+{{- $base := printf "images/%s" $src -}}
+<figure class="not-prose fig anno"{{ with .Get "max" }} style="max-width:{{ . }}"{{ end }}>
+  <div class="anno-stage">
+    <picture>
+      <source srcset="{{ printf "%s.webp" $base | relURL }}" type="image/webp">
+      <img src="{{ printf "%s.png" $base | relURL }}" alt="{{ $alt }}"
+           {{ with .Get "w" }}width="{{ . }}"{{ end }} {{ with .Get "h" }}height="{{ . }}"{{ end }}
+           loading="lazy" decoding="async">
+    </picture>
+    <div class="anno-layer" aria-hidden="true">{{ .Inner }}</div>
+  </div>
+  <div class="anno-key">{{ .Inner }}</div>
+  {{- with .Get "caption" }}
+  <figcaption>{{ . | $.Page.RenderString }}</figcaption>
+  {{- end }}
+</figure>
