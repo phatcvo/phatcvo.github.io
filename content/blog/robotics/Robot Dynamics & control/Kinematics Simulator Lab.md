@@ -155,4 +155,4 @@ The three tabs are arranged in the order they should be worked:
 | Taught points have disappeared | Points live in this browser only. Use __export__ before switching machines. |
 | A correct answer is marked wrong | Check the unit (degrees or radians) and loosen __TOL [m]__ if you rounded. |
 
-The platform is open source at [github.com/phatcvo/amr-sim-web](https://github.com/phatcvo/amr-sim-web).
+This is the demo platform link [arm-sim-web](https://pregnancy-trim-begins-occasional.trycloudflare.com)
