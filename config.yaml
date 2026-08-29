@@ -169,9 +169,9 @@ params:
     title: Projects
     icon: fas fa-project-diagram
     list:
-      - title: Fleet Autonomous Mobile Robot
+      - title: Fleet Management System (FMS) for AMRs
         url: "#"
-        image: "images/projects/FMS.gif"
+        image: "images/projects/FMS.jpg"
         summary: Fleet-scale autonomy with dispatching, traffic/deadlock logic, and multi-robot coordination.
         stack:
           - Fleet Management
@@ -197,6 +197,39 @@ params:
           - Task Scheduling and Dispatching: Dynamically assigns schedules and inspection tasks to each robot based on real-time conditions and system priorities.
           - Multi-Robot Path Planning and Conflict Resolution: Manages priority-based rerouting and waiting strategies to prevent congestion and resolve conflicts in real time, especially in narrow roads and intersections shared by multiple robots.
           - Monitoring and Visualization: Collaborated with the front-end team to integrate a web-based dashboard that supports real-time, bidirectional messaging and logging database. It provides live updates on robot statuses, and task progress, enabling operators to remotely supervise the entire fleet.
+
+      - title: BEEBOT2 — Building an AMR from Zero
+        url: "/blog/amr/"
+        image: "images/amr/robot_design_3view.png"
+        link: "https://www.youtube.com/@phatcvo-beelab"
+        summary: A 22-part build log taking a differential-drive indoor AMR from an empty workspace to autonomous navigation on ROS 2 Jazzy — drive, sense, map, localise, navigate, and coordinate as a fleet.
+        stack:
+          - ROS 2 Jazzy
+          - Gazebo Harmonic
+          - ros2_control / Nav2
+          - SLAM / AMCL / EKF
+          - RS485 / BMS
+          - Docker
+        highlights:
+          - Built BEEBOT2, a 40 kg differential-drive indoor AMR, from bare hardware to full Nav2 autonomy across a 22-article series.
+          - Architected the stack so simulation and real robot share one ROS 2 graph — only the hardware component swaps beneath ros2_control.
+          - Brought up the drive chain over RS485 (MD200T), fused wheel odometry with a MicroStrain IMU through an EKF, and merged dual 270° LiDARs into a single 360° scan.
+          - Ran identical launch files on a second 300 kg warehouse platform, proving nothing in the stack is hard-coded to one chassis.
+          - Documented every claim with the measurement behind it, showing simulation and real-robot numbers side by side where they disagree.
+        description: |-
+          BEEBOT2 is an autonomous mobile robot taken from an empty workspace to a machine that drives, sees, maps, localises and navigates — built in public as a written build log alongside a companion video series.
+
+          The series is deliberately not organised as a tour of individual packages. It follows the robot: it learns to drive, to take commands, to feel its own motion, to see, to build a map, to know where it is, to plan a route, to protect itself, to charge, to do a job, and finally to work alongside other robots. Each article starts from a problem the robot cannot yet solve, builds the smallest thing that solves it, measures the result, and ends with the next problem.
+
+          The build covers:
+          - Drive system — two BLDC gear motors on an MDROBOT MD200T controller over a single RS485 bus, wrapped in a ros2_control hardware component.
+          - Digital robot — URDF/xacro description with geometry regression tests, and a Gazebo Harmonic warehouse that mirrors the real launch graph.
+          - Sensing — LiDAR, a MicroStrain 3DM-GX5 IMU, wheel encoders, RGBD camera and bumper, fused into one motion estimate with robot_localization.
+          - Power — a lithium pack with DALY BMS telemetry published as sensor_msgs/BatteryState, so the stack can reason about remaining runtime.
+          - Autonomy — slam_toolbox for mapping, map-quality scoring tools, AMCL for localisation, and Nav2 for planning and control, with twist_mux arbitrating command priority.
+          - Safety and service — protective and warning fields, E-stop integration, failure-mode analysis, docking and charging, payload HMI, and a robot API built for fleet attachment.
+
+          The most important architectural decision is that the simulation is not a side project: sim.launch.py and robot.launch.py are deliberate mirrors, sharing the same controller configuration, the same diff_drive_controller and the same EKF. Only the hardware component underneath swaps — Gazebo on one side, the RS485 driver on the other. The same code also runs a 300 kg warehouse platform, which is the cheapest possible proof that the stack is not secretly tied to one chassis.
 
       - title: hunter_pybullet_rl
         url: "https://github.com/phatcvo/hunter_pybullet_rl.git"
