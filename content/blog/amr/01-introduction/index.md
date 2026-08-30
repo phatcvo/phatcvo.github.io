@@ -88,17 +88,15 @@ secretly hard-coded to one chassis.
 {{< callout x="57" y="86" >}}Caster — balance only, never driven{{< /callout >}}
 {{< /annotated >}}
 
-That render says where things sit. It does not say what is plugged into what,
-and on a robot that second question is the one that costs weekends. So here is
-the same six things again, as a block diagram — every device, the bus it hangs
-off, and the rail that feeds it.
+That render says where things sit. It does not say what is plugged into what —
+and on a robot, the second question is the one that costs weekends.
 
 {{< wiring name="hardware_block" >}}
 
-Read it as three buses and one PC. The drive is alone on RS485; every sensor
-reaches the PC over USB; power leaves the pack once and splits. The four ⬜
-blocks are hardware that is on the robot and has no driver in the workspace yet
-— which is the whole reason section 6 below reads the way it does.
+Two buses and one PC is the whole shape of it: the drive alone on RS485,
+everything else on USB, one 24 V rail leaving the pack. The three ⬜ blocks are
+hardware that is bolted to the robot and has nothing driving it yet, which is
+most of why section 6 reads the way it does.
 
 ### Drive
 

@@ -1,17 +1,17 @@
 # Whole-robot hardware block diagram for article 01. Rendered by the `wiring`
 # shortcode: {{< wiring name="hardware_block" >}}
 #
-# This is the block-level view: every device on BEEBOT2, which bus it hangs
-# off, and which rail feeds it. The electrical detail of one branch of it —
-# PC → MD200T → motors — is drawn separately in data/wiring/motor_control.yaml
-# for article 02.
+# Deliberately coarse. One card per physical assembly, one edge per bus, and
+# nothing on a card that the reader does not need to follow the signal path.
+# The electrical detail of one branch — PC → MD200T → motors, down to the pin
+# names — is drawn separately in data/wiring/motor_control.yaml for article 02.
 #
-# Edges only ever run between adjacent columns or inside one, because the
-# renderer draws a direct curve in the wide layout and a longer span would be
-# routed straight across the cards in between.
+# Edges only ever run between adjacent columns or inside one: the renderer
+# draws a direct curve in the wide layout, so a longer span would be routed
+# straight across the cards in between.
 
 title: "BEEBOT2 — hardware block diagram"
-subtitle: "One pack, one PC, three buses: what is bolted to the robot and what talks to what"
+subtitle: "One pack, one PC, two buses"
 
 columns:
   - id: power
@@ -19,146 +19,66 @@ columns:
   - id: bay
     label: Distribution & compute
   - id: devices
-    label: Sensors & drive electronics
+    label: Sensors & drive
   - id: actuators
     label: Actuators
 
 nodes:
   - id: pack
     column: power
-    title: Lithium pack
+    title: Lithium pack + DALY BMS
     subtitle: 24 V nominal — the only energy source on board
-    items:
-      - series string of cells
-      - feeds the drive rail directly
-
-  - id: bms
-    column: power
-    title: DALY smart BMS
-    subtitle: serial, 9600 baud
-    items:
-      - pack voltage, current, SoC, cell temps
-      - becomes sensor_msgs/BatteryState
-      - ⬜ never read against a live pack
-
-  - id: estop
-    column: bay
-    title: E-stop + drive enable
-    subtitle: hardware interlock, in series with the drive
-    items:
-      - latches until /safety/reset
-      - ⬜ not wired on the robot yet
 
   - id: dist
     column: bay
-    title: Power distribution
-    subtitle: fused drive rail + regulated rails
+    title: Distribution + E-stop
+    subtitle: fused 24 V rail, drive enable in series
     items:
-      - one heavy rail to the controller
-      - regulated rails to compute and sensors
+      - ⬜ no physical E-stop wired yet
 
   - id: pc
     column: bay
     title: PC — Ubuntu + ROS 2 Jazzy
-    subtitle: everything runs in Docker
-    items:
-      - ros2_control · diff_drive_controller
-      - EKF · slam_toolbox · AMCL · Nav2
-      - safety_monitor · twist_mux
+    subtitle: the whole stack, in Docker
 
-  - id: converter
-    column: bay
-    title: USB ↔ RS485
-    subtitle: FTDI converter
-    photo: amr/parts/usb_rs485
-    photo_alt: A blue USB-to-RS485 converter with a green screw terminal
-
-  - id: lidar_roof
+  - id: lidar
     column: devices
-    title: Roof scanner — 360°
-    subtitle: 10 Hz — mapping and localisation
+    title: LiDAR × 2
+    subtitle: 360° roof @ 10 Hz · 180° front @ 15 Hz
     items:
-      - /scan → slam_toolbox, AMCL
-      - ⬜ no driver in the workspace
-
-  - id: lidar_front
-    column: devices
-    title: Front scanner — 180°
-    subtitle: 15 Hz — safety fields
-    items:
-      - /scan_front → safety_monitor
-      - a raw scan, never a merged one
       - ⬜ no driver in the workspace
 
   - id: imu
     column: devices
-    title: IMU — MicroStrain 3DM-GX5-AHRS
-    subtitle: serial
+    title: IMU — 3DM-GX5-AHRS
+    subtitle: rotation rate + acceleration
     items:
-      - angular rate + linear acceleration
-      - fused with wheel odometry by the EKF
       - ⬜ no driver in the workspace
-
-  - id: cam
-    column: devices
-    title: RGBD camera
-    subtitle: USB
-    items:
-      - colour + depth, for the gap a 2D plane leaves
-      - ⬜ nothing in the stack depends on it yet
-
-  - id: bumper
-    column: devices
-    title: Bumper
-    subtitle: contact switch
-    items:
-      - the last line of defence
-      - latches until /safety/reset
 
   - id: md200t
     column: devices
     title: MDROBOT MD200T
-    subtitle: 2 channels, DC 12–48 V, 10 A each
+    subtitle: 2 channels, 12–48 V, 10 A each
     photo: amr/parts/md200t
     photo_alt: The MD200T two-channel BLDC controller
-    items:
-      - both wheels on one RS485 bus
-      - encoder inputs built in
 
-  - id: motor_l
+  - id: motors
     column: actuators
-    title: Motor L — channel 1
-    subtitle: ZLLG65ASM250-L — ⌀0.13 m, 24 V, 6.5 N·m
-    photo: amr/parts/bldc_wheel
-    photo_alt: A rubber-tyred BLDC hub motor
-
-  - id: motor_r
-    column: actuators
-    title: Motor R — channel 2
-    subtitle: ZLLG65ASM250-L — ⌀0.13 m, 24 V, 6.5 N·m
+    title: 2 × BLDC hub motors
+    subtitle: ZLLG65ASM250-L — ⌀0.13 m, 6.5 N·m
     photo: amr/parts/bldc_wheel
     photo_alt: A rubber-tyred BLDC hub motor
 
 edges:
-  - { from: pack,        to: bms,         kind: power,   label: "pack terminals" }
-  - { from: pack,        to: estop,       kind: power,   label: "24 V" }
-  - { from: bms,         to: pc,          kind: serial,  label: "USB · 9600 baud" }
-  - { from: estop,       to: dist,        kind: power,   label: "24 V, switched" }
-  - { from: dist,        to: pc,          kind: power,   label: "regulated DC" }
-  - { from: pc,          to: converter,   kind: serial,  label: "USB (VCP)" }
-  - { from: converter,   to: md200t,      kind: rs485,   label: "A+ / B−" }
-  - { from: dist,        to: md200t,      kind: power,   label: "24 V, drive rail" }
-  - { from: dist,        to: lidar_roof,  kind: power,   label: "regulated DC" }
-  - { from: dist,        to: lidar_front, kind: power,   label: "regulated DC" }
-  - { from: lidar_roof,  to: pc,          kind: serial,  label: "/scan" }
-  - { from: lidar_front, to: pc,          kind: serial,  label: "/scan_front" }
-  - { from: imu,         to: pc,          kind: serial,  label: "USB · /imu/data" }
-  - { from: cam,         to: pc,          kind: serial,  label: "USB" }
-  - { from: bumper,      to: estop,       kind: gnd,     label: "contact" }
-  - { from: md200t,      to: motor_l,     kind: phase,   label: "U1 / V1 / W1" }
-  - { from: md200t,      to: motor_l,     kind: encoder, label: "ENC1± / GND" }
-  - { from: md200t,      to: motor_r,     kind: phase,   label: "U2 / V2 / W2" }
-  - { from: md200t,      to: motor_r,     kind: encoder, label: "ENC2± / GND" }
+  - { from: pack,   to: dist,   kind: power,   label: "24 V" }
+  - { from: pack,   to: pc,     kind: serial,  label: "BMS · USB, 9600 baud" }
+  - { from: dist,   to: pc,     kind: power,   label: "regulated DC" }
+  - { from: dist,   to: md200t, kind: power,   label: "24 V drive rail" }
+  - { from: pc,     to: md200t, kind: rs485,   label: "USB ↔ RS485" }
+  - { from: lidar,  to: pc,     kind: serial,  label: "/scan · /scan_front" }
+  - { from: imu,    to: pc,     kind: serial,  label: "/imu/data" }
+  - { from: md200t, to: motors, kind: phase,   label: "3-phase, 2 channels" }
+  - { from: motors, to: md200t, kind: encoder, label: "encoders / hall" }
 
 legend:
   - { kind: power,   label: DC power }
@@ -166,12 +86,10 @@ legend:
   - { kind: serial,  label: USB / serial — everything else }
   - { kind: phase,   label: Motor phase (3-ph) }
   - { kind: encoder, label: Encoder / Hall }
-  - { kind: gnd,     label: Safety contact }
 
 note: >-
-  **Three buses and one PC.** The drive is the only thing on RS485; every sensor
-  reaches the PC over USB, which is why article 10 spends time on udev rules —
-  with the drive, the pack and the IMU on `ttyUSB0/1/2`, a reboot that reorders
-  them silently points the motor driver at the battery. The four ⬜ blocks are
-  hardware that exists on the robot but has no driver in the workspace yet;
-  everything downstream of them runs in simulation only.
+  **Two buses and one PC.** The drive is alone on RS485; the pack and every
+  sensor reach the PC over USB — which is why article 10 spends time on udev
+  rules, because a reboot that reorders `ttyUSB0/1/2` silently points the motor
+  driver at the battery. Not drawn: the RGBD camera and the bumper are fitted,
+  and nothing in the stack reads either of them yet.
