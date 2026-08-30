@@ -88,6 +88,18 @@ secretly hard-coded to one chassis.
 {{< callout x="57" y="86" >}}Caster — balance only, never driven{{< /callout >}}
 {{< /annotated >}}
 
+That render says where things sit. It does not say what is plugged into what,
+and on a robot that second question is the one that costs weekends. So here is
+the same six things again, as a block diagram — every device, the bus it hangs
+off, and the rail that feeds it.
+
+{{< wiring name="hardware_block" >}}
+
+Read it as three buses and one PC. The drive is alone on RS485; every sensor
+reaches the PC over USB; power leaves the pack once and splits. The four ⬜
+blocks are hardware that is on the robot and has no driver in the workspace yet
+— which is the whole reason section 6 below reads the way it does.
+
 ### Drive
 
 Two BLDC gear motors, driven by a single **MDROBOT MD200T** two-channel
@@ -208,7 +220,12 @@ about exactly that.
 > A build log that only shows the parts that worked teaches nothing. Where a real
 > failure happens in this series, it stays in — including the debugging.
 
-## 7. The road ahead
+## 7. The road ahead — four phases
+
+Twenty-two articles, in four blocks. Each block is named for what the robot can
+do once it is finished, and each one ends on a number rather than a feeling.
+
+### Phase 1 · It moves — articles 01–07
 
 | # | The robot learns to… | Article |
 |---|---|---|
@@ -218,21 +235,85 @@ about exactly that.
 | 5 | describe its own body | URDF |
 | 6 | exist in simulation | Gazebo |
 | 7 | be one robot in two worlds | A single interface |
+
+**Done when** one `/cmd_vel` turns real wheels and simulated wheels through the
+same `diff_drive_controller`, with only the hardware component swapped.
+
+### Phase 2 · It senses — articles 08–10
+
+| # | The robot learns to… | Article |
+|---|---|---|
 | 8 | feel its own motion | IMU (3DM-GX5-AHRS) |
 | 9 | see | LiDAR |
 | 10 | know its own power state | Battery / BMS |
+
+**Done when** the IMU, both scanners and the BMS publish *on hardware*, in the
+right frames, at their rated rates — and the pack reading agrees with a
+multimeter.
+
+### Phase 3 · It navigates — articles 11–16
+
+| # | The robot learns to… | Article |
+|---|---|---|
 | 11 | build a map | SLAM |
 | 12 | judge whether the map is good | Map evaluation |
 | 13 | know how it moved | Odometry + EKF |
 | 14 | know where it is | AMCL |
 | 15 | go somewhere | Nav2 planning |
 | 16 | fail, and be debugged | Navigation failures |
+
+**Done when** map median accuracy is ≤ 0.050 m, AMCL error while driving is
+≤ 0.10 m, and **more than 95 % of at least 16 benchmark goals** are reached.
+
+### Phase 4 · It works — articles 17–22
+
+| # | The robot learns to… | Article |
+|---|---|---|
 | 17 | stop before it hits something | Safety system |
 | 18 | escape its own safety system | Safety failure |
 | 19 | charge itself | Docking |
 | 20 | do a job | Payload, HMI, diagnostics |
 | 21 | be commanded from outside ROS | Robot API |
 | 22 | share a warehouse | Multi-robot |
+
+**Done when** the robot runs an unattended shift — mission in, payload moved,
+dock, charge, repeat — with a second robot working the same map.
+
+> The word "phase" appears inside later articles too, as *Phase 5*, *Phase 6*,
+> *Phase 8*. Those are the **workspace's** development phases — the codebase
+> roadmap — not these four. These four group the reading.
+
+## 8. The finish line
+
+All four phases point at one target:
+
+> **BEEBOT2 accepts a mission from a system that has never heard of ROS 2,
+> drives to a point in a warehouse it mapped itself, moves a payload, returns to
+> its dock and charges — unattended, repeatably, on real hardware, while a second
+> robot works the same aisles.**
+
+*Repeatably* and *on real hardware* are the load-bearing words, and section 6
+already showed how far away both are. Stated as things that can be checked:
+
+| The target | Threshold | Today |
+|---|---|---|
+| knows the building | map median accuracy ≤ 0.050 m | 0.150 m, simulation |
+| knows where it is | AMCL ≤ 0.10 m while driving | 0.184 m, simulation |
+| gets where it is sent | > 95 % of ≥ 16 goals | 7 / 16 = 44 %, simulation |
+| stops before it hits | speed → 0 inside the protective field | ✅ simulation |
+| cannot be trapped by its own safety | releases, and reverses out | ✅ fixed in article 18 |
+| runs a shift alone | dock, charge, resume, unattended | ⬜ not started |
+| takes orders from outside ROS 2 | mission in, status out | ⬜ not started |
+| shares the floor | two robots, one map, no deadlock | ⬜ not started |
+| **all of it on the robot** | the same numbers, off the desk | **drive only** |
+
+Two things gate everything else. There are **no sensor drivers in the
+workspace**, so every row marked *simulation* is stuck there until they exist.
+And **localisation is the binding constraint**: 0.184 m of drift while driving
+is a 0.4 m excursion in a 1.8 m aisle, which is the 44 % in row three.
+
+That is the finish line, and this is the distance to it. The next twenty-one
+articles are the attempt.
 
 ## Next
 

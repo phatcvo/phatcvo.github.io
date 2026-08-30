@@ -45,22 +45,98 @@ Every article is one step of that ladder. Each one starts from a problem the
 robot cannot yet solve, builds the smallest thing that solves it, tests it, and
 ends with the next problem.
 
-## The plan
+## The plan — four phases
 
-| Phase | Articles |
-|---|---|
-| **1 — Introduction** | 01 |
-| **2 — Drive system** | 02, 03, 04 |
-| **3 — Digital robot** | 05, 06 |
-| **4 — Simulation ↔ real** | 07 |
-| **5 — Sensing** | 08, 09 |
-| **6 — Power** | 10 |
-| **7 — Mapping** | 11, 12 |
-| **8 — Localisation** | 13, 14 |
-| **9 — Navigation** | 15, 16 |
-| **10 — Safety** | 17, 18 |
-| **11 — Service robot** | 19, 20 |
-| **12 — Fleet** | 21, 22 |
+Twenty-two articles, grouped by what the robot can do at the end of each block.
+A phase is finished when its exit criterion is met **on the robot**, not when
+its last article is published.
+
+### Phase 1 · It moves — articles 01–07
+
+From an empty workspace to a robot that exists twice: once on the bench, once in
+Gazebo, both driven through the same ROS 2 graph. Drive electronics, RS485,
+teleop, URDF, simulation, and the single hardware seam that keeps the two in
+step.
+
+> **Exit criterion.** One `/cmd_vel` turns real wheels and simulated wheels
+> through the same `diff_drive_controller`, with only the hardware component
+> swapped underneath.
+
+### Phase 2 · It senses — articles 08–10
+
+The robot starts measuring: how it is actually moving, what is around it, and
+how much energy it has left. IMU, LiDAR, and battery telemetry as first-class
+ROS 2 topics rather than debug prints.
+
+> **Exit criterion.** The IMU, both scanners and the BMS publish **on hardware**,
+> in the right TF frames, at their rated rates — and the pack reading agrees with
+> a multimeter.
+
+### Phase 3 · It navigates — articles 11–16
+
+The phase where the robot stops being driven and starts deciding. Build a map,
+prove the map is worth trusting, fuse wheel odometry with the IMU, find itself
+on a map it already has, plan a route, follow it — and measure every failure
+instead of retrying until one run looks good.
+
+> **Exit criterion.** Map median accuracy ≤ 0.050 m, AMCL position error
+> ≤ 0.10 m *while driving*, and **> 95 % of ≥ 16 benchmark goals** reached.
+
+### Phase 4 · It works — articles 17–22
+
+Everything that separates a robot that navigates from a robot you would leave
+running in a building with people in it: safety fields with real authority, a
+robot that charges itself, carries something, takes orders from software that
+has never heard of ROS 2, and shares an aisle with another robot.
+
+> **Exit criterion.** An unattended shift — mission in, payload moved, dock,
+> charge, repeat — with a second robot working the same map.
+
+| Phase | Articles | The robot goes from… | …to |
+|---|---|---|---|
+| **1 · It moves** | 01 – 07 | nothing | a body that drives, in two worlds |
+| **2 · It senses** | 08 – 10 | blind and unaware | measuring motion, space and energy |
+| **3 · It navigates** | 11 – 16 | driven | deciding its own route |
+| **4 · It works** | 17 – 22 | a demo | a machine that can be left running |
+
+> **A note on the word "phase."** Inside the articles you will also meet
+> *Phase 5*, *Phase 6*, *Phase 8* and so on. Those are the development phases of
+> the BEEBOT2 workspace — the codebase's own roadmap — not these four. The four
+> above group the reading; the numbered ones in the text track the build.
+
+## The final target
+
+Everything above points at one thing:
+
+> **BEEBOT2 accepts a mission from a system that has never heard of ROS 2,
+> drives to a point in a warehouse it mapped itself, moves a payload, returns to
+> its dock and charges — unattended, repeatably, on real hardware, while a second
+> robot works the same aisles.**
+
+Repeatably and on real hardware are the load-bearing words. In line with the one
+rule below, the target is written as numbers that can be checked, together with
+where the project actually stands against each:
+
+| What "done" means | Measured by | Target | Today |
+|---|---|---|---|
+| It knows the building | SLAM map vs. ground truth, median accuracy | ≤ 0.050 m | 0.150 m, simulation |
+| It knows where it is | AMCL error vs. truth map, driving, 16 goals | ≤ 0.10 m | 0.184 m, simulation |
+| It gets where it is sent | benchmark goals reached | > 95 % of ≥ 16 | 7 / 16 = 44 %, simulation |
+| It stops before it hits | protective stop from 0.6 m/s | speed → 0, every time | ✅ simulation |
+| Its safety cannot trap it | recovery from a protective stop | releases and reverses out | ✅ fixed in article 18 |
+| It runs a shift alone | dock, charge, resume | unattended | ⬜ not started |
+| It takes orders from outside ROS 2 | mission API round trip | mission in, status out | ⬜ not started |
+| It shares the floor | two robots, one map | no deadlock | ⬜ not started |
+| **All of the above on the robot** | the same numbers, off the desk | not simulation | **drive only** |
+
+Two things gate the rest. **There are no sensor drivers in the workspace** — no
+LiDAR, no IMU, no camera — so every row above marked *simulation* is stuck there
+until they exist. And **localisation is the binding constraint on Phase 3**: at
+0.184 m of drift while driving, a 0.4 m excursion in a 1.8 m aisle puts the
+vehicle on the racking, which is exactly the 44 % in row three.
+
+Neither is hidden, and neither is close to solved. That is the state of the
+project, and the series is written from it rather than around it.
 
 ## Who this is for
 
