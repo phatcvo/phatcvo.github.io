@@ -3,43 +3,41 @@
 
 @layer base {
   :root {
-    /* Typography — serif display for headings (the researcher's voice),
-       IBM Plex for body, UI and code (the engineer's) */
-    --f-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-    --f-display: "IBM Plex Sans Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
-    --f-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    /* Typography — Inter for text and headings, IBM Plex Mono for labels and code */
+    --f-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "Inter", "Helvetica Neue", Arial, sans-serif;
     --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-    /* Palette — warm earth neutrals with an oxblood accent and ochre highlight */
-    --bg: 239 235 227; /* #EFEBE3 sand */
-    --bg-elevated: 251 249 244; /* #FBF9F4 paper */
-    --text: 31 26 23; /* #1F1A17 ink */
-    --text-muted: 90 80 74; /* #5A504A ink-soft */
-    --border: 212 204 191; /* #D4CCBF rule */
-    --accent: 123 45 38; /* #7B2D26 oxblood */
-    --accent-hover: 94 33 28; /* #5E211C oxblood, pressed */
-    --on-accent: 251 249 244; /* paper on oxblood */
-    --ring: 123 45 38;
-    --amber: 176 124 42; /* #B07C2A ochre */
+    /* Palette — light variant of the charcoal / soft-grey / bronze-gold scheme */
+    --bg: 243 244 246; /* #F3F4F6 */
+    --bg-elevated: 255 255 255; /* #FFFFFF */
+    --text: 31 36 41; /* #1F2429 */
+    --text-muted: 91 99 108; /* #5B636C */
+    --border: 221 225 230; /* #DDE1E6 */
+    --accent: 138 106 46; /* #8A6A2E bronze, darkened for light backgrounds */
+    --accent-hover: 110 84 34; /* #6E5422 */
+    --on-accent: 255 255 255;
+    --ring: 138 106 46;
+    --amber: 176 138 70; /* #B08A46 */
     --go: 47 111 82; /* #2F6F52 status green (functional only) */
-    --shadow-1: 0 1px 2px rgba(31,26,23,0.05), 0 6px 16px rgba(31,26,23,0.05);
-    --shadow-2: 0 2px 6px rgba(31,26,23,0.09), 0 14px 30px rgba(31,26,23,0.08);
+    --shadow-1: 0 1px 2px rgba(16,20,24,0.04), 0 6px 16px rgba(16,20,24,0.04);
+    --shadow-2: 0 2px 6px rgba(16,20,24,0.08), 0 14px 30px rgba(16,20,24,0.07);
   }
 
   html.dark {
-    --bg: 21 18 15; /* #15120F */
-    --bg-elevated: 31 26 22; /* #1F1A16 */
-    --text: 238 232 223; /* #EEE8DF */
-    --text-muted: 181 171 160; /* #B5ABA0 */
-    --border: 58 50 43; /* #3A322B */
-    --accent: 224 144 127; /* #E0907F terracotta, lifted for dark */
-    --accent-hover: 237 176 162; /* #EDB0A2 */
-    --on-accent: 21 18 15; /* ink on lifted terracotta */
-    --ring: 224 144 127;
-    --amber: 217 165 78; /* #D9A54E */
+    --bg: 16 20 24; /* #101418 charcoal */
+    --bg-elevated: 22 27 33; /* #161B21 panel */
+    --text: 213 217 222; /* #D5D9DE soft grey */
+    --text-muted: 139 147 156; /* #8B939C */
+    --border: 37 44 52; /* #252C34 */
+    --accent: 201 164 92; /* #C9A45C bronze-gold */
+    --accent-hover: 219 188 126; /* #DBBC7E */
+    --on-accent: 21 18 11; /* #15120B */
+    --ring: 201 164 92;
+    --amber: 201 164 92;
     --go: 106 179 140; /* #6AB38C */
-    --shadow-1: 0 1px 2px rgba(0,0,0,0.35), 0 6px 16px rgba(0,0,0,0.28);
-    --shadow-2: 0 2px 6px rgba(0,0,0,0.45), 0 14px 30px rgba(0,0,0,0.35);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.30);
+    --shadow-2: 0 8px 24px rgba(0,0,0,0.35);
   }
 
   html {
@@ -58,9 +56,11 @@
   }
 
   h1, h2 {
-    font-family: var(--f-serif);
-    font-weight: 600;
-    letter-spacing: -0.015em;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  html.dark h1, html.dark h2, html.dark h3 {
+    color: #F2F4F6;
   }
 
   code, kbd, samp, pre {
@@ -156,16 +156,11 @@
     color: rgb(var(--accent));
   }
   .home-h1 {
-    @apply mt-2;
+    @apply mt-3 text-5xl sm:text-6xl;
+    letter-spacing: -0.03em;
   }
   .home-subhead {
     @apply mt-3 text-lg sm:text-xl text-stone-700 dark:text-stone-200;
-  }
-  .home-interests {
-    @apply mt-5 text-sm text-stone-600 dark:text-stone-300;
-  }
-  .home-interests strong {
-    @apply font-semibold text-stone-800 dark:text-stone-100;
   }
   .home-lead {
     @apply mt-4 text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-300;
@@ -204,6 +199,7 @@
 
   /* Surfaces */
   .card {
+    border-radius: 14px;
     background: rgb(var(--bg-elevated));
     border: 1px solid rgb(var(--border));
     box-shadow: var(--shadow-1);
@@ -217,6 +213,13 @@
     font-family: var(--f-display);
     letter-spacing: -0.01em;
   }
+  .card-title a {
+    color: inherit;
+  }
+  .card-title a:hover {
+    color: rgb(var(--accent));
+    text-decoration: none;
+  }
   .card-subtitle {
     @apply m-0 text-sm text-stone-600 dark:text-stone-300;
   }
@@ -229,7 +232,7 @@
 
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold no-underline;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold no-underline;
   }
   .btn-primary {
     background: rgb(var(--accent));
@@ -256,9 +259,9 @@
     font-size: 10.5px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    background: rgb(var(--accent) / 0.08);
-    color: rgb(var(--accent));
-    border: 1px solid rgb(var(--accent) / 0.30);
+    background: transparent;
+    color: rgb(var(--text-muted));
+    border: 1px solid rgb(var(--border));
   }
   .pill-link {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 hover:no-underline;
@@ -283,7 +286,7 @@
 
   /* Stats */
   .stat {
-    @apply block border border-stone-200 dark:border-stone-800 p-3 hover:no-underline hover:bg-stone-50 dark:hover:bg-stone-950;
+    @apply block border border-stone-200 dark:border-stone-800 p-3 rounded-[10px] hover:no-underline hover:bg-stone-50 dark:hover:bg-stone-950;
   }
   .stat-k {
     @apply m-0 text-stone-500 dark:text-stone-400;
@@ -293,7 +296,7 @@
     text-transform: uppercase;
   }
   .stat-v {
-    @apply m-0 text-base font-bold text-stone-900 dark:text-stone-50;
+    @apply m-0 text-lg font-bold whitespace-nowrap text-stone-900 dark:text-stone-50;
     font-family: var(--f-display);
   }
 

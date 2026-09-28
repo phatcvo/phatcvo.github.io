@@ -33,10 +33,10 @@
   </div>
 
   <div class="md:col-span-4">
-    <div class="card p-5">
+    <div class="card p-6">
       <div class="flex items-center gap-4">
         <img
-          class="h-16 w-16 object-cover"
+          class="h-16 w-16 rounded-xl object-cover"
           src="{{ `images` | relURL }}/{{ .Site.Params.profile.photo }}"
           alt="{{ .Site.Params.profile.name | default .Site.Params.author }}"
           width="128"
@@ -51,25 +51,24 @@
         </div>
       </div>
 
-      <div class="mt-5 grid grid-cols-2 gap-3">
+      <div class="mt-5 grid grid-cols-3 gap-2.5">
         <a class="stat" href="#experience">
           <p class="stat-k">Experience</p>
           <p class="stat-v">10+ yrs</p>
         </a>
         <a class="stat" href="#education">
-          <p class="stat-k">Doctorate</p>
-          <p class="stat-v">Ph.D. 2021</p>
+          <p class="stat-k">Degree</p>
+          <p class="stat-v">Ph.D.</p>
+        </a>
+        <a class="stat" href="#projects">
+          <p class="stat-k">Focus</p>
+          <p class="stat-v">AMR</p>
         </a>
       </div>
 
-      {{ with .Site.Params.profile.interests }}
-        <div class="mt-5 border-t border-stone-200 dark:border-stone-800 pt-4">
-          <p class="stat-k">Research interests</p>
-          <ul class="mt-2 space-y-1 text-sm text-stone-700 dark:text-stone-200 list-none p-0">
-            {{ range . }}<li>{{ . }}</li>{{ end }}
-          </ul>
-        </div>
-      {{ end }}
+      <p class="mt-5 mb-0 border-t border-stone-200 dark:border-stone-800 pt-4 text-sm text-stone-600 dark:text-stone-400">
+        Based on industry deployments + academic research in fleet coordination, planning and control.
+      </p>
     </div>
   </div>
 </section>

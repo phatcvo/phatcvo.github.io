@@ -37,7 +37,6 @@ params:
     location: "Autonomous Mobility · Robotics"
     photo: profile.jpg
     summary: "I design fleet management and motion planning systems that take autonomous mobile robots from simulation to real-world deployment — grounded in doctoral and postdoctoral research in robust control, model predictive control, and reinforcement learning."
-    interests: [Motion & Behavior Planning, Multi-Robot Coordination, Model Predictive Control, Reinforcement Learning, Human-Robot Interaction]
   wakatime:
     chart:
       light: "https://wakatime.com/share/@phatcvo/3448f2e6-dcc5-42e8-803d-ff693904bcfa.svg"

@@ -1,22 +1,22 @@
 /*
- * The `stone` ramp is remapped onto the site's warm earth palette
- * (paper #FBF9F4 → sand #EFEBE3 → rule #D4CCBF → ink-soft #5A504A → ink #1F1A17).
+ * The `stone` ramp is remapped onto the site's cool charcoal / soft-grey palette
+ * (white → #F3F4F6 → rule #DDE1E6 → muted #8B939C → panel #161B21 → charcoal #101418).
  * Layouts already use stone-* utilities everywhere, so overriding the ramp
  * recolours the whole site from one place. Accent colours live as CSS custom
  * properties in assets/main.css (--accent / --amber / --go).
  */
 const stone = {
-  50: "#FBF9F4", // paper
-  100: "#F4F0E8",
-  200: "#E6E0D5", // sand, deeper
-  300: "#D4CCBF", // rule
-  400: "#ADA398",
-  500: "#83786F",
-  600: "#5A504A", // ink-soft
-  700: "#463D38",
-  800: "#322B26",
-  900: "#231E1A",
-  950: "#15120F",
+  50: "#F7F8F9",
+  100: "#ECEEF1",
+  200: "#DDE1E6", // rule
+  300: "#C3C9D0",
+  400: "#8B939C", // muted (dark)
+  500: "#6B737C",
+  600: "#4F5760",
+  700: "#353C44",
+  800: "#252C34", // rule (dark)
+  900: "#161B21", // panel
+  950: "#101418", // charcoal
 };
 
 /*
@@ -45,8 +45,8 @@ const proseTokens = (() => {
     captions: "rgb(var(--text-muted))",
     kbd: "rgb(var(--text))",
     code: "rgb(var(--text))",
-    "pre-code": "#EEE8DF", // paper, dimmed
-    "pre-bg": "#1F1A17", // ink
+    "pre-code": "#D5D9DE", // soft grey
+    "pre-bg": "#0B0E11", // below charcoal
     "th-borders": "rgb(var(--border))",
     "td-borders": "rgb(var(--border))",
   };
@@ -75,19 +75,14 @@ module.exports = {
     extend: {
       colors: {
         stone,
-        ink: "#1F1A17",
-        "ink-soft": "#5A504A",
-        paper: "#FBF9F4",
-        sand: "#EFEBE3",
-        rule: "#D4CCBF",
-        oxblood: "#7B2D26",
-        ochre: "#B07C2A",
+        charcoal: "#101418",
+        panel: "#161B21",
+        bronze: "#C9A45C",
         go: "#2F6F52",
       },
       fontFamily: {
-        sans: ['"IBM Plex Sans"', '"Helvetica Neue"', "Arial", "sans-serif"],
-        serif: ['"Source Serif 4"', "Georgia", '"Times New Roman"', "serif"],
-        display: ['"IBM Plex Sans Condensed"', '"Helvetica Neue"', '"Arial Narrow"', "sans-serif"],
+        sans: ['"Inter"', '"Helvetica Neue"', "Arial", "sans-serif"],
+        display: ['"Inter"', '"Helvetica Neue"', "Arial", "sans-serif"],
         mono: ['"IBM Plex Mono"', "ui-monospace", '"SF Mono"', "Menlo", "monospace"],
       },
       backgroundColor: (theme) => ({
