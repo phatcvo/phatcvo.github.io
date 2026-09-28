@@ -3,38 +3,40 @@
 
 @layer base {
   :root {
-    /* Typography — IBM Plex, matching the TR-FMS report */
+    /* Typography — serif display for headings (the researcher's voice),
+       IBM Plex for body, UI and code (the engineer's) */
+    --f-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
     --f-display: "IBM Plex Sans Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
     --f-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
     --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-    /* Palette — TR-FMS report: concrete / paper / ink / teal / amber */
-    --bg: 230 228 222; /* #E6E4DE concrete */
-    --bg-elevated: 251 250 247; /* #FBFAF7 paper */
-    --text: 23 31 29; /* #171F1D ink */
-    --text-muted: 76 87 84; /* #4C5754 ink-soft */
-    --border: 201 197 187; /* #C9C5BB rule */
-    --accent: 14 79 74; /* #0E4F4A teal */
-    --accent-hover: 9 56 52; /* #093834 teal, pressed */
-    --on-accent: 251 250 247; /* paper on teal */
-    --ring: 14 79 74;
-    --amber: 200 128 27; /* #C8801B */
-    --go: 47 111 82; /* #2F6F52 */
-    --shadow-1: 0 1px 2px rgba(23,31,29,0.05), 0 6px 16px rgba(23,31,29,0.05);
-    --shadow-2: 0 2px 6px rgba(23,31,29,0.09), 0 14px 30px rgba(23,31,29,0.08);
+    /* Palette — warm earth neutrals with an oxblood accent and ochre highlight */
+    --bg: 239 235 227; /* #EFEBE3 sand */
+    --bg-elevated: 251 249 244; /* #FBF9F4 paper */
+    --text: 31 26 23; /* #1F1A17 ink */
+    --text-muted: 90 80 74; /* #5A504A ink-soft */
+    --border: 212 204 191; /* #D4CCBF rule */
+    --accent: 123 45 38; /* #7B2D26 oxblood */
+    --accent-hover: 94 33 28; /* #5E211C oxblood, pressed */
+    --on-accent: 251 249 244; /* paper on oxblood */
+    --ring: 123 45 38;
+    --amber: 176 124 42; /* #B07C2A ochre */
+    --go: 47 111 82; /* #2F6F52 status green (functional only) */
+    --shadow-1: 0 1px 2px rgba(31,26,23,0.05), 0 6px 16px rgba(31,26,23,0.05);
+    --shadow-2: 0 2px 6px rgba(31,26,23,0.09), 0 14px 30px rgba(31,26,23,0.08);
   }
 
   html.dark {
-    --bg: 18 25 23; /* #121917 */
-    --bg-elevated: 27 36 34; /* #1B2422 */
-    --text: 237 235 228; /* #EDEBE4 */
-    --text-muted: 176 181 174; /* #B0B5AE */
-    --border: 51 62 59; /* #333E3B */
-    --accent: 95 181 166; /* #5FB5A6 teal, lifted for dark */
-    --accent-hover: 134 203 190; /* #86CBBE */
-    --on-accent: 18 25 23; /* ink on lifted teal */
-    --ring: 95 181 166;
-    --amber: 224 165 74; /* #E0A54A */
+    --bg: 21 18 15; /* #15120F */
+    --bg-elevated: 31 26 22; /* #1F1A16 */
+    --text: 238 232 223; /* #EEE8DF */
+    --text-muted: 181 171 160; /* #B5ABA0 */
+    --border: 58 50 43; /* #3A322B */
+    --accent: 224 144 127; /* #E0907F terracotta, lifted for dark */
+    --accent-hover: 237 176 162; /* #EDB0A2 */
+    --on-accent: 21 18 15; /* ink on lifted terracotta */
+    --ring: 224 144 127;
+    --amber: 217 165 78; /* #D9A54E */
     --go: 106 179 140; /* #6AB38C */
     --shadow-1: 0 1px 2px rgba(0,0,0,0.35), 0 6px 16px rgba(0,0,0,0.28);
     --shadow-2: 0 2px 6px rgba(0,0,0,0.45), 0 14px 30px rgba(0,0,0,0.35);
@@ -53,6 +55,12 @@
   h1, h2, h3, h4 {
     font-family: var(--f-display);
     letter-spacing: -0.01em;
+  }
+
+  h1, h2 {
+    font-family: var(--f-serif);
+    font-weight: 600;
+    letter-spacing: -0.015em;
   }
 
   code, kbd, samp, pre {
@@ -153,6 +161,12 @@
   .home-subhead {
     @apply mt-3 text-lg sm:text-xl text-stone-700 dark:text-stone-200;
   }
+  .home-interests {
+    @apply mt-5 text-sm text-stone-600 dark:text-stone-300;
+  }
+  .home-interests strong {
+    @apply font-semibold text-stone-800 dark:text-stone-100;
+  }
   .home-lead {
     @apply mt-4 text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-300;
   }
@@ -165,12 +179,21 @@
     @apply mb-4 sm:mb-6;
   }
   .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: var(--f-mono);
     font-size: 10.5px;
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: rgb(var(--accent));
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: rgb(var(--amber));
   }
   .section-title {
     @apply mt-2;

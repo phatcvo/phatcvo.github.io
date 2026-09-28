@@ -1,13 +1,13 @@
 <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start" data-reveal>
   <div class="md:col-span-8">
-    <p class="eyebrow">Robotics · Autonomous Systems</p>
+    <p class="eyebrow">Ph.D. · Robotics &amp; Autonomous Systems</p>
     <h1 class="home-h1">{{ .Site.Params.profile.name | default .Site.Params.author }}</h1>
 
     {{ $headline := .Site.Params.profile.tagline | default "Principal Robotics Engineer — Fleet Coordination, Motion Planning" }}
     <p class="home-subhead">{{ $headline }}</p>
 
     <p class="home-lead">
-      {{ .Site.Params.aboutme.description | plainify | truncate 260 }}
+      {{ with .Site.Params.profile.summary }}{{ . }}{{ else }}{{ .Site.Params.aboutme.description | plainify | truncate 260 }}{{ end }}
     </p>
 
     <div class="mt-6 flex flex-wrap gap-2">
@@ -23,8 +23,8 @@
 
     <div class="mt-8 flex flex-wrap gap-3">
       <a class="btn btn-primary" href="#projects">View projects</a>
+      <a class="btn btn-secondary" href="#publications">Publications</a>
       <a class="btn btn-secondary" href="#contact">Contact</a>
-      <a class="btn btn-secondary" href="{{ `blog` | relURL }}">Read writing</a>
     </div>
 
     <div class="mt-8">
@@ -56,15 +56,20 @@
           <p class="stat-k">Experience</p>
           <p class="stat-v">10+ yrs</p>
         </a>
-        <a class="stat" href="#projects">
-          <p class="stat-k">Focus</p>
-          <p class="stat-v">Robotics</p>
+        <a class="stat" href="#education">
+          <p class="stat-k">Doctorate</p>
+          <p class="stat-v">Ph.D. 2021</p>
         </a>
       </div>
 
-      <p class="mt-5 text-sm text-stone-600 dark:text-stone-300">
-        Based on industry deployments + academic research in planning, control, and uncertainty.
-      </p>
+      {{ with .Site.Params.profile.interests }}
+        <div class="mt-5 border-t border-stone-200 dark:border-stone-800 pt-4">
+          <p class="stat-k">Research interests</p>
+          <ul class="mt-2 space-y-1 text-sm text-stone-700 dark:text-stone-200 list-none p-0">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </div>
+      {{ end }}
     </div>
   </div>
 </section>
