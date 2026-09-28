@@ -2,31 +2,14 @@
   <header class="section-header">
     <p class="section-eyebrow">Publications</p>
     <h2 class="section-title">Research footprint</h2>
-    <p class="section-desc">Selected papers on motion planning, robust control, and safe autonomous driving.</p>
+    <p class="section-desc">Profiles and publication indexes.</p>
   </header>
-
-  {{ with .Site.Params.publication.selected }}
-    <ol class="card divide-y divide-stone-200 dark:divide-stone-800 list-none p-0 m-0 mb-4">
-      {{ range . }}
-        <li class="pub">
-          <p class="pub-year">{{ .year }}</p>
-          <div>
-            <h3 class="pub-title">
-              {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
-            </h3>
-            {{ with .authors }}<p class="pub-authors">{{ replace . "Cong Phat Vo" "<strong>Cong Phat Vo</strong>" | safeHTML }}</p>{{ end }}
-            <p class="pub-venue">{{ .venue }}</p>
-          </div>
-        </li>
-      {{ end }}
-    </ol>
-  {{ end }}
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     {{ range .Site.Params.publication.list }}
       <a class="card p-6 hover:no-underline" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
         <p class="card-title">{{ .site }}</p>
-        <p class="card-subtitle">Full publication list</p>
+        <p class="card-subtitle">View profile</p>
       </a>
     {{ end }}
   </div>

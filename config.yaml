@@ -160,22 +160,6 @@ params:
   publication:
     title: Publications
     icon: fas fa-book
-    selected:
-      - title: "Efficient Motion Planning With Minimax Objectives: Synergizing Interval Prediction and Tree-Based Planning"
-        authors: "Cong Phat Vo, Philjoon Jung, Tae-Hyun Kim, Jeong hwan Jeon"
-        venue: "IEEE journal"
-        year: 2024
-        url: "https://ieeexplore.ieee.org/abstract/document/10466533"
-      - title: "An Integrated Motion Planning Scheme for Safe Autonomous Vehicles in Highly Dynamic Environments"
-        authors: "Cong Phat Vo, Jeong hwan Jeon"
-        venue: "Electronics (MDPI), vol. 12, no. 7, art. 1566"
-        year: 2023
-        url: "https://www.mdpi.com/2079-9292/12/7/1566"
-      - title: "Robust Adaptive Path Tracking Control Scheme for Safe Autonomous Driving via Predicted Interval Algorithm"
-        authors: ""
-        venue: "IEEE Access"
-        year: 2022
-        url: "https://ieeexplore.ieee.org/abstract/document/9963947"
     list:
       - site: Google Scholar
         url: "https://scholar.google.com/citations?user=VMidGa4AAAAJ&hl=en"
