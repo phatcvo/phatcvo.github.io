@@ -4,16 +4,16 @@
       <a href="{{ .Site.BaseURL }}" class="font-semibold tracking-tight text-stone-900 dark:text-stone-50 hover:no-underline">
         {{ .Site.Params.profile.name | default .Site.Params.author }}
       </a>
-      <span class="hidden sm:inline text-sm text-stone-500 dark:text-stone-400">Robotics • Autonomous Systems</span>
+      <span class="hidden sm:inline text-sm text-stone-500 dark:text-stone-400">Robotics Engineer · Researcher</span>
     </div>
 
     <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
       {{ if .IsHome }}
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#experience">Experience</a>
-        <a class="nav-link" href="#education">Education</a>
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#education">Education</a>
         <a class="nav-link" href="#skills">Skills</a>
         <a class="nav-link" href="#contact">Contact</a>
         <a class="nav-link" href="{{ `blog` | relURL }}">Writing</a>
@@ -39,9 +39,9 @@
           {{ if .IsHome }}
             <a class="mobile-nav-link" href="#about">About</a>
             <a class="mobile-nav-link" href="#experience">Experience</a>
-            <a class="mobile-nav-link" href="#education">Education</a>
             <a class="mobile-nav-link" href="#projects">Projects</a>
             <a class="mobile-nav-link" href="#publications">Publications</a>
+            <a class="mobile-nav-link" href="#education">Education</a>
             <a class="mobile-nav-link" href="#skills">Skills</a>
             <a class="mobile-nav-link" href="#contact">Contact</a>
             <div class="my-1 border-t border-stone-200 dark:border-stone-800"></div>

@@ -1,4 +1,4 @@
-<div class="flex flex-wrap justify-center gap-2">
+<div class="flex flex-wrap gap-2">
   {{ range .Site.Params.social.list }}
     {{ $raw := .id | default (replaceRE `^.*fa-` `` (.icon | default "")) }}
     {{ $id := cond (eq $raw "linkedin-in") "linkedin" $raw }}
