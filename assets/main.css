@@ -227,6 +227,42 @@
     letter-spacing: 0.05em;
   }
 
+  /* Publications */
+  .pub {
+    @apply grid gap-1 sm:gap-6 p-5 sm:p-6;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .pub { grid-template-columns: 4rem 1fr; }
+  }
+  .pub-year {
+    @apply m-0 font-semibold;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgb(var(--amber));
+  }
+  .pub-title {
+    @apply m-0 text-base sm:text-lg leading-snug;
+    font-family: var(--f-serif);
+    font-weight: 600;
+  }
+  .pub-title a {
+    color: rgb(var(--text));
+  }
+  .pub-title a:hover {
+    color: rgb(var(--accent));
+  }
+  .pub-authors {
+    @apply m-0 mt-1 text-sm text-stone-600 dark:text-stone-300;
+  }
+  .pub-authors strong {
+    @apply font-semibold text-stone-900 dark:text-stone-50;
+  }
+  .pub-venue {
+    @apply m-0 mt-0.5 text-sm italic text-stone-500 dark:text-stone-400;
+  }
+
   /* Buttons */
   .btn {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold no-underline;
