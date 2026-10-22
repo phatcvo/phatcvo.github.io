@@ -33,7 +33,7 @@ params:
 
   profile:
     name: "Phat C. Vo"
-    tagline: "Principal Robotics Engineer — Fleet Coordination, Motion Planning"
+    tagline: "Senior Staff Robotics Engineer — Fleet Coordination, Motion Planning"
     location: "Autonomous Mobility · Robotics"
     photo: profile.jpg
     summary: "I design fleet management and motion planning systems that take autonomous mobile robots from simulation to real-world deployment — grounded in doctoral and postdoctoral research in robust control, model predictive control, and reinforcement learning."
@@ -79,7 +79,7 @@ params:
     title: Experiences
     icon: fas fa-briefcase
     list:
-      - position: Principal Robotics Engineer | Fleet Systems & Coordination
+      - position: Senior Staff Robotics Engineer | Fleet Systems & Coordination
         dates: Jan. 2026 - *Present*
         url: "https://www.t-robotics.net/"
         company: T-Robotics Co., Ltd
