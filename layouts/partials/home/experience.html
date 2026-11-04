@@ -6,7 +6,7 @@
   </header>
 
   <div class="space-y-4">
-    {{ range $index, $role := .Site.Params.experience.list }}
+    {{ range $role := .Site.Params.experience.list }}
       <article class="card p-6">
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
           <div>
@@ -19,18 +19,12 @@
         </div>
 
         {{ with $role.details }}
-          {{ if lt $index 2 }}
-            <div class="mt-4 prose prose-stone dark:prose-invert max-w-none">
+          <details class="details mt-4">
+            <summary class="details-summary">Read details</summary>
+            <div class="mt-3 prose prose-stone dark:prose-invert max-w-none">
               {{ . | markdownify }}
             </div>
-          {{ else }}
-            <details class="details mt-4">
-              <summary class="details-summary">Read details</summary>
-              <div class="mt-3 prose prose-stone dark:prose-invert max-w-none">
-                {{ . | markdownify }}
-              </div>
-            </details>
-          {{ end }}
+          </details>
         {{ end }}
       </article>
     {{ end }}

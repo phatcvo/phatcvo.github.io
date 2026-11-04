@@ -8,7 +8,7 @@
       {{ partial "header" . }}
     {{ end }}
 
-    <main id="main-content" class="flex-1">
+    <main id="main-content" class="flex-1"{{ if or .IsHome .IsPage (eq .Section "blog") }} data-pagefind-body{{ end }}>
       {{ if or .IsHome (eq .Section "blog") }}
         {{/* Home and blog pages set their own width in their templates. */}}
         {{- block "main" . }}{{- end }}

@@ -1,25 +1,36 @@
-### Local Development
+# Phat C. Vo
 
-The repository functions as a complete Hugo site out of the box. To run it locally:
+Source for [phatcvo.github.io](https://phatcvo.github.io/), my portfolio and technical writing on robotics, motion planning, and fleet coordination.
+
+The site covers my experience, projects, and publications, plus long-form series on building an autonomous mobile robot, model predictive control, deep reinforcement learning, and robot dynamics.
+
+## Stack
+
+- [Hugo](https://gohugo.io/) (extended, 0.128.0) for the site build
+- [Tailwind CSS](https://tailwindcss.com/) v4 for styling
+- [Pagefind](https://pagefind.app/) for static search
+- GitHub Actions and GitHub Pages for deployment
+
+## Run locally
 
 ```sh
-# Install dependencies
 npm install
-
-# Start the development server
 hugo server
 ```
 
-### Getting Started
-
-#### Configuration (`config.yaml`)
-
-Customize the site by modifying the [`config.yaml`](https://github.com/phatcvo/phatcvo.github.io/blob/main/config.yaml).
-
-### Deployment
-
-This theme supports search functionality using [Pagefind](https://pagefind.app/). Before deploying, index your content using the following command:
+Search needs an index, which `hugo server` does not build. To try it locally:
 
 ```sh
-hugo && npx -y pagefind --site public
+hugo
+npx -y pagefind --site public --serve
 ```
+
+## Update content
+
+- Profile, experience, projects, and links: [`config.yaml`](config.yaml)
+- Articles and series: [`content/blog/`](content/blog/)
+- After adding or replacing a project image, regenerate the thumbnails with `python3 scripts/make-thumbs.py` (requires Pillow).
+
+## Deployment
+
+Every push to `main` builds the site and search index and publishes them to GitHub Pages through [`.github/workflows/hugo.yml`](.github/workflows/hugo.yml).

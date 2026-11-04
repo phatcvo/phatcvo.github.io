@@ -37,3 +37,15 @@
 .pagefind-ui__result-title a:hover {
   text-decoration: underline;
 }
+
+.pagefind-ui__result-excerpt,
+.pagefind-ui__result-inner {
+  overflow-wrap: anywhere;
+}
+
+.pagefind-ui__result mark {
+  background: rgb(var(--accent) / 0.22);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+}
