@@ -84,18 +84,18 @@
     outline-offset: 3px;
   }
 
-  [data-reveal] {
+  html.js [data-reveal] {
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 500ms ease, transform 500ms ease;
   }
-  .reveal-in {
+  html.js .reveal-in {
     opacity: 1;
     transform: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    [data-reveal] {
+    html.js [data-reveal] {
       opacity: 1;
       transform: none;
       transition: none;
@@ -121,13 +121,20 @@
 @layer components {
   /* Navigation */
   .nav-link {
-    @apply px-3 py-2 rounded-lg text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 hover:no-underline;
+    @apply inline-flex items-center min-h-11 px-3 rounded-lg text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 hover:no-underline;
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+  .nav-link[aria-current] {
+    color: rgb(var(--accent));
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
   }
   .mobile-nav-link {
-    @apply block px-3 py-2 rounded-lg text-sm text-stone-800 dark:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-800 hover:no-underline;
+    @apply flex items-center min-h-11 px-3 rounded-lg text-sm text-stone-800 dark:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-800 hover:no-underline;
   }
   .icon-btn {
-    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900;
+    @apply inline-flex items-center justify-center gap-2 min-h-11 min-w-11 px-3 rounded-lg text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900;
   }
 
   /* Skip link */
@@ -178,7 +185,7 @@
     align-items: center;
     gap: 10px;
     font-family: var(--f-mono);
-    font-size: 10.5px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -226,13 +233,14 @@
   .card-meta {
     @apply m-0 text-stone-500 dark:text-stone-400;
     font-family: var(--f-mono);
-    font-size: 11.5px;
+    font-size: 12px;
     letter-spacing: 0.05em;
   }
 
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold no-underline;
+    @apply inline-flex items-center justify-center gap-2 min-h-11 px-4 rounded-lg text-sm font-semibold no-underline;
+    transition: color 150ms ease, background-color 150ms ease;
   }
   .btn-primary {
     background: rgb(var(--accent));
@@ -256,7 +264,7 @@
   .badge {
     @apply inline-flex items-center px-3 py-1 rounded-full font-medium;
     font-family: var(--f-mono);
-    font-size: 10.5px;
+    font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     background: transparent;
@@ -268,8 +276,11 @@
   }
 
   /* Details */
+  .project-image {
+    @apply w-full object-cover;
+  }
   .details {
-    @apply border border-stone-200 dark:border-stone-800 p-3;
+    @apply rounded-lg border border-stone-200 dark:border-stone-800 p-3;
     background: rgba(0,0,0,0.02);
   }
   html.dark .details {
@@ -277,6 +288,15 @@
   }
   .details-summary {
     @apply cursor-pointer text-sm font-semibold text-stone-800 dark:text-stone-100;
+  }
+  @media (max-width: 767px), (pointer: coarse) {
+    .details-summary {
+      @apply flex items-center gap-2 min-h-11;
+    }
+    .pill-link,
+    .social-chip {
+      @apply min-h-11;
+    }
   }
 
   /* Social */
@@ -291,8 +311,8 @@
   .stat-k {
     @apply m-0 text-stone-500 dark:text-stone-400;
     font-family: var(--f-mono);
-    font-size: 9.5px;
-    letter-spacing: 0.13em;
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
   .stat-v {

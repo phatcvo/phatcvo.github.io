@@ -131,7 +131,6 @@ params:
 
       - position: Technical Engineer & Graduate Researcher
         dates: Sept. 2012 – Jun. 2016
-        url: "#"
         company: Ho Chi Minh City University of Technology and Education (UTE)
         details: |1-
           - Designed and deployed embedded control systems for automated parking and industrial production lines.
@@ -171,7 +170,7 @@ params:
     icon: fas fa-project-diagram
     list:
       - title: Fleet Management System (FMS) for AMRs
-        url: "#"
+        featured: true
         image: "images/projects/FMS.jpg"
         summary: Fleet-scale autonomy with dispatching, traffic/deadlock logic, and multi-robot coordination.
         stack:
@@ -200,6 +199,7 @@ params:
           - Monitoring and Visualization: Collaborated with the front-end team to integrate a web-based dashboard that supports real-time, bidirectional messaging and logging database. It provides live updates on robot statuses, and task progress, enabling operators to remotely supervise the entire fleet.
 
       - title: BEEBOT2 — Building an AMR from Zero
+        featured: true
         url: "/blog/amr/"
         image: "images/amr/robot_design_3view.png"
         link: "https://www.youtube.com/@phatcvo-beelab"

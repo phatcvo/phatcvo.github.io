@@ -1,0 +1,92 @@
+{{- $p := .project -}}
+{{- $featured := .featured -}}
+{{- $isGif := and $p.image (strings.HasSuffix $p.image ".gif") -}}
+{{- $stack := $p.stack | default slice -}}
+{{- $shownTags := cond $featured $stack (first 4 $stack) -}}
+{{- $moreTags := cond $featured slice (after 4 $stack | default slice) -}}
+{{- $inDetails := or $p.description (and (not $featured) (or $p.highlights $moreTags)) $isGif -}}
+
+<article class="card overflow-hidden flex flex-col">
+  {{ with $p.image }}
+    {{ $thumb := printf "images/projects/thumbs/%s.webp" (path.BaseName .) }}
+    {{ $src := cond (fileExists (printf "static/%s" $thumb)) $thumb . }}
+    {{ $size := imageConfig (printf "static/%s" $src) }}
+    <img
+      src="{{ $src | relURL }}"
+      alt="{{ $p.title }} preview"
+      class="project-image {{ if $featured }}h-56{{ else }}h-32 sm:h-40{{ end }}"
+      width="{{ $size.Width }}"
+      height="{{ $size.Height }}"
+      loading="lazy"
+      decoding="async"
+    />
+  {{ end }}
+
+  <div class="p-6 flex flex-col flex-1">
+    <h3 class="card-title">
+      {{ if $p.url }}<a href="{{ $p.url }}">{{ $p.title }}</a>{{ else }}{{ $p.title }}{{ end }}
+    </h3>
+
+    <p class="mt-2 text-sm text-stone-600 dark:text-stone-300{{ if not $featured }} line-clamp-3{{ end }}">
+      {{ $p.summary | default ($p.description | plainify | truncate 180) }}
+    </p>
+
+    {{ with $shownTags }}
+      <div class="mt-4 flex flex-wrap gap-2">
+        {{ range . }}<span class="badge">{{ . }}</span>{{ end }}
+      </div>
+    {{ end }}
+
+    {{ if and $featured $p.highlights }}
+      <ul class="mt-4 pl-5 list-disc text-sm text-stone-700 dark:text-stone-200">
+        {{ range $p.highlights }}<li class="my-1">{{ . }}</li>{{ end }}
+      </ul>
+    {{ end }}
+
+    <div class="mt-auto pt-4 space-y-3">
+      {{ if or $p.source $p.link }}
+        <div class="flex flex-wrap gap-2">
+          {{ with $p.source }}<a class="pill-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">Source</a>{{ end }}
+          {{ with $p.link }}<a class="pill-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">Link</a>{{ end }}
+        </div>
+      {{ end }}
+
+      {{ if $inDetails }}
+        <details class="details">
+          <summary class="details-summary">Read details</summary>
+          <div class="mt-3 space-y-4">
+            {{ if $isGif }}
+              {{/* site.js swaps in the GIF on first open. Closed details do not stop a lazy image loading. */}}
+              <img
+                src="{{ printf "images/projects/thumbs/%s.webp" (path.BaseName $p.image) | relURL }}"
+                data-animated-src="{{ $p.image | relURL }}"
+                alt="{{ $p.title }} demo"
+                class="w-full h-auto rounded-lg"
+                loading="lazy"
+                decoding="async"
+              />
+            {{ end }}
+
+            {{ with $moreTags }}
+              <div class="flex flex-wrap gap-2">
+                {{ range . }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
+            {{ end }}
+
+            {{ if and (not $featured) $p.highlights }}
+              <ul class="m-0 pl-5 list-disc text-sm text-stone-700 dark:text-stone-200">
+                {{ range $p.highlights }}<li class="my-1">{{ . }}</li>{{ end }}
+              </ul>
+            {{ end }}
+
+            {{ with $p.description }}
+              <div class="prose prose-stone dark:prose-invert max-w-none">
+                {{ . | markdownify }}
+              </div>
+            {{ end }}
+          </div>
+        </details>
+      {{ end }}
+    </div>
+  </div>
+</article>

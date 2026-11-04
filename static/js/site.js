@@ -124,6 +124,81 @@
     revealEls.forEach((el) => io.observe(el));
   };
 
+  const initScrollSpy = () => {
+    const links = Array.from(document.querySelectorAll('header .nav-link[href^="#"]'));
+    const sections = Array.from(document.querySelectorAll("main section[id]"));
+    const footer = document.querySelector("body > footer");
+    if (!links.length || !sections.length) return;
+
+    const update = () => {
+      const line = window.innerHeight * 0.35;
+      let current = "";
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= line) current = section.id;
+      }
+      // Contact can be too short to reach the line on a tall screen.
+      if (footer && footer.getBoundingClientRect().top < window.innerHeight) current = "contact";
+
+      for (const link of links) {
+        if (link.getAttribute("href") === `#${current}`) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      }
+    };
+
+    let queued = false;
+    const queue = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        update();
+      });
+    };
+
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    update();
+  };
+
+  const initAnimatedDemos = () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    // toggle does not bubble, so listen in the capture phase.
+    document.addEventListener(
+      "toggle",
+      (e) => {
+        if (!e.target.open || reduceMotion.matches) return;
+        for (const img of e.target.querySelectorAll("img[data-animated-src]")) {
+          img.src = img.dataset.animatedSrc;
+          img.removeAttribute("data-animated-src");
+        }
+      },
+      true
+    );
+  };
+
+  const initMobileMenu = () => {
+    const menu = document.querySelector("[data-mobile-menu]");
+    if (!menu) return;
+    const summary = menu.querySelector("summary");
+
+    menu.addEventListener("click", (e) => {
+      if (e.target.closest("a")) menu.open = false;
+    });
+    document.addEventListener("click", (e) => {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        summary.focus();
+      }
+    });
+  };
+
   initWakatime();
   initReveal();
+  initScrollSpy();
+  initAnimatedDemos();
+  initMobileMenu();
 })();

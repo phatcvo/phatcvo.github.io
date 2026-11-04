@@ -6,22 +6,31 @@
   </header>
 
   <div class="space-y-4">
-    {{ range .Site.Params.experience.list }}
+    {{ range $index, $role := .Site.Params.experience.list }}
       <article class="card p-6">
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
           <div>
-            <h3 class="card-title">{{ .position }}</h3>
+            <h3 class="card-title">{{ $role.position }}</h3>
             <p class="card-subtitle">
-              {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .company }}</a>{{ else }}{{ .company }}{{ end }}
+              {{ if $role.url }}<a href="{{ $role.url }}" target="_blank" rel="noopener noreferrer">{{ $role.company }}</a>{{ else }}{{ $role.company }}{{ end }}
             </p>
           </div>
-          <p class="card-meta">{{ .dates | markdownify }}</p>
+          <p class="card-meta sm:whitespace-nowrap">{{ $role.dates | markdownify }}</p>
         </div>
 
-        {{ if .details }}
-          <div class="mt-4 prose prose-stone dark:prose-invert max-w-none">
-            {{ .details | markdownify }}
-          </div>
+        {{ with $role.details }}
+          {{ if lt $index 2 }}
+            <div class="mt-4 prose prose-stone dark:prose-invert max-w-none">
+              {{ . | markdownify }}
+            </div>
+          {{ else }}
+            <details class="details mt-4">
+              <summary class="details-summary">Read details</summary>
+              <div class="mt-3 prose prose-stone dark:prose-invert max-w-none">
+                {{ . | markdownify }}
+              </div>
+            </details>
+          {{ end }}
         {{ end }}
       </article>
     {{ end }}

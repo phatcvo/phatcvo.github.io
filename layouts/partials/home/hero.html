@@ -1,5 +1,5 @@
-<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start" data-reveal>
-  <div class="md:col-span-8">
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" data-reveal>
+  <div class="lg:col-span-8">
     <p class="eyebrow">Ph.D. · Robotics &amp; Autonomous Systems</p>
     <h1 class="home-h1">{{ .Site.Params.profile.name | default .Site.Params.author }}</h1>
 
@@ -11,8 +11,6 @@
     </p>
 
     <div class="mt-6 flex flex-wrap gap-2">
-      <span class="badge">Motion Planning</span>
-      <span class="badge">Fleet Management</span>
       <span class="badge">Multi-Robot Coordination</span>
       <span class="badge">ROS/ROS2</span>
       <span class="badge">C++</span>
@@ -23,7 +21,6 @@
 
     <div class="mt-8 flex flex-wrap gap-3">
       <a class="btn btn-primary" href="#projects">View projects</a>
-      <a class="btn btn-secondary" href="#publications">Publications</a>
       <a class="btn btn-secondary" href="#contact">Contact</a>
     </div>
 
@@ -32,15 +29,15 @@
     </div>
   </div>
 
-  <div class="md:col-span-4">
+  <div class="lg:col-span-4">
     <div class="card p-6">
       <div class="flex items-center gap-4">
         <img
-          class="h-16 w-16 rounded-xl object-cover"
-          src="{{ `images` | relURL }}/{{ .Site.Params.profile.photo }}"
+          class="h-24 w-24 shrink-0 rounded-xl object-cover"
+          src="{{ `images/profile-256.webp` | relURL }}"
           alt="{{ .Site.Params.profile.name | default .Site.Params.author }}"
-          width="128"
-          height="128"
+          width="256"
+          height="256"
           decoding="async"
           fetchpriority="high"
         />

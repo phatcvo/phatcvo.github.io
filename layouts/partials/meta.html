@@ -3,7 +3,7 @@
 {{- $pageTitle := cond .IsHome $defaultTitle (printf "%s | %s" .Title $siteName) -}}
 {{- $desc := "" -}}
 {{- if .IsHome -}}
-  {{- $desc = (.Site.Params.aboutme.description | plainify | truncate 160) -}}
+  {{- $desc = .Site.Params.description -}}
 {{- else -}}
   {{- $desc = ((or .Params.description .Summary) | plainify | truncate 160) -}}
 {{- end -}}
@@ -18,6 +18,23 @@
 
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F3F4F6" />
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101418" />
+
+{{ if .IsHome }}
+  {{- $profiles := slice -}}
+  {{- range .Site.Params.social.list }}{{ $profiles = $profiles | append .url }}{{ end -}}
+  {{- $role := index .Site.Params.experience.list 0 -}}
+  {{- $person := dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" $siteName
+    "url" .Site.BaseURL
+    "description" $desc
+    "image" (`images/profile.jpg` | absURL)
+    "jobTitle" (index (split $role.position " | ") 0)
+    "worksFor" (dict "@type" "Organization" "name" $role.company)
+    "sameAs" $profiles -}}
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{ end }}
 
 <meta property="og:site_name" content="{{ $siteName }}" />
 <meta property="og:title" content="{{ $pageTitle }}" />

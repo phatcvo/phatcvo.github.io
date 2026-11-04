@@ -28,6 +28,7 @@
   <script>
     (function () {
       const html = document.documentElement;
+      html.classList.add("js");
       const stored = window.localStorage.getItem("theme");
       const initial = stored ?? "dark";
 
